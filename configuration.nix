@@ -80,11 +80,15 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.cdockterr.shell = pkgs.zsh;
   users.users.cdockterr = {
     isNormalUser = true;
     description = "Christopher Dockter";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [	
+      tmux
+      pstree
+      nodejs
       cmake
       gnumake
       ripgrep
@@ -99,9 +103,11 @@
       neovim
       git
       vim
+      wget
       curl
       zsh
       zip
+      unzip
       gcc
       clang
       zathura
@@ -114,6 +120,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   programs.neovim.defaultEditor = true;
+  programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
