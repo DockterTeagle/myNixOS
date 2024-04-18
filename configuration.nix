@@ -11,10 +11,12 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda/";
+    useOSProber = true;
+   # kernelParams  = ["rd.debug"];
+  };
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -80,55 +82,28 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cdockterr.shell = pkgs.zsh;
-  users.users.cdockterr = {
+  users.users.cdockter.shell = pkgs.zsh;
+  users.users.cdockter = {
     isNormalUser = true;
-    description = "Christopher Dockter";
+    description = "Christopher Ryan Dockter";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [	
-      gitAndTools.gitFull
-      tmux
-      pstree
-      nodejs
-      cmake
-      gnumake
-      ripgrep
-      lazygit
-      zoxide
-      eza
-      python3
-      rustup
-      rustc
-      cargo
+    packages = with pkgs; [
       firefox
-      neovim
-      git
-      vim
-      wget
-      curl
-      zsh
-      zip
-      unzip
-      gcc
-      clang
-      zathura
-      xdotool
       thunderbird
-      nerdfonts
     ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  programs.neovim.defaultEditor = true;
   programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     texlive.combined.scheme-full
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+     #texlive.combined.scheme-full
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    gitAndTools.gitFull
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
