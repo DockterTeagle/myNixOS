@@ -86,6 +86,7 @@
     description = "Christopher Dockter";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [	
+      gitAndTools.gitFull
       tmux
       pstree
       nodejs
@@ -142,6 +143,9 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  # enable vmware 
+
+    virtualisation.vmware.guest.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
