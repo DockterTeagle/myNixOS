@@ -94,18 +94,11 @@ in
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -137,7 +130,9 @@ in
     description = "Christopher Ryan Dockter";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      feh
       firefox
+      conda
       thunderbird
       neovim
       xdotool 
@@ -162,13 +157,26 @@ in
       gcc
       clang
       nerdfonts  
-      alacritty
     ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
+  #enable hyprland
+  programs.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true;
+    xwayland.enable = true;
+  };
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -176,10 +184,19 @@ in
     texlive.combined.scheme-full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    conda
+    alacritty
+    rofi-wayland
+    dunst
+    libnotify
+    swww
     gitAndTools.gitFull
+    (waybar.overrideAttrs (oldAttrs : {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
   ];
-
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
