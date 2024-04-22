@@ -13,52 +13,52 @@ in
       (import "${home-manager}/nixos")
     ];
   #home-manager
-  # home-manager.users.cdockter = {
-  #   home.packages = with pkgs; [
-  #     firefox
-  #     thunderbird
-  #     neovim
-  #     xdotool 
-  #     zathura
-  #     cargo
-  #     rustc
-  #     rustup
-  #     python3
-  #     tmux
-  #     pstree
-  #     nodejs
-  #     cmake
-  #     gnumake
-  #     ripgrep
-  #     lazygit
-  #     zoxide
-  #     eza
-  #     wget
-  #     zsh
-  #     curl
-  #     unzip
-  #     gcc
-  #     clang
-  #     nerdfonts  
-  #     alacritty
-  #   ];
-  #   home.stateVersion = "18.09";
-  #   programs.git= {
-  #     enable = true;
-  #     userName = "Dr.Teagle";
-  #     userEmail = "chrisdockter@proton.me";
-  #   };
-  #   programs.zsh.oh-my-zsh = {
-  #     enable = true;
-  #     plugins = [
-  #       "git" 
-  #       "sudo"
-  #       "colored-man-pages"
-  #       "tmux"
-  #       "vim-mode"
-  #     ];
-  #   };
-  # };
+  home-manager.users.cdockter = {
+    # home.packages = with pkgs; [
+    #   firefox
+    #   thunderbird
+    #   neovim
+    #   xdotool 
+    #   zathura
+    #   cargo
+    #   rustc
+    #   rustup
+    #   python3
+    #   tmux
+    #   pstree
+    #   nodejs
+    #   cmake
+    #   gnumake
+    #   ripgrep
+    #   lazygit
+    #   zoxide
+    #   eza
+    #   wget
+    #   zsh
+    #   curl
+    #   unzip
+    #   gcc
+    #   clang
+    #   nerdfonts  
+    #   alacritty
+    # ];
+    home.stateVersion = "18.09";
+    programs.git= {
+      enable = true;
+      userName = "Dr.Teagle";
+      userEmail = "chrisdockter@proton.me";
+    };
+    programs.zsh.oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git" 
+        "sudo"
+        "colored-man-pages"
+        "tmux"
+        "vi-mode"
+      ];
+    };
+  };
   # Bootloader.
   boot.loader.grub = {
     enable = true;
