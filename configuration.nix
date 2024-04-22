@@ -3,13 +3,62 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let 
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      (import "${home-manager}/nixos")
     ];
-
+  #home-manager
+  # home-manager.users.cdockter = {
+  #   home.packages = with pkgs; [
+  #     firefox
+  #     thunderbird
+  #     neovim
+  #     xdotool 
+  #     zathura
+  #     cargo
+  #     rustc
+  #     rustup
+  #     python3
+  #     tmux
+  #     pstree
+  #     nodejs
+  #     cmake
+  #     gnumake
+  #     ripgrep
+  #     lazygit
+  #     zoxide
+  #     eza
+  #     wget
+  #     zsh
+  #     curl
+  #     unzip
+  #     gcc
+  #     clang
+  #     nerdfonts  
+  #     alacritty
+  #   ];
+  #   home.stateVersion = "18.09";
+  #   programs.git= {
+  #     enable = true;
+  #     userName = "Dr.Teagle";
+  #     userEmail = "chrisdockter@proton.me";
+  #   };
+  #   programs.zsh.oh-my-zsh = {
+  #     enable = true;
+  #     plugins = [
+  #       "git" 
+  #       "sudo"
+  #       "colored-man-pages"
+  #       "tmux"
+  #       "vim-mode"
+  #     ];
+  #   };
+  # };
   # Bootloader.
   boot.loader.grub = {
     enable = true;
@@ -82,14 +131,38 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cdockter.shell = pkgs.zsh;
   users.users.cdockter = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "Christopher Ryan Dockter";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
       thunderbird
+      neovim
+      xdotool 
+      zathura
+      cargo
+      rustc
+      rustup
+      python3
+      tmux
+      pstree
+      nodejs
+      cmake
+      gnumake
+      ripgrep
+      lazygit
+      zoxide
+      eza
+      wget
+      zsh
+      curl
+      unzip
+      gcc
+      clang
+      nerdfonts  
+      alacritty
     ];
   };
 
@@ -100,9 +173,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     #texlive.combined.scheme-full
+    texlive.combined.scheme-full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    conda
     gitAndTools.gitFull
   ];
 
@@ -120,8 +194,10 @@
   # services.openssh.enable = true;
   # enable vmware 
 
-    virtualisation.vmware.guest.enable = true;
+  virtualisation.vmware.guest.enable = true;
 
+  system.autoUpgrade.enable  = true;
+  system.autoUpgrade.allowReboot  = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -135,5 +211,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
