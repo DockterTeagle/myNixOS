@@ -3,62 +3,15 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let 
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import "${home-manager}/nixos")
+      <home-manager/nixos>
     ];
   #home-manager
-  home-manager.users.cdockter = {
-    # home.packages = with pkgs; [
-    #   firefox
-    #   thunderbird
-    #   neovim
-    #   xdotool 
-    #   zathura
-    #   cargo
-    #   rustc
-    #   rustup
-    #   python3
-    #   tmux
-    #   pstree
-    #   nodejs
-    #   cmake
-    #   gnumake
-    #   ripgrep
-    #   lazygit
-    #   zoxide
-    #   eza
-    #   wget
-    #   zsh
-    #   curl
-    #   unzip
-    #   gcc
-    #   clang
-    #   nerdfonts  
-    #   alacritty
-    # ];
-    home.stateVersion = "18.09";
-    programs.git= {
-      enable = true;
-      userName = "Dr.Teagle";
-      userEmail = "chrisdockter@proton.me";
-    };
-    programs.zsh.oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git" 
-        "sudo"
-        "colored-man-pages"
-        "tmux"
-        "vi-mode"
-      ];
-    };
-  };
+home-manager.useUserPackages = true;
+home-manager.useGlobalPkgs = true;
   # Bootloader.
   boot.loader.grub = {
     enable = true;
@@ -96,7 +49,7 @@ in
 
 
   # Enable the GNOME Desktop Environment.
-services.xserver.enable = true;
+  services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
@@ -131,33 +84,11 @@ services.xserver.enable = true;
     description = "Christopher Ryan Dockter";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      feh
-      firefox
-      conda
-      thunderbird
-      neovim
-      xdotool 
-      zathura
-      cargo
-      rustc
-      rustup
-      python3
-      tmux
-      pstree
-      nodejs
-      cmake
-      gnumake
-      ripgrep
-      lazygit
-      zoxide
-      eza
-      wget
-      zsh
-      curl
-      unzip
-      gcc
-      clang
-      nerdfonts  
+       cargo
+       rustc
+       rustup
+       zoxide
+       tmux
     ];
   };
 
@@ -193,7 +124,7 @@ services.xserver.enable = true;
   # enable vmware 
 
   virtualisation.vmware.guest.enable = true;
-
+  #use-xdg-base-directories = true;
   system.autoUpgrade.enable  = true;
   system.autoUpgrade.allowReboot  = true;
   # Open ports in the firewall.

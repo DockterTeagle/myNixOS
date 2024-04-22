@@ -1,0 +1,1 @@
+/home/cdockter/.config/home-manager/home.nix
