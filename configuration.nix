@@ -96,6 +96,7 @@ in
 
 
   # Enable the GNOME Desktop Environment.
+services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
@@ -163,20 +164,6 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
-  #enable hyprland
-  programs.hyprland = {
-    enable = true;
-    enableNvidiaPatches = true;
-    xwayland.enable = true;
-  };
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-  hardware = {
-    opengl.enable = true;
-    nvidia.modesetting.enable = true;
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -190,13 +177,7 @@ in
     libnotify
     swww
     gitAndTools.gitFull
-    (waybar.overrideAttrs (oldAttrs : {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
   ];
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
