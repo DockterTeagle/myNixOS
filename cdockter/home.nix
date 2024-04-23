@@ -1,8 +1,4 @@
 { config, pkgs, ... }:
-let 
-  configThemeNormal = ./p10k-config/p10k.zsh;
-  configThemeTTY = ./p10k-config/p10k_tty.zsh;
-in 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
