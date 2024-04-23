@@ -31,6 +31,7 @@
   # environment.
   home.packages = with pkgs; [
     zsh
+    conda
     lazygit
     alacritty
     zathura
@@ -49,13 +50,6 @@
     nodejs
     ripgrep
     eza
-    python311
-    python311Packages.sympy
-    python311Packages.numpy
-    python311Packages.seaborn
-    python311Packages.matplotlib
-    python311Packages.pandas
-    python311Packages.scipy
     discord
     neofetch
     # marksman
