@@ -9,15 +9,15 @@
       ./hardware-configuration.nix
       <home-manager/nixos>
     ];
-nixpkgs.config = {
-  packageOverrides = {
-    unstable = import <nixos-unstable>{};
+  nixpkgs.config = {
+    packageOverrides = {
+      unstable = import <nixos-unstable>{};
+    };
+    allowUnfree = true;
   };
-  allowUnfree = true;
-};
 #home-manager
-home-manager.useUserPackages = true;
-home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
   # Bootloader.
   boot.loader.grub = {
     enable = true;
@@ -99,7 +99,6 @@ home-manager.useGlobalPkgs = true;
     texlive.combined.scheme-full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    alacritty
     rofi-wayland
     dunst
     libnotify
@@ -108,8 +107,8 @@ home-manager.useGlobalPkgs = true;
     cargo
     rustc
     rustup
-    zoxide
     tmux
+    home-manager
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

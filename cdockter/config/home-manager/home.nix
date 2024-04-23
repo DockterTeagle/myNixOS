@@ -1,15 +1,22 @@
 { config, pkgs, ... }:
+
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "cdockter";
   home.homeDirectory = "/home/cdockter";
-  nixpkgs.config = {
-    packageOverrides = {
-      unstable = import <nixos-unstable>{};
-    };
-    allowUnfree = true;
-
+  nixpkgs = {
+      config = {
+        packageOverrides = {
+          unstable = import <nixos-unstable>{};
+        };
+        allowUnfree = true;
+      };
+      overlays = [
+        (import (builtins.fetchTarball {
+          url ="https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+        }))
+      ];
   };
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -40,7 +47,6 @@
     gnumake
     cmake
     nodejs
-    zoxide
     ripgrep
     eza
     python311
@@ -52,88 +58,56 @@
     python311Packages.scipy
     discord
     neofetch
-    rocmPackages.llvm.clang-tools-extra
-    nodePackages_latest.pyright
-    texlab
     # marksman
     # cmake
     # bashls
     # denols
     # vimls
     # julials
-    nil
 
   ];
   programs.git= {
     enable = true;
     userName = "Dr.Teagle";
     userEmail = "chrisdockter@proton.me";
+    extraConfig= {
+      init.defaultBranch = "main";
+    };
   };
   xdg.configFile.nvim.source = ~/.config/nvchad;
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.neovim = {
     enable = true;
+    extraPackages = with pkgs; [
+      ripgrep
+      xclip
+      unzip
+      gcc
+      clang
+      lua-language-server
+      stylua
+      selene
+      nil
+      alejandra
+      rocmPackages.llvm.clang-tools-extra
+      nodePackages_latest.pyright
+      texlab
+    ];
     #LSPS
-    # plugins = with pkgs.vimPlugins; [ 
-    #   neodev
-    #   nvim-dap-ui
-    #   noice
-    #   comment
-    #   lazy
-    #   leap-spooky
-    #   leap
-    #   LuaSnip
-    #   nui
-    #   NvChad
-    #   nvim-lint
-    #   nvim-notify
-    #   nvim-treesitter.withAllGrammars
-    #   plenary
-    #   todo-comments
-    #   vim-repeat
-    #   vim-tmux-navigator
-    #   vimtex
-    #   base46
-    #   cmp-buffer
-    #   cmp-nvim-lsp
-    #   cmp-nvim-lua
-    #   cmp-path
-    #   cmp_luasnip
-    #   Comment
-    #   compiler
-    #   conform
-    #   crates
-    #   gitsigns
-    #   indent-blankline
-    #   lazygit
-    #   markdown-preview
-    #   mason-nvim-dap
-    #   mason
-    #   nvim-autopairs
-    #   nvim-cmp
-    #   nvim-colorizer
-    #   nvim-dap
-    #   nvim-dap-virtual-text
-    #   nvim-lspconfig
-    #   nvim-nio
-    #   oil
-    #   peek
-    #   projectmgr
-    #   rust
-    #   rustacean
-    #   telescope-bibtex
-    #   telescope-dap
-    #   telescope-dapzzzz
-    #   telescope-file-browser
-    #   telescope-fzf-native
-    #   telescope-undo
-    #   telescope
-    #   trouble
-    #   which-key
-    # ];
   };
   home.shellAliases = {
     nvchad = "NVIM_APPNAME=nvchad nvim";
+    ls = "eza";
+    la = "eza--long --group --all";
+    ll ="eza --long --group -h --git";
+    nvchadmypy="~/.local/share/nvchad/mason/packages/mypy/venv/bin/mypy";
+    nvchadpip="~/.local/share/nvchad/mason/packages/mypy/venv/bin/pip";
+    cd = "z";
   };
+
   programs.zsh= {
     enable = true;
     dotDir = ".config/zsh";
@@ -225,7 +199,7 @@
   #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvchad";
   };
 
   # Let Home Manager install and manage itself.
