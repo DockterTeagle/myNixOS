@@ -1,8 +1,12 @@
-{ config, pkgs, ... }:
 
+{pkgs,config, ...}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
+  imports = [
+  <catppuccin/modules/home-manager>
+  ];
+  catppuccin.flavour = "mocha";
   home.username = "cdockter";
   home.homeDirectory = "/home/cdockter";
   nixpkgs = {
@@ -52,13 +56,36 @@
     eza
     discord
     neofetch
-    # marksman
-    # cmake
-    # bashls
-    # denols
-    # vimls
+    xclip
+    thunderbird
+    #LSPS For Neovim
+    lua-language-server
+    nil
+    rocmPackages.llvm.clang-tools-extra # also includes clang-tidy
+    nodePackages_latest.pyright
+    texlab
+    vim-language-server
+    marksman
+    cmake-language-server
+    nodePackages_latest.bash-language-server
+    deno
     # julials
-
+    #Formatters
+    stylua
+    alejandra
+    selene
+    bibtex-tidy
+    nixpkgs-fmt
+    python312Packages.black
+    cmake-format
+    #Linters
+    cpplint
+    python312Packages.mypy
+    ruff
+    vale
+    #DAPS
+    python312Packages.debugpy
+    rocmPackages_5.llvm.lldb
   ];
   programs.git= {
     enable = true;
@@ -68,7 +95,26 @@
       init.defaultBranch = "main";
     };
   };
-  xdg.configFile.nvim.source = ~/.config/nvchad;
+  programs.alacritty.enable = true;
+  programs.alacritty.catppuccin.enable = true;
+  programs.alacritty.settings = {
+    scrolling.history = 1000;
+    font = {
+      size = 15.0;
+      normal = {
+        family = "JetBrains Mono Nerd Font";
+        style = "Regular";
+      };
+      bold = {
+        family = "JetBrains Mono Nerd Font";
+        style = "Bold";
+      };
+      italic = {
+        family = "JetBrains Mono Nerd Font";
+        style = "Italic";
+      };
+    };
+  };
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -77,19 +123,7 @@
     enable = true;
     package = pkgs.neovim-nightly;
     extraPackages = with pkgs; [
-      ripgrep
-      xclip
-      unzip
-      gcc
-      clang
-      lua-language-server
-      stylua
-      selene
-      nil
-      alejandra
-      rocmPackages.llvm.clang-tools-extra
-      nodePackages_latest.pyright
-      texlab
+      vimPlugins.vim-clang-format
     ];
     #LSPS
   };
@@ -138,26 +172,6 @@
       enable = true;
       plugins = ["git" "sudo" "vi-mode" "colored-man-pages"];
     };
-  };
-  programs.alacritty = {
-   enable = true;
-   settings = {
-    scrolling.history = 1000;
-    font = {
-      normal = {
-        family = "JetBrains Mono Nerd Font";
-        style = "Regular";
-      };
-      bold = {
-        family = "JetBrains Mono Nerd Font";
-        style = "Bold";
-      };
-      italic = {
-        family = "JetBrains Mono Nerd Font";
-        style = "Italic";
-      };
-    };
-   };
   };
 
   

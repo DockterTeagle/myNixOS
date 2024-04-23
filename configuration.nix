@@ -18,6 +18,7 @@
   #home-manager
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader.
   boot.loader.grub = {
     enable = true;
