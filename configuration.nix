@@ -9,7 +9,13 @@
       ./hardware-configuration.nix
       <home-manager/nixos>
     ];
-  #home-manager
+nixpkgs.config = {
+  packageOverrides = {
+    unstable = import <nixos-unstable>{};
+  };
+  allowUnfree = true;
+};
+#home-manager
 home-manager.useUserPackages = true;
 home-manager.useGlobalPkgs = true;
   # Bootloader.
@@ -83,17 +89,8 @@ home-manager.useGlobalPkgs = true;
     isNormalUser = true;
     description = "Christopher Ryan Dockter";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-       cargo
-       rustc
-       rustup
-       zoxide
-       tmux
-    ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
@@ -108,6 +105,11 @@ home-manager.useGlobalPkgs = true;
     libnotify
     swww
     gitAndTools.gitFull
+    cargo
+    rustc
+    rustup
+    zoxide
+    tmux
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
