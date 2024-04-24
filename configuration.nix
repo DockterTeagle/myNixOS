@@ -20,12 +20,9 @@
   home-manager.useGlobalPkgs = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader.
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda/";
-    useOSProber = true;
-   # kernelParams  = ["rd.debug"];
-  };
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -58,7 +55,6 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
 
   # Enable CUPS to print documents.
@@ -93,6 +89,7 @@
   };
 
   programs.zsh.enable = true;
+  programs.hyprland.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

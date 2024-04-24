@@ -4,9 +4,9 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
-  <catppuccin/modules/home-manager>
+#  <catppuccin/modules/home-manager>
   ];
-  catppuccin.flavour = "mocha";
+#  catppuccin.flavour = "mocha";
   home.username = "cdockter";
   home.homeDirectory = "/home/cdockter";
   nixpkgs = {
@@ -96,7 +96,7 @@
     };
   };
   programs.alacritty.enable = true;
-  programs.alacritty.catppuccin.enable = true;
+  #programs.alacritty.catppuccin.enable = true;
   programs.alacritty.settings = {
     scrolling.history = 1000;
     font = {
