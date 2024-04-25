@@ -59,6 +59,7 @@
     openrocket
     spotify
     libreoffice
+    nix-output-monitor
     #LSPS For Neovim
     lua-language-server
     nil
