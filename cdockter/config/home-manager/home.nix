@@ -14,7 +14,7 @@
       config = {
         packageOverrides = {
           unstable = import <nixos-unstable>{};
-};
+        };
         allowUnfree = true;
       };
   };
@@ -93,32 +93,13 @@
       init.defaultBranch = "main";
     };
   };
-  programs.alacritty.enable = true;
-  programs.alacritty.settings = {
-    scrolling.history = 1000;
-    font = {
-      size = 15.0;
-      normal = {
-        family = "JetBrains Mono Nerd Font";
-        style = "Regular";
-      };
-      bold = {
-        family = "JetBrains Mono Nerd Font";
-        style = "Bold";
-      };
-      italic = {
-        family = "JetBrains Mono Nerd Font";
-        style = "Italic";
-      };
-    };
-  };
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
   };
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim;
+    # package = pkgs.neovim;
     extraPackages = with pkgs; [
       vimPlugins.vim-clang-format
     ];
@@ -150,11 +131,11 @@
       src = zsh-powerlevel10k;
       file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     }
-    {
-      name = "powerlevel10k config";
-      src = /home/cdockter/.config/zsh;
-      file = ".p10k.zsh";
-    }
+    # {
+    #   name = "powerlevel10k config";
+    #   # src = ../zsh;
+    #   file = ".p10k.zsh";
+    # }
         
     ];
     oh-my-zsh = {

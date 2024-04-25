@@ -3,7 +3,25 @@
 {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
-    colors = with config.colorScheme.palete; {
+    scrolling.history = 1000;
+    font = {
+      size = 15.0;
+      normal = {
+        family = "JetBrains Mono Nerd Font";
+        style = "Regular";
+      };
+      bold = {
+        family = "JetBrains Mono Nerd Font";
+        style = "Bold";
+      };
+      italic = {
+        family = "JetBrains Mono Nerd Font";
+        style = "Italic";
+      };
+    };
+  };
+  programs.alacritty.settings = {
+    colors = with config.colorScheme.palette; {
       bright = {
         black = "0x${base00}";
         blue = "0x${base0D}";
