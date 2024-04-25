@@ -9,6 +9,7 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+   #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
   };
 
@@ -16,6 +17,9 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+     # overlays = [
+  #      inputs.neovim-nightly-overlay.overlay
+#];
     in {
       homeConfigurations."cdockter" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

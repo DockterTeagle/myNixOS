@@ -14,15 +14,9 @@
       config = {
         packageOverrides = {
           unstable = import <nixos-unstable>{};
-        };
+};
         allowUnfree = true;
       };
-      overlays = [
-        (import (builtins.fetchTarball {
-          url ="https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-          sha256 = "1pg882srpswnxh10cfha4rlbvf8i6d134yd1ahnpdbxdxz6vmg1c";
-        }))
-      ];
   };
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -124,7 +118,7 @@
   };
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
+    package = pkgs.neovim;
     extraPackages = with pkgs; [
       vimPlugins.vim-clang-format
     ];

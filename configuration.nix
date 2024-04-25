@@ -30,8 +30,8 @@
     portal = {
       enable = true;
       extraPortals = [
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gtk
+        # pkgs.xdg-desktop-portal
+        # pkgs.xdg-desktop-portal-gtk
       ];
     };
   };
@@ -103,6 +103,7 @@
       excludePackages = [pkgs.xterm ];
       videoDrivers = ["nvidia"];
       libinput.enable = true;
+      desktopManager.gnome.enable = true;
       displayManager.gdm = {
         enable = true;
         wayland = true;
