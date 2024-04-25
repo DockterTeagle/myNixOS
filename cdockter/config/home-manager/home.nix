@@ -5,8 +5,8 @@
   # manage.
   imports = [
   inputs.nix-colors.homeManagerModules.default
-  ./features/alacritty.nix
-  ./features/kitty.nix
+  ./configs/alacritty.nix
+  ./configs/kitty.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
