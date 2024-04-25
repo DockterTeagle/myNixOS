@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs,lib, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -30,9 +30,9 @@
     autostart.enable = true;
     portal = {
       enable = true;
-      extraPortals = [
-        # pkgs.xdg-desktop-portal
-        # pkgs.xdg-desktop-portal-gtk
+      extraPortals = lib.mkDefault[
+         pkgs.xdg-desktop-portal
+         pkgs.xdg-desktop-portal-gtk
       ];
     };
   };
@@ -101,7 +101,6 @@
       excludePackages = [pkgs.xterm ];
       videoDrivers = ["nvidia"];
       libinput.enable = true;
-      desktopManager.gnome.enable = true;
       displayManager.gdm = {
         enable = true;
         wayland = true;
@@ -132,11 +131,20 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cdockter = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "Christopher Ryan Dockter";
-    extraGroups = [ "networkmanager" "wheel" ];
+  users.users = {
+    cdockter = {
+      shell = pkgs.zsh;
+      isNormalUser = true;
+      description = "Christopher Ryan Dockter";
+      extraGroups = [ "networkmanager" "wheel" ];
+    };
+    base = {
+      shell = pkgs.zsh;
+      isNormalUser = true;
+      description = "if shit hits the fan";
+      extraGroups = [ "networkmanager" "wheel" ];
+ 
+    };
   };
 
   programs = {
@@ -147,12 +155,12 @@
         enable = true;
       };
     };
-    # waybar = {
-    #   enable = true;
-    #   package = pkgs.waybar.overrideAttrs (oldAttrs: {
-    #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    #   });
-    # };
+     waybar = {
+       enable = true;
+       package = pkgs.waybar.overrideAttrs (oldAttrs: {
+         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+       });
+     };
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
@@ -197,7 +205,7 @@
       enable = true;
       extraRules = [
       {
-        users = ["cdockter"];
+        users = ["cdockter" "base"];
         keepEnv = true;
         persist = true;
       }
@@ -252,6 +260,7 @@
     qt6.qtwayland
     adwaita-qt
     adwaita-qt6
+    mkpasswd
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
