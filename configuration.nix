@@ -95,7 +95,6 @@
   };
 
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
   services = {
     xserver = {
       enable = true;
@@ -197,6 +196,20 @@
   #   gnome.gnome-disk-utility
   #   pkgs.gnome-connections
   # ];
+  security = {
+    doas = {
+      enable = true;
+      extraRules = [
+      {
+        users = ["cdockter"];
+        keepEnv = true;
+        persist = true;
+      }
+      ];
+    };
+    sudo.enable = false;
+    rtkit.enable = true;
+  };
   environment.systemPackages = with pkgs; [
     texlive.combined.scheme-full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.

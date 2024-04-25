@@ -141,11 +141,14 @@
       src = ../zsh;
       file = ".p10k.zsh";
     }
-        
+    # {
+    #   name = "doas-zsh-plugin:";
+    #   src = #TODO: get the flake to work for this   
+    # }
     ];
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "sudo" "vi-mode" "colored-man-pages"];
+      plugins = ["git" "vi-mode" "colored-man-pages"];
     };
   };
 
