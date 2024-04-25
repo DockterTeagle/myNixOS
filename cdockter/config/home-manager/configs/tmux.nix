@@ -7,8 +7,10 @@
     clock24 = true;
     keyMode = "vi";
     prefix = "C-space";
+    # terminal = "alacritty";
+    mouse = true;
     extraConfig = ''
-      
+      set-option -sa terminal-features ',alacritty:RGB'
       bind -n M-Left select-pane -L
       bind -n M-Right select-pane -R
       bind -n M-Up select-pane -U
