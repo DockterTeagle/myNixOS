@@ -25,7 +25,16 @@
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  xdg = {
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
+  };
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -53,8 +62,8 @@
 
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
 
 
   # Enable CUPS to print documents.
@@ -62,19 +71,62 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+      setLdLibraryPath = true;
+    };
+    nvidia = {
+      modesetting.enable = true;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      forceFullCompositionPipeline = true;
+      powerManagement.enable = true;
+    };
+  };
+
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      layout = "us";
+      xkbVariant = "";
+      excludePackages = [pkgs.xterm ];
+      videoDrivers = ["nvidia"];
+      libinput.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
+    };
+    dbus.enable = true;
+    gvfs.enable = true;
+    tumbler.enable = true;
+    gnome = {
+      sushi.enable = true;
+      gnome-keyring.enable = true;
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -88,9 +140,28 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  programs.zsh.enable = true;
-  programs.hyprland.enable = true;
-
+  programs = {
+    zsh.enable = true;
+    hyprland = {
+      enable = true;
+      xwayland = {
+        enable = true;
+      };
+    };
+    waybar = {
+      enable = true;
+      package = pkgs.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    };
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.gnome.excludePackages =with pkgs; [
@@ -138,6 +209,37 @@
     rustup
     tmux
     home-manager
+    kitty
+    polkit_gnome
+    libva-utils
+    fuseiso
+    udiskie
+    gnome.adwaita-icon-theme
+    gnome.gnome-themes-extra
+    nvidia-vaapi-driver
+    gsettings-desktop-schemas
+    swaynotificationcenter
+    wlr-randr
+    ydotool
+    wl-clipboard
+    hyprland-protocols
+    swayidle
+    swaylock
+    xdg-desktop-portal-hyprland
+    hyprpicker
+    hyprpaper
+    wofi
+    firefox-wayland
+    swww
+    grim
+    xdg-utils
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    qt5.qtwayland
+    qt6.qmake
+    qt6.qtwayland
+    adwaita-qt
+    adwaita-qt6
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -150,10 +252,26 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  # enable vmware 
-
-  virtualisation.vmware.guest.enable = true;
+  # services.openssh.enable = true
+  environment.sessionVariables = {
+    POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+    LIBVA_DRIVER_NAME = "nvidia";
+    XDG_SESSION_TYPE = "wayland";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    SDL_VIDEODRIVER = "wayland";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    CLUTTER_BACKEND = "wayland";
+    WLR_RENDERER = "vulkan";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    GTK_USE_PORTAL = "1";
+    NIXOS_XDG_OPEN_USE_PORTAL = "1";
+  };
   #use-xdg-base-directories = true;
   system.autoUpgrade.enable  = true;
   system.autoUpgrade.allowReboot  = true;

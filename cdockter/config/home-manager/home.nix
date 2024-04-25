@@ -1,12 +1,13 @@
 
-{pkgs,config, ...}:
+{pkgs,config,inputs, ...}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
-#  <catppuccin/modules/home-manager>
+  inputs.nix-colors.homeManagerModules.default
+  ./features/alacritty.nix
   ];
-#  catppuccin.flavour = "mocha";
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
   home.homeDirectory = "/home/cdockter";
   nixpkgs = {
@@ -19,6 +20,7 @@
       overlays = [
         (import (builtins.fetchTarball {
           url ="https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+          sha256 = "1pg882srpswnxh10cfha4rlbvf8i6d134yd1ahnpdbxdxz6vmg1c";
         }))
       ];
   };
@@ -50,6 +52,7 @@
     clang
     unzip
     gnumake
+    logiops
     cmake
     nodejs
     ripgrep
@@ -58,6 +61,7 @@
     neofetch
     xclip
     thunderbird
+    openrocket
     #LSPS For Neovim
     lua-language-server
     nil
@@ -96,7 +100,6 @@
     };
   };
   programs.alacritty.enable = true;
-  #programs.alacritty.catppuccin.enable = true;
   programs.alacritty.settings = {
     scrolling.history = 1000;
     font = {
@@ -155,18 +158,10 @@
     }
     {
       name = "powerlevel10k config";
-      src = ~/.config/zsh;
+      src = /home/cdockter/.config/zsh;
       file = ".p10k.zsh";
     }
-      # {
-      #   name = "zsh-syntax-highlighting";
-      #   src = fetchFromGitHub {
-      #     owner = "zsh-users";
-      #     repo = "zsh-syntax-highlighting";
-      #     rev = "0.8.0";
-      #   };
-      #   
-      # }
+        
     ];
     oh-my-zsh = {
       enable = true;
