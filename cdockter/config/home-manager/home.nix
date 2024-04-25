@@ -6,6 +6,7 @@
   imports = [
   inputs.nix-colors.homeManagerModules.default
   ./features/alacritty.nix
+  ./features/kitty.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
@@ -56,6 +57,8 @@
     xclip
     thunderbird
     openrocket
+    spotify
+    libreoffice
     #LSPS For Neovim
     lua-language-server
     nil
@@ -100,6 +103,7 @@
   programs.neovim = {
     enable = true;
     # package = pkgs.neovim;
+    #TODO: replace with neovim-nightly using flakes
     extraPackages = with pkgs; [
       vimPlugins.vim-clang-format
     ];
@@ -133,7 +137,7 @@
     }
     # {
     #   name = "powerlevel10k config";
-    #   # src = ../zsh;
+    #   src = ../zsh;
     #   file = ".p10k.zsh";
     # }
         
