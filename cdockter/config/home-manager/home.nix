@@ -7,6 +7,7 @@
   inputs.nix-colors.homeManagerModules.default
   ./configs/alacritty.nix
   ./configs/kitty.nix
+  ./configs/tmux.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
