@@ -42,7 +42,7 @@
     firefox
     nerdfonts
     oh-my-zsh
-    zsh-completions
+    nix-zsh-completions
     zsh-syntax-highlighting
     zsh-powerlevel10k
     clang
@@ -122,11 +122,9 @@
   programs.zsh= {
     enable = true;
     dotDir = ".config/zsh";
-    # initExtraFirst = ''
-    #   if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    #     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-    #   fi
-    # '';
+    initExtraFirst = ''
+      source $HOME/.config/zsh/.p10k.zsh
+    '';
     syntaxHighlighting.enable = true;
     # autoComplete.enable = true;
     plugins = with pkgs; [
@@ -147,7 +145,7 @@
     ];
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "vi-mode" "colored-man-pages"];
+      plugins = ["git" "vi-mode" "colored-man-pages" "tmux" "colorize" "cp" "zoxide" ];
     };
   };
 

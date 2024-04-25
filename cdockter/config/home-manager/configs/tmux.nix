@@ -7,16 +7,20 @@
     clock24 = true;
     keyMode = "vi";
     prefix = "C-space";
+    newSession = true;
     # terminal = "alacritty";
     mouse = true;
-    tmuxp = true;
-    tmuxinator = true;
-    plugins = with pkgs.tmux-plugins; [
+    tmuxp.enable = true;
+    # tmuxinator.enable = true;
+    plugins = with pkgs.tmuxPlugins; [
       yank
       vim-tmux-navigator
       tmux-fzf
       sensible
-      # catppuccin
+      {
+        plugin = catppuccin;
+        extraConfig = "set -g @catppuccin_flavour 'mocha'";
+      }
     ];
     extraConfig = ''
       set-option -sa terminal-features ',alacritty:RGB'
