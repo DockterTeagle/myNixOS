@@ -9,6 +9,15 @@
     prefix = "C-space";
     # terminal = "alacritty";
     mouse = true;
+    tmuxp = true;
+    tmuxinator = true;
+    plugins = with pkgs.tmux-plugins; [
+      yank
+      vim-tmux-navigator
+      tmux-fzf
+      sensible
+      # catppuccin
+    ];
     extraConfig = ''
       set-option -sa terminal-features ',alacritty:RGB'
       bind -n M-Left select-pane -L
@@ -25,18 +34,9 @@
       bind -n M-L next-window
 
       set -g @catppuccin_flavour 'mocha'
-
-      set -g @plugin 'tmux-plugins/tpm'
-      set -g @plugin 'tmux-plugins/tmux-sensible'
-      set -g @plugin 'christoomey/vim-tmux-navigator'
       set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
-      set -g @plugin 'tmux-plugins/tmux-yank'
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
-      run '~/.config/tmux/plugins/tpm/tpm'
-      if "test ! -d ~/.config/tmux/plugins/tpm" \
-     "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
-
     '';
   };
 }

@@ -116,8 +116,6 @@
     ls = "eza";
     la = "eza--long --group --all";
     ll ="eza --long --group -h --git";
-    nvchadmypy="~/.local/share/nvchad/mason/packages/mypy/venv/bin/mypy";
-    nvchadpip="~/.local/share/nvchad/mason/packages/mypy/venv/bin/pip";
     cd = "z";
   };
 
