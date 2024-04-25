@@ -8,6 +8,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       <home-manager/nixos>
+      <nixos-hardware/lenovo/thinkpad/p1>
     ];
   nixpkgs.config = {
     packageOverrides = {
@@ -200,6 +201,7 @@
     texlive.combined.scheme-full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    dmidecode
     rofi-wayland
     dunst
     libnotify
