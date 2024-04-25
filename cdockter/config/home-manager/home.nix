@@ -206,7 +206,7 @@
   #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "NVIM_APPNAME=nvchad nvim";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
