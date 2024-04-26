@@ -79,9 +79,8 @@
       "$terminal" = "kitty"; # Terminal
 
       exec-once = [
-        "ruin"
-        "ssb"
         "[workspace 1 silent] $terminal"
+        "firefox"
       ];
 
       env = [
@@ -92,7 +91,7 @@
         "WLR_NO_HARDWARE_CURSORS,1"
         "LIBVA_DRIVER_NAME,nvidia"
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
-        # "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+        "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
       ];
       
       bindm = [
@@ -105,10 +104,12 @@
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
-        
-#key 121 is mute
-# key 122 is volume down
-#key 123 is volume up
+        "$mainMod,q,exec,$terminal" 
+        "ALT,Tab,cyclenext"
+        "ALT,Tab,bringactivetotop"
+        "ALT Shif,Tab,cyclenext,prev"
+        "$mainMod,m,exec,hyprctl dispatch edit"
+        ",Print,exec,grim-g \"(slurp -d)\" - | wl-copy -t image/png"
 #key 172 is pause
       ];
 

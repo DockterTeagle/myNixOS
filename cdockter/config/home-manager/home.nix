@@ -35,9 +35,14 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    # gio-trash
     conda
+    zoom-us
+    feh
+    slurp
+    wl-clipboard
+    # java
     lazygit
-    alacritty
     zathura
     nerdfonts
     oh-my-zsh
@@ -46,6 +51,7 @@
     zsh-powerlevel10k
     clang
     unzip
+    polkit-kde-agent
     gnumake
     solaar
     cmake

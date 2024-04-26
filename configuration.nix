@@ -161,19 +161,12 @@
         enable = true;
       };
     };
-     waybar = {
-       enable = true;
-       package = pkgs.waybar.overrideAttrs (oldAttrs: {
-         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-       });
-     };
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
+     # waybar = {
+     #   enable = true;
+     #   package = pkgs.waybar.overrideAttrs (oldAttrs: {
+     #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+     #   });
+     # };
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -203,7 +196,6 @@
     gnome.gnome-music 
     gnome-photos 
     gnome.gnome-weather
-    gnome.gnome-disk-utility
     pkgs.gnome-connections
   ];
   security = {
@@ -252,8 +244,6 @@
     swayidle
     swaylock
     xdg-desktop-portal-hyprland
-    hyprpicker
-    hyprpaper
     wofi
     firefox-wayland
     swww
