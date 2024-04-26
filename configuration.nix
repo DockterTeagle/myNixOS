@@ -69,9 +69,9 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  # sound.enable = true;
+  sound.enable = true;
   hardware = {
-    # pulseaudio.enable = false;
+    pulseaudio.enable = false;
     opengl = {
       enable = true;
       driSupport = true;
@@ -153,7 +153,6 @@
     };
   };
 
-  programs.solaar.enable = true;
   programs = {
     zsh.enable = true;
     hyprland = {

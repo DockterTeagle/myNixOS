@@ -52,6 +52,7 @@
     nodejs
     ripgrep
     discord
+    solaar
     neofetch
     xclip
     thunderbird
@@ -60,6 +61,8 @@
     libreoffice
     nix-output-monitor
     pciutils
+    gtk4
+    wev
   ];
   programs.git= {
     enable = true;

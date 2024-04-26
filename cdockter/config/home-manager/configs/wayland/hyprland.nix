@@ -13,14 +13,15 @@
         kb_model = "";
         kb_options = "";
         kb_rules = "";
+        numlock_by_default = true;
 
         follow_mouse = "1"; #TODO: figure out what I do
-
+        
         touchpad = {
           disable_while_typing = false;
           natural_scroll = "yes";
         };
-        sensitivity = "0";
+        sensitivity = "-1";
       };
       decoration = {
         rounding = "5";
@@ -69,10 +70,10 @@
         workspace_swipe = "off";
       };
 
-      misc = {
-        force_default_wallpaper = "0";
-        disable_hyprland_logo = "true";
-      };
+      # misc = {
+      #   force_default_wallpaper = "0";
+      #   disable_hyprland_logo = "true";
+      # };
 
       "$mainMod" = "SUPER"; # Mod key
       "$terminal" = "kitty"; # Terminal
@@ -98,6 +99,17 @@
         # Move/resize windows with mainMod + LMB/RMB and dragging
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
+      ];
+      bind = [
+        # ",121,exec,pamixer -t"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+        
+#key 121 is mute
+# key 122 is volume down
+#key 123 is volume up
+#key 172 is pause
       ];
 
     };
