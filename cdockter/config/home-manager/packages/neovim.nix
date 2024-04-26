@@ -2,6 +2,8 @@
 {pkgs, ...}:
 {
     home.packages = with pkgs; [
+    xdotool
+    pstree
     #LSPS For Neovim
     lua-language-server
     nil

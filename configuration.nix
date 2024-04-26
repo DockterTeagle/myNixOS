@@ -69,9 +69,9 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware = {
-    pulseaudio.enable = false;
+    # pulseaudio.enable = false;
     opengl = {
       enable = true;
       driSupport = true;
@@ -90,6 +90,11 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       forceFullCompositionPipeline = true;
       powerManagement.enable = true;
+      prime = {
+        sync.enable = true;
+        intelBusId = "PCI:0:0:2";
+        nvidiaBusId = "PCI:0:1:0";
+      };
     };
   };
 
@@ -98,6 +103,7 @@
       enable = true;
       xkb.layout = "us";
       xkb.variant = "";
+      # gnomeDesktop.enable = true;
       excludePackages = [pkgs.xterm ];
       videoDrivers = ["nvidia"];
       libinput.enable = true;
@@ -147,6 +153,7 @@
     };
   };
 
+  programs.solaar.enable = true;
   programs = {
     zsh.enable = true;
     hyprland = {
@@ -253,6 +260,7 @@
     swww
     grim
     xdg-utils
+    lshw
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     qt5.qtwayland
@@ -262,6 +270,18 @@
     adwaita-qt6
     mkpasswd
   ];
+  
+  specialisation = {
+    on-the-go.configuration = {
+      system.nixos.tags = [ "on-the-go" ];
+    hardware.nvidia = {
+      prime.offload.enable = lib.mkForce true;
+      prime.offload.enableOffloadCmd = lib.mkForce true;
+      prime.sync.enable = lib.mkForce false;
+    };
+  };
+    };
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

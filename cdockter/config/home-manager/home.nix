@@ -10,6 +10,7 @@
   ./configs/terminal/tmux.nix
   ./configs/wayland/hyprland.nix
   ./packages/neovim.nix
+  ./packages/zsh-and-plugins.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
@@ -34,14 +35,10 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    zsh
     conda
     lazygit
     alacritty
     zathura
-    xdotool
-    pstree
-    firefox
     nerdfonts
     oh-my-zsh
     nix-zsh-completions
@@ -50,11 +47,10 @@
     clang
     unzip
     gnumake
-    logiops
+    solaar
     cmake
     nodejs
     ripgrep
-    eza
     discord
     neofetch
     xclip
@@ -63,6 +59,7 @@
     spotify
     libreoffice
     nix-output-monitor
+    pciutils
   ];
   programs.git= {
     enable = true;
