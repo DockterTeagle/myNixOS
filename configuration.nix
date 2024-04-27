@@ -9,6 +9,7 @@
       ./hardware-configuration.nix
       <home-manager/nixos>
       <nixos-hardware/lenovo/thinkpad/p1>
+      ./wayland.nix
     ];
   nixpkgs.config = {
     packageOverrides = {
@@ -24,6 +25,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   xdg = {
@@ -228,35 +230,6 @@
     tmux
     home-manager
     kitty
-    polkit_gnome
-    libva-utils
-    fuseiso
-    udiskie
-    gnome.adwaita-icon-theme
-    gnome.gnome-themes-extra
-    nvidia-vaapi-driver
-    gsettings-desktop-schemas
-    swaynotificationcenter
-    wlr-randr
-    ydotool
-    wl-clipboard
-    hyprland-protocols
-    swayidle
-    swaylock
-    xdg-desktop-portal-hyprland
-    wofi
-    firefox-wayland
-    swww
-    grim
-    xdg-utils
-    lshw
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    qt5.qtwayland
-    qt6.qmake
-    qt6.qtwayland
-    adwaita-qt
-    adwaita-qt6
     mkpasswd
   ];
   

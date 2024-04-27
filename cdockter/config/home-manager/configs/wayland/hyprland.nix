@@ -82,7 +82,6 @@
         "[workspace 1 silent] $terminal"
         "waybar & hyprpaper"
         "firefox"
-        "discord"
       ];
 
       env = [
@@ -111,20 +110,22 @@
         "ALT,Tab,bringactivetotop"
         "ALT Shif,Tab,cyclenext,prev"
         "$mainMod,m,exec,hyprctl dispatch exit"
+        "$mainMod,c,killactive,"
         ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
-        "$mainMod , 1, movetoworkspace, 1"
-        "$mainMod , 2, movetoworkspace, 2"
-        "$mainMod , 3, movetoworkspace, 3"
-        "$mainMod , 4, movetoworkspace, 4"
-        "$mainMod , 5, movetoworkspace, 5"
-        "$mainMod , 6, movetoworkspace, 6"
-        "$mainMod , 7, movetoworkspace, 7"
-        "$mainMod , 8, movetoworkspace, 8"
-        "$mainMod , 9, movetoworkspace, 9"
-        "$mainMod , 0, movetoworkspace, 10"
+        #manage workspaces
+        "$mainMod , 1, workspace, 1"
+        "$mainMod , 2, workspace, 2"
+        "$mainMod , 3, workspace, 3"
+        "$mainMod , 4, workspace, 4"
+        "$mainMod , 5, workspace, 5"
+        "$mainMod , 6, workspace, 6"
+        "$mainMod , 7, workspace, 7"
+        "$mainMod , 8, workspace, 8"
+        "$mainMod , 9, workspace, 9"
+        "$mainMod , 0, workspace, 10"
 #key 172 is pause
       ];
-      windowrulev2 = "suppressevent maximize, class:.*";
+      windowrulev2 =[ "suppressevent maximize, class:.*"];
     };
   };
 }

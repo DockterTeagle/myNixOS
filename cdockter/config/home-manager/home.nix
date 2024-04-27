@@ -53,7 +53,7 @@
     unzip
     polkit-kde-agent
     gnumake
-    solaar
+    solaar #For logitech mice
     cmake
     nodejs
     ripgrep
@@ -69,6 +69,7 @@
     pciutils
     gtk4
     wev
+    firefox-wayland
   ];
   programs.git= {
     enable = true;
@@ -98,8 +99,9 @@
   home.shellAliases = {
     nvchad = "NVIM_APPNAME=nvchad nvim";
     ls = "eza";
-    la = "eza--long --group --all";
+    la = "eza --long --group -h --git --all";
     ll ="eza --long --group -h --git";
+    l = "eza --long --group -h --git --all";
     cd = "z";
   };
   # services.xserver.desktopManager.gnome.enable = false;
