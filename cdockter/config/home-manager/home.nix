@@ -5,7 +5,7 @@
   # manage.
   imports = [
   inputs.nix-colors.homeManagerModules.default
-  ./configs/terminal/alacritty.nix
+  # ./configs/terminal/alacritty.nix
   ./configs/terminal/kitty.nix
   ./configs/terminal/tmux.nix
   ./configs/wayland/hyprland.nix
