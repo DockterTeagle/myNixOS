@@ -1,7 +1,7 @@
 
 { config, pkgs,lib, ... }:
   {
-    packages = with pkgs;[
+    environment.systemPackages = with pkgs;[
     polkit_gnome
     libva-utils
     fuseiso
