@@ -88,10 +88,11 @@
     nvidia = {
       modesetting.enable = true;
       open = false;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       forceFullCompositionPipeline = true;
-      powerManagement.enable = true;
       prime = {
         sync.enable = true;
         intelBusId = "PCI:0:0:2";
