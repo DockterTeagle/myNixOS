@@ -9,8 +9,10 @@
   ./configs/terminal/kitty.nix
   ./configs/terminal/tmux.nix
   ./configs/wayland/hyprland.nix
+  ./configs/wayland/waybar.nix
   ./packages/neovim.nix
   ./packages/zsh-and-plugins.nix
+  ./packages/wayland.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
@@ -23,6 +25,13 @@
         allowUnfree = true;
       };
   };
+  nixpkgs.overlays = [
+  (self: super: {
+    waybar = super.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
+  })
+];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -37,7 +46,6 @@
   home.packages = with pkgs; [
     # gio-trash
     conda
-    zoom-us
     feh
     slurp
     wl-clipboard
@@ -71,6 +79,7 @@
     wev
     firefox-wayland
   ];
+  fonts.fontconfig.enable = true;
   programs.git= {
     enable = true;
     userName = "Dr.Teagle";
@@ -108,6 +117,7 @@
 
   programs.zsh= {
     enable = true;
+    autosuggestion.enable = true;
     dotDir = ".config/zsh";
     initExtraFirst = ''
       source $HOME/.config/zsh/.p10k.zsh

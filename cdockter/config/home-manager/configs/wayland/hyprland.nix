@@ -21,7 +21,7 @@
           disable_while_typing = false;
           natural_scroll = "yes";
         };
-        sensitivity = "-1";
+        sensitivity = "0";
       };
       decoration = {
         rounding = "5";
@@ -86,8 +86,8 @@
 
       env = [
         "HYPRCURSOR_SIZE,24"
-        "GBM_BACKEND,nvidia-drm"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        # "GBM_BACKEND,nvidia-drm"
+        # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
         "WLR_NO_HARDWARE_CURSORS,1"
         "LIBVA_DRIVER_NAME,nvidia"
@@ -102,6 +102,7 @@
       ];
       bind = [
         # ",121,exec,pamixer -t"
+        ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" 
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"

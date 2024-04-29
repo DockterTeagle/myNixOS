@@ -9,7 +9,6 @@
       ./hardware-configuration.nix
       <home-manager/nixos>
       <nixos-hardware/lenovo/thinkpad/p1>
-      ./wayland.nix
     ];
   nixpkgs.config = {
     packageOverrides = {
@@ -33,9 +32,14 @@
     portal = {
       enable = true;
       extraPortals = lib.mkDefault[
+         pkgs.xdg-desktop-portal-wlr
+         pkgs.xdg-desktop-portal-kde
          pkgs.xdg-desktop-portal
          pkgs.xdg-desktop-portal-gtk
       ];
+      wlr = {
+        enable= true;
+      };
     };
   };
   # Configure network proxy if necessary
@@ -69,6 +73,8 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.fwupd.enable = true;
+  # services.gnome-settings-daemon.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -164,12 +170,7 @@
         enable = true;
       };
     };
-     # waybar = {
-     #   enable = true;
-     #   package = pkgs.waybar.overrideAttrs (oldAttrs: {
-     #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-     #   });
-     # };
+    dconf.enable = true;
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -216,8 +217,13 @@
     rtkit.enable = true;
   };
   environment.systemPackages = with pkgs; [
+    scan
+    gnome.gnome-settings-daemon
+    systemd
     texlive.combined.scheme-full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    fwupd
+    dunst
     wget
     dmidecode
     rofi-wayland
@@ -232,6 +238,8 @@
     home-manager
     kitty
     mkpasswd
+    power-profiles-daemon
+    dbus
   ];
   
   specialisation = {
