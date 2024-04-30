@@ -1,5 +1,5 @@
 
-{pkgs, ...}:
+{pkgs,mainUserSettings ...}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -21,7 +21,7 @@
   # };
   # services.pipewire.enable = true;
   # colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-  home.username = "cdockter";
+  home.username = mainUserSettings.username;
   xdg = {
     portal = {
       enable = true;
@@ -75,8 +75,6 @@
     zathura
     nerdfonts
     nix-zsh-completions
-    zsh-syntax-highlighting
-    zsh-powerlevel10k
     clang
     unzip
     polkit-kde-agent
@@ -84,9 +82,7 @@
     solaar #For logitech mice
     cmake
     nodejs
-    ripgrep
     discord
-    solaar
     neofetch
     xclip
     thunderbird

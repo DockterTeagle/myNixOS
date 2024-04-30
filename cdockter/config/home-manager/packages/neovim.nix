@@ -22,6 +22,7 @@
     selene
     bibtex-tidy
     nixpkgs-fmt
+    ripgrep
     python312Packages.black
     cmake-format
     #Linters

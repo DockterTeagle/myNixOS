@@ -127,6 +127,7 @@
         "$mainMod,m,exec,hyprctl dispatch exit"
         "$mainMod,q,exec,$terminal" 
         "$mainMod,F,exec,firefox"
+        "$mainMod,D,exec,discord"
       ];
       windowrulev2 =[ "suppressevent maximize, class:.*"];
     };

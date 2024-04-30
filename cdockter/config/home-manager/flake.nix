@@ -7,47 +7,55 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-colors.url = "github:misterio77/nix-colors";
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
-   # solaar = {
-   #   url = "github:Svenum/Solaar-Flake/latest";
-   # };
-   neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-   nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:#nixpkgs-mozilla
+  outputs = { self, ... }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
+      systemSettings = {
+        system = "x86_64-linux";
+        hostname = "nixos";
+      };
+      mainUserSettings =  {
+        userName = "cdockter";
+        name = "Christopher Ryan Dockter";
+        email = "chrisdockter@proton.me";
+        dotfilesdir = "~/.dotfiles";
+        wm = "hyprland";
+        wmType = "wayland";
+        browser = "firefox";
+        term = "kitty";
+      };
+      pkgs = import inputs.nixpkgs {
+        system = systemSettings.system;
         overlays = [
-          # inputs.neovim-nightly-overlay.overlay
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlay
         ];
       };
     in {
       # nixosConfigurations.nixos= nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
+          # inherit system;
       #   modules = [
       #     solaar.nixosModules.default
       #     ../../../configuration.nix
       #   ];
       # };
-      homeConfigurations."cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        # extraSpecialArgs = { inherit inputs; };
-        modules = [ 
-          ./home.nix
-          # solaar.nixosModules.default
-          # {home.packages = [pkgsMozilla.firefox-nightly];}
-        ];
-        # config.home.packages = with pkgs;[
-        #   firefox-nightly
-        # ];
-      };
+      homeConfigurations = {
+        "cdockter"= inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit mainUserSettings; };
+          modules = [ 
+            ./home.nix
+            # solaar.nixosModules.default
+          ];
+        };
     };
-
+  };
 }
