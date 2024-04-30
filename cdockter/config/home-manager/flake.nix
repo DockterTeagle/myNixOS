@@ -13,6 +13,7 @@
    #   url = "github:Svenum/Solaar-Flake/latest";
    # };
    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+   nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
   };
 

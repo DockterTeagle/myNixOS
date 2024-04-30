@@ -30,11 +30,13 @@
         pkgs.xdg-desktop-portal-wlr
         pkgs.xdg-desktop-portal-gtk
       ];
+      # config = {
+      #   common = {
+      #     default = ["gtk"];
+      #   };
+      # }; TODO: figure out how to configure this part
     };
   };
-  # xdg.portal.enable = true;
-  #     extraPortals = lib.mkDefault[
-  #        pkgs.xdg-desktop-portal-wlr
   home.homeDirectory = "/home/cdockter";
   nixpkgs = {
       config = {
@@ -95,6 +97,7 @@
     pciutils
     gtk4
     wev
+    #latest.firefox-nightly-bin
     (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
   ];
   fonts.fontconfig.enable = true;

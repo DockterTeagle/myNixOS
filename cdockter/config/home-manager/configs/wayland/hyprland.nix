@@ -106,11 +106,9 @@
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
-        "$mainMod,q,exec,$terminal" 
         "ALT,Tab,cyclenext"
         "ALT,Tab,bringactivetotop"
         "ALT Shif,Tab,cyclenext,prev"
-        "$mainMod,m,exec,hyprctl dispatch exit"
         "$mainMod,c,killactive,"
         ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
         #manage workspaces
@@ -125,6 +123,10 @@
         "$mainMod , 9, workspace, 9"
         "$mainMod , 0, workspace, 10"
 #key 172 is pause
+        #shortcuts
+        "$mainMod,m,exec,hyprctl dispatch exit"
+        "$mainMod,q,exec,$terminal" 
+        "$mainMod,F,exec,firefox"
       ];
       windowrulev2 =[ "suppressevent maximize, class:.*"];
     };

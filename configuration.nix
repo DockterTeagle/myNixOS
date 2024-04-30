@@ -22,9 +22,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   xdg = {
@@ -69,7 +73,7 @@
 
 
   # Enable the GNOME Desktop Environment.
-
+  
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -158,7 +162,6 @@
       isNormalUser = true;
       description = "if shit hits the fan";
       extraGroups = [ "networkmanager" "wheel" ];
- 
     };
   };
 
