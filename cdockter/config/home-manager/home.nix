@@ -1,5 +1,5 @@
 
-{pkgs,config,inputs, ...}:
+{pkgs,config,inputs,lib, ...}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -16,6 +16,15 @@
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+    };
+  };
+  # xdg.portal.enable = true;
+  #     extraPortals = lib.mkDefault[
+  #        pkgs.xdg-desktop-portal-wlr
   home.homeDirectory = "/home/cdockter";
   nixpkgs = {
       config = {
@@ -47,13 +56,12 @@
     # gio-trash
     conda
     feh
-    slurp
+    slurp# for screenshots
     wl-clipboard
     # java
     lazygit
     zathura
     nerdfonts
-    oh-my-zsh
     nix-zsh-completions
     zsh-syntax-highlighting
     zsh-powerlevel10k
@@ -77,7 +85,7 @@
     pciutils
     gtk4
     wev
-    firefox-wayland
+    firefox-bin
   ];
   fonts.fontconfig.enable = true;
   programs.git= {
