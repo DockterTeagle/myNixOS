@@ -1,10 +1,10 @@
 
-{pkgs,config,inputs,lib, ...}:
+{pkgs, ...}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
-  inputs.nix-colors.homeManagerModules.default
+  # inputs.nix-colors.homeManagerModules.default
   # ./configs/terminal/alacritty.nix
   ./configs/terminal/kitty.nix
   ./configs/terminal/tmux.nix
@@ -19,8 +19,8 @@
   #     inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
   #   ];
   # };
-  services.pipewire.enable = true;
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  # services.pipewire.enable = true;
+  # colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
   xdg = {
     portal = {
@@ -116,7 +116,7 @@
   };
   programs.neovim = {
     enable = true;
-    # package = pkgs.neovim;
+    package = pkgs.neovim-nightly;
     #TODO: replace with neovim-nightly using flakes
     extraPackages = with pkgs; [
       vimPlugins.vim-clang-format
