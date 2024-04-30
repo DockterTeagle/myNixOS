@@ -80,7 +80,7 @@
 
       exec-once = [
         "[workspace 1 silent] $terminal"
-        "waybar & hyprpaper"
+        "waybar & hyprpaper & nm-applet --indicator"
         "firefox"
       ];
 
@@ -127,7 +127,7 @@
         "$mainMod,m,exec,hyprctl dispatch exit"
         "$mainMod,q,exec,$terminal" 
         "$mainMod,F,exec,firefox"
-        "$mainMod,D,exec,discord"
+        "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
       ];
       windowrulev2 =[ "suppressevent maximize, class:.*"];
     };

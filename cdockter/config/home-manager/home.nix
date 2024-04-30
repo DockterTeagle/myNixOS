@@ -1,27 +1,36 @@
 
-{pkgs,mainUserSettings ...}:
+{config,pkgs,mainUserSettings ,inputs,firefox-addons,firefox-nightly,...}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
-  # inputs.nix-colors.homeManagerModules.default
-  # ./configs/terminal/alacritty.nix
+  # inputs.nix-colors.homeManagerModules.default ./configs/terminal/alacritty.nix
   ./configs/terminal/kitty.nix
   ./configs/terminal/tmux.nix
   ./configs/wayland/hyprland.nix
   ./configs/wayland/waybar.nix
+  # ./configs/browsers/firefox.nix
   ./packages/neovim.nix
   ./packages/zsh-and-plugins.nix
   ./packages/wayland.nix
   ];
   # config = {
-  #   environment.systemPackages = [
+  #   home.systemPackages = [
   #     inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
   #   ];
   # };
   # services.pipewire.enable = true;
   # colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = mainUserSettings.username;
+  # programs.firefox = {
+  #   enable = true;
+  #   package =(pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {});
+  #   profiles.cdockter = {
+  #     extensions = with firefox-addons.packages."x86_64-linux";[
+  #       vimium
+  #     ];
+  #   };
+  # };
   xdg = {
     portal = {
       enable = true;
@@ -66,6 +75,8 @@
   # environment.
   home.packages = with pkgs; [
     # gio-trash
+    # firefox-nightly
+    htop
     conda
     feh
     slurp# for screenshots
@@ -93,8 +104,8 @@
     pciutils
     gtk4
     wev
-    #latest.firefox-nightly-bin
-    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+    # latest.firefox-nightly-bin
+    firefox
   ];
   fonts.fontconfig.enable = true;
   programs.git= {
@@ -116,7 +127,6 @@
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
-    #TODO: replace with neovim-nightly using flakes
     extraPackages = with pkgs; [
       vimPlugins.vim-clang-format
     ];
@@ -131,7 +141,6 @@
     cd = "z";
   };
   # services.xserver.desktopManager.gnome.enable = false;
-
   programs.zsh= {
     enable = true;
     autosuggestion.enable = true;

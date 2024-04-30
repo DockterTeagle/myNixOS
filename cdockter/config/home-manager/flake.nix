@@ -10,10 +10,11 @@
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # firefox-addons = {
+    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    #considering removing this as I dont really use it
   };
 
   outputs = { self, ... }@inputs:
@@ -23,7 +24,7 @@
         hostname = "nixos";
       };
       mainUserSettings =  {
-        userName = "cdockter";
+        username = "cdockter";
         name = "Christopher Ryan Dockter";
         email = "chrisdockter@proton.me";
         dotfilesdir = "~/.dotfiles";
@@ -39,9 +40,10 @@
           inputs.neovim-nightly-overlay.overlay
         ];
       };
+      # firefox-nightly = pkgs.firefoxPackages.nightly;
     in {
       # nixosConfigurations.nixos= nixpkgs.lib.nixosSystem {
-          # inherit system;
+      #     inherit system;
       #   modules = [
       #     solaar.nixosModules.default
       #     ../../../configuration.nix
@@ -50,7 +52,10 @@
       homeConfigurations = {
         "cdockter"= inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit mainUserSettings; };
+          extraSpecialArgs = { 
+            inherit mainUserSettings; 
+            # firefox-addons = inputs.firefox-addons.packages;
+          };
           modules = [ 
             ./home.nix
             # solaar.nixosModules.default

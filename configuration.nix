@@ -78,6 +78,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.fwupd.enable = true;
+  services.onedrive.enable = true;
   # services.gnome-settings-daemon.enable = true;
 
   # Enable sound with pipewire.
@@ -221,6 +222,7 @@
   };
   environment.systemPackages = with pkgs; [
     gnome.gnome-settings-daemon
+    networkmanagerapplet
     systemd
     texlive.combined.scheme-full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
