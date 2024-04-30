@@ -217,7 +217,6 @@
     rtkit.enable = true;
   };
   environment.systemPackages = with pkgs; [
-    scan
     gnome.gnome-settings-daemon
     systemd
     texlive.combined.scheme-full
