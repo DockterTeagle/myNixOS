@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    # nizpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
    # solaar = {
    #   url = "github:Svenum/Solaar-Flake/latest";
    # };
@@ -15,10 +16,12 @@
 
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:#nixpkgs-mozilla
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      # overlay = import nixpkgs-mozilla{};
+      # pkgsMozilla = import nixpkgs {overlays = [overlay];};
      # overlays = [
   #      inputs.neovim-nightly-overlay.overlay
 #];
@@ -38,6 +41,7 @@
         modules = [ 
           ./home.nix
           # solaar.nixosModules.default
+          # {home.packages = [pkgsMozilla.firefox-nightly];}
         ];
 
       };

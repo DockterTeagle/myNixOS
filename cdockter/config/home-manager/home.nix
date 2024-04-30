@@ -14,12 +14,22 @@
   ./packages/zsh-and-plugins.nix
   ./packages/wayland.nix
   ];
+  # config = {
+  #   environment.systemPackages = [
+  #     inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
+  #   ];
+  # };
+  services.pipewire.enable = true;
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.username = "cdockter";
   xdg = {
     portal = {
       enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-wlr
+        pkgs.xdg-desktop-portal-gtk
+      ];
     };
   };
   # xdg.portal.enable = true;
@@ -85,7 +95,7 @@
     pciutils
     gtk4
     wev
-    firefox-bin
+    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
   ];
   fonts.fontconfig.enable = true;
   programs.git= {
@@ -154,6 +164,21 @@
     };
   };
 
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. If you don't want to manage your shell through Home
+  # Manager then you have to manually source 'hm-session-vars.sh' located at
+  # either
+  #
+  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
+  #
   home.sessionVariables = {
     POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
     GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
@@ -172,6 +197,7 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     GTK_USE_PORTAL = "1";
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
+    EDITOR = "nvim";
   };
   
 
@@ -191,24 +217,6 @@
     # '';
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
-  #
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
