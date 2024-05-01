@@ -53,7 +53,7 @@
     in {
       nixosConfigurations.nixos= inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit pkgs;
+          inherit pkgs;#TODO: move this to the line above
           inherit systemSettings;
           inherit home-manager;
         };
