@@ -22,7 +22,7 @@
     let
       systemSettings = {
         system = "x86_64-linux";
-        hostname = "nixos";
+        hostName = "nixos";
         timezone = "America/Chicago";
       };
       mainUserSettings = {
@@ -53,7 +53,7 @@
     in {
       nixosConfigurations.nixos= inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit pkgs;#TODO: move this to the line above
+          inherit pkgs;
           inherit systemSettings;
           inherit home-manager;
         };
@@ -71,7 +71,7 @@
             # firefox-addons = inputs.firefox-addons.packages;
           };
           modules = [ 
-            ./cdockter/config/home-manager/home.nix
+            ./users/cdockter/home-manager/home.nix
             # solaar.nixosModules.default
           ];
         };

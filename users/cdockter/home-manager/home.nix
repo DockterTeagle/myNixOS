@@ -1,5 +1,18 @@
 
 {pkgs,mainUserSettings ,...}:
+let
+  myPythonEnv = pkgs.mkShell{
+    name = "python-opencv-tesseractShell";
+     buildInputs = [
+      pkgs.python312Packages.opencv4
+      pkgs.python312Packages.pytesseract
+      pkgs.tesseract4
+      pkgs.libpng
+      pkgs.freetype
+      pkgs.zlib
+    ];
+  };
+in 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -76,8 +89,9 @@
   home.packages = with pkgs; [
     # gio-trash
     # firefox-nightly
+    # myPythonEnv
     htop
-    conda
+    # conda
     feh
     slurp# for screenshots
     wl-clipboard
@@ -158,7 +172,7 @@
     }
     {
       name = "powerlevel10k config";
-      src = ../zsh;
+      src = ./zsh;
       file = ".p10k.zsh";
     }
     # {

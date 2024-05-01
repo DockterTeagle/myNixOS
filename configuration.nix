@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,lib,systemSetings,userSettings,home-manager, ... }:
+{ config, pkgs,lib,systemSettings,userSettings,home-manager, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -23,7 +23,7 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
   };
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = systemSettings.hostName;# Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # systemd.services = {
   #   dynamic-dns-updater = {
@@ -181,7 +181,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-      gnome.excludePackages =with pkgs; [
+    gnome.excludePackages =with pkgs; [
       gnome.baobab      # disk usage analyzer
       gnome.cheese      # photo booth
       gnome.eog         # image viewer
@@ -228,13 +228,12 @@
       rustc
       rustup
       tmux
-      home-manager
       kitty
       mkpasswd
       power-profiles-daemon
       dbus
     ];
-    etc."machine-id".source = "/nix/persist/etc/machine-id";
+    # etc."machine-id".source = "/nix/persist/etc/machine-id";
   };
   security = {
     doas = {
