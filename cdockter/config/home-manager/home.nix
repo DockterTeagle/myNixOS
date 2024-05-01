@@ -1,5 +1,5 @@
 
-{config,pkgs,mainUserSettings ,inputs,firefox-addons,firefox-nightly,...}:
+{pkgs,mainUserSettings ,...}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

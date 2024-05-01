@@ -2,20 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,lib, ... }:
+{ config, pkgs,lib,systemSetings,userSettings,home-manager, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
-      <nixos-hardware/lenovo/thinkpad/p1>
+      home-manager.nixosModules.home-manager
+      # <nixos-hardware/lenovo/thinkpad/p1>
     ];
-  nixpkgs.config = {
-    packageOverrides = {
-      unstable = import <nixos-unstable>{};
-    };
-    allowUnfree = true;
-  };
   #home-manager
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
@@ -31,6 +25,14 @@
   };
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # systemd.services = {
+  #   dynamic-dns-updater = {
+  #   serviceConfig.user = "cdockter";
+  #   path = [
+  #     pkgs.curl
+  #   ];
+  # };
+  # };
   xdg = {
     autostart.enable = true;
     portal = {
@@ -178,34 +180,62 @@
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.gnome.excludePackages =with pkgs; [
-    gnome.baobab      # disk usage analyzer
-    gnome.cheese      # photo booth
-    gnome.eog         # image viewer
-    gnome.epiphany    # web browser
-    gedit       # text editor
-    gnome.simple-scan # document scanner
-    gnome.totem       # video player
-    gnome.yelp        # help viewer
-    gnome.evince      # document viewer
-    gnome.file-roller # archive manager
-    gnome.geary       # email client
-    gnome.seahorse    # password manager
+  environment = {
+      gnome.excludePackages =with pkgs; [
+      gnome.baobab      # disk usage analyzer
+      gnome.cheese      # photo booth
+      gnome.eog         # image viewer
+      gnome.epiphany    # web browser
+      gedit       # text editor
+      gnome.simple-scan # document scanner
+      gnome.totem       # video player
+      gnome.yelp        # help viewer
+      gnome.evince      # document viewer
+      gnome.file-roller # archive manager
+      gnome.geary       # email client
+      gnome.seahorse    # password manager
 
-    # these should be self explanatory
-    gnome.gnome-calculator 
-    gnome.gnome-calendar 
-    gnome.gnome-characters 
-    gnome.gnome-clocks 
-    gnome.gnome-contacts
-    gnome.gnome-font-viewer 
-    gnome.gnome-logs 
-    gnome.gnome-maps 
-    gnome.gnome-music 
-    gnome-photos 
-    gnome.gnome-weather
-    pkgs.gnome-connections
-  ];
+      # these should be self explanatory
+      gnome.gnome-calculator 
+      gnome.gnome-calendar 
+      gnome.gnome-characters 
+      gnome.gnome-clocks 
+      gnome.gnome-contacts
+      gnome.gnome-font-viewer 
+      gnome.gnome-logs 
+      gnome.gnome-maps 
+      gnome.gnome-music 
+      gnome-photos 
+      gnome.gnome-weather
+      pkgs.gnome-connections
+    ];
+    systemPackages = with pkgs; [
+      gnome.gnome-settings-daemon
+      networkmanagerapplet
+      systemd
+      texlive.combined.scheme-full
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      fwupd
+      dunst
+      wget
+      dmidecode
+      rofi-wayland
+      dunst
+      libnotify
+      swww
+      gitAndTools.gitFull
+      cargo
+      rustc
+      rustup
+      tmux
+      home-manager
+      kitty
+      mkpasswd
+      power-profiles-daemon
+      dbus
+    ];
+    etc."machine-id".source = "/nix/persist/etc/machine-id";
+  };
   security = {
     doas = {
       enable = true;
@@ -220,31 +250,6 @@
     sudo.enable = false;
     rtkit.enable = true;
   };
-  environment.systemPackages = with pkgs; [
-    gnome.gnome-settings-daemon
-    networkmanagerapplet
-    systemd
-    texlive.combined.scheme-full
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    fwupd
-    dunst
-    wget
-    dmidecode
-    rofi-wayland
-    dunst
-    libnotify
-    swww
-    gitAndTools.gitFull
-    cargo
-    rustc
-    rustup
-    tmux
-    home-manager
-    kitty
-    mkpasswd
-    power-profiles-daemon
-    dbus
-  ];
   
   specialisation = {
     on-the-go.configuration = {
