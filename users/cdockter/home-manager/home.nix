@@ -1,4 +1,3 @@
-
 {pkgs,mainUserSettings ,...}:
 # let
 #   myPythonEnv = pkgs.mkShell{
@@ -15,27 +14,17 @@
 # in 
 {
   imports = [
-  # inputs.nix-colors.homeManagerModules.default ./configs/terminal/alacritty.nix
-  ./configs/terminal/kitty.nix
-  ./configs/terminal/tmux.nix
-  ./configs/wayland/hyprland.nix
-  ./configs/wayland/waybar.nix
-  # ./configs/browsers/firefox.nix
-  ./packages/neovim.nix
-  ./packages/zsh-and-plugins.nix
-  ./packages/wayland.nix
+    ./configs/terminal/kitty.nix
+    ./configs/terminal/tmux.nix
+    ./configs/wayland/hyprland.nix
+    ./configs/wayland/waybar.nix
+    # ./configs/browsers/firefox.nix
+    ./packages/neovim.nix
+    ./packages/zsh-and-plugins.nix
+    ./packages/wayland.nix
   ];
   # services.pipewire.enable = true;
   # colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-  # programs.firefox = {
-  #   enable = true;
-  #   package =(pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {});
-  #   profiles.cdockter = {
-  #     extensions = with firefox-addons.packages."x86_64-linux";[
-  #       vimium
-  #     ];
-  #   };
-  # };
   xdg = {
     portal = {
       enable = true;
@@ -51,13 +40,6 @@
       # }; TODO: figure out how to configure this part
     };
   };
-  nixpkgs.overlays = [
-  (self: super: {
-    waybar = super.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    });
-  })
-];
   home = {
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
@@ -114,6 +96,8 @@
       NIXOS_XDG_OPEN_USE_PORTAL = "1";
       EDITOR = "nvim";
     };
+    # The home.packages option allows you to install Nix packages into your
+    # environment.
     packages = with pkgs; [
       # gio-trash
       # firefox-nightly
@@ -167,8 +151,6 @@
     };
   };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   fonts.fontconfig.enable = true;
   programs = {
     # Let Home Manager install and manage itself.
@@ -200,7 +182,6 @@
         source $HOME/.config/zsh/.p10k.zsh
       '';
       syntaxHighlighting.enable = true;
-      # autoComplete.enable = true;
       plugins = with pkgs; [
       {
         name = "powerlevel10k";

@@ -10,7 +10,9 @@
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    # nixpkgs-wayland.inputs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # waybar-flake.url = "github:Alexays/Waybar";
     # firefox-addons = {
     #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +45,7 @@
         overlays = [
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlay
+          inputs.nixpkgs-wayland.overlay
         ];
         config = {
           allowUnfree = true;
