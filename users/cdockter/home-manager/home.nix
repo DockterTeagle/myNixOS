@@ -156,12 +156,13 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
       git= {
-      enable = true;
-      userName = "Dr.Teagle";
-      userEmail = "chrisdockter@proton.me";
-      extraConfig= {
-        init.defaultBranch = "main";
-      };
+        enable = true;
+        userName = "Dr.Teagle";
+        userEmail = "chrisdockter@proton.me";
+        extraConfig= {
+          init.defaultBranch = "main";
+        };
+        lfs.enable = true;
     };
     zoxide = {
       enable = true;
