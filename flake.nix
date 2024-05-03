@@ -9,10 +9,11 @@
     };
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    # nixpkgs-wayland.inputs.follows = "nixpkgs";
+    nixpkgs-wayland= {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixpkgs-wayland";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # waybar-flake.url = "github:Alexays/Waybar";
     # firefox-addons = {
     #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +21,7 @@
     #considering removing this as I dont really use it
   };
 
-  outputs = { self, ... }@inputs:
+  outputs = { self,nixos-hardware, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";

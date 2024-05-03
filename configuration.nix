@@ -2,13 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,lib,systemSettings,userSettings,home-manager, ... }:
+{ config, pkgs,lib,systemSettings,userSettings,home-manager,inputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       home-manager.nixosModules.home-manager
-      # <nixos-hardware/lenovo/thinkpad/p1>
     ];
   #home-manager
   home-manager.useUserPackages = true;
@@ -82,6 +81,9 @@
   services.fwupd.enable = true;
   services.onedrive.enable = true;
   # services.gnome-settings-daemon.enable = true;
+  # services.openvpn.servers = {
+  #   homeVPN = {config = "/home/cdockter/Downloads/nl-free-103130.protonvpn.udp.ovpn";};
+  # };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -210,6 +212,7 @@
       pkgs.gnome-connections
     ];
     systemPackages = with pkgs; [
+      openresolv
       gnome.gnome-settings-daemon
       networkmanagerapplet
       systemd

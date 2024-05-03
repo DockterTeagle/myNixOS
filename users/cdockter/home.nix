@@ -102,6 +102,7 @@
       # gio-trash
       # firefox-nightly
       # myPythonEnv
+      protonvpn-gui
       yad 
       htop
       # conda
