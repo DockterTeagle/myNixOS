@@ -18,7 +18,7 @@
     #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    #considering removing this as I dont really use it
+    #TODO: find the extensions that I usually use in this repo which are: tree-style tabs and proton mainly
   };
 
   outputs = { self,nixos-hardware, ... }@inputs:
@@ -71,11 +71,10 @@
         "cdockter"= inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { 
-           inherit mainUserSettings;
-            # firefox-addons = inputs.firefox-addons.packages;
+            inherit inputs mainUserSettings;
           };
           modules = [ 
-            ./users/cdockter/home-manager/home.nix
+            ./users/cdockter/home.nix
             # solaar.nixosModules.default
           ];
         };

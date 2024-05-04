@@ -15,7 +15,7 @@
         kb_rules = "";
         numlock_by_default = true;
 
-        follow_mouse = "1"; #TODO: figure out what I do
+        follow_mouse = "1"; 
         
         touchpad = {
           disable_while_typing = false;
@@ -124,7 +124,7 @@
         "$mainMod , 0, workspace, 10"
 #key 172 is pause
         #shortcuts
-        "$mainMod,m,exec,hyprctl dispatch exit"
+        "$mainMod,l,exec,hyprctl dispatch exit"
         "$mainMod,q,exec,$terminal" 
         "$mainMod,F,exec,firefox"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"

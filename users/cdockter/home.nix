@@ -95,6 +95,7 @@
       GTK_USE_PORTAL = "1";
       NIXOS_XDG_OPEN_USE_PORTAL = "1";
       EDITOR = "nvim";
+      XDG_CONFIG_HOME = "/home/cdockter/.config/";
     };
     # The home.packages option allows you to install Nix packages into your
     # environment.
@@ -102,9 +103,14 @@
       # gio-trash
       # firefox-nightly
       # myPythonEnv
+      wine
       protonvpn-gui
+      python312
+      python312Packages.debugpy
       yad 
       htop
+      libllvm
+      lldb_18
       # conda
       feh
       slurp# for screenshots
@@ -114,6 +120,7 @@
       zathura
       nerdfonts
       nix-zsh-completions
+      libgcc
       clang
       unzip
       polkit-kde-agent
@@ -156,14 +163,14 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-      git= {
-        enable = true;
-        userName = "Dr.Teagle";
-        userEmail = "chrisdockter@proton.me";
-        extraConfig= {
-          init.defaultBranch = "main";
-        };
-        lfs.enable = true;
+    git= {
+      enable = true;
+      userName = "Dr.Teagle";
+      userEmail = "chrisdockter@proton.me";
+      extraConfig= {
+        init.defaultBranch = "main";
+      };
+      lfs.enable = true;
     };
     zoxide = {
       enable = true;
@@ -176,7 +183,7 @@
         vimPlugins.vim-clang-format
       ];
     };
-    zsh= {
+    zsh = {
       enable = true;
       autosuggestion.enable = true;
       dotDir = ".config/zsh";

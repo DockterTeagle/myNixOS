@@ -32,6 +32,6 @@
     vale
     #DAPS
     python312Packages.debugpy
-    rocmPackages_5.llvm.lldb
+    # rocmPackages_5.llvm.lldb
     ];
 }
