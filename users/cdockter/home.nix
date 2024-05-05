@@ -101,7 +101,6 @@
     # environment.
     packages = with pkgs; [
       # gio-trash
-      # firefox-nightly
       # myPythonEnv
       zulu17
       wine
@@ -130,11 +129,9 @@
       cmake
       nodejs
       discord
-      # neofetch
       fastfetch
       xclip
       thunderbird
-      openrocket
       spotify
       libreoffice
       nix-output-monitor
