@@ -13,6 +13,8 @@
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.daemonCPUSchedPolicy = "idle";
+  nix.daemonIOSchedClass = "idle";
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
   boot = {

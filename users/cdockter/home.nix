@@ -103,6 +103,7 @@
       # gio-trash
       # firefox-nightly
       # myPythonEnv
+      zulu17
       wine
       protonvpn-gui
       python312

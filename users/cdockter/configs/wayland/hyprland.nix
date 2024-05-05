@@ -109,7 +109,6 @@
         "ALT,Tab,cyclenext"
         "ALT,Tab,bringactivetotop"
         "ALT Shif,Tab,cyclenext,prev"
-        "$mainMod,c,killactive,"
         ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
@@ -128,6 +127,12 @@
         "$mainMod,q,exec,$terminal" 
         "$mainMod,F,exec,firefox"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod,c,killactive,"
+        "$mainMod,s,togglespecialworkspace,magic"
+        "$mainMod,s,movetoworkspace, +0"
+        "$mainMod,s,togglespecialworkspace,magic"
+        "$mainMod,s,movetoworkspace,special:magic"
+        "$mainMod,s,togglespecialworkspace,magic"
       ];
       windowrulev2 =[ "suppressevent maximize, class:.*"];
     };
