@@ -240,13 +240,18 @@
       systemd
       texlive.combined.scheme-full
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      fish
       fwupd
+        #dependecies of dunst
+        xorg.libXinerama
+        xorg.libXrandr
+        glib
+        pango
+        libnotify
       dunst
       wget
       dmidecode
       rofi-wayland
-      dunst
-      libnotify
       swww
       gitAndTools.gitFull
       cargo
