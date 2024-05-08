@@ -23,8 +23,6 @@
     ./packages/zsh-and-plugins.nix
     ./packages/wayland.nix
   ];
-  # services.pipewire.enable = true;
-  # colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   xdg = {
     portal = {
       enable = true;
@@ -111,11 +109,9 @@
       htop
       libllvm
       lldb_18
-      # conda
       feh
       slurp# for screenshots
       wl-clipboard
-      # java
       lazygit
       zathura
       nerdfonts
@@ -176,10 +172,7 @@
     };
     neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
-      extraPackages = with pkgs; [
-        vimPlugins.vim-clang-format
-      ];
+      # package = pkgs.neovim;
     };
     zsh = {
       enable = true;

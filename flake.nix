@@ -45,7 +45,7 @@
         system = systemSettings.system;
         overlays = [
           inputs.nixpkgs-mozilla.overlay
-          inputs.neovim-nightly-overlay.overlay
+          # inputs.neovim-nightly-overlay.overlay
           inputs.nixpkgs-wayland.overlay
         ];
         config = {

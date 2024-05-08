@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,lib,systemSettings,userSettings,home-manager,inputs, ... }:
+{ config, pkgs,lib,systemSettings,home-manager, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -242,13 +242,14 @@
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       fish
       fwupd
-        #dependecies of dunst
-        xorg.libXinerama
-        xorg.libXrandr
-        glib
-        pango
-        libnotify
-      dunst
+      #   #dependecies of dunst
+      #   xorg.libXinerama
+      #   xorg.libXrandr
+      #   glib
+      #   pango
+      #   libnotify
+      # dunst
+      mako
       wget
       dmidecode
       rofi-wayland
