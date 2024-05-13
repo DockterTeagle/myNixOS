@@ -100,6 +100,7 @@
     packages = with pkgs; [
       # gio-trash
       # myPythonEnv
+      brightnessctl
       zulu17
       wine
       protonvpn-gui

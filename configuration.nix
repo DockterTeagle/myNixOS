@@ -7,12 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
-      #home-manager.nixosModules.home-manager
     ];
-  #home-manager
-  home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.daemonCPUSchedPolicy = "idle";
   nix.daemonIOSchedClass = "idle";
@@ -25,8 +20,6 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
   };
-  networking.hostName = systemSettings.hostName;# Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # systemd.services = {
   #   dynamic-dns-updater = {
   #   serviceConfig.user = "cdockter";
@@ -55,35 +48,41 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = { 
+    networkmanager.enable = true;
+    hostName = systemSettings.hostName;
+  };
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n={
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
 
-  # Enable the GNOME Desktop Environment.
   
 
   # Enable CUPS to print documents.
   # services.gnome-settings-daemon.enable = true;
-  # services.openvpn.servers = {
-  #   homeVPN = {config = "/home/cdockter/Downloads/nl-free-103130.protonvpn.udp.ovpn";};
-  # };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -206,34 +205,34 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    gnome.excludePackages =with pkgs; [
-      gnome.baobab      # disk usage analyzer
-      gnome.cheese      # photo booth
-      gnome.eog         # image viewer
-      gnome.epiphany    # web browser
-      gedit       # text editor
-      gnome.simple-scan # document scanner
-      gnome.totem       # video player
-      gnome.yelp        # help viewer
-      gnome.evince      # document viewer
-      gnome.file-roller # archive manager
-      gnome.geary       # email client
-      gnome.seahorse    # password manager
-
-      # these should be self explanatory
-      gnome.gnome-calculator 
-      gnome.gnome-calendar 
-      gnome.gnome-characters 
-      gnome.gnome-clocks 
-      gnome.gnome-contacts
-      gnome.gnome-font-viewer 
-      gnome.gnome-logs 
-      gnome.gnome-maps 
-      gnome.gnome-music 
-      gnome-photos 
-      gnome.gnome-weather
-      pkgs.gnome-connections
-    ];
+    # gnome.excludePackages =with pkgs; [
+    #   gnome.baobab      # disk usage analyzer
+    #   gnome.cheese      # photo booth
+    #   gnome.eog         # image viewer
+    #   gnome.epiphany    # web browser
+    #   gedit       # text editor
+    #   gnome.simple-scan # document scanner
+    #   gnome.totem       # video player
+    #   gnome.yelp        # help viewer
+    #   gnome.evince      # document viewer
+    #   gnome.file-roller # archive manager
+    #   gnome.geary       # email client
+    #   gnome.seahorse    # password manager
+    #
+    #   # these should be self explanatory
+    #   gnome.gnome-calculator 
+    #   gnome.gnome-calendar 
+    #   gnome.gnome-characters 
+    #   gnome.gnome-clocks 
+    #   gnome.gnome-contacts
+    #   gnome.gnome-font-viewer 
+    #   gnome.gnome-logs 
+    #   gnome.gnome-maps 
+    #   gnome.gnome-music 
+    #   gnome-photos 
+    #   gnome.gnome-weather
+    #   pkgs.gnome-connections
+    # ];
     systemPackages = with pkgs; [
       openresolv
       gnome.gnome-settings-daemon
@@ -307,14 +306,10 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true
-  #use-xdg-base-directories = true;
+
+  # use-xdg-base-directories = true;
   system.autoUpgrade.enable  = true;
   system.autoUpgrade.allowReboot  = true;
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
