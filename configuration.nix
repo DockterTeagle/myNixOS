@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,lib,systemSettings,home-manager, ... }:
+{ config, pkgs,lib,systemSettings, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      home-manager.nixosModules.home-manager
+      <home-manager/nixos>
+      #home-manager.nixosModules.home-manager
     ];
   #home-manager
   home-manager.useUserPackages = true;
@@ -255,6 +256,7 @@
       rofi-wayland
       swww
       gitAndTools.gitFull
+      firefox
       cargo
       rustc
       rustup
@@ -263,6 +265,7 @@
       mkpasswd
       power-profiles-daemon
       dbus
+      home-manager
     ];
     # etc."machine-id".source = "/nix/persist/etc/machine-id";
   };
