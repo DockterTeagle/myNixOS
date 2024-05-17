@@ -173,7 +173,7 @@
     };
     neovim = {
       enable = true;
-      # package = pkgs.neovim;
+      package = pkgs.neovim-nightly;
     };
     zsh = {
       enable = true;
@@ -209,5 +209,4 @@
     enable = true;
     windowManager.command = "hyprland";
   };
-  # services.xserver.desktopManager.gnome.enable = false;
 }

@@ -205,34 +205,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    # gnome.excludePackages =with pkgs; [
-    #   gnome.baobab      # disk usage analyzer
-    #   gnome.cheese      # photo booth
-    #   gnome.eog         # image viewer
-    #   gnome.epiphany    # web browser
-    #   gedit       # text editor
-    #   gnome.simple-scan # document scanner
-    #   gnome.totem       # video player
-    #   gnome.yelp        # help viewer
-    #   gnome.evince      # document viewer
-    #   gnome.file-roller # archive manager
-    #   gnome.geary       # email client
-    #   gnome.seahorse    # password manager
-    #
-    #   # these should be self explanatory
-    #   gnome.gnome-calculator 
-    #   gnome.gnome-calendar 
-    #   gnome.gnome-characters 
-    #   gnome.gnome-clocks 
-    #   gnome.gnome-contacts
-    #   gnome.gnome-font-viewer 
-    #   gnome.gnome-logs 
-    #   gnome.gnome-maps 
-    #   gnome.gnome-music 
-    #   gnome-photos 
-    #   gnome.gnome-weather
-    #   pkgs.gnome-connections
-    # ];
     systemPackages = with pkgs; [
       openresolv
       gnome.gnome-settings-daemon
