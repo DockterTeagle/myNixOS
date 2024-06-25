@@ -14,11 +14,6 @@
       url = "github:nix-community/nixpkgs-wayland";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # firefox-addons = {
-    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    #TODO: find the extensions that I usually use in this repo which are: tree-style tabs and proton mainly
   };
 
   outputs = { self,nixos-hardware, ... }@inputs:
@@ -45,7 +40,7 @@
         system = systemSettings.system;
         overlays = [
           inputs.nixpkgs-mozilla.overlay
-          inputs.neovim-nightly-overlay.overlay
+          inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
         ];
         config = {
@@ -57,9 +52,7 @@
     in {
       nixosConfigurations.nixos= inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit pkgs;
-          inherit systemSettings;
-          inherit home-manager;
+          inherit pkgs systemSettings home-manager;
         };
         modules = [
           # solaar.nixosModules.default

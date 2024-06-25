@@ -1,4 +1,4 @@
-{pkgs,mainUserSettings ,...}:
+{pkgs,mainUserSettings ,inputs,...}:
 # let
 #   myPythonEnv = pkgs.mkShell{
 #     name = "python-opencv-tesseractShell";
@@ -173,7 +173,7 @@
     };
     neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
+      # package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     };
     zsh = {
       enable = true;

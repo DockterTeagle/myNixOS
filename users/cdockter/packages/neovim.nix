@@ -8,7 +8,7 @@
     lua-language-server
     nil
     rocmPackages.llvm.clang-tools-extra # also includes clang-tidy
-    nodePackages_latest.pyright
+    pyright
     texlab
     vim-language-server
     marksman

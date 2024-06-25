@@ -88,16 +88,14 @@
   sound.enable = true;
   hardware = {
     pulseaudio.enable = false;
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
       ];
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-      setLdLibraryPath = true;
     };
     nvidia = {
       modesetting.enable = true;
@@ -116,6 +114,7 @@
   };
 
   services = {
+    libinput.enable = true;
     xserver = {
       enable = true;
       xkb.layout = "us";
@@ -123,7 +122,6 @@
       # gnomeDesktop.enable = true;
       excludePackages = [pkgs.xterm ];
       videoDrivers = ["nvidia"];
-      libinput.enable = true;
       displayManager.gdm = {
         enable = true;
         wayland = true;
@@ -171,6 +169,7 @@
       };
     };
     thermald.enable = true;
+    #what is thermald?-> it prevents overheating.
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -211,7 +210,7 @@
       networkmanagerapplet
       systemd
       texlive.combined.scheme-full
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      vim-full # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       fish
       fwupd
       #   #dependecies of dunst
