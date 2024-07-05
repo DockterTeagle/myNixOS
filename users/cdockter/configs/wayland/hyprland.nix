@@ -7,6 +7,7 @@
         monitor = [
         "eDP-1,3840x2400@60,0x0,2.00"
         "DP-5,3840x2160@59.997,1920x0,1.50"
+        ",preferred,auto,1"
         ];
         kb_layout = "us";
         kb_variant = "";
@@ -75,7 +76,7 @@
       #   disable_hyprland_logo = "true";
       # };
 
-      "$mainMod" = "SUPER"; # Mod key
+      "$mainMod" = "SUPER_L"; # Mod key
       "$terminal" = "kitty"; # Terminal
 
       exec-once = [
@@ -99,6 +100,9 @@
         # Move/resize windows with mainMod + LMB/RMB and dragging
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
+      ];
+      bindr = [
+        "SUPER,$mainMod,exec,$terminal"
       ];
       bind = [
         # ",121,exec,pamixer -t"

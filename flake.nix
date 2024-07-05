@@ -1,5 +1,5 @@
 {
-  description = "homeManager flake";
+  description = "my main flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -14,6 +14,11 @@
       url = "github:nix-community/nixpkgs-wayland";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = { self,nixos-hardware, ... }@inputs:
@@ -55,7 +60,6 @@
           inherit pkgs systemSettings home-manager;
         };
         modules = [
-          # solaar.nixosModules.default
           ./configuration.nix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p1
         ];
@@ -68,7 +72,6 @@
           };
           modules = [ 
             ./users/cdockter/home.nix
-            # solaar.nixosModules.default
           ];
         };
     };

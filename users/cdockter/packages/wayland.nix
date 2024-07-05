@@ -15,10 +15,8 @@
       wlr-randr
       ydotool
       wl-clipboard
-      hyprland-protocols
       swayidle
       swaylock
-      xdg-desktop-portal-hyprland
       wofi
       swww
       grim
@@ -41,6 +39,5 @@
       xdg-desktop-portal
       dbus
       power-profiles-daemon
-      hyprpaper
     ];
   }

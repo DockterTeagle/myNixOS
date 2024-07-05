@@ -1,4 +1,4 @@
-{pkgs,mainUserSettings ,inputs,...}:
+{pkgs,mainUserSettings ,...}:
 # let
 #   myPythonEnv = pkgs.mkShell{
 #     name = "python-opencv-tesseractShell";
@@ -22,6 +22,9 @@
     ./packages/neovim.nix
     ./packages/zsh-and-plugins.nix
     ./packages/wayland.nix
+    ./packages/languages/lua.nix
+    ./packages/languages/compilers.nix
+    ./packages/wayland/hypr.nix
   ];
   xdg = {
     portal = {
@@ -103,9 +106,11 @@
       brightnessctl
       zulu17
       wine
+      ventoy
       protonvpn-gui
       python312
       python312Packages.debugpy
+      zip
       yad 
       htop
       libllvm
@@ -171,10 +176,10 @@
       enable = true;
       enableZshIntegration = true;
     };
-    neovim = {
-      enable = true;
-      # package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-    };
+     neovim = {
+       enable = true;
+       package = pkgs.neovim;
+     };
     zsh = {
       enable = true;
       autosuggestion.enable = true;
