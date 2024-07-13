@@ -2,48 +2,41 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,lib,systemSettings, ... }:
+{ config, pkgs, lib, systemSettings, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-    nix.settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    };
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
   boot = {
-    blacklistedKernelModules = ["snd_pcsp"];
+    blacklistedKernelModules = [ "snd_pcsp" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
+    kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
-  # systemd.services = {
-  #   dynamic-dns-updater = {
-  #   serviceConfig.user = "cdockter";
-  #   path = [
-  #     pkgs.curl
-  #   ];
-  # };
-  # };
   xdg = {
     autostart.enable = true;
     portal = {
       enable = true;
-      extraPortals = lib.mkDefault[
-         pkgs.xdg-desktop-portal-wlr
-         pkgs.xdg-desktop-portal-kde
-         pkgs.xdg-desktop-portal
-         pkgs.xdg-desktop-portal-gtk
+      extraPortals = lib.mkDefault [
+        pkgs.xdg-desktop-portal-wlr
+        pkgs.xdg-desktop-portal-kde
+        pkgs.xdg-desktop-portal
+        pkgs.xdg-desktop-portal-gtk
       ];
       wlr = {
-        enable= true;
+        enable = true;
       };
     };
   };
@@ -58,7 +51,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking = { 
+  networking = {
     networkmanager.enable = true;
     hostName = systemSettings.hostName;
   };
@@ -67,7 +60,7 @@
   time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
-  i18n={
+  i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
       LC_ADDRESS = "en_US.UTF-8";
@@ -83,7 +76,7 @@
   };
 
 
-  
+
 
   # Enable CUPS to print documents.
   # services.gnome-settings-daemon.enable = true;
@@ -95,6 +88,7 @@
     #   enable = true;
     #   support32Bit = true;
     # };
+    enableAllFirmware = true;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -114,8 +108,8 @@
       forceFullCompositionPipeline = true;
       prime = {
         sync.enable = true;
-        intelBusId = "PCI:0:0:2";
-        nvidiaBusId = "PCI:0:1:0";
+        intelBusId = "PCI:0:2:0"; #FIXME: these IDS are device dependant
+        nvidiaBusId = "PCI:1:0:0";
       };
     };
   };
@@ -127,8 +121,8 @@
       xkb.layout = "us";
       xkb.variant = "";
       # gnomeDesktop.enable = true;
-      excludePackages = [pkgs.xterm ];
-      videoDrivers = ["nvidia"];
+      excludePackages = [ pkgs.xterm ];
+      videoDrivers = [ "nvidia" ];
       displayManager.gdm = {
         enable = true;
         wayland = true;
@@ -147,7 +141,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
+      jack.enable = true;
 
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
@@ -170,9 +164,9 @@
         CPU_MIN_PERF_ON_BAT = 0;
         CPU_MAX_PERF_ON_BAT = 20;
 
-       #Optional helps save long term battery health
-       # START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-       # STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+        #Optional helps save long term battery health
+        # START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+        # STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
       };
     };
     thermald.enable = true;
@@ -251,17 +245,17 @@
     doas = {
       enable = true;
       extraRules = [
-      {
-        users = ["cdockter" "base"];
-        keepEnv = true;
-        persist = true;
-      }
+        {
+          users = [ "cdockter" "base" ];
+          keepEnv = true;
+          persist = true;
+        }
       ];
     };
     sudo.enable = false;
     rtkit.enable = true;
   };
-  
+
   specialisation = {
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
@@ -272,7 +266,7 @@
       };
     };
   };
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -287,8 +281,8 @@
   # services.openssh.enable = true
 
   # use-xdg-base-directories = true;
-  system.autoUpgrade.enable  = true;
-  system.autoUpgrade.allowReboot  = true;
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -1,4 +1,4 @@
-{ config, pkgs,lib,inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -10,12 +10,12 @@
     #   hyprwinwrap
     # ];
   };
-  home.packages =  with pkgs;[
-      xdg-desktop-portal-hyprland
-      hyprland-protocols
-      hyprpaper
-      hyprpicker
-      hypridle
-      hyprlock
+  home.packages = with pkgs;[
+    xdg-desktop-portal-hyprland
+    hyprland-protocols
+    hyprpaper
+    hyprpicker
+    hypridle
+    hyprlock
   ];
 }

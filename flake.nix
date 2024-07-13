@@ -9,7 +9,7 @@
     };
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nixpkgs-wayland= {
+    nixpkgs-wayland = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixpkgs-wayland";
     };
@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self,nixos-hardware, ... }@inputs:
+  outputs = { self, nixos-hardware, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -54,8 +54,9 @@
       };
       home-manager = inputs.home-manager;
       # firefox-nightly = pkgs.firefoxPackages.nightly;
-    in {
-      nixosConfigurations.nixos= inputs.nixpkgs.lib.nixosSystem {
+    in
+    {
+      nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit pkgs systemSettings home-manager;
         };
@@ -64,15 +65,15 @@
         ];
       };
       homeConfigurations = {
-        "cdockter"= inputs.home-manager.lib.homeManagerConfiguration {
+        "cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { 
+          extraSpecialArgs = {
             inherit inputs mainUserSettings;
           };
-          modules = [ 
+          modules = [
             ./users/cdockter/home.nix
           ];
         };
+      };
     };
-  };
 }

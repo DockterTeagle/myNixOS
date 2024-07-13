@@ -1,4 +1,4 @@
-{pkgs,mainUserSettings ,...}:
+{ pkgs, mainUserSettings, ... }:
 # let
 #   myPythonEnv = pkgs.mkShell{
 #     name = "python-opencv-tesseractShell";
@@ -58,7 +58,7 @@
       nvchad = "NVIM_APPNAME=nvchad nvim";
       ls = "eza";
       la = "eza --long --group -h --git --all";
-      ll ="eza --long --group -h --git";
+      ll = "eza --long --group -h --git";
       l = "eza --long --group -h --git --all";
       cd = "z";
     };
@@ -112,11 +112,11 @@
       python312Packages.debugpy
       python312Packages.setuptools
       zip
-      yad 
+      yad
       htop
       lldb_18
       feh
-      slurp# for screenshots
+      slurp # for screenshots
       wl-clipboard
       lazygit
       zathura
@@ -162,11 +162,11 @@
   programs = {
     # let home manager install and manage itself.
     home-manager.enable = true;
-    git= {
+    git = {
       enable = true;
       userName = "Dr.Teagle";
       userEmail = "chrisdockter@proton.me";
-      extraConfig= {
+      extraConfig = {
         init.defaultBranch = "main";
       };
       lfs.enable = true;
@@ -186,7 +186,7 @@
       syntaxHighlighting.enable = true;
       oh-my-zsh = {
         enable = true;
-        plugins = ["git" "vi-mode" "colored-man-pages" "tmux" "colorize" "cp" "zoxide" ];
+        plugins = [ "git" "vi-mode" "colored-man-pages" "tmux" "colorize" "cp" "zoxide" ];
       };
     };
     oh-my-posh = {
