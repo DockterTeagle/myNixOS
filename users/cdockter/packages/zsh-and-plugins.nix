@@ -1,11 +1,12 @@
-
-{pkgs,config,inputs, ...}:
+{ pkgs, config, inputs, ... }:
 {
-  home.packages = with pkgs; [
-    zsh
-    eza
-    oh-my-zsh
-    zsh-syntax-highlighting
-    fzf
-  ];
+  home = {
+    packages = with pkgs; [
+      zsh
+      eza
+      oh-my-zsh
+      zsh-syntax-highlighting
+      fzf
+    ];
+  };
 }

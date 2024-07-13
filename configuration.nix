@@ -31,7 +31,6 @@
       enable = true;
       extraPortals = lib.mkDefault [
         pkgs.xdg-desktop-portal-wlr
-        pkgs.xdg-desktop-portal-kde
         pkgs.xdg-desktop-portal
         pkgs.xdg-desktop-portal-gtk
       ];

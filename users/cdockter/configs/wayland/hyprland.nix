@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -16,8 +16,8 @@
         kb_rules = "";
         numlock_by_default = true;
 
-        follow_mouse = "1"; 
-        
+        follow_mouse = "1";
+
         touchpad = {
           disable_while_typing = true;
           natural_scroll = "yes";
@@ -95,7 +95,7 @@
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
         "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
       ];
-      
+
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
         "$mainMod, mouse:272, movewindow"
@@ -106,7 +106,7 @@
       ];
       bind = [
         # ",121,exec,pamixer -t"
-        ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" 
+        ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
@@ -127,11 +127,12 @@
         "$mainMod , 8, workspace, 8"
         "$mainMod , 9, workspace, 9"
         "$mainMod , 0, workspace, 10"
-#key 172 is pause
+        "$mainMod , F, fullscreen"
+        #key 172 is pause
         #shortcuts
         "$mainMod,l,exec,hyprctl dispatch exit"
-        "$mainMod,q,exec,$terminal" 
-        "$mainMod,F,exec,firefox"
+        "$mainMod,q,exec,$terminal"
+        "SUPER_SHIFT,F,exec,firefox"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod,s,togglespecialworkspace,magic"
@@ -140,7 +141,7 @@
         "$mainMod,s,movetoworkspace,special:magic"
         "$mainMod,s,togglespecialworkspace,magic"
       ];
-      windowrulev2 =[ "suppressevent maximize, class:.*"];
+      windowrulev2 = [ "suppressevent maximize, class:.*" ];
     };
   };
 }

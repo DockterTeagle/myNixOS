@@ -18,6 +18,7 @@
     ./configs/terminal/tmux.nix
     ./configs/wayland/hyprland.nix
     ./configs/wayland/waybar.nix
+    ./configs/terminal/zsh.nix
     # ./configs/browsers/firefox.nix
     ./packages/neovim.nix
     ./packages/zsh-and-plugins.nix
@@ -54,14 +55,6 @@
     # manage.
     homeDirectory = "/home/cdockter/";
     username = mainUserSettings.username;
-    shellAliases = {
-      nvchad = "NVIM_APPNAME=nvchad nvim";
-      ls = "eza";
-      la = "eza --long --group -h --git --all";
-      ll = "eza --long --group -h --git";
-      l = "eza --long --group -h --git --all";
-      cd = "z";
-    };
     # home manager can also manage your environment variables through
     # 'home.sessionvariables'. if you don't want to manage your shell through home
     # manager then you have to manually source 'hm-session-vars.sh' located at
@@ -171,29 +164,9 @@
       };
       lfs.enable = true;
     };
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
     neovim = {
       enable = true;
       package = pkgs.neovim;
-    };
-    zsh = {
-      enable = true;
-      autosuggestion.enable = true;
-      dotDir = ".config/zsh";
-      syntaxHighlighting.enable = true;
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" "vi-mode" "colored-man-pages" "tmux" "colorize" "cp" "zoxide" ];
-      };
-    };
-    oh-my-posh = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-      useTheme = "atomic";
     };
   };
   xsession = {
