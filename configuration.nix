@@ -8,17 +8,21 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.daemonCPUSchedPolicy = "idle";
-  nix.daemonIOSchedClass = "idle";
+    nix.settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
   boot = {
+    blacklistedKernelModules = ["snd_pcsp"];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
   };
   # systemd.services = {
   #   dynamic-dns-updater = {
@@ -87,7 +91,10 @@
   # Enable sound with pipewire.
   sound.enable = true;
   hardware = {
-    pulseaudio.enable = false;
+    # pulseaudio = {
+    #   enable = true;
+    #   support32Bit = true;
+    # };
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -181,7 +188,7 @@
       shell = pkgs.zsh;
       isNormalUser = true;
       description = "Christopher Ryan Dockter";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "audio" ];
     };
     base = {
       shell = pkgs.zsh;
@@ -206,6 +213,7 @@
   environment = {
     systemPackages = with pkgs; [
       openresolv
+      alsa-utils
       gnome.gnome-settings-daemon
       networkmanagerapplet
       systemd

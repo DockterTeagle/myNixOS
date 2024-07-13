@@ -38,19 +38,19 @@
       #   common = {
       #     default = ["gtk"];
       #   };
-      # }; TODO: figure out how to configure this part
+      # }; todo: figure out how to configure this part
     };
   };
   home = {
-    # This value determines the Home Manager release that your configuration is
-    # compatible with. This helps avoid breakage when a new Home Manager release
+    # this value determines the home manager release that your configuration is
+    # compatible with. this helps avoid breakage when a new home manager release
     # introduces backwards incompatible changes.
     #
-    # You should not change this value, even if you update Home Manager. If you do
-    # want to update the value, then make sure to first check the Home Manager
+    # you should not change this value, even if you update home manager. if you do
+    # want to update the value, then make sure to first check the home manager
     # release notes.
     stateVersion = "23.11";
-    # Home Manager needs a bit of information about you and the paths it should
+    # home manager needs a bit of information about you and the paths it should
     # manage.
     homeDirectory = "/home/cdockter/";
     username = mainUserSettings.username;
@@ -62,9 +62,9 @@
       l = "eza --long --group -h --git --all";
       cd = "z";
     };
-    # Home Manager can also manage your environment variables through
-    # 'home.sessionVariables'. If you don't want to manage your shell through Home
-    # Manager then you have to manually source 'hm-session-vars.sh' located at
+    # home manager can also manage your environment variables through
+    # 'home.sessionvariables'. if you don't want to manage your shell through home
+    # manager then you have to manually source 'hm-session-vars.sh' located at
     # either
     #
     #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
@@ -78,31 +78,31 @@
     #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
     #
     sessionVariables = {
-      POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
-      LIBVA_DRIVER_NAME = "nvidia";
-      XDG_SESSION_TYPE = "wayland";
-      GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
-      MOZ_ENABLE_WAYLAND = "1";
-      SDL_VIDEODRIVER = "wayland";
-      _JAVA_AWT_WM_NONREPARENTING = "1";
-      CLUTTER_BACKEND = "wayland";
-      WLR_RENDERER = "vulkan";
-      XDG_CURRENT_DESKTOP = "Hyprland";
-      XDG_SESSION_DESKTOP = "Hyprland";
-      GTK_USE_PORTAL = "1";
-      NIXOS_XDG_OPEN_USE_PORTAL = "1";
-      EDITOR = "nvim";
-      XDG_CONFIG_HOME = "/home/cdockter/.config/";
+      polkit_auth_agent = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      gsettings_schema_dir = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+      libva_driver_name = "nvidia";
+      xdg_session_type = "wayland";
+      gbm_backend = "nvidia-drm";
+      __glx_vendor_library_name = "nvidia";
+      wlr_no_hardware_cursors = "1";
+      nixos_ozone_wl = "1";
+      moz_enable_wayland = "1";
+      sdl_videodriver = "wayland";
+      _java_awt_wm_nonreparenting = "1";
+      clutter_backend = "wayland";
+      wlr_renderer = "vulkan";
+      xdg_current_desktop = "hyprland";
+      xdg_session_desktop = "hyprland";
+      gtk_use_portal = "1";
+      nixos_xdg_open_use_portal = "1";
+      editor = "nvim";
+      xdg_config_home = "/home/cdockter/.config/";
     };
-    # The home.packages option allows you to install Nix packages into your
+    # the home.packages option allows you to install nix packages into your
     # environment.
     packages = with pkgs; [
       # gio-trash
-      # myPythonEnv
+      # mypythonenv
       brightnessctl
       zulu17
       wine
@@ -110,10 +110,10 @@
       protonvpn-gui
       python312
       python312Packages.debugpy
+      python312Packages.setuptools
       zip
       yad 
       htop
-      libllvm
       lldb_18
       feh
       slurp# for screenshots
@@ -127,7 +127,7 @@
       unzip
       polkit-kde-agent
       gnumake
-      solaar #For logitech mice
+      solaar #for logitech mice
       cmake
       nodejs
       discord
@@ -143,15 +143,15 @@
       # latest.firefox-nightly-bin
       firefox
     ];
-    # Home Manager is pretty good at managing dotfiles. The primary way to manage
+    # home manager is pretty good at managing dotfiles. the primary way to manage
     # plain files is through 'home.file'.
     file = {
-      # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-      # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-      # # symlink to the Nix store copy.
+      # # building this configuration will create a copy of 'dotfiles/screenrc' in
+      # # the nix store. activating the configuration will then make '~/.screenrc' a
+      # # symlink to the nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
 
-      # # You can also set the file content immediately.
+      # # you can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
       #   org.gradle.daemon.idletimeout=3600000
@@ -161,7 +161,7 @@
 
   fonts.fontconfig.enable = true;
   programs = {
-    # Let Home Manager install and manage itself.
+    # let home manager install and manage itself.
     home-manager.enable = true;
     git= {
       enable = true;
@@ -184,30 +184,17 @@
       enable = true;
       autosuggestion.enable = true;
       dotDir = ".config/zsh";
-      initExtraFirst = ''
-        source $HOME/.config/zsh/.p10k.zsh
-      '';
       syntaxHighlighting.enable = true;
-      plugins = with pkgs; [
-      {
-        name = "powerlevel10k";
-        src = zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k config";
-        src = ./zsh;
-        file = ".p10k.zsh";
-      }
-      # {
-      #   name = "doas-zsh-plugin:";
-      #   src = #TODO: get the flake to work for this   
-      # }
-      ];
       oh-my-zsh = {
         enable = true;
         plugins = ["git" "vi-mode" "colored-man-pages" "tmux" "colorize" "cp" "zoxide" ];
       };
+    };
+    oh-my-posh = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      useTheme = "atomic";
     };
   };
   xsession = {

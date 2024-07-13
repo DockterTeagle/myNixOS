@@ -3,7 +3,6 @@
   {
     home.packages= with pkgs;[
       polkit_gnome
-      # firefox-wayland
       libva-utils
       fuseiso
       udiskie
@@ -32,11 +31,10 @@
       waybar
       wayland-protocols
       wayland-utils
+      pavucontrol
       wlroots
       upower
       gtkmm3
-      waybar
-      xdg-desktop-portal
       dbus
       power-profiles-daemon
     ];

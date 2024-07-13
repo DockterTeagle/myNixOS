@@ -6,6 +6,5 @@
     eza
     oh-my-zsh
     zsh-syntax-highlighting
-    zsh-powerlevel10k
   ];
 }

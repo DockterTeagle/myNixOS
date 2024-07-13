@@ -61,7 +61,6 @@
         };
         modules = [
           ./configuration.nix
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p1
         ];
       };
       homeConfigurations = {

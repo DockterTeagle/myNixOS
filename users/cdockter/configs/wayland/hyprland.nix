@@ -4,11 +4,10 @@
     enable = true;
     settings = {
       input = {
-        monitor = [
-        "eDP-1,3840x2400@60,0x0,2.00"
-        "DP-5,3840x2160@59.997,1920x0,1.50"
-        ",preferred,auto,1"
-        ];
+        # monitor = [
+        # # "HDMI-A-1,3840x2160@60.00,0x1080,1"
+        # ",preferred,auto,1"
+        # ];
         kb_layout = "us";
         kb_variant = "";
         kb_model = "";
@@ -63,9 +62,9 @@
         preserve_split = "yes";
       };
 
-      master = {
-        new_is_master = "true";
-      };
+      # master = {
+      #   new_is_master = "true";
+      # };
 
       gestures = {
         workspace_swipe = "off";

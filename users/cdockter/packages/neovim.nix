@@ -7,7 +7,7 @@
     #LSPS For Neovim
     lua-language-server
     nil
-    rocmPackages.llvm.clang-tools-extra # also includes clang-tidy
+    # rocmPackages.llvm.clang-tools-extra # also includes clang-tidy
     pyright
     texlab
     vim-language-server
@@ -26,7 +26,7 @@
     python312Packages.black
     cmake-format
     #Linters
-    cpplint
+    # cpplint
     python312Packages.mypy
     ruff
     vale
