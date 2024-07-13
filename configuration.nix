@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, systemSettings, ... }:
+{ config, pkgs, lib, systemSettings, inputs, ... }:
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.lanzaboote.nixosModules.lanzaboote
     ];
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -82,7 +83,7 @@
   # services.gnome-settings-daemon.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware = {
     # pulseaudio = {
     #   enable = true;
@@ -207,7 +208,6 @@
   environment = {
     systemPackages = with pkgs; [
       cryptsetup
-      sbctl
       openresolv
       alsa-utils
       gnome.gnome-settings-daemon

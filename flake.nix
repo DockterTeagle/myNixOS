@@ -19,9 +19,13 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixos-hardware, ... }@inputs:
+  outputs = { self, nixos-hardware, lanzaboote, nixpkgs, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -56,12 +60,34 @@
       # firefox-nightly = pkgs.firefoxPackages.nightly;
     in
     {
-      nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit pkgs systemSettings home-manager;
         };
         modules = [
+          # This is not a complete NixOS configuration and you need to reference
+          # your normal configuration here.
           ./configuration.nix
+          lanzaboote.nixosModules.lanzaboote
+
+          ({ pkgs, lib, ... }: {
+
+            environment.systemPackages = [
+              # For debugging and troubleshooting Secure Boot.
+              pkgs.sbctl
+            ];
+
+            # Lanzaboote currently replaces the systemd-boot module.
+            # This setting is usually set to true in configuration.nix
+            # generated at installation time. So we force it to false
+            # for now.
+            boot.loader.systemd-boot.enable = lib.mkForce false;
+
+            boot.lanzaboote = {
+              enable = true;
+              pkiBundle = "/etc/secureboot";
+            };
+          })
         ];
       };
       homeConfigurations = {
