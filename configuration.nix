@@ -16,6 +16,7 @@
   };
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
+  zramSwap.enable = true;
   boot = {
     blacklistedKernelModules = [ "snd_pcsp" ];
     loader = {
@@ -205,6 +206,8 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      cryptsetup
+      sbctl
       openresolv
       alsa-utils
       gnome.gnome-settings-daemon

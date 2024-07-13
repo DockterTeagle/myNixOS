@@ -4,7 +4,7 @@
     shellAliases = {
       nvim-lazy = "NVIM_APPNAME=LazyVim nvim";
       nvim-kick = "NVIM_APPNAME=kickstart nvim";
-      nvim-chad = "NVIM_APPNAME=nvchad nvim";
+      nvim-chad = "NVIM_APPNAME=NvChad nvim";
       nvim-astro = "NVIM_APPNAME=AstroNvim nvim";
 
       ls = "eza";
@@ -48,7 +48,10 @@
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
+      # settings = {
+      # };
       useTheme = "atomic";
+      #TODO: Enable transient Prompt
     };
   };
 }
