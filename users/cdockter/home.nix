@@ -123,7 +123,6 @@
       nerdfonts
       nix-zsh-completions
       libgcc
-      clang
       unzip
       polkit-kde-agent
       gnumake
@@ -176,10 +175,10 @@
       enable = true;
       enableZshIntegration = true;
     };
-     neovim = {
-       enable = true;
-       package = pkgs.neovim;
-     };
+    neovim = {
+      enable = true;
+      package = pkgs.neovim;
+    };
     zsh = {
       enable = true;
       autosuggestion.enable = true;
