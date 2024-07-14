@@ -1,17 +1,4 @@
 { pkgs, mainUserSettings, ... }:
-# let
-#   myPythonEnv = pkgs.mkShell{
-#     name = "python-opencv-tesseractShell";
-#      buildInputs = [
-#       pkgs.python312Packages.opencv4
-#       pkgs.python312Packages.pytesseract
-#       pkgs.tesseract4
-#       pkgs.libpng
-#       pkgs.freetype
-#       pkgs.zlib
-#     ];
-#   };
-# in 
 {
   imports = [
     ./configs/terminal/kitty.nix

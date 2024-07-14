@@ -9,6 +9,10 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+  fileSystems."/media/HDD/" = {
+    device = "/dev/sda";
+    fsType = "ext4";
+  };
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     substituters = [ "https://hyprland.cachix.org" ];
@@ -16,16 +20,9 @@
   };
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
-  # systemd.services.kernel-signing = {
-  #   description = "Sign Linux Kernel with OpenSSL keys";
-  #   script = ''
-  #     /run/current-system/sw/bin/openssl dgst -sha256 -sign /home/cdockter/private_key.pem -out /lib/modules/$(uname -r)/kernel.sig /lib/modules/$(uname -r)/kernel
-  #   '';
-  #   wantedBy = [ "multi-user.target" ];
-  # };
   zramSwap.enable = true;
   boot = {
-    blacklistedKernelModules = [ "snd_pcsp" ];
+    blacklistedKernelModules = [ "snd_pcsp" "module_blacklist=i915" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -102,6 +99,7 @@
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
+        intel-media-sdk
       ];
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
     };
@@ -172,7 +170,7 @@
         CPU_MAX_PERF_ON_BAT = 20;
 
         #Optional helps save long term battery health
-        # START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+        START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
         # STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
       };
     };
@@ -218,6 +216,7 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      acpi
       openssl
       sbsigntool
       efivar
@@ -259,17 +258,6 @@
     # etc."machine-id".source = "/nix/persist/etc/machine-id";
   };
   security = {
-    # doas = {
-    #   enable = true;
-    #   extraRules = [
-    #     {
-    #       users = [ "cdockter" "base" ];
-    #       keepEnv = true;
-    #       persist = true;
-    #     }
-    #   ];
-    # };
-    # sudo.enable = false;
     rtkit.enable = true;
   };
 
