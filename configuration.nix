@@ -2,13 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, systemSettings, inputs, ... }:
+{ config, pkgs, lib, systemSettings, ... }:
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.lanzaboote.nixosModules.lanzaboote
     ];
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -17,6 +16,13 @@
   };
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
+  # systemd.services.kernel-signing = {
+  #   description = "Sign Linux Kernel with OpenSSL keys";
+  #   script = ''
+  #     /run/current-system/sw/bin/openssl dgst -sha256 -sign /home/cdockter/private_key.pem -out /lib/modules/$(uname -r)/kernel.sig /lib/modules/$(uname -r)/kernel
+  #   '';
+  #   wantedBy = [ "multi-user.target" ];
+  # };
   zramSwap.enable = true;
   boot = {
     blacklistedKernelModules = [ "snd_pcsp" ];
@@ -83,7 +89,7 @@
   # services.gnome-settings-daemon.enable = true;
 
   # Enable sound with pipewire.
-  # sound.enable = true;
+  sound.enable = true;
   hardware = {
     # pulseaudio = {
     #   enable = true;
@@ -207,6 +213,10 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      openssl
+      sbsigntool
+      efivar
+      efibootmgr
       cryptsetup
       openresolv
       alsa-utils
