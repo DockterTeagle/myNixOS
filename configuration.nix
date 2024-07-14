@@ -89,7 +89,7 @@
   # services.gnome-settings-daemon.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware = {
     # pulseaudio = {
     #   enable = true;
@@ -200,6 +200,11 @@
   };
 
   programs = {
+    nh = {
+      enable = true;
+      # clean.enable = true;
+      flake = "/home/cdockter/MyNixOS/";
+    };
     zsh.enable = true;
     hyprland = {
       enable = true;
@@ -239,7 +244,7 @@
       dmidecode
       rofi-wayland
       swww
-      gitAndTools.gitFull
+      gitFull
       firefox
       cargo
       rustc
@@ -254,17 +259,17 @@
     # etc."machine-id".source = "/nix/persist/etc/machine-id";
   };
   security = {
-    doas = {
-      enable = true;
-      extraRules = [
-        {
-          users = [ "cdockter" "base" ];
-          keepEnv = true;
-          persist = true;
-        }
-      ];
-    };
-    sudo.enable = false;
+    # doas = {
+    #   enable = true;
+    #   extraRules = [
+    #     {
+    #       users = [ "cdockter" "base" ];
+    #       keepEnv = true;
+    #       persist = true;
+    #     }
+    #   ];
+    # };
+    # sudo.enable = false;
     rtkit.enable = true;
   };
 
