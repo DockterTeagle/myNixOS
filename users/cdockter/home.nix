@@ -76,13 +76,12 @@
       gtk_use_portal = "1";
       nixos_xdg_open_use_portal = "1";
       editor = "nvim";
-      xdg_config_home = "/home/cdockter/.config/";
+      xdg_config_home = mainUserSettings.dotfilesdir;
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
     packages = with pkgs; [
       # gio-trash
-      # mypythonenv
       brightnessctl
       zulu17
       wine
@@ -101,6 +100,7 @@
       lazygit
       zathura
       nerdfonts
+      font-awesome
       nix-zsh-completions
       libgcc
       unzip

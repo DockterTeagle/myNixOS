@@ -9,14 +9,12 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  fileSystems."/media/HDD/" = {
-    device = "/dev/sda";
-    fsType = "ext4";
-  };
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    };
   };
   # Bootloader.
   # Use the systemd-boot EFI boot loader.
@@ -86,7 +84,7 @@
   # services.gnome-settings-daemon.enable = true;
 
   # Enable sound with pipewire.
-  # sound.enable = true;
+  sound.enable = false;
   hardware = {
     # pulseaudio = {
     #   enable = true;
@@ -161,9 +159,11 @@
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "powersave";
         CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "powersave";
         CPU_MIN_PERF_ON_AC = 0;
         CPU_MAX_PERF_ON_AC = 100;
         CPU_MIN_PERF_ON_BAT = 0;
@@ -171,7 +171,7 @@
 
         #Optional helps save long term battery health
         START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-        # STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+        STOP_CHARGE_THRESH_BAT0 = 60; # 80 and above it stops charging
       };
     };
     thermald.enable = true;
@@ -200,7 +200,8 @@
   programs = {
     nh = {
       enable = true;
-      # clean.enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3 -v";
       flake = "/home/cdockter/MyNixOS/";
     };
     zsh.enable = true;
@@ -228,16 +229,8 @@
       networkmanagerapplet
       systemd
       texlive.combined.scheme-full
-      vim-full # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      fish
+      vim-full
       fwupd
-      #   #dependecies of dunst
-      #   xorg.libXinerama
-      #   xorg.libXrandr
-      #   glib
-      #   pango
-      #   libnotify
-      # dunst
       mako
       wget
       dmidecode
@@ -263,6 +256,7 @@
 
   specialisation = {
     on-the-go.configuration = {
+      environment.etc."specialisation".text = "on-the-go";
       system.nixos.tags = [ "on-the-go" ];
       hardware.nvidia = {
         prime.offload.enable = lib.mkForce true;

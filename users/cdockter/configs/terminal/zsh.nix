@@ -41,7 +41,7 @@
       '';
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "vi-mode" "colored-man-pages" "tmux" "colorize" "cp" "zoxide" ];
+        plugins = [ "git" "sudo" "colored-man-pages" "colorize" "cp" "zoxide" ];
       };
     };
     oh-my-posh = {
@@ -51,7 +51,7 @@
       # settings = {
       # };
       useTheme = "atomic";
-      #TODO: Enable transient Prompt
+      #TODO: Enable transient Prompt, and change the widgets to not show the default shell, make it more like p10k.
     };
   };
 }

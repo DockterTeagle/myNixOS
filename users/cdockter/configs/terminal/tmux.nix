@@ -1,29 +1,32 @@
-{pkgs,...}:
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
     package = pkgs.tmux;
     baseIndex = 1;
     clock24 = true;
+    sensibleOnTop = true;
     keyMode = "vi";
-    prefix = "C-space";
+    shortcut = "space";
     newSession = true;
     # terminal = "alacritty";
     mouse = true;
     tmuxp.enable = true;
-    # tmuxinator.enable = true;
+    tmuxinator.enable = true;
     plugins = with pkgs.tmuxPlugins; [
       yank
       vim-tmux-navigator
       tmux-fzf
-      sensible
-      {
-        plugin = catppuccin;
-        extraConfig = "set -g @catppuccin_flavour 'mocha'";
-      }
+      tokyo-night-tmux
+      tmux-thumbs
+      sidebar
+      # {
+      #   plugin = catppuccin;
+      #   extraConfig = "set -g @catppuccin_flavour 'mocha'";
+      # }
+      session-wizard
     ];
     extraConfig = ''
-      set-option -sa terminal-features ',alacritty:RGB'
       bind -n M-Left select-pane -L
       bind -n M-Right select-pane -R
       bind -n M-Up select-pane -U
@@ -37,8 +40,6 @@
       bind -n M-H previous-window
       bind -n M-L next-window
 
-      set -g @catppuccin_flavour 'mocha'
-      set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
     '';

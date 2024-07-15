@@ -36,7 +36,7 @@
         username = "cdockter";
         name = "Christopher Ryan Dockter";
         email = "chrisdockter@proton.me";
-        dotfilesdir = "~/.dotfiles";
+        dotfilesdir = "~/.config";
         wm = "hyprland";
         wmType = "wayland";
         browser = "firefox";

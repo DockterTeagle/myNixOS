@@ -14,7 +14,7 @@
     cmake-language-server
     nodePackages_latest.bash-language-server
     deno
-    # julials
+    emacsPackages.lsp-julia
     #Formatters
     stylua
     alejandra
