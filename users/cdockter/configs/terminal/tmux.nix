@@ -20,10 +20,6 @@
       tmux-fzf
       tokyo-night-tmux
       tmux-thumbs
-      # {
-      #   plugin = catppuccin;
-      #   extraConfig = "set -g @catppuccin_flavour 'mocha'";
-      # }
       session-wizard
     ];
     extraConfig = ''

@@ -3,7 +3,6 @@
   imports = [
     ./configs/terminal/kitty.nix
     ./configs/terminal/tmux.nix
-    ./configs/terminal/alacritty.nix
     ./configs/wayland/hyprland.nix
     ./configs/wayland/waybar.nix
     ./configs/terminal/zsh.nix
