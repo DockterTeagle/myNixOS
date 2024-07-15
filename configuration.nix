@@ -8,6 +8,12 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./packages/neovim.nix
+      ./packages/zsh-and-plugins.nix
+      ./packages/wayland.nix
+      ./packages/languages/lua.nix
+      ./packages/languages/compilers.nix
+      ./packages/wayland/hypr.nix
     ];
   nix = {
     settings = {
@@ -187,7 +193,7 @@
       shell = pkgs.zsh;
       isNormalUser = true;
       description = "Christopher Ryan Dockter";
-      extraGroups = [ "networkmanager" "wheel" "audio" ];
+      extraGroups = [ "networkmanager" "wheel" "audio" "input" ];
     };
     base = {
       shell = pkgs.zsh;
@@ -217,6 +223,7 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      man-db
       acpi
       openssl
       sbsigntool

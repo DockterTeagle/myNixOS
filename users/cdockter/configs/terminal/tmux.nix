@@ -3,13 +3,14 @@
   programs.tmux = {
     enable = true;
     package = pkgs.tmux;
+    escapeTime = 0;
     baseIndex = 1;
     clock24 = true;
     sensibleOnTop = true;
     keyMode = "vi";
     shortcut = "space";
     newSession = true;
-    # terminal = "alacritty";
+    # terminal = "kitty";
     mouse = true;
     tmuxp.enable = true;
     tmuxinator.enable = true;
@@ -19,7 +20,6 @@
       tmux-fzf
       tokyo-night-tmux
       tmux-thumbs
-      sidebar
       # {
       #   plugin = catppuccin;
       #   extraConfig = "set -g @catppuccin_flavour 'mocha'";
@@ -27,6 +27,7 @@
       session-wizard
     ];
     extraConfig = ''
+      set-option -g default-terminal "tmux-256color"
       bind -n M-Left select-pane -L
       bind -n M-Right select-pane -R
       bind -n M-Up select-pane -U

@@ -3,16 +3,11 @@
   imports = [
     ./configs/terminal/kitty.nix
     ./configs/terminal/tmux.nix
+    ./configs/terminal/alacritty.nix
     ./configs/wayland/hyprland.nix
     ./configs/wayland/waybar.nix
     ./configs/terminal/zsh.nix
     # ./configs/browsers/firefox.nix
-    ./packages/neovim.nix
-    ./packages/zsh-and-plugins.nix
-    ./packages/wayland.nix
-    ./packages/languages/lua.nix
-    ./packages/languages/compilers.nix
-    ./packages/wayland/hypr.nix
   ];
   xdg = {
     portal = {
@@ -75,8 +70,9 @@
       xdg_session_desktop = "hyprland";
       gtk_use_portal = "1";
       nixos_xdg_open_use_portal = "1";
-      editor = "nvim";
-      xdg_config_home = mainUserSettings.dotfilesdir;
+      EDITOR = "nvim-chad";
+      SUDO_EDITOR = "nvim";
+      xdg_config_home = "/home/cdockter/.config/";
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
@@ -90,6 +86,7 @@
       python312
       python312Packages.debugpy
       python312Packages.setuptools
+      manim
       zip
       yad
       htop

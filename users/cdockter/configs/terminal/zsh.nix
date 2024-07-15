@@ -41,7 +41,7 @@
       '';
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "sudo" "colored-man-pages" "colorize" "cp" "zoxide" ];
+        plugins = [ "git" "sudo" "colored-man-pages" "colorize" "cp" "zoxide" "tmux" ];
       };
     };
     oh-my-posh = {

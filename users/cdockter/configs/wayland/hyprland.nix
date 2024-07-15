@@ -1,6 +1,13 @@
 { ... }:
 {
   wayland.windowManager.hyprland = {
+    # plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+    #   # hyprbars
+    #   hyprexpo
+    #   borders-plus-plus
+    #   hyprtrails
+    #   hyprwinwrap
+    # ];
     enable = true;
     settings = {
       input = {
