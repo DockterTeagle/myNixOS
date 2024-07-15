@@ -90,7 +90,6 @@
   # services.gnome-settings-daemon.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = false;
   hardware = {
     # pulseaudio = {
     #   enable = true;
