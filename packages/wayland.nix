@@ -5,8 +5,6 @@
     libva-utils
     fuseiso
     udiskie
-    gnome.adwaita-icon-theme
-    gnome.gnome-themes-extra
     nvidia-vaapi-driver
     gsettings-desktop-schemas
     swaynotificationcenter

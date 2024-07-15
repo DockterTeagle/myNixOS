@@ -26,7 +26,7 @@
   # Use the systemd-boot EFI boot loader.
   zramSwap.enable = true;
   boot = {
-    blacklistedKernelModules = [ "snd_pcsp" "module_blacklist=i915" ];
+    blacklistedKernelModules = [ "snd_pcsp" ]; # consider adding module_blacklist=i915 to this to maybe disable integrated gpu
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -91,10 +91,10 @@
 
   # Enable sound with pipewire.
   hardware = {
-    # pulseaudio = {
-    #   enable = true;
-    #   support32Bit = true;
-    # };
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
     enableAllFirmware = true;
     graphics = {
       enable = true;
@@ -143,18 +143,18 @@
       sushi.enable = true;
       gnome-keyring.enable = true;
     };
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
-    };
+    # pipewire = {
+    #   enable = true;
+    #   alsa.enable = true;
+    #   alsa.support32Bit = true;
+    #   pulse.enable = true;
+    #   # If you want to use JACK applications, uncomment this
+    #   jack.enable = true;
+    #
+    #   # use the example session manager (no others are packaged yet so this is enabled by default,
+    #   # no need to redefine it in your config for now)
+    #   #media-session.enable = true;
+    # };
     fwupd.enable = true;
     printing.enable = true;
     onedrive.enable = true;
