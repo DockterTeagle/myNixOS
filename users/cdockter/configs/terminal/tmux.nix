@@ -10,7 +10,7 @@
     keyMode = "vi";
     shortcut = "space";
     newSession = true;
-    # terminal = "kitty";
+    terminal = "tmux-256color";
     mouse = true;
     tmuxp.enable = true;
     tmuxinator.enable = true;
@@ -27,7 +27,6 @@
       session-wizard
     ];
     extraConfig = ''
-      set-option -g default-terminal "tmux-256color"
       bind -n M-Left select-pane -L
       bind -n M-Right select-pane -R
       bind -n M-Up select-pane -U
