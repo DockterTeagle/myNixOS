@@ -6,5 +6,6 @@
     oh-my-zsh
     zsh-syntax-highlighting
     fzf
+    thefuck
   ];
 }
