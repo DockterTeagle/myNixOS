@@ -8,12 +8,13 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./packages/neovim.nix
-      ./packages/zsh-and-plugins.nix
-      ./packages/wayland.nix
+      ./packages/system/wayland.nix
+      ./packages/system/wayland/hypr.nix
+      ./packages/terminal/neovim.nix
+      ./packages/terminal/zsh-and-plugins.nix
       ./packages/languages/lua.nix
+      ./packages/languages/python.nix
       ./packages/languages/compilers.nix
-      ./packages/wayland/hypr.nix
     ];
   nix = {
     settings = {
@@ -222,6 +223,44 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      #TODO: sort all of these into the respective file
+      brightnessctl
+      zulu17
+      wine
+      ventoy
+      protonvpn-gui
+      manim
+      zip
+      yad
+      htop
+      lldb_18
+      feh
+      slurp # for screenshots
+      wl-clipboard
+      lazygit
+      zathura
+      nerdfonts
+      font-awesome
+      nix-zsh-completions
+      libgcc
+      unzip
+      polkit-kde-agent
+      gnumake
+      solaar #for logitech mice
+      cmake
+      nodejs
+      discord
+      fastfetch
+      xclip
+      thunderbird
+      spotify
+      libreoffice
+      nix-output-monitor
+      pciutils
+      gtk4
+      wev
+      # latest.firefox-nightly-bin
+      firefox
       man-db
       acpi
       openssl

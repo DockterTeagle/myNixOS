@@ -76,47 +76,6 @@
     # the home.packages option allows you to install nix packages into your
     # environment.
     packages = with pkgs; [
-      # gio-trash
-      brightnessctl
-      zulu17
-      wine
-      ventoy
-      protonvpn-gui
-      python312
-      python312Packages.debugpy
-      python312Packages.setuptools
-      manim
-      zip
-      yad
-      htop
-      lldb_18
-      feh
-      slurp # for screenshots
-      wl-clipboard
-      lazygit
-      zathura
-      nerdfonts
-      font-awesome
-      nix-zsh-completions
-      libgcc
-      unzip
-      polkit-kde-agent
-      gnumake
-      solaar #for logitech mice
-      cmake
-      nodejs
-      discord
-      fastfetch
-      xclip
-      thunderbird
-      spotify
-      libreoffice
-      nix-output-monitor
-      pciutils
-      gtk4
-      wev
-      # latest.firefox-nightly-bin
-      firefox
     ];
     # home manager is pretty good at managing dotfiles. the primary way to manage
     # plain files is through 'home.file'.
