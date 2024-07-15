@@ -25,23 +25,27 @@
       dotDir = ".config/zsh";
       syntaxHighlighting.enable = true;
       initExtra = ''
-        function nvims() {
-          items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
-          config=$(printf "%s\\n" "''${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-          if [[ -z $config ]]; then
-            echo "Nothing selected"
-            return 0
-          elif [[ $config == "default" ]]; then
-            config=""
-          fi
-          NVIM_APPNAME=$config nvim $@
-        }
+                function nvims() {
+                  items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
+                  config=$(printf "%s\\n" "''${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+                  if [[ -z $config ]]; then
+                    echo "Nothing selected"
+                    return 0
+                  elif [[ $config == "default" ]]; then
+                    config=""
+                  fi
+                  NVIM_APPNAME=$config nvim $@
+                }
 
-        bindkey -s ^a "nvims\\n"
+                bindkey -s ^a "nvims\\n"
+                zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+        zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+        zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+        zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
       '';
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "thefuck" "colored-man-pages" "colorize" "cp" "zoxide" "tmux" ];
+        plugins = [ "git" "thefuck" "colored-man-pages" "cp" "zoxide" "tmux" "alias-finder" ];
       };
     };
     oh-my-posh = {
