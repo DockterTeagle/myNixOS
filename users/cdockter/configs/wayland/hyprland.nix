@@ -121,8 +121,8 @@
         ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
         "ALT,Tab,cyclenext"
         "ALT,Tab,bringactivetotop"
-        "ALT Shif,Tab,cyclenext,prev"
-        ", Print, exec,grim -g \"$(seto -r)\" - | wl-copy -t image/png "
+        "ALT Shift,Tab,cyclenext,prev"
+        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
         "$mainMod , 2, workspace, 2"
