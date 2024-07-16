@@ -151,6 +151,14 @@
           format-calendar-weekdays = "<span color='#f9e2af'><b>{}</b></span>";
           interval = 60;
         };
+        backlight = {
+          devicxe = "intel_backlight";
+          format = "<span color='#2da14c'>{icon}</span> {percent}%";
+          format-icons = [ "" "" "" "" "" "" "" "" "" ];
+          on-scroll-up = "brightnessctl set +2%";
+          on-scroll-down = "brightnessctl set 2%-";
+          interval = 2;
+        };
         pulseaudio = {
           format = "{icon} {volume}%";
           format-bluetooth = "{icon} {volume}%";
@@ -174,6 +182,21 @@
           tooltip-format = "{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}  {device_address}";
         };
+      };
+      battery = {
+        states = {
+          good = 100;
+          warning = 30;
+          critical = 20;
+        };
+        format = "{icon} {capacity}%";
+        format-charging = " {capacity}%";
+        format-plugged = " {capacity}%";
+        format-alt = "{icon} {time}";
+        format-full = " {capacity}%";
+        format-icons = [ " " " " " " " " " " " " ];
+        # format-charging = "<span color='#2da14c'> </span> {capacity}%";
+        interval = 2;
       };
     };
   };
