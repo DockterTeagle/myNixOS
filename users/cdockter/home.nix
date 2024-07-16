@@ -1,12 +1,7 @@
 { pkgs, mainUserSettings, ... }:
 {
   imports = [
-    ./configs/terminal/kitty.nix
-    ./configs/terminal/tmux.nix
-    ./configs/wayland/hyprland.nix
-    ./configs/wayland/waybar.nix
-    ./configs/terminal/zsh.nix
-    # ./configs/browsers/firefox.nix
+    ./configs
   ];
   xdg = {
     portal = {
@@ -69,7 +64,6 @@
       xdg_session_desktop = "hyprland";
       gtk_use_portal = "1";
       nixos_xdg_open_use_portal = "1";
-      EDITOR = "nvim-chad";
       SUDO_EDITOR = "nvim";
       xdg_config_home = "/home/cdockter/.config/";
     };
@@ -102,10 +96,6 @@
         init.defaultBranch = "main";
       };
       lfs.enable = true;
-    };
-    neovim = {
-      enable = true;
-      package = pkgs.neovim;
     };
   };
   xsession = {

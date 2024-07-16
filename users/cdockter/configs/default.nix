@@ -1,0 +1,8 @@
+{ ... }:
+{
+  imports = [
+    ./neovim
+    ./wayland
+    ./terminal
+  ];
+}

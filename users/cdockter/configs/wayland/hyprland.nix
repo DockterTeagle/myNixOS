@@ -109,7 +109,7 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
-        "SUPER,$mainMod,exec,$terminal"
+        "SUPER,$mainMod,exec,kitty zsh -i -c 'source ~/.config/zsh/.zshrc && winfzf'"
       ];
       bind = [
         # ",121,exec,pamixer -t"

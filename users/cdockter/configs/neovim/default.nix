@@ -6,6 +6,7 @@
       toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
     in
     {
+      package = pkgs.neovim;
       enable = true;
       defaultEditor = true;
       plugins = with pkgs.vimPlugins; [
