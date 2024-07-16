@@ -20,7 +20,7 @@
       #   common = {
       #     default = ["gtk"];
       #   };
-      # }; todo: figure out how to configure this part
+      # }; TODO: figure out how to configure this part
     };
   };
   home = {
@@ -75,8 +75,8 @@
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
-    packages = with pkgs; [
-    ];
+    # packages = with pkgs; [
+    # ];
     # home manager is pretty good at managing dotfiles. the primary way to manage
     # plain files is through 'home.file'.
     file = {

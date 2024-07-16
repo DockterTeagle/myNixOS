@@ -3,25 +3,30 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, systemSettings, ... }:
+
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./packages/GUI/misc.nix
-      ./packages/GUI/productivity.nix
-      ./packages/languages/lua.nix
-      ./packages/languages/rust.nix
-      ./packages/languages/python.nix
-      ./packages/languages/CLanguage.nix
-      ./packages/system/security.nix
-      # ./packages/system/sound.nix
-      ./packages/system/utils.nix
-      ./packages/system/wayland.nix
-      ./packages/system/wayland/hypr.nix
-      ./packages/terminal/neovim.nix
-      ./packages/terminal/zsh-and-plugins.nix
-    ];
+  # Imports
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+
+    # Packages
+    ./packages/GUI/misc.nix
+    ./packages/GUI/productivity.nix
+    ./packages/languages/CLanguage.nix
+    ./packages/languages/lua.nix
+    ./packages/languages/python.nix
+    ./packages/languages/rust.nix
+    ./packages/system/security.nix
+    ./packages/system/sound.nix
+    ./packages/system/utils.nix
+    ./packages/system/wayland.nix
+    ./packages/system/wayland/hypr.nix
+    ./packages/terminal/neovim.nix
+    ./packages/terminal/zsh-and-plugins.nix
+  ];
+
+  # Nix settings
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -29,11 +34,10 @@
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
-  # Bootloader.
-  # Use the systemd-boot EFI boot loader.
-  zramSwap.enable = true;
+
+  # Bootloader
   boot = {
-    blacklistedKernelModules = [ "snd_pcsp" ]; # consider adding module_blacklist=i915 to this to maybe disable integrated gpu
+    blacklistedKernelModules = [ "snd_pcsp" ]; # Consider adding module_blacklist=i915 to this to maybe disable integrated GPU
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -41,6 +45,11 @@
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
+
+  # ZRAM Swap
+  zramSwap.enable = true;
+
+  # XDG settings
   xdg = {
     autostart.enable = true;
     portal = {
@@ -50,31 +59,24 @@
         pkgs.xdg-desktop-portal
         pkgs.xdg-desktop-portal-gtk
       ];
-      wlr = {
-        enable = true;
-      };
+      wlr.enable = true;
     };
   };
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Networking
   networking = {
     networkmanager.enable = true;
     hostName = systemSettings.hostName;
+    # Open ports in the firewall
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether
+    # networking.firewall.enable = false;
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
 
-  # Set your time zone.
+  # Time and Locale
   time.timeZone = "America/Chicago";
-
-  # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -90,19 +92,13 @@
     };
   };
 
-
-
-
-  # Enable CUPS to print documents.
-  # services.gnome-settings-daemon.enable = true;
-
-  # Enable sound with pipewire.
+  # Hardware
   hardware = {
+    enableAllFirmware = true;
     pulseaudio = {
       enable = true;
       support32Bit = true;
     };
-    enableAllFirmware = true;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -129,13 +125,40 @@
     };
   };
 
+  # Services
   services = {
+    dbus.enable = true;
+    fwupd.enable = true;
+    gvfs.enable = true;
     libinput.enable = true;
+    onedrive.enable = true;
+    printing.enable = true;
+    thermald.enable = true;
+    tumbler.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "powersave";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "powersave";
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 20;
+        # Optional: helps save long-term battery health
+        START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
+        STOP_CHARGE_THRESH_BAT0 = 60; # 80 and above it stops charging
+      };
+    };
+
+    # XServer and GNOME
     xserver = {
       enable = true;
       xkb.layout = "us";
       xkb.variant = "";
-      # gnomeDesktop.enable = true;
       excludePackages = [ pkgs.xterm ];
       videoDrivers = [ "nvidia" ];
       displayManager.gdm = {
@@ -143,57 +166,13 @@
         wayland = true;
       };
     };
-    dbus.enable = true;
-    gvfs.enable = true;
-    tumbler.enable = true;
     gnome = {
       sushi.enable = true;
       gnome-keyring.enable = true;
     };
-    # pipewire = {
-    #   enable = true;
-    #   alsa.enable = true;
-    #   alsa.support32Bit = true;
-    #   pulse.enable = true;
-    #   # If you want to use JACK applications, uncomment this
-    #   jack.enable = true;
-    #
-    #   # use the example session manager (no others are packaged yet so this is enabled by default,
-    #   # no need to redefine it in your config for now)
-    #   #media-session.enable = true;
-    # };
-    fwupd.enable = true;
-    printing.enable = true;
-    onedrive.enable = true;
-    tlp = {
-      enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "powersave";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-        PLATFORM_PROFILE_ON_AC = "performance";
-        PLATFORM_PROFILE_ON_BAT = "powersave";
-        CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
-        CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 20;
-
-        #Optional helps save long term battery health
-        START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-        STOP_CHARGE_THRESH_BAT0 = 60; # 80 and above it stops charging
-      };
-    };
-    thermald.enable = true;
-    #what is thermald?-> it prevents overheating.
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Users
   users.users = {
     cdockter = {
       shell = pkgs.zsh;
@@ -201,14 +180,15 @@
       description = "Christopher Ryan Dockter";
       extraGroups = [ "networkmanager" "wheel" "audio" "input" ];
     };
-    base = {
-      shell = pkgs.zsh;
-      isNormalUser = true;
-      description = "if shit hits the fan";
-      extraGroups = [ "networkmanager" "wheel" ];
-    };
+    # base = {
+    #   shell = pkgs.zsh;
+    #   isNormalUser = true;
+    #   description = "if shit hits the fan";
+    #   extraGroups = [ "networkmanager" "wheel" ];
+    # };
   };
 
+  # Programs
   programs = {
     nh = {
       enable = true;
@@ -219,29 +199,23 @@
     zsh.enable = true;
     hyprland = {
       enable = true;
-      xwayland = {
-        enable = true;
-      };
+      xwayland.enable = true;
     };
     dconf.enable = true;
   };
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+
+  # System Environment
   environment = {
     systemPackages = with pkgs; [
-      #TODO: sort all of these into the respective file
+      # TODO: sort all of these into the respective file
       zulu17
-      yad
+      yad # GUI dialog tool for shell scripts
       htop
-      polkit-kde-agent
-      discord
       xclip
-      spotify
       nix-output-monitor
       pciutils
       gtk4
       wev
-      # latest.firefox-nightly-bin
       acpi
       openssl
       sbsigntool
@@ -249,18 +223,18 @@
       alsa-utils
       gnome.gnome-settings-daemon
       networkmanagerapplet
-      systemd #maybe not strictly neccessary? try removing it and see if system crashes
-      dmidecode #get sys info
-      swww #animated wallpaper daemon for wayland
-      dbus
+      systemd # maybe not strictly necessary? try removing it and see if the system crashes
+      dmidecode # get system info
+      swww # animated wallpaper daemon for Wayland
       home-manager
     ];
     # etc."machine-id".source = "/nix/persist/etc/machine-id";
   };
-  security = {
-    rtkit.enable = true;
-  };
 
+  # Security
+  security.rtkit.enable = true;
+
+  # Specialisation
   specialisation = {
     on-the-go.configuration = {
       environment.etc."specialisation".text = "on-the-go";
@@ -273,28 +247,11 @@
     };
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true
-
-  # use-xdg-base-directories = true;
+  # System Auto Upgrade
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  # NixOS Release Version
   system.stateVersion = "23.11"; # Did you read the comment?
 }
+
