@@ -8,13 +8,19 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./packages/GUI/misc.nix
+      ./packages/GUI/productivity.nix
+      ./packages/languages/lua.nix
+      ./packages/languages/rust.nix
+      ./packages/languages/python.nix
+      ./packages/languages/CLanguage.nix
+      ./packages/system/security.nix
+      ./packages/system/sound.nix
+      ./packages/system/utils.nix
       ./packages/system/wayland.nix
       ./packages/system/wayland/hypr.nix
       ./packages/terminal/neovim.nix
       ./packages/terminal/zsh-and-plugins.nix
-      ./packages/languages/lua.nix
-      ./packages/languages/python.nix
-      ./packages/languages/compilers.nix
     ];
   nix = {
     settings = {
@@ -224,72 +230,28 @@
   environment = {
     systemPackages = with pkgs; [
       #TODO: sort all of these into the respective file
-      brightnessctl
       zulu17
-      wine
-      ventoy
-      protonvpn-gui
-      manim
-      zip
       yad
       htop
-      lldb_18
-      feh
-      slurp # for screenshots
-      wl-clipboard
-      lazygit
-      zathura
-      nerdfonts
-      font-awesome
-      nix-zsh-completions
-      libgcc
-      unzip
       polkit-kde-agent
-      gnumake
-      solaar #for logitech mice
-      cmake
-      nodejs
       discord
-      fastfetch
       xclip
-      thunderbird
       spotify
-      libreoffice
       nix-output-monitor
       pciutils
       gtk4
       wev
       # latest.firefox-nightly-bin
-      firefox
-      man-db
       acpi
       openssl
       sbsigntool
-      efivar
-      efibootmgr
-      cryptsetup
       openresolv
       alsa-utils
       gnome.gnome-settings-daemon
       networkmanagerapplet
-      systemd
-      texlive.combined.scheme-full
-      vim-full
-      fwupd
-      mako
-      wget
-      dmidecode
-      rofi-wayland
-      swww
-      gitFull
-      firefox
-      cargo
-      rustc
-      rustup
-      tmux
-      kitty
-      mkpasswd
-      power-profiles-daemon
+      systemd #maybe not strictly neccessary? try removing it and see if system crashes
+      dmidecode #get sys info
+      swww #animated wallpaper daemon for wayland
       dbus
       home-manager
     ];

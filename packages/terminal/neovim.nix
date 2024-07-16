@@ -31,7 +31,7 @@
     vale
     #DAPS
     python312Packages.debugpy
-    # rocmPackages_5.llvm.lldb #FIXME: currently wont build becuase of a missing python package
     fd
+    lldb_18 #clang debugger
   ];
 }
