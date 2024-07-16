@@ -25,7 +25,7 @@
     };
   };
 
-  outputs = { self, nixos-hardware, lanzaboote, nixpkgs, ... }@inputs:
+  outputs = { self, lanzaboote, nixpkgs, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";

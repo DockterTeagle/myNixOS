@@ -23,6 +23,7 @@
     ./packages/system/wayland/hypr.nix
     ./packages/terminal/neovim.nix
     ./packages/terminal/zsh-and-plugins.nix
+    ./packages/terminal/fish.nix
   ];
 
   # Nix settings
