@@ -35,6 +35,6 @@
     wget
     curl
     zip
-    htop
+    btop
   ];
 }

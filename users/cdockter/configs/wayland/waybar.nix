@@ -95,7 +95,7 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "wlr/taskbar" "cpu" "memory" "disk" ];
+        modules-left = [ "wlr/taskbar" "cpu" "custom/gpu" "memory" "disk" ];
         modules-right = [ "tlp" "temperature" "network" "pulseaudio" "backlight" "battery" "clock" ];
         modules-center = [ "hyprland/workspaces" ];
         network = {
@@ -121,6 +121,11 @@
             default = " ";
           };
           on-click = "activate";
+        };
+        "custom/gpu" = {
+          exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
+          format = "GPU: {}%";
+          interval = 1;
         };
         cpu = {
           format = "󰻠 {usage}%";
