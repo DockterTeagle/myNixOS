@@ -220,7 +220,6 @@
       openssl
       sbsigntool
       openresolv
-      alsa-utils
       gnome.gnome-settings-daemon
       networkmanagerapplet
       systemd # maybe not strictly necessary? try removing it and see if the system crashes
