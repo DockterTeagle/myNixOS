@@ -9,7 +9,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
     # Packages
     ./packages/GUI/misc.nix
     ./packages/GUI/productivity.nix
