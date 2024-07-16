@@ -33,7 +33,6 @@
     upower
     gtkmm3
     dbus
-    power-profiles-daemon
     mako #notification manager
     rofi-wayland
   ];

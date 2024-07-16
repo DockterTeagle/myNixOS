@@ -10,20 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Packages
-    ./packages/GUI/misc.nix
-    ./packages/GUI/productivity.nix
-    ./packages/languages/CLanguage.nix
-    ./packages/languages/lua.nix
-    ./packages/languages/python.nix
-    ./packages/languages/rust.nix
-    ./packages/system/security.nix
-    ./packages/system/sound.nix
-    ./packages/system/utils.nix
-    ./packages/system/wayland.nix
-    ./packages/system/wayland/hypr.nix
-    ./packages/terminal/neovim.nix
-    ./packages/terminal/zsh-and-plugins.nix
-    ./packages/terminal/fish.nix
+    ./packages
   ];
 
   # Nix settings
