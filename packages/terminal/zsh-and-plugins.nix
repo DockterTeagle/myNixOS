@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  fonts.fontconfig.enable = true;
+  fonts.fonts = with pkgs;[
+    nerdfonts
+    font-awesome
+  ];
   environment.systemPackages = with pkgs; [
     zsh
     eza
@@ -14,8 +19,6 @@
     thefuck
     lazygit
     zathura
-    nerdfonts
-    font-awesome
     slurp # for screenshots
     wl-clipboard
     texlive.combined.scheme-full

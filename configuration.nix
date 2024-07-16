@@ -15,7 +15,7 @@
       ./packages/languages/python.nix
       ./packages/languages/CLanguage.nix
       ./packages/system/security.nix
-      ./packages/system/sound.nix
+      # ./packages/system/sound.nix
       ./packages/system/utils.nix
       ./packages/system/wayland.nix
       ./packages/system/wayland/hypr.nix
