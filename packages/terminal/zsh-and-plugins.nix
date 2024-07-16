@@ -6,6 +6,7 @@
     font-awesome
   ];
   environment.systemPackages = with pkgs; [
+    lsof
     zsh
     eza
     oh-my-zsh

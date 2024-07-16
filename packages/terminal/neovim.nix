@@ -6,7 +6,7 @@
     #LSPS For Neovim
     lua-language-server
     nil
-    # rocmPackages.llvm.clang-tools-extra # also includes clang-tidy FIXME: Currnetly fails to build
+    rocmPackages.llvm.clang-tools-extra
     pyright
     texlab
     vim-language-server
@@ -25,7 +25,7 @@
     python312Packages.black
     cmake-format
     #Linters
-    # cpplint FIXME: currently has a bug where it is misspeled even tho this is not found on the gh
+    # cpplint #FIXME: currently has a bug where it is misspeled even tho this is not found on the gh
     python312Packages.mypy
     ruff
     vale
