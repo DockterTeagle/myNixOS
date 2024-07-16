@@ -12,6 +12,11 @@
         background: transparent;
       }
 
+      #wlr-desktop {
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:1px;
+      }
       #workspaces {
         background-color: transparent;
         color: #0d74bd;
@@ -21,23 +26,14 @@
         padding-left: 10px;
         padding-right: 10px;
       }
-
-      #custom-nix {
-        background-color: transparent;
-        color: #0a60ab;
-        margin-top: 15px;
-        margin-right: 15px;
-        padding-top: 1px;
+      
+      #custom-gpu  {
         padding-left: 10px;
         padding-right: 10px;
+        padding-top: 1px;
+        color: #82aaff;
       }
-
-      #custom-nix {
-        font-size: 20px;
-        margin-left: 15px;
-        color: #0a60ab;
-      }
-
+      
       #workspaces button {
         background: transparent;
         color: #0d74bd;
@@ -96,7 +92,7 @@
           "HDMI-A-1"
         ];
         modules-left = [ "wlr/taskbar" "cpu" "custom/gpu" "memory" "disk" ];
-        modules-right = [ "tlp" "temperature" "network" "pulseaudio" "backlight" "battery" "clock" ];
+        modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" ];
         modules-center = [ "hyprland/workspaces" ];
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
@@ -125,6 +121,7 @@
         "custom/gpu" = {
           exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
           format = "GPU: {}%";
+          all-outputs = true;
           interval = 1;
         };
         cpu = {

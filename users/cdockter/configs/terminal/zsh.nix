@@ -48,19 +48,18 @@
 
           local combined_list
           combined_list=$(printf "%s\n" "''${(k)items[@]}" | tr ''' '\n' | grep -v '^$')
-          combined_list+="\n$(fd --type f --max-depth 3 --exclude '*.git*')"
+          combined_list+="\n$(fd --type f --max-depth 10 --exclude '*.git*')"
           # Get list of programs in PATH, escaping special characters
           #using fd this time
           local files
-          files=$(fd --type f --max-depth 3 --exclude '*.git*' . | xargs -I {} basename {})
+          files=$(fd --type f --max-depth 10 --exclude '*.git*' . | xargs -I {} basename {})
           
-          #add to the programs variable
 
           local all_items 
           all_items=$(echo -e "$combined_list" | fd --type f --max-depth 3 --exclude '*.git*' . -H {} | xargs -I {} basename {})
           # Combine items and programs into a single list
           local all_items
-          all_items=$(printf "%s\n" "$programs")
+          all_items=$(printf "%s\n" "$combined_list")
 
           # Run fzf on the combined list
           local selected

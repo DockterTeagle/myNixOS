@@ -10,6 +10,7 @@
     eza
     oh-my-zsh
     zsh-syntax-highlighting
+    grimblast
     nix-zsh-completions
     libgcc
     unzip

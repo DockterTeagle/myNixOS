@@ -7,5 +7,6 @@
     hyprpicker
     hypridle
     hyprlock
+    wf-recorder
   ];
 }
