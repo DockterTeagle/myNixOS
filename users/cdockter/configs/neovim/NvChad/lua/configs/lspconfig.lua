@@ -30,3 +30,20 @@ lspconfig.nil_ls.setup({
 		},
 	},
 })
+lspconfig.texlab.setup({
+	settings = {
+		texlab = {
+			build = {
+				useFileList = true,
+			},
+			chktex = {
+				onOpenAndSave = true,
+				onEdit = true,
+			},
+			latexFormatter = "latexindent",
+			experimental = {
+				followPackageLinks = true,
+			},
+		},
+	},
+})

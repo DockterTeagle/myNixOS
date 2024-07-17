@@ -176,17 +176,17 @@
 
 
   # Specialisation
-  specialisation = {
-    on-the-go.configuration = {
-      environment.etc."specialisation".text = "on-the-go";
-      system.nixos.tags = [ "on-the-go" ];
-      hardware.nvidia = {
-        prime.offload.enable = lib.mkForce true;
-        prime.offload.enableOffloadCmd = lib.mkForce true;
-        prime.sync.enable = lib.mkForce false;
-      };
-    };
-  };
+  # specialisation = {
+  #   on-the-go.configuration = {
+  #     environment.etc."specialisation".text = "on-the-go";
+  #     system.nixos.tags = [ "on-the-go" ];
+  #     hardware.nvidia = {
+  #       prime.offload.enable = lib.mkForce true;
+  #       prime.offload.enableOffloadCmd = lib.mkForce true;
+  #       prime.sync.enable = lib.mkForce false;
+  #     };
+  #   };
+  # };
 
   # System Auto Upgrade
   system.autoUpgrade.enable = true;

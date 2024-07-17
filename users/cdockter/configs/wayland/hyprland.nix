@@ -1,13 +1,13 @@
 { inputs, pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    # plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-    #   hyprbars
-    #   hyprexpo
-    #   borders-plus-plus
-    #   hyprtrails
-    #   hyprwinwrap
-    # ];
+    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+      # hyprbars
+      # hyprexpo
+      # borders-plus-plus
+      # hyprtrails
+      # hyprwinwrap
+    ];
     enable = true;
     settings = {
       input = {
@@ -102,6 +102,12 @@
       ];
       bindr = [
         "SUPER,$mainMod,exec,kitty zsh -i -c 'source ~/.config/zsh/.zshrc && winfzf'"
+      ];
+      workspace = [
+        "name:Name1,monitor:eDP-1"
+        "name:Name2,monitor:HDMI-A-1"
+        "name:Name3,monitor:eDP-1"
+        "name:name4,monitor:HDMI-A-1"
       ];
       bind = [
         # ",121,exec,pamixer -t"

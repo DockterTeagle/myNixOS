@@ -33,5 +33,6 @@
     python312Packages.debugpy
     fd
     lldb_18 #clang debugger
+    bibtex-tidy
   ];
 }
