@@ -811,6 +811,22 @@
         "type": "github"
       }
     },
+    "project-mgr": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1693084167,
+        "narHash": "sha256-/H3rX8EjwCEM4/mtvzLqa0+LzMYTnE+il7R639/BJx4=",
+        "owner": "charludo",
+        "repo": "projectmgr.nvim",
+        "rev": "2d29b21b5afefa7a1690854c56db9b43195d9a10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "charludo",
+        "repo": "projectmgr.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -821,7 +837,9 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-mozilla": "nixpkgs-mozilla",
-        "nixpkgs-wayland": "nixpkgs-wayland"
+        "nixpkgs-wayland": "nixpkgs-wayland",
+        "project-mgr": "project-mgr",
+        "telescope-bibtex": "telescope-bibtex"
       }
     },
     "rust-overlay": {
@@ -891,6 +909,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "telescope-bibtex": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711625265,
+        "narHash": "sha256-xaGTJ69mknIn1esXw2maU03GnX85ficqXLD+ykkyi90=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-bibtex.nvim",
+        "rev": "289a6f86ebec06e8ae1590533b732b9981d84900",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-bibtex.nvim",
         "type": "github"
       }
     },

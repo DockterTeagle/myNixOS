@@ -1,3 +1,4 @@
+#TODO: add the following packages to this flake, dynamically: project-mgr telescope-bibtex telescope-dapzz-nvim tiny-inline-diagnostics nui-components peek-nvim
 {
   description = "my main flake";
 
@@ -22,6 +23,14 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    project-mgr = {
+      url = "github:charludo/projectmgr.nvim";
+      flake = false;
+    };
+    telescope-bibtex = {
+      url = "github:nvim-telescope/telescope-bibtex.nvim";
+      flake = false;
     };
   };
 

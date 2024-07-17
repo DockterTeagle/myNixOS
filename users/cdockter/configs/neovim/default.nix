@@ -51,7 +51,6 @@
             neo-tree-nvim
             noice-nvim
             nui-nvim
-            #nui-components
             nvim-autopairs
             nvim-cmp
             nvim-colorizer-lua
@@ -70,21 +69,16 @@
             oil-nvim
             outline-nvim
             overseer-nvim
-            # peek-nvim
             plenary-nvim
             presence-nvim
-            #project-mgr
             refactoring-nvim
             rust-vim
             rustaceanvim
-            #telescope-bibtex
             telescope-dap-nvim
-            #telescope-dapzz-nvim
             telescope-file-browser-nvim
             telescope-fzf-native-nvim
             telescope-undo-nvim
             telescope-nvim
-            #tiny-inline-diagnostics
             todo-comments-nvim
             trouble-nvim
             nvchad-ui
