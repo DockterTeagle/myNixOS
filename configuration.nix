@@ -23,10 +23,6 @@
   # Bootloader
   boot = {
     blacklistedKernelModules = [ "snd_pcsp" ]; # Consider adding module_blacklist=i915 to this to maybe disable integrated GPU
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
@@ -178,8 +174,6 @@
     # etc."machine-id".source = "/nix/persist/etc/machine-id";
   };
 
-  # Security
-  security.rtkit.enable = true;
 
   # Specialisation
   specialisation = {

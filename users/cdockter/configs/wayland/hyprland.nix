@@ -1,8 +1,8 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     # plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-    #   # hyprbars
+    #   hyprbars
     #   hyprexpo
     #   borders-plus-plus
     #   hyprtrails
@@ -13,8 +13,8 @@
       input = {
         monitor = [
           "eDP-1, 1920x1080 , 0x0, 1"
-          "HDMI-A-1, 3840x2160, 1920x0, 1.50" #FIXME: on the MSI GE75 Raider this connects randomly
-          # ",preferred,auto,1"
+          "HDMI-A-1, 3840x2160, 1920x0, 1.50"
+          ",preferred,auto,1"
         ];
         kb_layout = "us";
         kb_variant = "";
@@ -69,11 +69,6 @@
         pseudotile = "yes";
         preserve_split = "yes";
       };
-
-      # master = {
-      #   new_is_master = "true";
-      # };
-
       gestures = {
         workspace_swipe = "off";
       };
@@ -94,13 +89,10 @@
 
       env = [
         "HYPRCURSOR_SIZE,24"
-        # "GBM_BACKEND,nvidia-drm"
-        # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "XDG_SESSION_TYPE,wayland"
-        "WLR_NO_HARDWARE_CURSORS,1"
-        "LIBVA_DRIVER_NAME,nvidia"
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
-        "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+        "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME=nvidia"
+        "LIBVA_DRIVER_NAME,nvidia"
       ];
 
       bindm = [
@@ -148,7 +140,7 @@
         "$mainMod,s,movetoworkspace,special:magic"
         "$mainMod,s,togglespecialworkspace,magic"
       ];
-      windowrulev2 = [ "suppressevent maximize, class:.*" ];
+      # windowrulev2 = [ "suppressevent maximize, class:.*" ];
     };
   };
 }

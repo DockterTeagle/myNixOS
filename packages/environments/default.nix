@@ -7,16 +7,14 @@
 }:
 {
   imports = [
-    (import
-      ./hyprland/default.nix
-      { inherit inputs pkgs conf lib; })
-    # (
-    #   if mainUserSettings.wm == "Hyprland"
-    #   then (import ./hyprland/default.nix { inherit inputs pkgs conf lib; })
-    #   else if mainUserSettings.wm == "sway"
-    #   then (import ./sway/default.nix { inherit inputs pkgs conf lib; })
-    #   else [ ]
-    # )
+    (
+      if mainUserSettings.wm == "hyprland"
+      then (import ./hyprland/default.nix { inherit inputs pkgs conf lib; })
+      # else if mainUserSettings.wm == "sway"
+      # then (import ./sway/default.nix { inherit inputs pkgs conf lib; })
+      else
+        (import ./sway/default.nix { inherit inputs pkgs conf lib; })
+    )
   ];
   environment = {
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";

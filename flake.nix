@@ -65,7 +65,7 @@
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit pkgs systemSettings home-manager;
+          inherit pkgs systemSettings home-manager mainUserSettings;
         };
         modules = [
           # This is not a complete NixOS configuration and you need to reference
