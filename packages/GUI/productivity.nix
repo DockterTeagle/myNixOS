@@ -4,5 +4,6 @@
     solaar #for logitech mice
     libreoffice
     thunderbird
+    zoom-us
   ];
 }
