@@ -1,8 +1,9 @@
 { ... }:
 {
   imports = [
-    ./utils.nix
-    ./wayland.nix
-    ./wayland
+    ./bootloader
+    ./shell
+    # ./virtualization
+    ./zram
   ];
 }

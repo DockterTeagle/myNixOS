@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./hypr.nix
+    ./packages/misc.nix
   ];
 }

@@ -1,4 +1,7 @@
-{ ... }: {
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+  ];
   services = {
     tlp = {
       enable = true;

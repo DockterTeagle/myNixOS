@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   environment.systemPackages = with pkgs;[
     polkit_gnome
@@ -11,15 +12,11 @@
     wlr-randr
     ydotool
     wl-clipboard
-    swayidle
-    swaylock
     wofi
     swww
     grim
     xdg-utils
     lshw
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
     qt5.qtwayland
     qt6.qmake
     qt6.qtwayland

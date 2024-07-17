@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, systemSettings, ... }:
+{ config, pkgs, lib, systemSettings, mainUserSettings, inputs, ... }:
 
 {
   # Imports
@@ -10,15 +10,13 @@
     # Include the results of the hardware scan.
     ./MSI-hardware-configuration.nix
     # Packages
-    ./packages
+    (import ./packages { inherit mainUserSettings inputs pkgs lib config systemSettings; })
   ];
 
   # Nix settings
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
 
@@ -33,8 +31,6 @@
     kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
 
-  # ZRAM Swap
-  zramSwap.enable = true;
 
   # XDG settings
   xdg = {

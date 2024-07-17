@@ -2,10 +2,12 @@
 {
   imports = [
     ./GUI
+    ./environments
     ./hardware
-    ./languages
+    # ./network #This module is scary
     ./security
     ./system
-    ./terminal
+    ./tools/neovim.nix
+    ./yetToBeCategorized
   ];
 }
