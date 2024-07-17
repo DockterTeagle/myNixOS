@@ -25,7 +25,7 @@
     };
   };
 
-  outputs = { self, lanzaboote, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -43,6 +43,8 @@
         term = "kitty";
         editor = "nvim";
         font = "JetBrains Mono Nerd Font";
+        home-directory = "/home/cdockter";
+        theme = "Tokyo Night";
         home-manager = inputs.home-manager;
       };
       pkgs = import inputs.nixpkgs {
@@ -68,7 +70,7 @@
           # This is not a complete NixOS configuration and you need to reference
           # your normal configuration here.
           ./configuration.nix
-          lanzaboote.nixosModules.lanzaboote
+          inputs.lanzaboote.nixosModules.lanzaboote
 
           ({ pkgs, lib, ... }: {
 

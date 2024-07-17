@@ -3,21 +3,6 @@
   imports = [
     ./configs
   ];
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal-wlr
-        pkgs.xdg-desktop-portal-gtk
-      ];
-      # config = {
-      #   common = {
-      #     default = ["gtk"];
-      #   };
-      # }; TODO: figure out how to configure this part
-    };
-  };
   home = {
     # this value determines the home manager release that your configuration is
     # compatible with. this helps avoid breakage when a new home manager release
@@ -29,7 +14,7 @@
     stateVersion = "23.11";
     # home manager needs a bit of information about you and the paths it should
     # manage.
-    homeDirectory = "/home/cdockter/";
+    homeDirectory = mainUserSettings.home-directory;
     username = mainUserSettings.username;
     # home manager can also manage your environment variables through
     # 'home.sessionvariables'. if you don't want to manage your shell through home
@@ -46,27 +31,7 @@
     #
     #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
     #
-    sessionVariables = {
-      polkit_auth_agent = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      gsettings_schema_dir = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
-      libva_driver_name = "nvidia";
-      xdg_session_type = "wayland";
-      gbm_backend = "nvidia-drm";
-      __glx_vendor_library_name = "nvidia";
-      wlr_no_hardware_cursors = "1";
-      nixos_ozone_wl = "1";
-      moz_enable_wayland = "1";
-      sdl_videodriver = "wayland";
-      _java_awt_wm_nonreparenting = "1";
-      clutter_backend = "wayland";
-      wlr_renderer = "vulkan";
-      xdg_current_desktop = "hyprland";
-      xdg_session_desktop = "hyprland";
-      gtk_use_portal = "1";
-      nixos_xdg_open_use_portal = "1";
-      SUDO_EDITOR = "nvim";
-      xdg_config_home = "/home/cdockter/.config/";
-    };
+    sessionVariables = { };
     # the home.packages option allows you to install nix packages into your
     # environment.
     # home manager is pretty good at managing dotfiles. the primary way to manage
@@ -91,7 +56,7 @@
     git = {
       enable = true;
       userName = "Dr.Teagle";
-      userEmail = "chrisdockter@proton.me";
+      userEmail = mainUserSettings.email;
       extraConfig = {
         init.defaultBranch = "main";
       };
@@ -100,6 +65,6 @@
   };
   xsession = {
     enable = true;
-    windowManager.command = "hyprland";
+    windowManager.command = mainUserSettings.wm;
   };
 }

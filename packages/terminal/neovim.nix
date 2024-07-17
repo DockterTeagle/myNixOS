@@ -13,7 +13,7 @@
     marksman
     cmake-language-server
     nodePackages_latest.bash-language-server
-    deno
+    # deno
     emacsPackages.lsp-julia
     #Formatters
     stylua

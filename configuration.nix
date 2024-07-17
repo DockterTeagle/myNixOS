@@ -42,9 +42,7 @@
     portal = {
       enable = true;
       extraPortals = lib.mkDefault [
-        pkgs.xdg-desktop-portal-wlr
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-hyprland
       ];
       wlr.enable = true;
     };
@@ -82,10 +80,6 @@
   # Hardware
   hardware = {
     enableAllFirmware = true;
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-    };
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -120,26 +114,7 @@
     libinput.enable = true;
     onedrive.enable = true;
     printing.enable = true;
-    thermald.enable = true;
     tumbler.enable = true;
-    tlp = {
-      enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "powersave";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-        PLATFORM_PROFILE_ON_AC = "performance";
-        PLATFORM_PROFILE_ON_BAT = "powersave";
-        CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
-        CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 20;
-        # Optional: helps save long-term battery health
-        START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
-        STOP_CHARGE_THRESH_BAT0 = 60; # 80 and above it stops charging
-      };
-    };
 
     # XServer and GNOME
     xserver = {
@@ -153,10 +128,6 @@
         wayland = true;
       };
     };
-    gnome = {
-      sushi.enable = true;
-      gnome-keyring.enable = true;
-    };
   };
 
   # Users
@@ -167,12 +138,6 @@
       description = "Christopher Ryan Dockter";
       extraGroups = [ "networkmanager" "wheel" "audio" "input" ];
     };
-    # base = {
-    #   shell = pkgs.zsh;
-    #   isNormalUser = true;
-    #   description = "if shit hits the fan";
-    #   extraGroups = [ "networkmanager" "wheel" ];
-    # };
   };
 
   # Programs

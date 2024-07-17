@@ -5,6 +5,7 @@
       nvim-lazy = "NVIM_APPNAME=LazyVim nvim";
       nvim-kick = "NVIM_APPNAME=kickstart nvim";
       nvim-chad = "NVIM_APPNAME=NvChad nvim";
+      nvim-chadpython = "NVIM_APPNAME=nvchad-python nvim";
       nvim-astro = "NVIM_APPNAME=AstroNvim nvim";
 
       ls = "eza";
@@ -25,22 +26,22 @@
       dotDir = ".config/zsh";
       syntaxHighlighting.enable = true;
       initExtra = ''
-                          function nvims() {
-                            items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
-                            config=$(printf "%s\\n" "''${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-                            if [[ -z $config ]]; then
-                              echo "Nothing selected"
-                              return 0
-                              elif [[ $config == "default" ]]; then
-                              config=""
-                            fi
-                            NVIM_APPNAME=$config nvim $@
-                          }
-                          bindkey -s ^a "nvims\\n"
-                          zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
-                          zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
-                          zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
-                          zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+        function nvims() {
+          items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
+          config=$(printf "%s\\n" "''${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+          if [[ -z $config ]]; then
+            echo "Nothing selected"
+            return 0
+            elif [[ $config == "default" ]]; then
+            config=""
+          fi
+          NVIM_APPNAME=$config nvim $@
+        }
+        bindkey -s ^a "nvims\\n"
+        zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+        zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+        zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+        zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
         function winfzf() {
           # Use fd to list relevant files and directories in the home directory and below
           local files
@@ -74,8 +75,6 @@
             echo "Nothing selected"
           fi
         }
-
-
       '';
       oh-my-zsh = {
         enable = true;
