@@ -60,7 +60,21 @@
         };
       };
       home-manager = inputs.home-manager;
-      # firefox-nightly = pkgs.firefoxPackages.nightly;
+      neovimPluginrepos = [
+        { name = "nvchad"; url = "https://github.com/NvChad/NvChad"; }
+      ];
+      fetchPlugin = name: repo:
+        let
+          githubUser = builtins.substring repo.url 8 (builtins.stringLength repo.url - builtins.stringLength (builtins.substring repo.url (builtins.stringLength repo.url - 1) (builtins.stringLength repo.url)));
+          repoName = builtins.substring repo.url (builtins.stringLength repo.url - builtins.stringLength (builtins.substring repo.url (builtins.stringLength repo.url - 1) (builtins.stringLength repo.url))) (builtins.stringLength repo.url);
+        in
+        pkgs.fetchFromGithub {
+          owner = githubUser;
+          repo = repoName;
+          rev = repo.rev or "main";
+        };
+
+      fetchNeovimPlugins = builtins.mapAttrs (name: repo: fetchPlugin name repo) neovimPluginrepos;
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

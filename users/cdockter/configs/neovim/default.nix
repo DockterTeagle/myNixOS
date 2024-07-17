@@ -29,7 +29,7 @@
       extraLuaConfig =
         let
           plugins = with pkgs.vimPlugins;[
-            # { name = "luasnip"; plugin = luasnip; config = toLuaFile ./NvChad/lua/plugins/luasnip.lua; }
+            luasnip
             tokyonight-nvim
             nvchad
             base46
@@ -103,64 +103,41 @@
               { name = lib.getName drv; path = drv; }
             else
               { name = "plugin"; path = drv; };
-          pluginEntries = builtins.map mkEntryFromDrv plugins;
-          lazyPath = pkgs.linkFarm "lazy-plugins" pluginEntries;
+          lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
           base46Path = getPluginPath pkgs.vimPlugins.base46;
+          nvchadpath = getPluginPath pkgs.vimPlugins.nvchad;
         in
         ''
           vim.g.base46_cache = "${base46Path}" 
           vim.g.mapleader = " "
-
-          -- bootstrap lazy and all plugins
-
-          local lazy_config = require("configs.lazy")
-          local overrides = require("configs.overrides")
-          -- load theme
-          dofile(vim.g.base46_cache .. "defaults")
-          dofile(vim.g.base46_cache .. "statusline")
-
-          require("nvchad.autocmds")
-
+          vim.o.runtimepath = '${lazyPath},' .. vim.o.runtimepath
           vim.schedule(function()
           	require("mappings")
           end)
-          require("NUIComponentsProjects.spectreImprovement")
-                    vim.g.mapleader = " "
 
                     -- bootstrap lazy and all plugins
+          require("lazy").setup({
+            defaults = {
+              lazy = true,
+            },
+            dev = {
+              path = "${lazyPath}",
+              patterns = {"."},
+              fallback = true,
+            },
+            -- import/override with your plugins
+            { import = "plugins" },
+            -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
+            { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
+            })
 
-
-                              require("lazy").setup({
-                                defaults = {
-                                  lazy = true,
-                                },
-                                dev = {
-                                  path = "${lazyPath}",
-                                  patterns = {"."},
-                                  fallback = true,
-                                },
-                                -- import/override with your plugins
-                                { import = "plugins" },
-                                -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
-                                { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
-                                })
-
-                    local lazy_config = require("configs.lazy")
-                    local overrides = require("configs.overrides")
                     -- load theme
-                    dofile(vim.g.base46_cache .. "defaults")
-                    dofile(vim.g.base46_cache .. "statusline")
 
-                    require("nvchad.autocmds")
 
                     vim.schedule(function()
                     	require("mappings")
                     end)
                     require("NUIComponentsProjects.spectreImprovement")
-                              vim.g.mapleader = ' '
-                              -- add yours here
-
-
         '';
     };
   xdg.configFile."nvim-parser".source =
@@ -177,3 +154,6 @@
 
   xdg.configFile."nvim/lua".source = ./NvChad/lua;
 }
+# require("NUIComponentsProjects.spectreImprovement")
+# dofile(vim.g.base46_cache .. "defaults")
+# dofile(vim.g.base46_cache .. "statusline")
