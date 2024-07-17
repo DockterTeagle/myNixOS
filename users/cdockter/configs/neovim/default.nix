@@ -1,14 +1,5 @@
 { pkgs, lib, ... }:
-#TODO: add all the neovim plugins here
-#non-available Plugins are:
 #
-#available plugins and their names are:
-#NvChad:nvchad
-#LuaSnip:LuaSnip
-#base46:base46
-#cmp-buffer:cmp-buffer
-#cmp-nvim-lsp
-#cmp-nvim-lua
 
 {
   programs.neovim =
@@ -46,11 +37,11 @@
             lazydev-nvim
             lazygit-nvim
             leap-nvim
-            # luavit
             markdown-preview-nvim
             neo-tree-nvim
             noice-nvim
             nui-nvim
+            nui-components-nvim
             nvim-autopairs
             nvim-cmp
             nvim-colorizer-lua
@@ -71,14 +62,17 @@
             overseer-nvim
             plenary-nvim
             presence-nvim
+            projectmgr-nvim
             refactoring-nvim
             rust-vim
             rustaceanvim
+            telescope-bibtex-nvim
             telescope-dap-nvim
             telescope-file-browser-nvim
             telescope-fzf-native-nvim
             telescope-undo-nvim
             telescope-nvim
+            tiny-inline-diagnostic-nvim
             todo-comments-nvim
             trouble-nvim
             nvchad-ui

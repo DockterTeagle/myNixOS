@@ -1,4 +1,3 @@
-#TODO: add the following packages to this flake, dynamically: project-mgr telescope-bibtex telescope-dapzz-nvim tiny-inline-diagnostics nui-components peek-nvim
 {
   description = "my main flake";
 
@@ -24,14 +23,23 @@
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    project-mgr = {
+    projectmgr-nvim = {
       url = "github:charludo/projectmgr.nvim";
       flake = false;
     };
-    telescope-bibtex = {
+    telescope-bibtex-nvim = {
       url = "github:nvim-telescope/telescope-bibtex.nvim";
       flake = false;
     };
+    tiny-inline-diagnostic-nvim = {
+      url = "github:rachartier/tiny-inline-diagnostic.nvim";
+      flake = false;
+    };
+    nui-components-nvim = {
+      url = "github:grapp-dev/nui-components.nvim";
+      flake = false;
+    };
+
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -63,27 +71,45 @@
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
+          (final: prev: {
+            vimPlugins = prev.vimPlugins // {
+              projectmgr-nvim = prev.vimUtils.buildVimPlugin {
+                pname = "projectmgr-nvim";
+                version = "latest";
+                src = inputs.projectmgr-nvim;
+                meta.homepage = "https://github.com/charludo/projectmgr.nvim";
+                meta.description = "Quickly switch between projects and automate startup tasks.";
+              };
+              telescope-bibtex-nvim = prev.vimUtils.buildVimPlugin {
+                pname = "telescope-bibtex-nvim";
+                version = "latest";
+                src = inputs.telescope-bibtex-nvim;
+                meta.homepage = "https://github.com/nvim-telescope/telescope-bibtex.nvim";
+                meta.description = "A telescope.nvim extension to search and paste bibtex entries into your TeX files. ";
+              };
+              tiny-inline-diagnostic-nvim = prev.vimUtils.buildVimPlugin {
+                pname = "tiny-inline-diagnostic-nvim";
+                version = "latest";
+                src = inputs.tiny-inline-diagnostic-nvim;
+                meta.homepage = "https://github.com/rachartier/tiny-inline-diagnostic.nvim";
+                meta.description = "A Neovim plugin that display prettier diagnostic messages. Display one line diagnostic messages where the cursor is, with icons and colors. ";
+              };
+              nui-components-nvim = prev.vimUtils.buildVimPlugin {
+                pname = "nui-components-nvim";
+                version = "latest";
+                src = inputs.nui-components-nvim;
+                meta.homepage = "https://nui-components.grapp.dev/";
+                meta.description = "A feature-rich and highly customizable library for creating user interfaces in Neovim. ";
+              };
+            };
+
+          })
         ];
         config = {
           allowUnfree = true;
         };
       };
       home-manager = inputs.home-manager;
-      neovimPluginrepos = [
-        { name = "nvchad"; url = "https://github.com/NvChad/NvChad"; }
-      ];
-      fetchPlugin = name: repo:
-        let
-          githubUser = builtins.substring repo.url 8 (builtins.stringLength repo.url - builtins.stringLength (builtins.substring repo.url (builtins.stringLength repo.url - 1) (builtins.stringLength repo.url)));
-          repoName = builtins.substring repo.url (builtins.stringLength repo.url - builtins.stringLength (builtins.substring repo.url (builtins.stringLength repo.url - 1) (builtins.stringLength repo.url))) (builtins.stringLength repo.url);
-        in
-        pkgs.fetchFromGithub {
-          owner = githubUser;
-          repo = repoName;
-          rev = repo.rev or "main";
-        };
-
-      fetchNeovimPlugins = builtins.mapAttrs (name: repo: fetchPlugin name repo) neovimPluginrepos;
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

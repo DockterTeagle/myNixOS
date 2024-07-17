@@ -358,11 +358,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1721160190,
-        "narHash": "sha256-LeG6qZp+b1G8xnbdGZ8y4QuJ4DNOEdzlOy4s97/mUyw=",
+        "lastModified": 1721248202,
+        "narHash": "sha256-bcr7L30L6Gg28CuVaG1e3GAqD3riy8SScQVKxLep6Rg=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "293e687389a19b369f312c5c335c9afe7c886be1",
+        "rev": "300228b503b36e5977b0d58713c5b4cf1f07b8a9",
         "type": "github"
       },
       "original": {
@@ -784,6 +784,22 @@
         "type": "github"
       }
     },
+    "nui-components-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715445364,
+        "narHash": "sha256-knJC3zhNy7H7NpQ7olBAqJzSk/b3uWXBFE+6XCqY840=",
+        "owner": "grapp-dev",
+        "repo": "nui-components.nvim",
+        "rev": "caecfe2089e5ffbe99c2b0e0468da91990263a90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "grapp-dev",
+        "repo": "nui-components.nvim",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -811,7 +827,7 @@
         "type": "github"
       }
     },
-    "project-mgr": {
+    "projectmgr-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1693084167,
@@ -838,8 +854,10 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-mozilla": "nixpkgs-mozilla",
         "nixpkgs-wayland": "nixpkgs-wayland",
-        "project-mgr": "project-mgr",
-        "telescope-bibtex": "telescope-bibtex"
+        "nui-components-nvim": "nui-components-nvim",
+        "projectmgr-nvim": "projectmgr-nvim",
+        "telescope-bibtex-nvim": "telescope-bibtex-nvim",
+        "tiny-inline-diagnostic-nvim": "tiny-inline-diagnostic-nvim"
       }
     },
     "rust-overlay": {
@@ -912,7 +930,7 @@
         "type": "github"
       }
     },
-    "telescope-bibtex": {
+    "telescope-bibtex-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1711625265,
@@ -925,6 +943,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-bibtex.nvim",
+        "type": "github"
+      }
+    },
+    "tiny-inline-diagnostic-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721117900,
+        "narHash": "sha256-DGckX6FPuNnEV+1fpf6x1A3IJZiGI5Emly2O7LApoe8=",
+        "owner": "rachartier",
+        "repo": "tiny-inline-diagnostic.nvim",
+        "rev": "a54b84384e208fb5eb83b14e25bb631179ac229e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rachartier",
+        "repo": "tiny-inline-diagnostic.nvim",
         "type": "github"
       }
     },
