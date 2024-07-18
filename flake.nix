@@ -64,6 +64,7 @@
         theme = "Tokyo Night";
         boot-loader = "lanzaboote";
         home-manager = inputs.home-manager;
+        ohMyPoshConfigPath = "${self}/users/cdockter/configs/terminal/oh-my-posh.json";
       };
       pkgs = import inputs.nixpkgs {
         system = systemSettings.system;
@@ -117,11 +118,8 @@
           inherit pkgs systemSettings home-manager mainUserSettings;
         };
         modules = [
-          # This is not a complete NixOS configuration and you need to reference
-          # your normal configuration here.
           ./configuration.nix
           inputs.lanzaboote.nixosModules.lanzaboote
-
         ];
       };
       homeConfigurations = {

@@ -13,6 +13,7 @@
     marksman
     cmake-language-server
     nodePackages_latest.bash-language-server
+    nixd
     # deno
     emacsPackages.lsp-julia
     #Formatters

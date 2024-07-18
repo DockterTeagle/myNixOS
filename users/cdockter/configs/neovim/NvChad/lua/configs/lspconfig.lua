@@ -9,11 +9,14 @@ local lspconfig = require("lspconfig")
 require("noice").setup()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-local servers = { "clangd", "pyright", "texlab", "marksman", "cmake", "bashls", "denols", "vimls", "julials", "nil_ls" }
+local on_init = require("nvchad.configs.lspconfig").on_init()
+local servers =
+	{ "clangd", "pyright", "texlab", "marksman", "cmake", "bashls", "denols", "vimls", "julials", "nil_ls", "nixd" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+		on_init = on_init,
 	})
 end
 lspconfig.nil_ls.setup({
@@ -43,6 +46,27 @@ lspconfig.texlab.setup({
 			latexFormatter = "latexindent",
 			experimental = {
 				followPackageLinks = true,
+			},
+		},
+	},
+})
+lspconfig.nixd.setup({
+	cmd = { "nixd" },
+	settings = {
+		nixd = {
+			nixpkgs = {
+				expr = 'import (builtins.getFlake "/home/lyc/workspace/CS/OS/NixOS/flakes").inputs.nixpkgs { }',
+			},
+			formatting = {
+				command = { "nixpkgs-fmt" },
+			},
+			options = {
+				nixos = {
+					expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.nixos.options',
+				},
+				home_manager = {
+					expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations."cdockter".options',
+				},
 			},
 		},
 	},
