@@ -9,6 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./MSI-hardware-configuration.nix
+    # ./packages/hardware/GPU/gpu-config.nix TODO: make this part work, that is get the GPU bus ID dynamically instead of having to hardcode it
     # Packages
     (import ./packages { inherit mainUserSettings inputs pkgs lib config systemSettings; })
   ];
@@ -169,6 +170,7 @@
       systemd # maybe not strictly necessary? try removing it and see if the system crashes
       dmidecode # get system info
       swww # animated wallpaper daemon for Wayland
+      hwinfo
       home-manager
     ];
     # etc."machine-id".source = "/nix/persist/etc/machine-id";
