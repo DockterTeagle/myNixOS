@@ -39,7 +39,10 @@
       url = "github:grapp-dev/nui-components.nvim";
       flake = false;
     };
-
+    leap-spooky-nvim = {
+      url = "github:ggandor/leap-spooky.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -64,7 +67,7 @@
         theme = "Tokyo Night";
         boot-loader = "lanzaboote";
         home-manager = inputs.home-manager;
-        ohMyPoshConfigPath = "${self}/users/cdockter/configs/terminal/oh-my-posh.json";
+        # ohMyPoshConfigPath = "${self}/users/cdockter/configs/terminal/oh-my-posh.json";
       };
       pkgs = import inputs.nixpkgs {
         system = systemSettings.system;
@@ -102,12 +105,20 @@
                 meta.homepage = "https://nui-components.grapp.dev/";
                 meta.description = "A feature-rich and highly customizable library for creating user interfaces in Neovim. ";
               };
+              leap-spooky-nvim = prev.vimUtils.buildVimPlugin {
+                pname = "leap-spooky-nvim";
+                version = "latest";
+                src = inputs.leap-spooky-nvim;
+                meta.homepage = "https://github.com/ggandor/leap-spooky.nvim";
+                meta.description = "👻 Actions at a distance ";
+              };
             };
 
           })
         ];
         config = {
           allowUnfree = true;
+          allowSubstitutes = true;
         };
       };
       home-manager = inputs.home-manager;

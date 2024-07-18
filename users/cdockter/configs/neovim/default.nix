@@ -1,14 +1,7 @@
 { pkgs, lib, ... }:
 #
-
 {
   programs.neovim =
-    let
-      toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-      getPluginName = drv: if lib.isDerivation drv then lib.getName drv else "plugin";
-      getPluginPath = drv: if lib.isDerivation drv then drv else { outPath = drv; };
-      base46Drv = pkgs.vimPlugins.base46;
-    in
     {
       package = pkgs.neovim;
       enable = true;
@@ -21,7 +14,6 @@
         let
           plugins = with pkgs.vimPlugins;[
             luasnip
-            tokyonight-nvim
             nvchad
             base46
             cmp-buffer
@@ -36,6 +28,7 @@
             indent-blankline-nvim
             lazydev-nvim
             lazygit-nvim
+            leap-spooky-nvim
             leap-nvim
             markdown-preview-nvim
             neo-tree-nvim
@@ -85,6 +78,7 @@
             neoconf-nvim
             neodev-nvim
             nui-nvim
+            tokyonight-nvim
           ];
           mkEntryFromDrv = drv:
             if lib.isDerivation drv then
@@ -92,18 +86,19 @@
             else
               { name = "plugin"; path = drv; };
           lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
-          base46Path = getPluginPath pkgs.vimPlugins.base46;
-          nvchadpath = getPluginPath pkgs.vimPlugins.nvchad;
+          pluginPaths = map mkEntryFromDrv plugins;
         in
         ''
-          vim.g.base46_cache = "${base46Path}" 
+          local pluginPaths = {
+          }
           vim.g.mapleader = " "
+          vim.cmd('set runtimepath+=${lazyPath}')
+          package.path = package.path .. ';${lazyPath}?.lua'
           vim.o.runtimepath = '${lazyPath},' .. vim.o.runtimepath
           vim.schedule(function()
-          	require("mappings")
+            require("mappings")
           end)
-
-                    -- bootstrap lazy and all plugins
+          -- bootstrap lazy and all plugins
           require("lazy").setup({
             defaults = {
               lazy = true,
@@ -114,18 +109,10 @@
               fallback = true,
             },
             -- import/override with your plugins
-            { import = "lua/plugins" },
-            -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
+            { import = "plugins" },
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
             })
-
-                    -- load theme
-
-
-                    vim.schedule(function()
-                    	require("mappings")
-                    end)
-                    require("NUIComponentsProjects.spectreImprovement")
+           require("NUIComponentsProjects.spectreImprovement")
         '';
     };
   xdg.configFile."nvim-parser".source =
@@ -142,6 +129,8 @@
 
   xdg.configFile."nvim/lua".source = ./NvChad/lua;
 }
-# require("NUIComponentsProjects.spectreImprovement")
+#These are here to "save" old options cause nix comments dont(I think) work in extraLuaConfig
 # dofile(vim.g.base46_cache .. "defaults")
 # dofile(vim.g.base46_cache .. "statusline")
+#            ${lib.concatStringsSep ",\n      "(map entry: "'" + entry.path + "'" + "'"+":true")pluginPaths}
+
