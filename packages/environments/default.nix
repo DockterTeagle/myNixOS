@@ -18,7 +18,7 @@
   ];
   environment = {
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
-    loginShellInit = ''run_wm'';
+    # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
       wl-clipboard
       wayland

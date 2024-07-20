@@ -1,22 +1,37 @@
 { config, lib, pkgs, ... }:
 let
-  getGPuBusId = drv:
-    lib.mkDerivation {
-      name = "get-gpu-bus-id";
-      buildInputs = [ pkgs.hwinfo ];
-      phases = [ "installPhase" "buildPhase" ];
-      installPhase = ''
-        echo $export GPU_BUSID=$(hwinfo --gfxcard | grep -Eo 'BusID: [[:alnum:]]+:[[:alnum:]]+:[[:alnum:]]+.[[:alnum:]]+' | head -n 1 | cut -d' ' -f2)" > $out)
-      '';
-    };
+  getGpuBusIds = pkgs.callPackage ./get-gpu-bus-ids.nix { };
+  gpuBusIds = builtins.readFile "${getGpuBusIds}/gpu-bus-ids";
+  parsedgpuBusIds = lib.foldl'
+    (acc: line:
+      let
+        parts = lib.splitString ":" line;
+        type = parts [ 0 ];
+        busId = parts [ 1 ];
+      in
+      acc // {
+        ${type} = if acc ? ${type} then acc.${type} ++ [ busId ] else [ busId ];
+      }
+    )
+    { }
+    (builtins.splitString "\n" gpuBusIds);
+
 in
 {
-  config = {
-    gpuBusId = {
-      defult = "";
-      description = "GPU Bus ID obtained form hwinfo";
-    };
+  options.enableGpuBusIdScript = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = "Enable a script to fetch the GPU Bus IDs using hwinfo.";
   };
-  config.gpuBusId.enable = true;
-  environment.systemPackages = if config.gpuBusId.enable then [ getGPuBusId ] else [ ];
+  config = lib.mkIf config.enableGpuBusIdScript {
+    environment.systemPackages = [ getGpuBusIds ];
+    videoDrivers = [ "nvidia" "intel" ];
+    deviceSections = [
+      {
+        Identifier = "GPU-0";
+        BusID = lib.concatStringsSep "," (builtins.splitString "," gpuBusIds);
+      }
+    ];
+  };
+  environment.variables.GPU_BUSIDS = gpuBusIds;
 }

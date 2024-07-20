@@ -2,16 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, systemSettings, mainUserSettings, inputs, ... }:
+{ config, pkgs, lib, systemSettings, mainUserSettings, ... }:
 
 {
   # Imports
   imports = [
     # Include the results of the hardware scan.
     ./MSI-hardware-configuration.nix
-    # ./packages/hardware/GPU/gpu-config.nix TODO: make this part work, that is get the GPU bus ID dynamically instead of having to hardcode it
     # Packages
-    (import ./packages { inherit mainUserSettings inputs pkgs lib config systemSettings; })
+    (import ./packages { inherit mainUserSettings pkgs lib config systemSettings; })
   ];
 
   # Nix settings
@@ -129,7 +128,7 @@
       shell = pkgs.zsh;
       isNormalUser = true;
       description = "Christopher Ryan Dockter";
-      extraGroups = [ "networkmanager" "wheel" "audio" "input" ];
+      extraGroups = [ "networkmanager" "wheel" "audio" ];
     };
   };
 
@@ -138,7 +137,7 @@
     nh = {
       enable = true;
       clean.enable = true;
-      clean.extraArgs = "--keep-since 4d --keep 3 -v";
+      clean.extraArgs = " --keep 3 -v";
       flake = "/home/cdockter/MyNixOS/";
     };
     zsh.enable = true;

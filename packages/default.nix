@@ -7,7 +7,7 @@
     # ./network #This module is scary
     ./security
     ./system
-    ./tools/neovim.nix
+    ./tools
     ./yetToBeCategorized
   ];
 }
