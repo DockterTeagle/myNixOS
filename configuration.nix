@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, systemSettings, mainUserSettings, ... }:
+{ inputs, config, pkgs, lib, systemSettings, mainUserSettings, ... }:
 
 {
   # Imports
@@ -26,7 +26,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
-
 
   # XDG settings
   xdg = {

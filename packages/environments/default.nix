@@ -10,8 +10,8 @@
     (
       if mainUserSettings.wm == "hyprland"
       then (import ./hyprland/default.nix { inherit inputs pkgs conf lib; })
-      # else if mainUserSettings.wm == "sway"
-      # then (import ./sway/default.nix { inherit inputs pkgs conf lib; })
+      else if mainUserSettings.wm == "sway"
+      then (import ./sway/default.nix { inherit inputs pkgs conf lib; })
       else
         (import ./sway/default.nix { inherit inputs pkgs conf lib; })
     )
@@ -23,15 +23,15 @@
       wl-clipboard
       wayland
       obs-studio
-      # (writeShellScriptBin "run_wm" ''
-      #   if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-      #   ${(
-      #     if mainUserSettings.wm == "sway"
-      #     then "exec sway --unsupported-gpu"
-      #     else mainUserSettings.wm
-      #   )}
-      #   fi
-      # '')
+      (writeShellScriptBin "run_wm" ''
+        if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+        ${(
+          if mainUserSettings.wm == "sway"
+          then "exec sway --unsupported-gpu"
+          else mainUserSettings.wm
+        )}
+        fi
+      '')
     ];
   };
 }

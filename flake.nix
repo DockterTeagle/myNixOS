@@ -58,9 +58,16 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
+    agenix-shell.url = "github:aciceri/agenix-shell";
+    std.url = "github:divnix/std";
   };
 
-  outputs = { self, nixpkgs, flake-parts, ... }@inputs:
+  outputs = { self, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -143,19 +150,25 @@
       };
       home-manager = inputs.home-manager;
     in
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        # ./parts/neovim.nix
+        inputs.agenix-rekey.flakeModule
+        inputs.agenix-shell.flakeModules.default
+        inputs.std.flakeModule
+      ];
       debug = true;
       systems = [ "x86_64-linux" ];
-      perSystem = { config, ... }: { };
+      # perSystem = { config, ... }: { };
       flake = {
-
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit pkgs inputs systemSettings home-manager mainUserSettings;
           };
           modules = [
             ./configuration.nix
             inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.agenix.nixosModules.default
           ];
         };
         homeConfigurations = {
@@ -171,4 +184,6 @@
         };
       };
     };
+
 }
+
