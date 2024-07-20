@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    # ./audio
+    ./audio
     ./bluetooth
     ./power
     # ./GPU
