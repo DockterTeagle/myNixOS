@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, lib, systemSettings, mainUserSettings, ... }:
+{ config, pkgs, lib, systemSettings, mainUserSettings, ... }:
 
 {
   # Imports
@@ -69,33 +69,6 @@
   };
 
   # Hardware
-  hardware = {
-    enableAllFirmware = true;
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        intel-media-sdk
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-    };
-    nvidia = {
-      modesetting.enable = true;
-      open = false;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      forceFullCompositionPipeline = true;
-      prime = {
-        sync.enable = true;
-        intelBusId = "PCI:0:2:0"; #FIXME: these IDS are device dependant
-        nvidiaBusId = "PCI:1:0:0";
-      };
-    };
-  };
 
   # Services
   services = {

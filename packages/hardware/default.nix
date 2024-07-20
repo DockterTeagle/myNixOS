@@ -4,6 +4,6 @@
     ./audio
     ./bluetooth
     ./power
-    # ./GPU
+    ./GPU
   ];
 }

@@ -67,7 +67,7 @@
     std.url = "github:divnix/std";
   };
 
-  outputs = { self, ... }@inputs:
+  outputs = { ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -89,7 +89,6 @@
         theme = "Tokyo Night";
         boot-loader = "lanzaboote";
         home-manager = inputs.home-manager;
-        ohMyPoshConfigPath = "${self}/users/cdockter/configs/terminal/oh-my-posh.json";
       };
       pkgs = import inputs.nixpkgs {
         system = systemSettings.system;
@@ -184,6 +183,5 @@
         };
       };
     };
-
 }
 
