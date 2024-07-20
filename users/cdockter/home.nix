@@ -1,7 +1,7 @@
 { mainUserSettings, ... }:
 {
   imports = [
-    ./configs
+     ./configs
   ];
   home = {
     # this value determines the home manager release that your configuration is
@@ -63,8 +63,7 @@
       lfs.enable = true;
     };
   };
-  xsession = {
-    enable = true;
-    windowManager.command = mainUserSettings.wm;
-  };
+  # xsession = {
+  #   enable = true;
+  # };
 }

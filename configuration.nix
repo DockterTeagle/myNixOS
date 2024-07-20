@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, lib, systemSettings, mainUserSettings, ... }:
+{ config, pkgs, lib, systemSettings, mainUserSettings, ... }:
 
 {
   # Imports
@@ -116,8 +116,9 @@
       videoDrivers = [ "nvidia" ];
       displayManager.gdm = {
         enable = true;
-        wayland = true;
+        # wayland = true;
       };
+      desktopManager.gnome.enable = true;
     };
   };
 
@@ -175,18 +176,6 @@
   };
 
 
-  # Specialisation
-  # specialisation = {
-  #   on-the-go.configuration = {
-  #     environment.etc."specialisation".text = "on-the-go";
-  #     system.nixos.tags = [ "on-the-go" ];
-  #     hardware.nvidia = {
-  #       prime.offload.enable = lib.mkForce true;
-  #       prime.offload.enableOffloadCmd = lib.mkForce true;
-  #       prime.sync.enable = lib.mkForce false;
-  #     };
-  #   };
-  # };
 
   # System Auto Upgrade
   system.autoUpgrade.enable = true;
