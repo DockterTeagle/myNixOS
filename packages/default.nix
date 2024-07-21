@@ -8,6 +8,5 @@
     ./security
     ./system
     ./tools
-    ./yetToBeCategorized
   ];
 }

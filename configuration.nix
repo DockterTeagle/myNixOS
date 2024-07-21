@@ -21,11 +21,6 @@
   };
 
   # Bootloader
-  boot = {
-    blacklistedKernelModules = [ "snd_pcsp" ]; # Consider adding module_blacklist=i915 to this to maybe disable integrated GPU
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
-  };
 
   # XDG settings
   xdg = {
@@ -72,8 +67,10 @@
     # XServer and GNOME
     xserver = {
       enable = true;
-      xkb.layout = "us";
-      xkb.variant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
       excludePackages = [ pkgs.xterm ];
       videoDrivers = [ "nvidia" ];
       displayManager.gdm = {
@@ -130,6 +127,7 @@
       openresolv
       gnome.gnome-settings-daemon
       networkmanagerapplet
+      jq
       # systemd # maybe not strictly necessary? try removing it and see if the system crashes
       dmidecode # get system info
       swww # animated wallpaper daemon for Wayland
@@ -154,8 +152,10 @@
   # };
 
   # System Auto Upgrade
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+  };
 
   # NixOS Release Version
   system.stateVersion = "23.11"; # Did you read the comment?
