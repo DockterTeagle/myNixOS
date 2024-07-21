@@ -39,17 +39,6 @@
     };
   };
 
-  # Networking
-  networking = {
-    networkmanager.enable = true;
-    hostName = systemSettings.hostName;
-    # Open ports in the firewall
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether
-    # networking.firewall.enable = false;
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  };
 
   # Time and Locale
   time.timeZone = "America/Chicago";
@@ -108,8 +97,11 @@
   programs = {
     nh = {
       enable = true;
-      clean.enable = true;
-      clean.extraArgs = " --keep 3 -v";
+      clean =
+        {
+          enable = true;
+          extraArgs = " --keep 3 -v";
+        };
       flake = "/home/cdockter/MyNixOS/";
     };
     zsh.enable = true;
@@ -138,7 +130,7 @@
       openresolv
       gnome.gnome-settings-daemon
       networkmanagerapplet
-      systemd # maybe not strictly necessary? try removing it and see if the system crashes
+      # systemd # maybe not strictly necessary? try removing it and see if the system crashes
       dmidecode # get system info
       swww # animated wallpaper daemon for Wayland
       hwinfo

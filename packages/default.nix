@@ -4,7 +4,7 @@
     ./GUI
     ./environments
     ./hardware
-    # ./network #This module is scary
+    ./network #This module is scary
     ./security
     ./system
     ./tools
