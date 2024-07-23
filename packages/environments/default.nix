@@ -21,9 +21,9 @@
     # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
       # epoll-shim
-      swww
-      eww
-      eww-wayland
+      cliphist
+      # swww
+      ags
       wl-clipboard
       wayland
       polkit_gnome
