@@ -1,6 +1,6 @@
 { ... }:
-#TODO: make the \ show up
 #TODO: Change these into nix format
+#TODO change all of these into their respective nerdfont
 # {
 #   "type": "julia",
 #   "style": "diamond",
@@ -60,8 +60,8 @@ let
             style = "diamond";
             foreground = "#ffffff";
             background = "#0077c2";
-            leading_diamond = "\u256d\u2500\ue0b6";
-            template = "\uf120 {{.Name}} ";
+            # leading_diamond = "\u256d\u2500\ue0b6";
+            template = " {{.Name}} ";
           }
           {
             type = "root";
@@ -291,10 +291,10 @@ in
       nvim-chadpython = "NVIM_APPNAME=nvchad-python nvim";
       nvim-astro = "NVIM_APPNAME=AstroNvim nvim";
 
-      ls = "eza";
-      la = "eza --long --group -h --git --all";
-      ll = "eza --long --group -h --git";
-      l = "eza --long --group -h --git --all";
+      ls = "lsd --git";
+      la = "lsd --long -h --git --all";
+      ll = "lsd --long -h --git";
+      l = "lsd --long  --git --all";
       cd = "z";
     };
   };

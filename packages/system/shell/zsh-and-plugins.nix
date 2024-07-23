@@ -5,10 +5,10 @@
     nerdfonts
     font-awesome
   ];
+  #TODO: not all of these belong here
   environment.systemPackages = with pkgs; [
     lsof
     zsh
-    eza
     oh-my-zsh
     zsh-syntax-highlighting
     grimblast
@@ -38,5 +38,6 @@
     curl
     zip
     btop
+    lsd
   ];
 }

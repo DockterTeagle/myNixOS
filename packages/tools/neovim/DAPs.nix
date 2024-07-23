@@ -4,7 +4,7 @@
     #DAPS
     python312Packages.debugpy
     fd
-    lldb_18 #clang debugger
+    vscode-extensions.vadimcn.vscode-lldb.adapter
     bibtex-tidy
   ];
 }

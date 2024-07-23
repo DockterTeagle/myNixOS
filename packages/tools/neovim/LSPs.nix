@@ -10,7 +10,9 @@
     cmake-language-server
     nodePackages_latest.bash-language-server
     nixd
-    # deno
+    deno
     emacsPackages.lsp-julia
+    vscode-langservers-extracted
+    python312Packages.python-lsp-jsonrpc
   ];
 }

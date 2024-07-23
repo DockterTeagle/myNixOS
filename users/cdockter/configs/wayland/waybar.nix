@@ -91,7 +91,7 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "wlr/taskbar" "cpu" "custom/gpu" "memory" "disk" ];
+        modules-left = [ "cpu" "custom/gpu" "memory" "disk" ];
         modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" ];
         modules-center = [ "hyprland/workspaces" ];
         network = {

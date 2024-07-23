@@ -36,6 +36,14 @@
     agenix-rekey.url = "github:oddlama/agenix-rekey";
     agenix-shell.url = "github:aciceri/agenix-shell";
     std.url = "github:divnix/std";
+    devour-flake = {
+      url = "github:srid/devour-flake";
+      flake = false;
+    };
+    # oh-my-posh-src = {
+    #   url = "github:JanDeDobbeleer/oh-my-posh";
+    #   flake = false;
+    # };
   };
 
   outputs = { ... }@inputs:
@@ -59,7 +67,6 @@
         home-directory = "/home/cdockter";
         theme = "Tokyo Night";
         boot-loader = "lanzaboote";
-        home-manager = inputs.home-manager;
       };
       pkgs = import inputs.nixpkgs {
         system = systemSettings.system;
@@ -71,43 +78,52 @@
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
+          # (final: prev: {
+          #   oh-my-posh = prev.oh-my-posh.overrideAttrs
+          #     (oldAttrs: {
+          #       version = "21.28.0";
+          #       src = inputs.oh-my-posh-src;
+          #     });
+          # })
         ];
       };
       home-manager = inputs.home-manager;
     in
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        # ./parts/neovim.nix
-        inputs.agenix-rekey.flakeModule
-        inputs.agenix-shell.flakeModules.default
-        inputs.std.flakeModule
-      ];
-      debug = true;
-      systems = [ "x86_64-linux" ];
-      # perSystem = { config, ... }: { };
-      flake = {
-        nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit pkgs inputs systemSettings home-manager mainUserSettings;
-          };
-          modules = [
-            ./configuration.nix
-            inputs.lanzaboote.nixosModules.lanzaboote
-            inputs.agenix.nixosModules.default
-          ];
-        };
-        homeConfigurations = {
-          "cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              inherit inputs mainUserSettings;
+    inputs.flake-parts.lib.mkFlake
+      { inherit inputs; }
+      {
+        imports = [
+          # ./parts/neovim.nix
+          inputs.agenix-rekey.flakeModule
+          inputs.agenix-shell.flakeModules.default
+          inputs.std.flakeModule
+        ];
+        debug = true;
+        systems = [ "x86_64-linux" ];
+        # perSystem = { config, ... }: { };
+        flake = {
+          nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit pkgs inputs systemSettings home-manager mainUserSettings;
             };
             modules = [
-              ./users/cdockter/home.nix
+              ./configuration.nix
+              inputs.lanzaboote.nixosModules.lanzaboote
+              inputs.agenix.nixosModules.default
             ];
+          };
+          homeConfigurations = {
+            "cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              extraSpecialArgs = {
+                inherit inputs mainUserSettings;
+              };
+              modules = [
+                ./users/cdockter/home.nix
+              ];
+            };
           };
         };
       };
-    };
 }
 

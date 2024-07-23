@@ -9,5 +9,6 @@
     ripgrep
     python312Packages.black
     cmake-format
+    # rocmPackages_6.llvm.clang-unwrapped includes clang-format
   ];
 }

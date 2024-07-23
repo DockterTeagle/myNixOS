@@ -17,10 +17,11 @@
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
 
-  # Bootloader
 
   # XDG settings
   xdg = {
@@ -30,7 +31,7 @@
       extraPortals = lib.mkDefault [
         pkgs.xdg-desktop-portal-hyprland
       ];
-      wlr.enable = true;
+      # wlr.enable = true;
     };
   };
 
@@ -114,12 +115,13 @@
     systemPackages = with pkgs; [
       # TODO: sort all of these into the respective file
       zulu17
-      yad # GUI dialog tool for shell scripts
       htop
       xclip
       nix-output-monitor
       pciutils
       gtk4
+      gtk-doc
+      gtkextra
       wev
       acpi
       openssl
@@ -160,4 +162,3 @@
   # NixOS Release Version
   system.stateVersion = "23.11"; # Did you read the comment?
 }
-
