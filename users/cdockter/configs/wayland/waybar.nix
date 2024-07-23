@@ -92,7 +92,7 @@
           "HDMI-A-1"
         ];
         modules-left = [ "cpu" "custom/gpu" "memory" "disk" ];
-        modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" ];
+        modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" "bluetooth" ];
         modules-center = [ "hyprland/workspaces" ];
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
