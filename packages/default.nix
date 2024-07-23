@@ -8,5 +8,6 @@
     ./security
     ./system
     ./tools
+    ./gaming.nix
   ];
 }

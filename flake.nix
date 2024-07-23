@@ -9,11 +9,11 @@
     };
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nixpkgs-wayland = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/nixpkgs-wayland";
-    };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixpkgs-wayland = {
+    #   url = "github:nix-community/nixpkgs-wayland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -39,6 +39,9 @@
     devour-flake = {
       url = "github:srid/devour-flake";
       flake = false;
+    };
+    waybar = {
+      url = "github:Alexays/Waybar";
     };
     # oh-my-posh-src = {
     #   url = "github:JanDeDobbeleer/oh-my-posh";
@@ -77,7 +80,9 @@
         overlays = [
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
-          inputs.nixpkgs-wayland.overlay
+          # inputs.nixpkgs-wayland.overlay
+          inputs.waybar.overlays.default
+          # inputs.nixpkgs-wayland.overlay
           # (final: prev: {
           #   oh-my-posh = prev.oh-my-posh.overrideAttrs
           #     (oldAttrs: {
@@ -108,6 +113,22 @@
             };
             modules = [
               ./configuration.nix
+              # ({ pkgs, config, ... }:
+              #   {
+              #     config = {
+              #       nix.settings = {
+              #         trusted-public-keys = [
+              #           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+              #           "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+              #         ];
+              #         substituters = [
+              #           "https://cache.nixos.org"
+              #           "https://nixpkgs-wayland.cachix.org"
+              #         ];
+              #       };
+              #     };
+              #   }
+              # )
               inputs.lanzaboote.nixosModules.lanzaboote
               inputs.agenix.nixosModules.default
             ];

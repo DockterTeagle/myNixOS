@@ -20,6 +20,7 @@
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
+      # epoll-shim
       wl-clipboard
       wayland
       obs-studio

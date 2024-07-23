@@ -12,7 +12,6 @@
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       input = {
         monitor = [
@@ -97,6 +96,7 @@
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME=nvidia"
         "LIBVA_DRIVER_NAME,nvidia"
+        "WLR_NO_HARDWARE_CURSORS=1"
       ];
 
       bindm = [
@@ -149,6 +149,7 @@
         "$mainMod,s,togglespecialworkspace,magic"
         "$mainMod,s,movetoworkspace,special:magic"
         "$mainMod,s,togglespecialworkspace,magic"
+        "SUPER_SHIFT,s,exec,steam"
       ];
       # windowrulev2 = [ "suppressevent maximize, class:.*" ];
     };
