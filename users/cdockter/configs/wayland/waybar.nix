@@ -122,7 +122,7 @@
           exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
           format = "GPU: {}%";
           all-outputs = true;
-          interval = 1;
+          interval = 2;
         };
         cpu = {
           format = "󰻠 {usage}%";

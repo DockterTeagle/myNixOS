@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, systemSettings, mainUserSettings, ... }:
+{ config, pkgs, lib, systemSettings, mainUserSettings, inputs, ... }:
 
 {
   # Imports
@@ -104,6 +104,7 @@
     };
     zsh.enable = true;
     hyprland = {
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       enable = true;
       xwayland.enable = true;
     };

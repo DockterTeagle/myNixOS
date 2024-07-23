@@ -1,14 +1,18 @@
 { inputs, pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-      # hyprbars
-      # hyprexpo
-      # borders-plus-plus
-      # hyprtrails
-      # hyprwinwrap
+    plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
+      hyprbars
+      hyprexpo
+      borders-plus-plus
+      # hyprtrails #FIXME: currently makes it impossible to login if enabled
+      hyprwinwrap
+      # #hy3
     ];
     enable = true;
+    xwayland.enable = true;
+    systemd.enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       input = {
         monitor = [
