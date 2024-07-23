@@ -14,7 +14,7 @@
       url = "github:nix-community/nixpkgs-wayland";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -119,6 +119,10 @@
                 inherit inputs mainUserSettings;
               };
               modules = [
+                # inputs.hyprland.homeManagerModules.default
+                # {
+                #   wayland.windowManager.hyprland.enable = true;
+                # }
                 ./users/cdockter/home.nix
               ];
             };

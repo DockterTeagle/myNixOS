@@ -10,6 +10,9 @@
       # #hy3
     ];
     enable = true;
+    xwayland.enable = true;
+    systemd.enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       input = {
         monitor = [
