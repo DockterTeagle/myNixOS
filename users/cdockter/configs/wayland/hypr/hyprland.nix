@@ -109,7 +109,7 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
-        "SUPER,$mainMod,exec,kitty zsh -i -c 'source ~/.config/zsh/.zshrc && winfzf'"
+        "SUPER_L,$mainMod,exec,wofi -e"
       ];
       workspace = [
         "name:Name1,monitor:eDP-1"
