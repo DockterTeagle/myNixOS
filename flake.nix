@@ -64,8 +64,7 @@
     #   flake = false;
     # };
   };
-
-  outputs = { ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-mozilla, neovim-nightly-overlay, hyprland, hyprland-plugins, hyprlock, hypridle, hyprpicker, hyprpaper, lanzaboote, flake-parts, nixd, agenix, agenix-rekey, agenix-shell, std, devour-flake, waybar, ... } @inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -87,13 +86,16 @@
         theme = "Tokyo Night";
         boot-loader = "lanzaboote";
       };
-      pkgs = import inputs.nixpkgs {
+      pkgs = import nixpkgs {
         system = systemSettings.system;
         config = {
           allowUnfree = true;
           allowSubstitutes = true;
         };
         overlays = [
+          {
+            devour-flake = self.callPackage inputs.devour-flake { };
+          }
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
           # inputs.nixpkgs-wayland.overlay
@@ -116,10 +118,34 @@
       };
       home-manager = inputs.home-manager;
     in
-    inputs.flake-parts.lib.mkFlake
-      { inherit inputs; }
-      {
-        imports = [
+    inputs.devour-flake.mkOutput {
+      inputs = {
+        inherit self;
+        inherit nixpkgs;
+        inherit home-manager;
+        inherit nixpkgs-mozilla;
+        inherit neovim-nightly-overlay;
+        inherit hyprland;
+        inherit hyprland-plugins;
+        inherit hyprlock;
+        inherit hypridle;
+        inherit hyprpicker;
+        inherit hyprpaper;
+        inherit lanzaboote;
+        inherit flake-parts;
+        inherit nixd;
+        inherit agenix;
+        inherit agenix-rekey;
+        inherit agenix-shell;
+        inherit std;
+        inherit devour-flake;
+        inherit waybar;
+      };
+      devour = {
+        inputs.flake-parts.lib.mkFlake
+          { inherit inputs; }
+          {
+          imports = [
           # ./parts/neovim.nix
           inputs.agenix-rekey.flakeModule
           inputs.agenix-shell.flakeModules.default
@@ -136,22 +162,13 @@
             };
             modules = [
               ./configuration.nix
-              # ({ pkgs, config, ... }:
-              #   {
-              #     config = {
-              #       nix.settings = {
-              #         trusted-public-keys = [
-              #           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-              #           "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-              #         ];
-              #         substituters = [
-              #           "https://cache.nixos.org"
-              #           "https://nixpkgs-wayland.cachix.org"
-              #         ];
-              #       };
-              #     };
-              #   }
-              # )
+              ({ pkgs, config, ... }:
+                {
+                  imports = [
+                    inputs.devour-flake.nixosModules.default
+                  ];
+                }
+              )
               inputs.lanzaboote.nixosModules.lanzaboote
               inputs.agenix.nixosModules.default
             ];
@@ -173,5 +190,6 @@
           };
         };
       };
-}
+    }
+    
 
