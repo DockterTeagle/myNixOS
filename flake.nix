@@ -9,6 +9,7 @@
     };
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
     # nixpkgs-wayland = {
     #   url = "github:nix-community/nixpkgs-wayland";
     #   inputs.nixpkgs.follows = "nixpkgs";
