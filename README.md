@@ -5,7 +5,7 @@
 4. add to cahcix:
     - wine
     - gnome-settings
-    -libreoffice
+    - libreoffice
     - opencv
     - ffmpeg
 
