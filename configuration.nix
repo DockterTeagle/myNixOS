@@ -136,7 +136,7 @@
       openssl
       sbsigntool
       openresolv
-      gnome.gnome-settings-daemon
+      # gnome.gnome-settings-daemon
       networkmanagerapplet
       jq
       # systemd # maybe not strictly necessary? try removing it and see if the system crashes

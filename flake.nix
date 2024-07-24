@@ -19,22 +19,22 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    # hyprlock = {
-    #   url = "github:hyprwm/hyprlock";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    # hypridle = {
-    #   url = "github:hyprwm/hypridle";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    # hyprpicker = {
-    #   url = "github:hyprwm/hyprpicker";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    # hyprpaper = {
-    #   url = "github:hyprwm/hyprpaper";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.hyprland.follows = "hyprland";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,7 +64,7 @@
     #   flake = false;
     # };
   };
-  outputs = { self, nixpkgs, home-manager, nixpkgs-mozilla, neovim-nightly-overlay, hyprland, hyprland-plugins, hyprlock, hypridle, hyprpicker, hyprpaper, lanzaboote, flake-parts, nixd, agenix, agenix-rekey, agenix-shell, std, devour-flake, waybar, ... } @inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -93,13 +93,13 @@
           allowSubstitutes = true;
         };
         overlays = [
-          {
-            devour-flake = self.callPackage inputs.devour-flake { };
-          }
+          # {
+          #   devour-flake = self.callPackage inputs.devour-flake { };
+          # }
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
           # inputs.nixpkgs-wayland.overlay
-          inputs.hyprland.overlays.default
+          # inputs.hyprland.overlays.default
           # inputs.hyprlock.overlays.default
           # inputs.hypridle.overlays.default
           # inputs.hyprpaper.overlays.default
@@ -118,34 +118,34 @@
       };
       home-manager = inputs.home-manager;
     in
-    inputs.devour-flake.mkOutput {
-      inputs = {
-        inherit self;
-        inherit nixpkgs;
-        inherit home-manager;
-        inherit nixpkgs-mozilla;
-        inherit neovim-nightly-overlay;
-        inherit hyprland;
-        inherit hyprland-plugins;
-        inherit hyprlock;
-        inherit hypridle;
-        inherit hyprpicker;
-        inherit hyprpaper;
-        inherit lanzaboote;
-        inherit flake-parts;
-        inherit nixd;
-        inherit agenix;
-        inherit agenix-rekey;
-        inherit agenix-shell;
-        inherit std;
-        inherit devour-flake;
-        inherit waybar;
-      };
-      devour = {
-        inputs.flake-parts.lib.mkFlake
-          { inherit inputs; }
-          {
-          imports = [
+    # inputs.devour-flake.mkOutput {
+      #   inputs = {
+      #     inherit self;
+      #     inherit nixpkgs;
+      #     inherit home-manager;
+      #     inherit nixpkgs-mozilla;
+      #     inherit neovim-nightly-overlay;
+      #     inherit hyprland;
+      #     inherit hyprland-plugins;
+      #     inherit hyprlock;
+      #     inherit hypridle;
+      #     inherit hyprpicker;
+      #     inherit hyprpaper;
+      #     inherit lanzaboote;
+      #     inherit flake-parts;
+      #     inherit nixd;
+      #     inherit agenix;
+      #     inherit agenix-rekey;
+      #     inherit agenix-shell;
+      #     inherit std;
+      #     inherit devour-flake;
+      #     inherit waybar;
+      #   };
+      #   devour = {
+    inputs.flake-parts.lib.mkFlake
+      { inherit inputs; }
+      {
+        imports = [
           # ./parts/neovim.nix
           inputs.agenix-rekey.flakeModule
           inputs.agenix-shell.flakeModules.default
@@ -165,7 +165,7 @@
               ({ pkgs, config, ... }:
                 {
                   imports = [
-                    inputs.devour-flake.nixosModules.default
+                    # inputs.devour-flake.nixosModules.default
                   ];
                 }
               )
@@ -190,6 +190,6 @@
           };
         };
       };
-    }
+}
     
 

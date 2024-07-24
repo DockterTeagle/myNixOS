@@ -40,7 +40,6 @@
       grim
       xdg-utils
       lshw
-      qt5.qtwayland
       qt6.qmake
       qt6.qtwayland
       # adwaita-qt

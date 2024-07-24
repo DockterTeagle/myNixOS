@@ -2,9 +2,9 @@
 {
   environment.systemPackages = with pkgs;[
     solaar #for logitech mice
-    # libreoffice
+    libreoffice
     thunderbird
     zoom-us
-    # obs-studio
+    obs-studio
   ];
 }
