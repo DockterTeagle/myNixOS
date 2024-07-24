@@ -2,7 +2,6 @@
 {
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-
       # hyprbars
       # hyprexpo
       # borders-plus-plus
@@ -140,12 +139,12 @@
         "$mainMod , 8, workspace, 8"
         "$mainMod , 9, workspace, 9"
         "$mainMod , 0, workspace, 10"
-        "$mainMod , F, fullscreen"
+        "$mainMod , F, fullscreen, 1"
         #key 172 is pause
         #shortcuts
         "$mainMod,l,exec,hyprctl dispatch exit"
         "$mainMod,q,exec,$terminal"
-        "SUPER_SHIFT,F,exec,firefox"
+        "$mainMod SHIFT,F,exec,firefox"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod,s,togglespecialworkspace,magic"
@@ -154,8 +153,8 @@
         "$mainMod,s,movetoworkspace,special:magic"
         "$mainMod,s,togglespecialworkspace,magic"
 
-        "SUPER_SHIFT,s,exec,steam"
-        " SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod_SHIFT,s,exec,steam"
+        " $mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
       ];
       # windowrulev2 = [ "suppressevent maximize, class:.*" ];

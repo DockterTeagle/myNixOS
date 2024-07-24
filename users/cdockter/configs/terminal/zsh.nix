@@ -1,5 +1,6 @@
 { ... }:
 #TODO: Change these into nix format and change all of these into their respective nerdfont
+
 # {
 #   "type": "julia",
 #   "style": "diamond",
