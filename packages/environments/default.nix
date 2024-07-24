@@ -26,7 +26,8 @@
       ags
       wl-clipboard
       wayland
-      polkit_gnome
+      polkit
+      polkit-kde-agent
       libva-utils
       fuseiso
       udiskie

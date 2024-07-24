@@ -2,17 +2,21 @@
 {
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-      # hyprbars
-      # hyprexpo
-      # borders-plus-plus
-      # # hyprtrails #FIXME: currently makes it impossible to login if enabled
-      # hyprwinwrap
+      hyprbars
+      hyprexpo
+      borders-plus-plus
+      # hyprtrails #FIXME: currently makes it impossible to login if enabled
+      hyprwinwrap
       # #hy3
     ];
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
+      # cursor = {
+      #   no_hardwa
+      # }
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
@@ -95,10 +99,6 @@
       env = [
         "HYPRCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
-        "GBM_BACKEND,nvidia-drm"
-        "__GLX_VENDOR_LIBRARY_NAME=nvidia"
-        "LIBVA_DRIVER_NAME,nvidia"
-        "WLR_NO_HARDWARE_CURSORS=1"
       ];
 
       bindm = [
