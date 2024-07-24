@@ -1,4 +1,4 @@
-#TODO: Rice me
+#TODO: Rice me I am the notification manager
 { pkgs, ... }:
 {
   services.mako = {

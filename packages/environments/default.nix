@@ -23,7 +23,7 @@
       wl-clipboard
       wayland
       obs-studio
-      polkit_gnome
+      polkit-kde-agent
       libva-utils
       fuseiso
       udiskie

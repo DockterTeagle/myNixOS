@@ -116,7 +116,6 @@
     systemPackages = with pkgs; [
       # TODO: sort all of these into the respective file
       zulu17
-      htop
       xclip
       nix-output-monitor
       pciutils
@@ -133,7 +132,6 @@
       jq
       # systemd # maybe not strictly necessary? try removing it and see if the system crashes
       dmidecode # get system info
-      swww # animated wallpaper daemon for Wayland
       hwinfo
       home-manager
     ];
