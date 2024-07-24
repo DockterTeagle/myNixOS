@@ -1,4 +1,4 @@
-{ mainUserSettings, ... }:
+{ mainUserSettings, pkgs, ... }:
 {
   imports = [
     ./configs
@@ -16,8 +16,7 @@
     # manage.
     homeDirectory = mainUserSettings.home-directory;
     username = mainUserSettings.username;
-    # home manager can also manage your environment variables through
-    # 'home.sessionvariables'. if you don't want to manage your shell through home
+    # home manager can also manage your environment variables through 'home.sessionvariables'. if you don't want to manage your shell through home
     # manager then you have to manually source 'hm-session-vars.sh' located at
     # either
     #
@@ -31,7 +30,11 @@
     #
     #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
     #
-    sessionVariables = { };
+    sessionVariables =
+      {
+        NIXOS_OZONE_WL = "1";
+        DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
+      };
     # the home.packages option allows you to install nix packages into your
     # environment.
     # home manager is pretty good at managing dotfiles. the primary way to manage

@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
+
       # hyprbars
       # hyprexpo
       # borders-plus-plus
@@ -9,6 +10,7 @@
       # hyprwinwrap
       # #hy3
     ];
+
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
@@ -91,6 +93,9 @@
         "[workspace 1 silent] $terminal"
         "waybar & hyprpaper & nm-applet --indicator"
         "firefox"
+
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
       ];
 
       env = [
@@ -148,6 +153,10 @@
         "$mainMod,s,togglespecialworkspace,magic"
         "$mainMod,s,movetoworkspace,special:magic"
         "$mainMod,s,togglespecialworkspace,magic"
+
+        "SUPER_SHIFT,s,exec,steam"
+        " SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+
       ];
       # windowrulev2 = [ "suppressevent maximize, class:.*" ];
     };

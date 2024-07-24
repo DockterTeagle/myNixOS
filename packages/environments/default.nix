@@ -20,9 +20,13 @@
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
+      # epoll-shim
+      cliphist
+      # swww
+      ags
       wl-clipboard
       wayland
-      obs-studio
+      polkit
       polkit-kde-agent
       libva-utils
       fuseiso
@@ -34,15 +38,12 @@
       ydotool
       wl-clipboard
       wofi
-      swww
       grim
       xdg-utils
       lshw
-      qt5.qtwayland
       qt6.qmake
       qt6.qtwayland
-      adwaita-qt
-      adwaita-qt6
+      # adwaita-qt
       waybar
       wayland-protocols
       wayland-utils
@@ -53,15 +54,15 @@
       dbus
       mako #notification manager
       rofi-wayland
-      (writeShellScriptBin "run_wm" ''
-        if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-        ${(
-          if mainUserSettings.wm == "sway"
-          then "exec sway --unsupported-gpu"
-          else mainUserSettings.wm
-        )}
-        fi
-      '')
+      # (writeShellScriptBin "run_wm" ''
+      #   if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+      #   ${(
+      #     if mainUserSettings.wm == "sway"
+      #     then "exec sway --unsupported-gpu"
+      #     else mainUserSettings.wm
+      #   )}
+      #   fi
+      # '')
     ];
   };
 }
