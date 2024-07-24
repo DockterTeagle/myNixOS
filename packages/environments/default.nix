@@ -20,12 +20,11 @@
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
-      # epoll-shim
       cliphist
-      # swww
-      ags
+      swww #animated wayland images backgroun
+      ags #widgets
       wl-clipboard
-      wayland
+      wayland #needed?
       polkit
       polkit-kde-agent
       libva-utils
@@ -37,23 +36,24 @@
       wlr-randr
       ydotool
       wl-clipboard
-      wofi
+      wofi #launcher
       grim
+      grimblast
       xdg-utils
       lshw
-      qt6.qmake
-      qt6.qtwayland
+      # qt6.qmake
+      # qt6.qtwayland
       # adwaita-qt
       waybar
-      wayland-protocols
-      wayland-utils
+      # wayland-protocols
+      # wayland-utils
       pavucontrol
       wlroots
-      upower
-      gtkmm3
+      # upower #needed since I have tlp??
+      # gtkmm3
       dbus
       mako #notification manager
-      rofi-wayland
+      rofi-wayland # app launcher like wofi
       # (writeShellScriptBin "run_wm" ''
       #   if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
       #   ${(
