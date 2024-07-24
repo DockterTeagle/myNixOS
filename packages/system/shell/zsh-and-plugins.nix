@@ -27,7 +27,7 @@
     gitFull
     tmux
     kitty
-    wine
+    # wine
     fastfetch
     ventoy # for writing ISO images
     vim-full

@@ -19,22 +19,22 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprlock = {
+    #   url = "github:hyprwm/hyprlock";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hypridle = {
+    #   url = "github:hyprwm/hypridle";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprpicker = {
+    #   url = "github:hyprwm/hyprpicker";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprpaper = {
+    #   url = "github:hyprwm/hyprpaper";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -98,11 +98,11 @@
           inputs.neovim-nightly-overlay.overlays.default
           # inputs.nixpkgs-wayland.overlay
           inputs.hyprland.overlays.default
-          inputs.hyprlock.overlays.default
-          inputs.hypridle.overlays.default
-          inputs.hyprpaper.overlays.default
-          inputs.hyprpicker.overlays.default
-          inputs.hyprpaper.overlays.default
+          # inputs.hyprlock.overlays.default
+          # inputs.hypridle.overlays.default
+          # inputs.hyprpaper.overlays.default
+          # inputs.hyprpicker.overlays.default
+          # inputs.hyprpaper.overlays.default
           inputs.waybar.overlays.default
           # inputs.nixpkgs-wayland.overlay
           # (final: prev: {
