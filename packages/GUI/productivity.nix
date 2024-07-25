@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
+  programs.solaar.enable = true;
   environment.systemPackages = with pkgs;[
-    solaar #for logitech mice
+    element-desktop-wayland
     libreoffice
     thunderbird
     zoom-us

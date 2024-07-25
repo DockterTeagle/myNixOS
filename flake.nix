@@ -60,6 +60,12 @@
     waybar = {
       url = "github:Alexays/Waybar";
     };
+    solaar = {
+      url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
+      #url = "https://flakehub.com/f/Svenum/Solaar-Flake/1.1.13.tar.gz" # uncomment line for version 1.1.13
+      #url = "github:Svenum/Solaar-Flake/main"; # Uncomment line for latest unstable version
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # oh-my-posh-src = {
     #   url = "github:JanDeDobbeleer/oh-my-posh";
     #   flake = false;
@@ -163,13 +169,14 @@
             };
             modules = [
               ./configuration.nix
-              ({ pkgs, config, ... }:
-                {
-                  imports = [
-                    # inputs.devour-flake.nixosModules.default
-                  ];
-                }
-              )
+              inputs.solaar.nixosModules.default
+              # ({ pkgs, config, ... }:
+              #   {
+              #     imports = [
+              #       # inputs.devour-flake.nixosModules.default
+              #     ];
+              #   }
+              # )
               inputs.lanzaboote.nixosModules.lanzaboote
               inputs.agenix.nixosModules.default
             ];

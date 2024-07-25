@@ -14,9 +14,6 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
-      # cursor = {
-      #   no_hardwa
-      # }
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
@@ -91,7 +88,7 @@
         "[workspace 1 silent] $terminal"
         "waybar & hyprpaper & nm-applet --indicator"
         "firefox"
-
+        "discord"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
