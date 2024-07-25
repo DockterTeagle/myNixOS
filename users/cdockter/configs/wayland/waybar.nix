@@ -96,6 +96,7 @@
         modules-center = [ "hyprland/workspaces" ];
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
+          on-click = "nm-connection-editor";
         };
         temperature = {
           critical-threshold = 100;

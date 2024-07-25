@@ -17,6 +17,6 @@
     # networking.firewall.allowedUDPPorts = [ ... ];
     # Or disable the firewall altogether
     # networking.firewall.enable = false;
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    # wireless.enable = true; # Enables wireless support via wpa_supplicant.
   };
 }
