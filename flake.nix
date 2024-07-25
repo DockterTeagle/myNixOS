@@ -100,7 +100,7 @@
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
           # inputs.nixpkgs-wayland.overlay
-          # inputs.hyprland.overlays.default
+          # inputs.hyprland.overlays.hyprland-extras
           # inputs.hyprlock.overlays.default
           # inputs.hypridle.overlays.default
           # inputs.hyprpaper.overlays.default

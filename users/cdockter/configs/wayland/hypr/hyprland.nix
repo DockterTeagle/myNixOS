@@ -1,14 +1,14 @@
 { inputs, pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-      # hyprbars
-      # hyprexpo
-      # borders-plus-plus
-      # # hyprtrails #FIXME: currently makes it impossible to login if enabled
-      # hyprwinwrap
-      # #hy3
-    ];
+    # plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
+    #   # hyprbars
+    #   # hyprexpo
+    #   # borders-plus-plus
+    #   # # hyprtrails #FIXME: currently makes it impossible to login if enabled
+    #   # hyprwinwrap
+    #   # #hy3
+    # ];
 
     enable = true;
     xwayland.enable = true;
@@ -97,6 +97,8 @@
       ];
 
       env = [
+        "XCURSOR_SIZE,24"
+        "XCURSOR_THEME,HyprBibataModernClassicSVG"
         "HYPRCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
       ];
@@ -153,7 +155,7 @@
         "$mainMod,s,togglespecialworkspace,magic"
 
         "$mainMod_SHIFT,s,exec,steam"
-        " $mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        " $mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
       ];
       # windowrulev2 = [ "suppressevent maximize, class:.*" ];

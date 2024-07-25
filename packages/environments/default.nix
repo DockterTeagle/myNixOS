@@ -36,7 +36,7 @@
       wlr-randr
       ydotool
       wl-clipboard
-      wofi #launcher
+      # wofi #launcher
       grim
       grimblast
       xdg-utils

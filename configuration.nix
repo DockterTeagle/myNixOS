@@ -114,7 +114,7 @@
     };
     zsh.enable = true;
     hyprland = {
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
       enable = true;
       xwayland.enable = true;
     };
