@@ -41,7 +41,7 @@
       extraPortals = lib.mkDefault [
         pkgs.xdg-desktop-portal-hyprland
       ];
-      # wlr.enable = true;
+      # wlr.enable = true; #am I needed?
     };
   };
 

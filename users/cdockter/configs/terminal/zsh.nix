@@ -290,7 +290,7 @@ in
       nvim-chad = "NVIM_APPNAME=NvChad nvim";
       nvim-chadpython = "NVIM_APPNAME=nvchad-python nvim";
       nvim-astro = "NVIM_APPNAME=AstroNvim nvim";
-      nhTotalSwitch = "nh os switch --verbose && nh home switch --verbose && nh clean all --keep=3";
+      nhTotalSwitch = "nh os switch --verbose && nh home switch --verbose && nh clean all --keep=3 && nix flake archive /home/cdockter/MyNixOS/";
       ls = "lsd --git";
       la = "lsd --long -h --git --all";
       ll = "lsd --long -h --git";
