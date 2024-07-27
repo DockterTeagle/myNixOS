@@ -4,6 +4,7 @@
     spotify
     firefox
     discord
+    # webcord
     protonvpn-gui
   ];
 }
