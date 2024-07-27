@@ -32,14 +32,13 @@
     };
   };
 
-
   # XDG settings
   xdg = {
     autostart.enable = true;
     portal = {
       enable = true;
-      extraPortals = lib.mkDefault [
-        pkgs.xdg-desktop-portal-hyprland
+      extraPortals = [
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
       ];
       # wlr.enable = true; #am I needed?
     };
@@ -114,9 +113,6 @@
     };
     zsh.enable = true;
     hyprland = {
-      package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
-      enable = true;
-      xwayland.enable = true;
       portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
     };
     dconf.enable = true;
