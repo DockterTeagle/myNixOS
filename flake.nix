@@ -41,6 +41,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
+    };
     nixd.url = "github:nix-community/nixd";
     nil.url = "github:oxalica/nil";
     # nixvim = {
@@ -186,10 +190,9 @@
             "cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               extraSpecialArgs = {
-                inherit inputs mainUserSettings;
+                inherit inputs mainUserSettings systemSettings;
               };
               modules = [
-                # inputs.hyprland.homeManagerModules.default
                 # {
                 #   wayland.windowManager.hyprland.enable = true;
                 # }
