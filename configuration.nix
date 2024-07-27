@@ -117,6 +117,7 @@
       package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
       enable = true;
       xwayland.enable = true;
+      portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
     };
     dconf.enable = true;
   };
@@ -140,7 +141,6 @@
       # gnome.gnome-settings-daemon
       networkmanagerapplet
       jq
-      # systemd # maybe not strictly necessary? try removing it and see if the system crashes
       dmidecode # get system info
       hwinfo
       home-manager

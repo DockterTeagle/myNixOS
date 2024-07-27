@@ -71,7 +71,9 @@
         color: #10a140;
         padding-left: 5px;
       }
-
+      #idle_inhibitor {
+        color: #82aaff;
+      }
       #pulseaudio {
         color: #ba23d9;
         padding-left: 5px;
@@ -93,7 +95,7 @@
         ];
         modules-left = [ "cpu" "custom/gpu" "memory" "disk" ];
         modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" "bluetooth" ];
-        modules-center = [ "hyprland/workspaces" ];
+        modules-center = [ "hyprland/workspaces" "idle_inhibitor" ];
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
           on-click = "nm-connection-editor";

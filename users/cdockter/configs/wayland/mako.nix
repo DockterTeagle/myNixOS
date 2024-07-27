@@ -3,5 +3,8 @@
 {
   services.mako = {
     enable = true;
+    actions = true;
+    anchor = "top-right";
+    # borderColor = ;
   };
 }

@@ -42,6 +42,7 @@
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixd.url = "github:nix-community/nixd";
+    nil.url = "github:oxalica/nil";
     # nixvim = {
     #   url = "github:nix-community/nixvim";
     #   inputs.nixpkgs.follows = "nixpkgs";

@@ -3,6 +3,8 @@
   environment.systemPackages = with pkgs;[
     alsa-utils
     wireplumber
+    # playerctl
+    # pamixer
   ];
   services = {
     pipewire = {

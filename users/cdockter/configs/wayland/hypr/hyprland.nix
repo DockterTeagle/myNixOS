@@ -87,6 +87,7 @@
       exec-once = [
         "[workspace 1 silent] $terminal"
         "waybar & hyprpaper & nm-applet --indicator"
+        "mako"
         "hypridle"
         "firefox"
         "discord"
@@ -126,7 +127,7 @@
         "ALT,Tab,cyclenext"
         "ALT,Tab,bringactivetotop"
         "ALT Shift,Tab,cyclenext,prev"
-        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy"
+        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
         "$mainMod , 2, workspace, 2"

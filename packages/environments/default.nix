@@ -16,10 +16,23 @@
         (import ./sway/default.nix { inherit inputs pkgs conf lib; })
     )
   ];
+  services.greetd = {
+    enable = true;
+    restart = true;
+    package = pkgs.greetd.tuigreet;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+      };
+    };
+  };
+
   environment = {
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
+      greetd.greetd
+      greetd.wlgreet
       cliphist
       swww #animated wayland images backgroun
       ags #widgets
