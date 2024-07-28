@@ -10,7 +10,7 @@
     # Include the results of the hardware scan.
     ./MSI-hardware-configuration.nix
     # Packages
-    (import ./packages { inherit mainUserSettings pkgs lib config systemSettings; })
+    (import ./packages { inherit mainUserSettings pkgs lib config systemSettings inputs; })
   ];
 
   # Nix settings

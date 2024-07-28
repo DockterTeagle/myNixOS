@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, systemSettings, pkgs, lib, config, ... }:
 {
   imports = [
     ./GUI
@@ -9,5 +9,8 @@
     ./system
     ./tools
     ./gaming.nix
+  ];
+  environment.systemPackages = [
+    inputs.agenix.packages."${systemSettings.system}".default
   ];
 }
