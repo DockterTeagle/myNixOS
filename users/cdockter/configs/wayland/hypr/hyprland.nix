@@ -146,6 +146,7 @@
         #key 172 is pause
         #shortcuts
         "$mainMod,l,exec,hyprctl dispatch exit"
+        "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
         "$mainMod SHIFT,F,exec,firefox"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"

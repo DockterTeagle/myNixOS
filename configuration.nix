@@ -134,7 +134,6 @@
       openssl
       sbsigntool
       openresolv
-      # gnome.gnome-settings-daemon
       networkmanagerapplet
       jq
       dmidecode # get system info
