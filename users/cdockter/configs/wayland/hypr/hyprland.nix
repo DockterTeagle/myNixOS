@@ -37,6 +37,9 @@
         };
         sensitivity = "0";
       };
+      # xwayland = {
+      #   force_zero_scaling = true;
+      # };
       decoration = {
         rounding = "5";
 
@@ -99,9 +102,9 @@
       ];
 
       env = [
-        "XCURSOR_SIZE,24"
+        "XCURSOR_SIZE, 36"
         "XCURSOR_THEME,HyprBibataModernClassicSVG"
-        "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_SIZE, 36"
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
       ];
 
@@ -111,7 +114,7 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
-        "SUPER_L,$mainMod,exec,wofi -e"
+        "SUPER_L,$mainMod,exec,rofi -show run"
       ];
       workspace = [
         "name:Name1,monitor:eDP-1"

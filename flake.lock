@@ -1927,16 +1927,18 @@
         "snowfall-lib": "snowfall-lib"
       },
       "locked": {
-        "lastModified": 1722107093,
-        "narHash": "sha256-VQZGal904XNcFzOE2KiGB7uCO7dWlJeyoXMqgexOq4s=",
-        "rev": "44271bc3d869beb4177c6bb1a89dfd5f0ee8b2bd",
-        "revCount": 57,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/Svenum/Solaar-Flake/0.1.1/0190f597-b3c7-75bf-bd71-a681b88837bb/source.tar.gz"
+        "lastModified": 1722107622,
+        "narHash": "sha256-wwpJ+733fQB89TqborWhte4M0EHECASPjU4n3Iu9jtw=",
+        "owner": "Svenum",
+        "repo": "Solaar-Flake",
+        "rev": "73b4dad4869fc7dc3ee708ba5edbb66410893a14",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/Svenum/Solaar-Flake/%2A.tar.gz"
+        "owner": "Svenum",
+        "ref": "main",
+        "repo": "Solaar-Flake",
+        "type": "github"
       }
     },
     "std": {

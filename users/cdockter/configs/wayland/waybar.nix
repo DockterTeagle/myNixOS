@@ -93,7 +93,7 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "cpu" "custom/gpu" "memory" "disk" ];
+        modules-left = [ "cpu" "custom/gpu" "memory" "disk" "wlr/taskbar" ];
         modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" "bluetooth" ];
         modules-center = [ "hyprland/workspaces" "idle_inhibitor" ];
         network = {
@@ -130,13 +130,13 @@
         cpu = {
           format = "󰻠 {usage}%";
           tooltip = true;
-          on-click = "foot sh -c 'btop'";
+          on-click = "kitty sh -c 'btop'";
           interval = 2;
         };
         memory = {
           format = " {}%";
           tooltip = true;
-          on-click = "foot sh -c 'btop'";
+          on-click = "kitty sh -c 'btop'";
           interval = 2;
         };
         disk = {

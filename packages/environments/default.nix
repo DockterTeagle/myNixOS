@@ -34,6 +34,7 @@
       greetd.greetd
       greetd.wlgreet
       cliphist
+      eww-wayland
       swww #animated wayland images backgroun
       ags #widgets
       wl-clipboard
@@ -66,7 +67,7 @@
       # gtkmm3
       dbus
       mako #notification manager
-      rofi-wayland # app launcher like wofi
+      # rofi-wayland # app launcher like mako
       # (writeShellScriptBin "run_wm" ''
       #   if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
       #   ${(

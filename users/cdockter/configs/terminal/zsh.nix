@@ -358,6 +358,7 @@ in
             echo "Nothing selected"
           fi
         }
+        export PATH="$PATH:/home/cdockter/OneDrive/protonhax/"
       '';
       oh-my-zsh = {
         enable = true;
