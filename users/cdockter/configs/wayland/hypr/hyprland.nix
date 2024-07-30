@@ -148,7 +148,7 @@
         "$mainMod,l,exec,hyprctl dispatch exit"
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
-        "$mainMod SHIFT,F,exec,fullscreen, 1"
+        "$mainMod SHIFT,F,fullscreen, 1"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod,s,togglespecialworkspace,magic"
