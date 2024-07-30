@@ -91,12 +91,9 @@
       "$terminal" = "kitty"; # Terminal
 
       exec-once = [
-        "[workspace 1 silent] $terminal"
         "waybar & hyprpaper & nm-applet --indicator"
         "mako"
         "hypridle"
-        "firefox"
-        "discord"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
