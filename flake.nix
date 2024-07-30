@@ -10,10 +10,10 @@
     nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    # nixpkgs-wayland = {
-    #   url = "github:nix-community/nixpkgs-wayland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
@@ -108,7 +108,7 @@
           # }
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
-          # inputs.nixpkgs-wayland.overlay
+          inputs.nixpkgs-wayland.overlay
           # inputs.hyprland.overlays.hyprland-extras
           # inputs.hyprlock.overlays.default
           # inputs.hypridle.overlays.default
@@ -116,7 +116,6 @@
           # inputs.hyprpicker.overlays.default
           # inputs.hyprpaper.overlays.default
           inputs.waybar.overlays.default
-          # inputs.nixpkgs-wayland.overlay
           # (final: prev: {
           #   oh-my-posh = prev.oh-my-posh.overrideAttrs
           #     (oldAttrs: {
