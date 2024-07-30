@@ -142,13 +142,13 @@
         "$mainMod , 8, workspace, 8"
         "$mainMod , 9, workspace, 9"
         "$mainMod , 0, workspace, 10"
-        "$mainMod , F, fullscreen, 1"
+        "$mainMod , F, fullscreen"
         #key 172 is pause
         #shortcuts
         "$mainMod,l,exec,hyprctl dispatch exit"
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
-        "$mainMod SHIFT,F,exec,firefox"
+        "$mainMod SHIFT,F,exec,fullscreen, 1"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod,s,togglespecialworkspace,magic"

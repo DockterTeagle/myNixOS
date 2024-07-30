@@ -2,6 +2,8 @@
 {
   environment.systemPackages = with pkgs;[
     gamescope
+    winetricks
+    protontricks
   ];
   programs.steam = {
     enable = true;
@@ -10,8 +12,6 @@
     localNetworkGameTransfers.openFirewall = true;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
-      protontricks
-      winetricks
     ];
   };
 }
