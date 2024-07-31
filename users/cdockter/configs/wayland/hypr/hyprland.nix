@@ -99,9 +99,9 @@
       ];
 
       env = [
-        "XCURSOR_SIZE, 36"
+        "XCURSOR_SIZE, 24"
         "XCURSOR_THEME,HyprBibataModernClassicSVG"
-        "HYPRCURSOR_SIZE, 36"
+        "HYPRCURSOR_SIZE, 24"
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
       ];
 
@@ -151,10 +151,6 @@
         "$mainMod SHIFT,F,fullscreen, 1"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
-        "$mainMod,s,togglespecialworkspace,magic"
-        "$mainMod,s,movetoworkspace, +0"
-        "$mainMod,s,togglespecialworkspace,magic"
-        "$mainMod,s,movetoworkspace,special:magic"
         "$mainMod,s,togglespecialworkspace,magic"
 
         "$mainMod_SHIFT,s,exec,steam"

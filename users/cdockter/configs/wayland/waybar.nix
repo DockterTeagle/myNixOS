@@ -201,7 +201,7 @@
         format-full = " {capacity}%";
         format-icons = [ " " " " " " " " " " " " ];
         # format-charging = "<span color='#2da14c'> </span> {capacity}%";
-        interval = 2;
+        interval = 0.5;
       };
     };
   };

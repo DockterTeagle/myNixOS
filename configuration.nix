@@ -38,7 +38,7 @@
     portal = {
       enable = true;
       extraPortals = [
-        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-hyprland
       ];
       # wlr.enable = true; #am I needed?
     };
@@ -113,7 +113,7 @@
     };
     zsh.enable = true;
     hyprland = {
-      portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
+      enable = true;
     };
     dconf.enable = true;
   };
@@ -137,7 +137,7 @@
       networkmanagerapplet
       jq
       dmidecode # get system info
-      hwinfo
+      hwinfo #also get system info
       home-manager
     ];
     # etc."machine-id".source = "/nix/persist/etc/machine-id";

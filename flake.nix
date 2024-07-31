@@ -73,6 +73,9 @@
     #   url = "github:JanDeDobbeleer/oh-my-posh";
     #   flake = false;
     # };
+    #texlive-src = {
+    #   url = "" 
+    #};
   };
   outputs = { nixpkgs, ... }@inputs:
     let

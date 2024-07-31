@@ -1,4 +1,4 @@
-({ pkgs, lib, ... }: {
+{ pkgs, lib, ... }: {
 
   environment.systemPackages = [
     # For debugging and troubleshooting Secure Boot.
@@ -15,4 +15,4 @@
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
-})
+}

@@ -8,6 +8,7 @@
 {
   imports = [
     (
+      #this part should somehow be in home-manager
       if mainUserSettings.wm == "hyprland"
       then (import ./hyprland/default.nix { inherit inputs pkgs conf lib; })
       else if mainUserSettings.wm == "sway"
@@ -34,7 +35,7 @@
       greetd.greetd
       greetd.wlgreet
       cliphist
-      eww-wayland
+      eww
       swww #animated wayland images backgroun
       ags #widgets
       wl-clipboard

@@ -5,8 +5,7 @@
 
 {
   imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "rtsx_usb_sdmmc" ];
@@ -15,27 +14,25 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/1ed24ec0-c75f-40bf-9201-0e1cbbdd042e";
+    { device = "/dev/disk/by-uuid/cbbf4782-6941-4665-83af-799ab03f0c1b";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-a53d01dd-4ccf-4307-8fae-eedb72a83e09".device = "/dev/disk/by-uuid/a53d01dd-4ccf-4307-8fae-eedb72a83e09";
+  boot.initrd.luks.devices."luks-40517bf6-6f51-4713-82a6-4c209b5d191e".device = "/dev/disk/by-uuid/40517bf6-6f51-4713-82a6-4c209b5d191e";
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/591B-5472";
+    { device = "/dev/disk/by-uuid/1A36-ADFD";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/media/HDD" =
-    {
-      device = "/dev/disk/by-uuid/5aca9709-3ee9-4799-9126-15e55fe9f118";
-      fsType = "ext4";
+  fileSystems."/home/cdockter/media/HDD" =
+    { device = "/dev/disk/by-uuid/2824-F6F7";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  boot.initrd.luks.devices."sda1".device = "/dev/disk/by-uuid/ac39213e-a938-401a-9778-048095fbfd45";
+  boot.initrd.luks.devices."HDD".device = "/dev/disk/by-uuid/40eb17c9-80fc-4a9c-a932-2bf314a24d22";
 
   swapDevices = [ ];
 
