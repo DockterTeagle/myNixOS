@@ -83,6 +83,7 @@
         system = "x86_64-linux";
         hostName = "nixos";
         timezone = "America/Chicago";
+        boot-loader = "lanzaboote";
       };
       mainUserSettings = {
         username = "cdockter";
@@ -97,7 +98,6 @@
         font = "JetBrains Mono Nerd Font";
         home-directory = "/home/cdockter";
         theme = "Tokyo Night";
-        boot-loader = "lanzaboote";
       };
       pkgs = import nixpkgs {
         system = systemSettings.system;
@@ -119,6 +119,7 @@
           # inputs.hyprpicker.overlays.default
           # inputs.hyprpaper.overlays.default
           inputs.waybar.overlays.default
+          inputs.nixd.overlays.default
           # (final: prev: {
           #   oh-my-posh = prev.oh-my-posh.overrideAttrs
           #     (oldAttrs: {

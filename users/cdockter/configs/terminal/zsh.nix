@@ -359,6 +359,7 @@ in
           fi
         }
         export PATH="$PATH:/home/cdockter/OneDrive/protonhax/"
+        export PATH="$PATH:/home/cdockter/.local/bin"
       '';
       oh-my-zsh = {
         enable = true;

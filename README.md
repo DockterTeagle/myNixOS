@@ -14,3 +14,4 @@
 8. config mako
 9. sort behemoth of configuration.nix and zsh-and-plugins.nix into files or directories
 10. get oh-my-posh with nerdfonts
+11. fix git push crashing when https

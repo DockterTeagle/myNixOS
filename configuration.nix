@@ -40,7 +40,6 @@
       extraPortals = [
         pkgs.xdg-desktop-portal-hyprland
       ];
-      # wlr.enable = true; #am I needed?
     };
   };
 
@@ -83,10 +82,6 @@
       };
       excludePackages = [ pkgs.xterm ];
       videoDrivers = [ "nvidia" ];
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
     };
   };
 
@@ -122,9 +117,7 @@
   environment = {
     systemPackages = with pkgs; [
       # TODO: sort all of these into the respective file
-      zulu17
       xclip
-      nix-output-monitor
       pciutils
       gtk4
       gtk-doc
@@ -135,7 +128,6 @@
       sbsigntool
       openresolv
       networkmanagerapplet
-      jq
       dmidecode # get system info
       hwinfo #also get system info
       home-manager
