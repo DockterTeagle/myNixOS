@@ -12,11 +12,6 @@
         background: transparent;
       }
 
-      #wlr-desktop {
-        padding-left:10px;
-        padding-right:10px;
-        padding-top:1px;
-      }
       #workspaces {
         background-color: transparent;
         color: #0d74bd;
@@ -93,7 +88,7 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "cpu" "custom/gpu" "memory" "disk" "wlr/taskbar" ];
+        modules-left = [ "cpu" "custom/gpu" "memory" "disk" ];
         modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" "bluetooth" ];
         modules-center = [ "hyprland/workspaces" "idle_inhibitor" ];
         network = {
@@ -186,6 +181,7 @@
           format-connected = "<span color='#0056A3'></span> {num_connections}";
           tooltip-format = "{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}  {device_address}";
+          on-click = "blueman-manager";
         };
       };
       battery = {
