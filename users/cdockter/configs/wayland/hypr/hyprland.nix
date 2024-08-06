@@ -5,9 +5,7 @@
   ];
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-      hyprexpo
       borders-plus-plus
-      hyprwinwrap
       inputs.hy3.packages.x86_64-linux.hy3
     ];
 
@@ -15,6 +13,7 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
+      plugin = { };
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
@@ -41,7 +40,7 @@
       decoration = {
         rounding = 0;
         dim_inactive = true;
-        dim_strength = 0.2;
+        dim_strength = 0.1;
         drop_shadow = 1;
         shadow_range = 20;
         shadow_render_power = 2;
@@ -107,12 +106,6 @@
         "wl-paste --type image --watch cliphist store"
       ];
 
-      env = [
-        # "XCURSOR_SIZE, 24"
-        # "XCURSOR_THEME,HyprBibataModernClassicSVG"
-        # "HYPRCURSOR_SIZE, 24"
-        # "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
-      ];
 
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
@@ -122,12 +115,6 @@
       bindr = [
         "SUPER_L,$mainMod,exec,rofi -show run"
       ];
-      workspace = [
-        "name:Name1,monitor:eDP-1"
-        "name:Name2,monitor:HDMI-A-1"
-        "name:Name3,monitor:eDP-1"
-        "name:name4,monitor:HDMI-A-1"
-      ];
       bind = [
         # ",121,exec,pamixer -t"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
@@ -136,9 +123,6 @@
         ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
-        "ALT,Tab,cyclenext"
-        "ALT,Tab,bringactivetotop"
-        "ALT Shift,Tab,cyclenext,prev"
         ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
@@ -160,10 +144,8 @@
         "$mainMod SHIFT,F,fullscreen, 1"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
-        "$mainMod,s,togglespecialworkspace,magic"
-
         "$mainMod_SHIFT,s,exec,steam"
-        " $mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
       ];
       # windowrulev2 = [ "suppressevent maximize, class:.*" ];
