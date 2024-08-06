@@ -8,6 +8,7 @@
   # Imports
   imports = [
     # Include the results of the hardware scan.
+    inputs.hyprland.nixosModules.default
     ./MSI-hardware-configuration.nix
     # Packages
     (import ./packages { inherit mainUserSettings pkgs lib config systemSettings inputs; })
@@ -37,9 +38,9 @@
     autostart.enable = true;
     portal = {
       enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
-      ];
+      # extraPortals = [
+      #   pkgs.xdg-desktop-portal-hyprland
+      # ];
     };
   };
 

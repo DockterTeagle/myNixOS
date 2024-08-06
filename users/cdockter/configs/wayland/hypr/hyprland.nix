@@ -1,16 +1,14 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
-    # inputs.hyprland.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
   ];
   wayland.windowManager.hyprland = {
-    plugins = with inputs; [
-      # hyprbars
-      # hyprexpo.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}
-      # borders-plus-plus
-      # # hyprtrails #FIXME: currently makes it impossible to login if enabled
-      # hyprwinwrap
-      # hy3.packages.x86_64-linux.hy3
+    plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
+      hyprexpo
+      borders-plus-plus
+      hyprwinwrap
+      inputs.hy3.packages.x86_64-linux.hy3
     ];
 
     enable = true;
@@ -60,24 +58,26 @@
           contrast = 1.0;
         };
       };
-
       animations = {
         enabled = true;
-
         bezier = [
           "overshot, 0.05, 0.9, 0.1, 1.05"
           "smoothOut, 0.36, 0, 0.66, -0.56"
           "smoothIn, 0.25, 1, 0.5, 1"
+          "mycurve,.32,.97,.53,.98"
+          "expoOut,0.19,1.0,0.22,1.0"
+          "overshot,.32,.97,.37,1.16"
+          "easeInOut,.5,0,.5,1"
         ];
 
         animation = [
-          # "windowsIn,0,4,expoOut"
-          # "windowsOut,0,4,mycurve"
-          # "fadeIn,0,3,mycurve"
-          # "fadeOut,1,3,mycurve"
-          # "fadeDim,1,1,expoOut"
-          # "border,1,4,expoOut"
-          # "workspaces,0,2,expoOut,fade"
+          "windowsIn,0,4,expoOut"
+          "windowsOut,0,4,mycurve"
+          "fadeIn,0,3,mycurve"
+          "fadeOut,1,3,mycurve"
+          "fadeDim,1,1,expoOut"
+          "border,1,4,expoOut"
+          "workspaces,0,2,expoOut,fade"
         ];
 
       };
@@ -132,10 +132,10 @@
         # ",121,exec,pamixer -t"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
-        # ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
-        # ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
-        # ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
+        ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
         "ALT,Tab,cyclenext"
         "ALT,Tab,bringactivetotop"
         "ALT Shift,Tab,cyclenext,prev"
