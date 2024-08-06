@@ -3,6 +3,18 @@
   imports = [
     ./configs
   ];
+  gtk = {
+    enable = true;
+    gtk4.extraConfig = {
+      gtk-decoration-layout = ":menu";
+
+    };
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      size = 24;
+      package = pkgs.bibata-cursors;
+    };
+  };
   home = {
     # this value determines the home manager release that your configuration is
     # compatible with. this helps avoid breakage when a new home manager release

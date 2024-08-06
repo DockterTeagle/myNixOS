@@ -1,4 +1,4 @@
-{ inputs, pkgs, systemSettings, ... }:
+{ inputs, ... }:
 {
   imports = [
     # inputs.hyprland.homeManagerModules.default
@@ -41,22 +41,28 @@
       #   force_zero_scaling = true;
       # };
       decoration = {
-        rounding = "5";
-
+        rounding = 0;
+        dim_inactive = true;
+        dim_strength = 0.2;
+        drop_shadow = 1;
+        shadow_range = 20;
+        shadow_render_power = 2;
+        "col.shadow" = "rgba(00000044)";
+        shadow_offset = "0 0";
         blur = {
-          enabled = "false";
-          size = "3";
-          passes = "1";
+          enabled = 1;
+          size = 4;
+          passes = 4;
+          ignore_opacity = 1;
+          xray = 1;
+          new_optimizations = 1;
+          noise = 0.03;
+          contrast = 1.0;
         };
-
-        drop_shadow = "yes";
-        shadow_range = "4";
-        shadow_render_power = "3";
-        "col.shadow" = "rgba(1a1a1aee)";
       };
 
       animations = {
-        enabled = "true";
+        enabled = true;
 
         bezier = [
           "overshot, 0.05, 0.9, 0.1, 1.05"
@@ -65,13 +71,15 @@
         ];
 
         animation = [
-          "windows, 1, 5, overshot, slide"
-          "windowsOut, 1, 4, smoothOut, slide"
-          "windowsMove, 1, 4, default"
-          "border, 1, 10, default"
-          "fadeDim, 1, 10, smoothIn"
-          "workspaces, 1, 6, default"
+          # "windowsIn,0,4,expoOut"
+          # "windowsOut,0,4,mycurve"
+          # "fadeIn,0,3,mycurve"
+          # "fadeOut,1,3,mycurve"
+          # "fadeDim,1,1,expoOut"
+          # "border,1,4,expoOut"
+          # "workspaces,0,2,expoOut,fade"
         ];
+
       };
 
       dwindle = {
@@ -91,18 +99,19 @@
       "$terminal" = "kitty"; # Terminal
 
       exec-once = [
-        "waybar & hyprpaper & nm-applet --indicator"
+        "waybar & hyprpaper & nm-applet --indicator" #what does nm-applet do?
         "mako"
         "hypridle"
+        "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
 
       env = [
-        "XCURSOR_SIZE, 24"
-        "XCURSOR_THEME,HyprBibataModernClassicSVG"
-        "HYPRCURSOR_SIZE, 24"
-        "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
+        # "XCURSOR_SIZE, 24"
+        # "XCURSOR_THEME,HyprBibataModernClassicSVG"
+        # "HYPRCURSOR_SIZE, 24"
+        # "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
       ];
 
       bindm = [
@@ -123,10 +132,10 @@
         # ",121,exec,pamixer -t"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
-        ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
+        # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        # ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+        # ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
+        # ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
         "ALT,Tab,cyclenext"
         "ALT,Tab,bringactivetotop"
         "ALT Shift,Tab,cyclenext,prev"
