@@ -10,8 +10,7 @@
     - ffmpeg
 5. config hypr ecosystem
 6. config hyprpaper/swww
-7. add win-key like functionality
-8. config mako
-9. sort behemoth of configuration.nix and zsh-and-plugins.nix into files or directories
-10. get oh-my-posh with nerdfonts
-11. fix git push crashing when https
+7. config mako
+8. sort behemoth of configuration.nix and zsh-and-plugins.nix into files or directories
+9. get oh-my-posh with nerdfonts
+10. fix git push crashing when https

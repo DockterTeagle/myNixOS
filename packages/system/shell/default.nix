@@ -5,6 +5,6 @@
     ./zsh-and-plugins.nix
   ];
   environment.systemPackages = with pkgs;[
-    foot
+    foot #not needed?
   ];
 }

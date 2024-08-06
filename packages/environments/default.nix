@@ -32,12 +32,9 @@
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
-      greetd.greetd
-      greetd.wlgreet
       cliphist
       eww
       swww #animated wayland images backgroun
-      ags #widgets
       wl-clipboard
       wayland #needed?
       polkit
@@ -45,39 +42,20 @@
       libva-utils
       fuseiso
       udiskie
-      nvidia-vaapi-driver
+      nvidia-vaapi-driver # move me
       gsettings-desktop-schemas
       swaynotificationcenter
       wlr-randr
       ydotool
       wl-clipboard
-      # wofi #launcher
       grim
       grimblast
       xdg-utils
       lshw
-      # qt6.qmake
-      # qt6.qtwayland
-      # adwaita-qt
       waybar
-      # wayland-protocols
-      # wayland-utils
       pavucontrol
       wlroots
-      # upower #needed since I have tlp??
-      # gtkmm3
       dbus
-      mako #notification manager
-      # rofi-wayland # app launcher like mako
-      # (writeShellScriptBin "run_wm" ''
-      #   if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-      #   ${(
-      #     if mainUserSettings.wm == "sway"
-      #     then "exec sway --unsupported-gpu"
-      #     else mainUserSettings.wm
-      #   )}
-      #   fi
-      # '')
     ];
   };
 }

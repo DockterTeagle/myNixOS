@@ -7,33 +7,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    hyprland.url = "git+https://github.com/hyprwm/hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
       inputs.hyprland.follows = "hyprland";
     };
     lanzaboote = {
@@ -46,36 +28,23 @@
       inputs.hyprland.follows = "hyprland";
     };
     nixd.url = "github:nix-community/nixd";
-    nil.url = "github:oxalica/nil";
-    # nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix-rekey.url = "github:oddlama/agenix-rekey";
     agenix-shell.url = "github:aciceri/agenix-shell";
-    std.url = "github:divnix/std";
-    devour-flake = {
-      url = "github:srid/devour-flake";
-      flake = false;
-    };
-    waybar = {
-      url = "github:Alexays/Waybar";
-    };
-    solaar = {
-      url = "github:Svenum/Solaar-Flake/main"; # Uncomment line for latest unstable version
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # oh-my-posh-src = {
-    #   url = "github:JanDeDobbeleer/oh-my-posh";
+    # devour-flake = {
+    #   url = "github:srid/devour-flake";
     #   flake = false;
     # };
-    #texlive-src = {
-    #   url = "" 
-    #};
+    waybar = {
+      url = "github:alexays/waybar";
+    };
+    solaar = {
+      url = "github:svenum/solaar-flake/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { nixpkgs, ... }@inputs:
     let
@@ -106,69 +75,26 @@
           allowSubstitutes = true;
         };
         overlays = [
-          # {
-          #   devour-flake = self.callPackage inputs.devour-flake { };
-          # }
           inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
-          # inputs.hyprland.overlays.hyprland-extras
-          # inputs.hyprlock.overlays.default
-          # inputs.hypridle.overlays.default
-          # inputs.hyprpaper.overlays.default
-          # inputs.hyprpicker.overlays.default
-          # inputs.hyprpaper.overlays.default
           inputs.waybar.overlays.default
           inputs.nixd.overlays.default
-          # (final: prev: {
-          #   oh-my-posh = prev.oh-my-posh.overrideAttrs
-          #     (oldAttrs: {
-          #       version = "21.28.0";
-          #       src = inputs.oh-my-posh-src;
-          #     });
-          # })
         ];
       };
       home-manager = inputs.home-manager;
     in
-    # inputs.devour-flake.mkOutput {
-      #   inputs = {
-      #     inherit self;
-      #     inherit nixpkgs;
-      #     inherit home-manager;
-      #     inherit nixpkgs-mozilla;
-      #     inherit neovim-nightly-overlay;
-      #     inherit hyprland;
-      #     inherit hyprland-plugins;
-      #     inherit hyprlock;
-      #     inherit hypridle;
-      #     inherit hyprpicker;
-      #     inherit hyprpaper;
-      #     inherit lanzaboote;
-      #     inherit flake-parts;
-      #     inherit nixd;
-      #     inherit agenix;
-      #     inherit agenix-rekey;
-      #     inherit agenix-shell;
-      #     inherit std;
-      #     inherit devour-flake;
-      #     inherit waybar;
-      #   };
-      #   devour = {
     inputs.flake-parts.lib.mkFlake
       { inherit inputs; }
       {
         imports = [
-          # ./parts/neovim.nix
           inputs.agenix-rekey.flakeModule
           inputs.agenix-shell.flakeModules.default
           inputs.std.flakeModule
         ];
         debug = true;
         systems = [ "x86_64-linux" ];
-        # perSystem = { config, ... }: { };
         flake = {
-          # packages.x86_64-linux.default = pkgs.hyprlock;
           nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
             specialArgs = {
               inherit pkgs inputs systemSettings home-manager mainUserSettings;
@@ -176,13 +102,6 @@
             modules = [
               ./configuration.nix
               inputs.solaar.nixosModules.default
-              # ({ pkgs, config, ... }:
-              #   {
-              #     imports = [
-              #       # inputs.devour-flake.nixosModules.default
-              #     ];
-              #   }
-              # )
               inputs.lanzaboote.nixosModules.lanzaboote
               inputs.agenix.nixosModules.default
             ];
@@ -194,9 +113,6 @@
                 inherit inputs mainUserSettings systemSettings;
               };
               modules = [
-                # {
-                #   wayland.windowManager.hyprland.enable = true;
-                # }
                 ./users/cdockter/home.nix
               ];
             };
