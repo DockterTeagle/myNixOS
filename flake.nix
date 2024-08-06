@@ -11,8 +11,18 @@
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
+    }; # consider getting rid of this and replacing with the packages individual flakes
+    # eww = {
+    #   url = "github:elkowar/eww";
+    # };
+    # swww = {
+    #   url = "github:LGFae/swww";
+    # };
     # nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "git+https://github.com/hyprwm/hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -28,12 +38,6 @@
       inputs.hyprland.follows = "hyprland";
     };
     nixd.url = "github:nix-community/nixd";
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    agenix-rekey.url = "github:oddlama/agenix-rekey";
-    agenix-shell.url = "github:aciceri/agenix-shell";
     # devour-flake = {
     #   url = "github:srid/devour-flake";
     #   flake = false;
@@ -75,7 +79,6 @@
           allowSubstitutes = true;
         };
         overlays = [
-          inputs.nixpkgs-mozilla.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.waybar.overlays.default
@@ -88,9 +91,6 @@
       { inherit inputs; }
       {
         imports = [
-          inputs.agenix-rekey.flakeModule
-          inputs.agenix-shell.flakeModules.default
-          inputs.std.flakeModule
         ];
         debug = true;
         systems = [ "x86_64-linux" ];
@@ -103,7 +103,7 @@
               ./configuration.nix
               inputs.solaar.nixosModules.default
               inputs.lanzaboote.nixosModules.lanzaboote
-              inputs.agenix.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
             ];
           };
           homeConfigurations = {

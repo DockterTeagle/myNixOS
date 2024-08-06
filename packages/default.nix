@@ -11,7 +11,6 @@
     ./gaming.nix
   ];
   environment.systemPackages = [
-    inputs.agenix.packages."${systemSettings.system}".default
     pkgs.woeusb
   ];
 }

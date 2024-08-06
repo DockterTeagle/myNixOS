@@ -30,7 +30,6 @@
 
   environment = {
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
-    # loginShellInit = ''run_wm'';
     systemPackages = with pkgs; [
       cliphist
       eww
