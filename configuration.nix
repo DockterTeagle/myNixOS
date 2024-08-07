@@ -68,7 +68,7 @@
   services = {
     dbus.enable = true;
     fwupd.enable = true;
-    gvfs.enable = true;
+    gvfs.enable = true; #needed?
     libinput.enable = true;
     onedrive.enable = true;
     printing.enable = true;
@@ -120,6 +120,7 @@
       # TODO: sort all of these into the respective file
       xclip
       pciutils
+      gtk-doc
       gtk4
       gtk-doc
       gtkextra

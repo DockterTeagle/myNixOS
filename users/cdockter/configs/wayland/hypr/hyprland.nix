@@ -99,6 +99,9 @@
 
       exec-once = [
         "waybar & hyprpaper & nm-applet --indicator" #what does nm-applet do?
+        "steam"
+        "$terminal"
+        "discord"
         "mako"
         "hypridle"
         "hyprctl setcursor Bibata-Modern-Ice 24"

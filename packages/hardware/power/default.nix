@@ -22,7 +22,7 @@
         CPU_HWP_DYN_BOOST_ON_BAT = 0;
         # optional: helps save long-term battery health
         START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
-        STOP_CHARGE_THRESH_BAT0 = 100; # 80 and above it stops charging
+        STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
       };
     };
     thermald.enable = true;

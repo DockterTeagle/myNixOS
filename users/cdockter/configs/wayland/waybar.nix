@@ -1,4 +1,8 @@
 { ... }:
+#TODO: wifi should be blue, nad temperature should be red(maybe dynamic?), battery should be dynamic too, make calendar white?
+
+#E56252
+#5D1117
 {
   programs.waybar = {
     enable = true;
@@ -26,6 +30,7 @@
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 1px;
+        margin-top: 15px;
         color: #82aaff;
       }
       
@@ -34,7 +39,15 @@
         color: #0d74bd;
       }
 
-      #cpu, #memory, #temperature, #disk, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-power {
+      #network {
+        background-color: transparent;
+        color: #82aaff;
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 15px;
+      }
+      #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery {
         background-color: transparent;
         color: #00ba69;
         margin-top: 15px;
@@ -49,6 +62,10 @@
 
       #memory {
         color: #008000;
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 15px;
       }
 
       #disk {
@@ -62,10 +79,6 @@
         margin-right: 0
       }
 
-      #network {
-        color: #10a140;
-        padding-left: 5px;
-      }
       #idle_inhibitor {
         color: #82aaff;
       }
