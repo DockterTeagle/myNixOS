@@ -5,7 +5,5 @@
     element-desktop-wayland
     libreoffice
     thunderbird
-    zoom-us
-    obs-studio
   ];
 }
