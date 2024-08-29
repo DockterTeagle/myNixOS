@@ -285,11 +285,7 @@ in
 {
   home = {
     shellAliases = {
-      nvim-lazy = "NVIM_APPNAME=LazyVim nvim";
-      nvim-kick = "NVIM_APPNAME=kickstart nvim";
-      nvim-chad = "NVIM_APPNAME=NvChad nvim";
       nvim-chadpython = "NVIM_APPNAME=nvchad-python nvim";
-      nvim-astro = "NVIM_APPNAME=AstroNvim nvim";
       nhTotalSwitch = "nix flake update /home/cdockter/MyNixOS && nh os switch --verbose && nh home switch --verbose && nh clean all --keep=3 && nix flake archive /home/cdockter/MyNixOS/";
       ls = "lsd --git";
       la = "lsd --long -h --git --all";
@@ -302,6 +298,7 @@ in
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableBashIntegration = true;
     };
     zsh = {
       enable = true;

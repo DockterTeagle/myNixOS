@@ -1,8 +1,9 @@
 { ... }:
-#TODO: wifi should be blue, nad temperature should be red(maybe dynamic?), battery should be dynamic too, make calendar white?
+#TODO:  
+#temperature should be red(maybe dynamic?)
+#battery should be dynamic too, 
+#make calendar white?
 
-#E56252
-#5D1117
 {
   programs.waybar = {
     enable = true;
@@ -15,39 +16,12 @@
       window#waybar {
         background: transparent;
       }
-
-      #workspaces {
-        background-color: transparent;
-        color: #0d74bd;
-        margin-top: 15px;
-        margin-right: 15px;
-        padding-top: 1px;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-      
-      #custom-gpu  {
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 1px;
-        margin-top: 15px;
-        color: #82aaff;
-      }
-      
       #workspaces button {
         background: transparent;
         color: #0d74bd;
       }
 
-      #network {
-        background-color: transparent;
-        color: #82aaff;
-        margin-top: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-right: 15px;
-      }
-      #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery {
+      #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery, #idle_inhibitor, #network, #workspaces,#custom-gpu {
         background-color: transparent;
         color: #00ba69;
         margin-top: 15px;
@@ -56,6 +30,17 @@
         margin-right: 15px;
       }
 
+      #custom-gpu  {
+        color: #82aaff;
+      }
+      #workspaces {
+        background-color: transparent;
+        color: #0d74bd;
+      }
+      #network {
+        background-color: transparent;
+        color: #82aaff;
+      }
       #cpu {
         color: #FFD700;
       }
@@ -90,7 +75,6 @@
       #clock {
         color: #00ba69;
       }
-    
   '';
     settings = {
       mainBar = {
@@ -133,7 +117,7 @@
           exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
           format = "GPU: {}%";
           all-outputs = true;
-          interval = 2;
+          interval = 1;
         };
         cpu = {
           format = "󰻠 {usage}%";
@@ -162,7 +146,7 @@
           format-calendar = "<span color='#f2cdcd'><b>{}</b></span>";
           format-calendar-weeks = "<span color='#94e2d5'><b>W{:%U}</b></span>";
           format-calendar-weekdays = "<span color='#f9e2af'><b>{}</b></span>";
-          interval = 60;
+          interval = 1;
         };
         backlight = {
           devicxe = "intel_backlight";
@@ -183,7 +167,7 @@
             headphone = "󰋋 ";
             headset = "󰋎 ";
             phone = " ";
-            car = " ";
+            car = " "; #tf?
             default = [ "" " " " " ];
           };
           on-click = "pavucontrol";
@@ -210,7 +194,7 @@
         format-full = " {capacity}%";
         format-icons = [ " " " " " " " " " " " " ];
         # format-charging = "<span color='#2da14c'> </span> {capacity}%";
-        interval = 0.5;
+        interval = 2;
       };
     };
   };

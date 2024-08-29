@@ -57,7 +57,12 @@
       # # the nix store. activating the configuration will then make '~/.screenrc' a
       # # symlink to the nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
-
+      ".config/onedrive/sync_list" = {
+        text = ''
+          !/Pictures/*
+          /*
+        '';
+      };
       # # you can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose

@@ -32,7 +32,7 @@
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     systemPackages = with pkgs; [
       cliphist
-      eww
+      # eww
       swww #animated wayland images backgroun
       wl-clipboard
       wayland #needed?
