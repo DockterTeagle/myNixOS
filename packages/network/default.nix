@@ -9,6 +9,9 @@
   #     (import ./ssh/default.nix { inherit mainUserSettings lib systemSettings; })
   #   ]
   #   ++ optional (conf.wireless) (import ./wireless/default.nix { inherit pkgs systemSettings; });
+  environment.systemPackages = with pkgs;[
+    networkmanagerapplet
+  ];
   networking = {
     networkmanager.enable = true;
     hostName = systemSettings.hostName;

@@ -126,7 +126,6 @@
       openssl
       sbsigntool
       openresolv
-      networkmanagerapplet
       dmidecode # get system info
       hwinfo #also get system info
       home-manager
