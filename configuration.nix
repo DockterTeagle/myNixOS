@@ -9,7 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     inputs.hyprland.nixosModules.default
-    ./MSI-hardware-configuration.nix
+    ./MSI-GE75Raider-hardware-configuration.nix
     # Packages
     (import ./packages { inherit mainUserSettings pkgs lib config systemSettings inputs; })
   ];

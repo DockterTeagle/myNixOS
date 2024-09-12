@@ -287,10 +287,6 @@ in
     shellAliases = {
       nvim-chadpython = "NVIM_APPNAME=nvchad-python nvim";
       nhTotalSwitch = "nix flake update /home/cdockter/MyNixOS && nh os switch --verbose && nh home switch --verbose && nh clean all --keep=3 && nix flake archive /home/cdockter/MyNixOS/";
-      ls = "lsd --git";
-      la = "lsd --long -h --git --all";
-      ll = "lsd --long -h --git";
-      l = "lsd --long  --git --all";
       cd = "z";
     };
   };

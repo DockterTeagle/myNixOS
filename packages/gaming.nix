@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs;[
-    gamescope
+    gamescope # what am I for??
     winetricks
-    protontricks
   ];
   programs.steam = {
+    protontricks.enable = true;
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;

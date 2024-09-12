@@ -5,5 +5,7 @@
     ./tmux.nix
     ./zsh.nix
     ./fastfetch.nix
+    ./lsd.nix
+    ./neovim
   ];
 }

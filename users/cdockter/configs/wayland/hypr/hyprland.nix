@@ -102,8 +102,7 @@
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        # "waybar & hyprpaper & nm-applet --indicator" #what does nm-applet do?
-        "waybar &  nm-applet --indicator" #what does nm-applet do?
+        "waybar & hyprpaper & nm-applet --indicator" #what does nm-applet do?
         "steam"
         "$terminal"
         "discord"
@@ -149,7 +148,6 @@
         "$mainMod SHIFT,F,fullscreen, 1"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
-        "$mainMod_SHIFT,s,exec,steam"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
       ];
