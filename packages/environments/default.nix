@@ -32,10 +32,8 @@
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     systemPackages = with pkgs; [
       cliphist
-      # eww
-      swww #animated wayland images backgroun
+      eww
       wl-clipboard
-      wayland #needed?
       polkit
       polkit-kde-agent
       libva-utils
@@ -45,15 +43,11 @@
       gsettings-desktop-schemas
       swaynotificationcenter
       wlr-randr
-      ydotool
-      wl-clipboard
-      grim
       grimblast
       xdg-utils
       lshw
       waybar
       pavucontrol
-      wlroots
       dbus
     ];
   };

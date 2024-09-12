@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs;[
-    spotify
+    # spotify
     firefox
     discord
-    webcord
-    protonvpn-gui
+    # webcord
+    # protonvpn-gui
   ];
 }
