@@ -120,9 +120,6 @@
       # TODO: sort all of these into the respective file
       xclip
       pciutils
-      gtk-doc
-      gtk4
-      gtkextra
       wev
       acpi
       openssl

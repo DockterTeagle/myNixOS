@@ -43,6 +43,7 @@
       gsettings-desktop-schemas
       swaynotificationcenter
       wlr-randr
+      grim
       grimblast
       xdg-utils
       lshw

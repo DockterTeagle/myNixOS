@@ -6,14 +6,14 @@
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
       borders-plus-plus
-      # inputs.hy3.packages.x86_64-linux.hy3
+      inputs.hy3.packages.x86_64-linux.hy3
     ];
 
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
-      plugin = { };
+      plugin = { }; # configure plugins here
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
@@ -37,6 +37,9 @@
       # xwayland = {
       #   force_zero_scaling = true;
       # };
+      env = [
+        "SLURP_ARGS,-d -b -B F050F022 -b 10101022 -c ff00ff"
+      ];
       decoration = {
         rounding = 0;
         dim_inactive = true;
@@ -127,7 +130,7 @@
         ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
-        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
+        ",Print,exec,grimblast save screen |wl-copy -t image/png"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
         "$mainMod , 2, workspace, 2"
@@ -145,6 +148,7 @@
         "$mainMod,l,exec,hyprctl dispatch exit"
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
+        "$mainMod_SHIFT,s,exec,grimblast save area | wl-copy -t image/png"
         "$mainMod SHIFT,F,fullscreen, 1"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"

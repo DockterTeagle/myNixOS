@@ -4,17 +4,34 @@
     enable = true;
     settings = {
       logo = {
-        source = "nixos";
-        padding = {
-          right = 1;
-        };
+        type = "kitty-direct";
+        source = ./images/NixOS.png;
+        # padding = {
+        #   right = 1;
+        # };
       };
       display = {
+        temp = {
+          ndigits = 8;
+        };
+        stat = true;
+        showErrors = true;
+        percent = {
+          type = 3;
+          ndigits = 3;
+
+        };
+        # bar = {
+        #
+        # };
         size = {
           binaryPrefix = "si";
         };
         color = "blue";
         separator = "  ";
+      };
+      general = {
+        multithreading = true;
       };
       modules = [
         {
@@ -27,9 +44,71 @@
           key = "Time";
           format = "{14}:{17}:{20}";
         }
+        # "battery"
+        "bios"
+        # "bluetooth"
+        "board"
+        "bootmgr"
         "break"
-        "player"
+        # "brightness"
+        "camera"
+        # "chassis"
+        "cpu"
+        "cpucache"
+        "cpuusage"
+        "command"
+        "colors"
+        "cursor"
+        "display"
+        "disk"
+        "diskio"
+        "de"
+        "dns"
+        "editor"
+        "font"
+        "gamepad"
+        "gpu"
+        "host"
+        "icons"
+        "initsystem"
+        "kernel"
+        "lm"
+        "loadavg"
+        "localip"
         "media"
+        "memory"
+        "monitor"
+        "netio"
+        "opencl"
+        "opengl"
+        "os"
+        "packages"
+        "physicaldisk"
+        "physicalmemory"
+        "player"
+        # "poweradapter"
+        "proccesses"
+        "publicip"
+        "seperator"
+        "shell"
+        "sound"
+        "swap"
+        "terminal"
+        "terminalfont"
+        "terminalsize"
+        "terminaltheme"
+        "title"
+        "theme"
+        "uptime"
+        "users"
+        "version"
+        "vulkan"
+        "wallpaper"
+        "weather"
+        "wm"
+        "wifi"
+        "wmtheme"
+        "zpool"
       ];
     };
   };

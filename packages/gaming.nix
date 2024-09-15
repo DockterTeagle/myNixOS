@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  # environment.systemPackages = with pkgs;[
-  #   gamescope # what am I for??
-  #   winetricks
-  # ];
   programs.steam = {
     gamescopeSession.enable = true;
     protontricks.enable = true;
