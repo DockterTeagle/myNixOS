@@ -37,6 +37,9 @@
   xdg = {
     autostart.enable = true;
     portal = {
+      extraPortals = with pkgs;[
+        xdg-desktop-portal-gtk
+      ];
       enable = true;
     };
   };
@@ -119,7 +122,6 @@
       pciutils
       gtk-doc
       gtk4
-      gtk-doc
       gtkextra
       wev
       acpi

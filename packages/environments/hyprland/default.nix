@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = [
-    pkgs.xdg-desktop-portal-gtk
     pkgs.hyprland-protocols
     pkgs.hyprcursor
     pkgs.hyprpaper
