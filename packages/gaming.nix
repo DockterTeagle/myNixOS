@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs;[
+    jstest-gtk
+  ];
   programs.steam = {
     gamescopeSession.enable = true;
     protontricks.enable = true;
