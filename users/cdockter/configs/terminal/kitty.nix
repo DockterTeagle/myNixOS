@@ -10,7 +10,7 @@
       "confirm_os_window_close" = 0;
       "enable_audio_bell" = "no";
     };
-    theme = mainUserSettings.theme;
+    themeFile = "tokyo_night_night";
   };
 
 }
