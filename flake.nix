@@ -32,6 +32,7 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
+    ags.url = "github:Aylur/ags";
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
