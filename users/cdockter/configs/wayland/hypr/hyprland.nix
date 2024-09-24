@@ -105,11 +105,11 @@
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "waybar & hyprpaper & nm-applet --indicator" #what does nm-applet do?
+        " hyprpaper & nm-applet --indicator" #what does nm-applet do?
         "steam"
         "$terminal"
         "discord"
-        "mako"
+        "ags"
         "firefox"
       ];
 

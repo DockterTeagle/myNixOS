@@ -6,6 +6,10 @@
 
 {
   # Imports
+  # swapDevices = [{
+  #   device = "/swapfile";
+  #   size = 16 * 1024;
+  # }];
   imports = [
     # Include the results of the hardware scan.
     inputs.hyprland.nixosModules.default
@@ -63,7 +67,12 @@
   };
 
   # Hardware
-
+  hardware.bluetooth.input = {
+    General = {
+      UserspaceHID = false;
+      ClassicBondedOnly = false;
+    };
+  };
   # Services
   services = {
     dbus.enable = true;

@@ -12,12 +12,6 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     }; # consider getting rid of this and replacing with the packages individual flakes
-    # eww = {
-    #   url = "github:elkowar/eww";
-    # };
-    # swww = {
-    #   url = "github:LGFae/swww";
-    # };
     # nixos-hardware.url = "github:nixos/nixos-hardware/master";
     sops-nix = {
       url = "github:Mic92/sops-nix";
