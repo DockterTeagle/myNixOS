@@ -34,9 +34,6 @@
         };
         sensitivity = "0";
       };
-      # xwayland = {
-      #   force_zero_scaling = true;
-      # };
       env = [
         "SLURP_ARGS,-d -b -B F050F022 -b 10101022 -c ff00ff"
       ];
@@ -105,11 +102,11 @@
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        " hyprpaper & nm-applet --indicator" #what does nm-applet do?
+        "waybar & hyprpaper & nm-applet --indicator" #what does nm-applet do?
         "steam"
         "$terminal"
         "discord"
-        "ags"
+        "mako"
         "firefox"
       ];
 
