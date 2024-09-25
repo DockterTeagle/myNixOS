@@ -9,3 +9,4 @@
 8. config mako
 9. fix git crashing when on https
 10. sort remaining packages in zsh.nix and configuration.nix into their respective packages
+11. find a way to only have one version of hyprland installed as currently there is two, one in home and one in system

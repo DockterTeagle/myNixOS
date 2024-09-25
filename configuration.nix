@@ -13,12 +13,17 @@
   imports = [
     # Include the results of the hardware scan.
     inputs.hyprland.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
     ./MSI-GE75Raider-hardware-configuration.nix
     # Packages
     (import ./packages { inherit mainUserSettings pkgs lib config systemSettings inputs; })
   ];
 
   # Nix settings
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
