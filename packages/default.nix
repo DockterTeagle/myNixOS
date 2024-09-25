@@ -10,7 +10,8 @@
     ./tools
     ./gaming.nix
   ];
-  environment.systemPackages = [
-    pkgs.woeusb
+  environment.systemPackages = with pkgs; [
+    woeusb
+    libnotify
   ];
 }
