@@ -41,7 +41,7 @@
       udiskie
       nvidia-vaapi-driver # move me
       gsettings-desktop-schemas
-      swaynotificationcenter
+      # swaynotificationcenter
       wlr-randr
       grim
       grimblast
