@@ -45,7 +45,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -80,7 +80,7 @@
           inputs.nixd.overlays.default
         ];
       };
-      home-manager = inputs.home-manager;
+      home-manager = home-manager;
     in
     inputs.flake-parts.lib.mkFlake
       { inherit inputs; }
@@ -109,6 +109,12 @@
               };
               modules = [
                 ./users/cdockter/home.nix
+                # {
+                #   home-manager = {
+                #     useGlobalPkgs = true;
+                #     useUserPkgs = true;
+                #   };
+                # }
               ];
             };
           };

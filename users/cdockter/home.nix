@@ -46,7 +46,6 @@
       {
         NIXOS_OZONE_WL = "1";
         DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
-        # PROTON_VERSION = "GE-Proton9-10";
       };
     # the home.packages option allows you to install nix packages into your
     # environment.

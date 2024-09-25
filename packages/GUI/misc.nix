@@ -6,5 +6,7 @@
     discord
     # webcord
     # protonvpn-gui
+    sass
+    swww
   ];
 }
