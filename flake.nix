@@ -42,9 +42,9 @@
     #   url = "github:srid/devour-flake";
     #   flake = false;
     # };
-    waybar = {
-      url = "github:alexays/waybar";
-    };
+    # waybar = {
+    #   url = "github:alexays/waybar";
+    # };
     solaar = {
       url = "github:svenum/solaar-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,7 +82,7 @@
           inputs.hyprpanel.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
-          inputs.waybar.overlays.default
+          # inputs.waybar.overlays.default
           inputs.nixd.overlays.default
         ];
       };

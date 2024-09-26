@@ -48,7 +48,7 @@
       grimblast
       xdg-utils
       lshw
-      waybar
+      # waybar
       pavucontrol
       dbus
     ];
