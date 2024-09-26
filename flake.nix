@@ -6,6 +6,7 @@
       url = "github:jchook/ranger-zoxide";
       flake = false;
     };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -78,6 +79,7 @@
           allowSubstitutes = true;
         };
         overlays = [
+          inputs.hyprpanel.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.waybar.overlays.default

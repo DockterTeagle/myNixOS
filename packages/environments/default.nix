@@ -36,6 +36,7 @@
       wl-clipboard
       polkit
       polkit-kde-agent
+      kdePackages.dolphin
       libva-utils
       fuseiso
       udiskie

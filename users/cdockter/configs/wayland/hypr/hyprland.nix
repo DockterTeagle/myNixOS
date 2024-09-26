@@ -3,6 +3,9 @@
   imports = [
     inputs.hyprland.homeManagerModules.default
   ];
+  home.packages = with pkgs;[
+    hyprpanel
+  ];
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
       borders-plus-plus
@@ -102,11 +105,11 @@
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "waybar & hyprpaper & nm-applet --indicator" #what does nm-applet do?
+        "hyprpanel"
+        "hyprpaper & nm-applet --indicator" #what does nm-applet do?
         "steam"
         "$terminal"
         "discord"
-        "mako"
         "firefox"
       ];
 
