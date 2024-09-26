@@ -7,5 +7,6 @@
     ./fastfetch.nix
     ./lsd.nix
     ./neovim
+    ./ranger.nix
   ];
 }

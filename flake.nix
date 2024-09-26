@@ -2,6 +2,10 @@
   description = "my main flake";
 
   inputs = {
+    ranger-zoxide = {
+      url = "github:jchook/ranger-zoxide";
+      flake = false;
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";

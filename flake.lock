@@ -6,11 +6,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1725841979,
-        "narHash": "sha256-SXYqzpHPuXFR6w/cUKo3VN8XRn6XA2mGbdRXs9oLk6k=",
+        "lastModified": 1727303518,
+        "narHash": "sha256-lO5JMynTxNZxg/+E4/Y9reeLGIz/M8cEue+Re4cP6qo=",
         "owner": "Aylur",
         "repo": "ags",
-        "rev": "aaef50bb2c80ef4b4a359329d72669a95e7c4796",
+        "rev": "cd543afec4d9ed708990e5ba52184716809bf248",
         "type": "github"
       },
       "original": {
@@ -567,11 +567,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1727257173,
-        "narHash": "sha256-J4VU76LLWEILNTZ8osUaUxSny+cTUH/wCKcV+Lqr3Bw=",
+        "lastModified": 1727305730,
+        "narHash": "sha256-EWtisVQG1O058U09R3GTmzWWujuHYmyiKbpb9qE3Z9Q=",
         "ref": "refs/heads/main",
-        "rev": "8b86ee8bf08eaf8b57d0a7f12af876216323cc3d",
-        "revCount": 5257,
+        "rev": "b1ad2d806634edff656cb5ddc9850ae2c73324e8",
+        "revCount": 5260,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/hyprland"
@@ -970,11 +970,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727267869,
-        "narHash": "sha256-Xq/cqY6dZpHxl79wpSre0g8kPr8j/2Y9xPoS1jDecQc=",
+        "lastModified": 1727281623,
+        "narHash": "sha256-erwl+7UhaA6VcDZN4Nt71nbqFUOLenbfUa8LySSc1kY=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "04d2fb74e0eed7e8fb1f07f37188e8bacc0f99ed",
+        "rev": "6c30bb8b6b342c76162b644e3d83dd080e31b2b7",
         "type": "github"
       },
       "original": {
@@ -1106,6 +1106,22 @@
         "type": "github"
       }
     },
+    "ranger-zoxide": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707380311,
+        "narHash": "sha256-JEuyYSVa1NS3aftezEJx/k19lwwzf7XhqBCL0jH6VT4=",
+        "owner": "jchook",
+        "repo": "ranger-zoxide",
+        "rev": "281828de060299f73fe0b02fcabf4f2f2bd78ab3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jchook",
+        "repo": "ranger-zoxide",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "ags": "ags",
@@ -1119,6 +1135,7 @@
         "nixd": "nixd",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-wayland": "nixpkgs-wayland",
+        "ranger-zoxide": "ranger-zoxide",
         "solaar": "solaar",
         "sops-nix": "sops-nix",
         "waybar": "waybar"
