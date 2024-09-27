@@ -3,7 +3,7 @@
   imports = [ inputs.ags.homeManagerModules.default ];
   programs.ags = {
     enable = true;
-    configDir = ./ags/DreamsOfCodeConfig;
+    # configDir = ./ags/DreamsOfCodeConfig;
     extraPackages = with pkgs;[
       gtksourceview
       webkitgtk
