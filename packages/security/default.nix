@@ -40,6 +40,7 @@
     efibootmgr
     cryptsetup
     mkpasswd
+    pv
   ];
 }
     

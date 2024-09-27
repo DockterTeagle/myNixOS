@@ -155,7 +155,7 @@
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
       ];
-      # windowrulev2 = [ "suppressevent maximize, class:.*" ];
+      windowrulev2 = [ "idleinhibit focus, class:^steam_app_.*$" ];
     };
   };
 }

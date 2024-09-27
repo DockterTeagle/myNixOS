@@ -85,7 +85,7 @@
     gvfs.enable = true; #needed?
     libinput.enable = true;
     onedrive.enable = true;
-    printing.enable = true;
+    printing.enable = false;
     tumbler.enable = true;
 
     # XServer and GNOME

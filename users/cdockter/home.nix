@@ -56,10 +56,15 @@
       # # the nix store. activating the configuration will then make '~/.screenrc' a
       # # symlink to the nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
-      ".config/onedrive/sync_list" = {
+      # ".config/onedrive/sync_list" = {
+      #   text = ''
+      #     !/Pictures/*
+      #     /*
+      #   '';
+      # };
+      ".config/onedrive/config" = {
         text = ''
-          !/Pictures/*
-          /*
+          skip_dir = "Pictures"
         '';
       };
       # # you can also set the file content immediately.
