@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs;[
     jstest-gtk
+    samba
   ];
   programs.steam = {
     gamescopeSession.enable = true;

@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs;[
-    # spotify
+    spotify
     firefox
     discord
     # webcord
-    # protonvpn-gui
+    protonvpn-gui
     sass
     swww
   ];

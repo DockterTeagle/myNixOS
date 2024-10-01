@@ -306,8 +306,7 @@ in
         zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
         zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
         zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
-        export PATH="$PATH:/home/cdockter/OneDrive/protonhax/"
-        export PATH="$PATH:/home/cdockter/.local/bin"
+        export PATH=$PATH:/home/cdockter/.local/bin
       '';
       oh-my-zsh = {
         enable = true;

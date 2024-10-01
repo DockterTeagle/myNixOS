@@ -12,5 +12,4 @@
     };
     themeFile = "tokyo_night_night";
   };
-
 }
