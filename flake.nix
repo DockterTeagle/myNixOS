@@ -2,6 +2,7 @@
   description = "my main flake";
 
   inputs = {
+    nh.url = "github:viperML/nh";
     nur.url = "github:nix-community/NUR";
     ranger-zoxide = {
       url = "github:jchook/ranger-zoxide";
@@ -89,6 +90,7 @@
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
           inputs.nur.overlay
+          inputs.nh.overlays.default
         ];
       };
       home-manager = home-manager;
