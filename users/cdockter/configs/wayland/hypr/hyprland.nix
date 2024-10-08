@@ -105,7 +105,7 @@
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "hyprpaper & nm-applet --indicator" #what does nm-applet do?
+        "hyprpaper " #what does nm-applet do?
         "steam"
         "$terminal"
         "discord"

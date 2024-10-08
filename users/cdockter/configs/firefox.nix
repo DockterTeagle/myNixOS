@@ -12,8 +12,9 @@
           leechblock-ng
           onetab
           ublock-origin
-          tst-more-tree-commands
+          multi-account-containers
           proton-pass
+          tst-more-tree-commands
         ];
         name = "cdockter";
         isDefault = true;
