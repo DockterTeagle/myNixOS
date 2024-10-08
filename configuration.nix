@@ -17,6 +17,7 @@
     ./MSI-GE75Raider-hardware-configuration.nix
     # Packages
     (import ./packages { inherit mainUserSettings pkgs lib config systemSettings inputs; })
+    (import ./secret-managment { inherit mainUserSettings pkgs lib config systemSettings inputs; })
   ];
 
   # Nix settings
