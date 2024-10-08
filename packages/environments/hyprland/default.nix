@@ -21,5 +21,6 @@
     hypridle
     hyprlock
     wf-recorder
+    hyprshot
   ];
 }

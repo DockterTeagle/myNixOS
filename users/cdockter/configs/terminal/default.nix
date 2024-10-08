@@ -3,8 +3,8 @@
   imports = [
     ./kitty.nix
     ./tmux.nix
-    ./zsh.nix
-    ./fastfetch.nix
+    ./zsh
+    ./fastfetch
     ./lsd.nix
     ./neovim
     ./ranger.nix
