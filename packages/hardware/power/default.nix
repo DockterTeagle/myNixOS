@@ -7,7 +7,7 @@
     tlp = {
       enable = true;
       settings = {
-
+        BluetoothPowerSave = 0;
         CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
         CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
         PLATFORM_PROFILE_ON_AC = "performance";

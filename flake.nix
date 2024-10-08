@@ -8,6 +8,8 @@
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs-super-unstable.url = 0;
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,9 +43,6 @@
     # devour-flake = {
     #   url = "github:srid/devour-flake";
     #   flake = false;
-    # };
-    # waybar = {
-    #   url = "github:alexays/waybar";
     # };
     solaar = {
       url = "github:svenum/solaar-flake/main";
@@ -82,7 +81,6 @@
           inputs.hyprpanel.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
-          # inputs.waybar.overlays.default
           inputs.nixd.overlays.default
         ];
       };
@@ -115,12 +113,6 @@
               };
               modules = [
                 ./users/cdockter/home.nix
-                # {
-                #   home-manager = {
-                #     useGlobalPkgs = true;
-                #     useUserPkgs = true;
-                #   };
-                # }
               ];
             };
           };
