@@ -11,3 +11,4 @@
 10. sort remaining packages in zsh.nix and configuration.nix into their respective packages
 11. find a way to only have one version of hyprland installed as currently there is two, one in home and one in system
 12. change over to ags instead of waybar
+13. configure solaar(if needed)
