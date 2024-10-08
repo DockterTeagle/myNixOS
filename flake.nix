@@ -14,6 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.darwin.follows = "";
     };
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -94,6 +95,7 @@
       { inherit inputs; }
       {
         imports = [
+          inputs.agenix-rekey.flakeModule
         ];
         debug = true;
         systems = [ "x86_64-linux" ];
