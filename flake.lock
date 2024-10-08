@@ -1346,6 +1346,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1728373090,
+        "narHash": "sha256-dvKHcU7g1nkmtpAcUNc5gD7azyvWEa3hA+lrXsmnMSA=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "3545221f08c8bd38537785430e27c3d357c3e450",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1457,6 +1472,7 @@
         "nixd": "nixd",
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-wayland": "nixpkgs-wayland",
+        "nur": "nur",
         "ranger-zoxide": "ranger-zoxide",
         "solaar": "solaar",
         "sops-nix": "sops-nix"

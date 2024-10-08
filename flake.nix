@@ -2,6 +2,7 @@
   description = "my main flake";
 
   inputs = {
+    nur.url = "github:nix-community/NUR";
     ranger-zoxide = {
       url = "github:jchook/ranger-zoxide";
       flake = false;
@@ -54,7 +55,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -87,6 +88,7 @@
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
+          inputs.nur.overlay
         ];
       };
       home-manager = home-manager;
@@ -106,6 +108,15 @@
             };
             modules = [
               ./configuration.nix
+              # # ({ pkgs, ... }:
+              #   let
+              #     nur-no-pkgs = import inputs.nur {
+              #       nurpkgs = import nixpkgs { system = "x86_64-linux"; };
+              #     };
+              #   in
+              #   {
+              #     imports = [];
+              #   })
               inputs.solaar.nixosModules.default
               inputs.lanzaboote.nixosModules.lanzaboote
               inputs.sops-nix.nixosModules.sops
