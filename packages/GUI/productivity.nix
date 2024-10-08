@@ -5,6 +5,7 @@
   };
   environment.systemPackages = with pkgs;[
     element-desktop-wayland
+    zoom-us
     # libreoffice
     # thunderbird
   ];

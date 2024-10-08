@@ -6,10 +6,6 @@
 
 {
   # Imports
-  # swapDevices = [{
-  #   device = "/swapfile";
-  #   size = 16 * 1024;
-  # }];
   imports = [
     # Include the results of the hardware scan.
     inputs.hyprland.nixosModules.default
@@ -19,7 +15,10 @@
     (import ./packages { inherit mainUserSettings pkgs lib config systemSettings inputs; })
     (import ./secret-managment { inherit mainUserSettings pkgs lib config systemSettings inputs; })
   ];
-
+  # swapDevices = [{
+  #   device = "/swapfile";
+  #   size = 16 * 1024;
+  # }];
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -111,8 +110,9 @@
       enable = true;
       clean =
         {
+          dates = "daily";
           enable = true;
-          extraArgs = " --keep 3 -v";
+          extraArgs = "-v";
         };
       flake = "/home/cdockter/MyNixOS/";
     };
@@ -144,17 +144,6 @@
 
 
   # Specialisation
-  # specialisation = {
-  #   on-the-go.configuration = {
-  #     environment.etc."specialisation".text = "on-the-go";
-  #     system.nixos.tags = [ "on-the-go" ];
-  #     hardware.nvidia = {
-  #       prime.offload.enable = lib.mkForce true;
-  #       prime.offload.enableOffloadCmd = lib.mkForce true;
-  #       prime.sync.enable = lib.mkForce false;
-  #     };
-  #   };
-  # };
 
   # System Auto Upgrade
   system.autoUpgrade = {
