@@ -110,7 +110,6 @@
         "$terminal"
         "discord"
         "firefox"
-        "hyprpanel"
       ];
 
 
