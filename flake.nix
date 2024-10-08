@@ -9,7 +9,11 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-super-unstable.url = 0;
-
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -103,6 +107,7 @@
               inputs.solaar.nixosModules.default
               inputs.lanzaboote.nixosModules.lanzaboote
               inputs.sops-nix.nixosModules.sops
+              inputs.agenix.nixosModules.default
             ];
           };
           homeConfigurations = {
