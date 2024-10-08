@@ -15,7 +15,11 @@
     tmuxp.enable = true;
     tmuxinator.enable = true;
     plugins = with pkgs.tmuxPlugins; [
+      resurrect
+      continuum
+      copycat
       yank
+      open
       vim-tmux-navigator
       tmux-fzf
       tokyo-night-tmux
