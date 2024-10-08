@@ -72,13 +72,6 @@
     };
   };
 
-  # Hardware
-  hardware.bluetooth.input = {
-    General = {
-      UserspaceHID = false;
-      ClassicBondedOnly = false;
-    };
-  };
   # Services
   services = {
     dbus.enable = true;
@@ -164,7 +157,8 @@
 
   # System Auto Upgrade
   system.autoUpgrade = {
-    enable = true;
+    #TODO: make this use the flake
+    enable = false;
     allowReboot = true;
   };
 
