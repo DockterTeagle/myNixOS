@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   hardware.logitech = {
     lcd.enable = true;
@@ -44,20 +44,27 @@
           }
           dpi: 1000
           thumbwheel: {
-            divert: true
-            left = {
-              type: "Keypress", keys: ["KEY_LEFTCTRL", "KEY_TAB"]
-            }
-          }
-    
-          buttons: (
-            {
-              cid: 204
-              action = {type: "Keypress", keys: ["KEY_LEFTCTRL", "KEY_TAB"]}
-            },
-          )
+            divert: true;
+            invert:false;
+            left:{
+              mode: "OnInterval";
+              interval:3;
+              action:{
+                type:"Keypress";
+                keys:["KEY_LEFTCTRL","KEY_PAGEUP"];
+              };
+            };
+            right: {
+              mode: "OnInterval";
+              interval: 3;
+              action: {
+                type: "Keypress";
+                keys: ["KEY_LEFTCTRL","KEY_PAGEDOWN"];
+              };
+            };
+          };
         }
-      )
+      );
 
     '';
     systemPackages = with pkgs;[
