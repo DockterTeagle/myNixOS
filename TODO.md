@@ -12,3 +12,4 @@
 11. find a way to only have one version of hyprland installed as currently there is two, one in home and one in system
 12. change over to ags instead of waybar
 13. configure solaar(if needed)
+14. config logiops to get mx master 3 working
