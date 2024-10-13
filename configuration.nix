@@ -112,7 +112,7 @@
         {
           dates = "daily";
           enable = true;
-          extraArgs = "-v";
+          extraArgs = "--keep=3 -v";
         };
       flake = "/home/cdockter/MyNixOS/";
     };

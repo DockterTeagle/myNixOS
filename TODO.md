@@ -13,3 +13,5 @@
 12. change over to ags instead of waybar
 13. configure solaar(if needed)
 14. config logiops to get mx master 3 working and make it do different things on differnet programs
+15. MATLAB
+16. move basically all of tools into their own seperatre flakes

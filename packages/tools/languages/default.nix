@@ -3,8 +3,8 @@
   imports = [
     ./lua.nix
     ./javascript.nix
-    ./python.nix
-    ./CLanguage.nix
+    # ./python.nix
+    # ./CLanguage.nix
     # ./rust.nix
   ];
 }

@@ -22,6 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nix-matlab = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:doronbehar/nix-matlab";
+    };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,7 +78,7 @@
         term = "kitty";
         editor = "nvim";
         font = "JetBrains Mono Nerd Font";
-        home-directory = "/home/cdockter";
+        homeDirectory = "/home/cdockter";
         theme = "Tokyo Night";
       };
       pkgs = import nixpkgs {
@@ -84,6 +88,7 @@
           allowSubstitutes = true;
         };
         overlays = [
+          inputs.nix-matlab.overlay
           inputs.hyprpanel.overlay
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay

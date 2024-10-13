@@ -1,8 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs;[
     lua-language-server
-    nil
-    rocmPackages.llvm.clang-tools-extra
+    # rocmPackages.llvm.clang-tools-extra
     pyright
     texlab
     vim-language-server
@@ -13,6 +12,7 @@
     deno
     emacsPackages.lsp-julia
     vscode-langservers-extracted
+    matlab-language-server
     python312Packages.python-lsp-jsonrpc
   ];
 }

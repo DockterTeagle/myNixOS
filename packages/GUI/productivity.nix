@@ -7,73 +7,15 @@
       enable = true;
     };
   };
-  systemd.services.logid = {
-    description = "Logitech Devices Daemon (logiops)";
-    after = [ "network.target" ]; # Adjust as needed
-
-    # Run logid as root
-    serviceConfig = {
-      ExecStart = "${pkgs.logiops}/bin/logid -c /etc/logid.cfg";
-      Restart = "always";
-      User = "root";
-    };
-
-    wantedBy = [ "multi-user.target" ];
-    enable = true;
-  };
   services = {
-    # logid.enable = true;
     solaar = {
       enable = true;
     };
   };
   environment = {
-    etc."logid.cfg".text = ''
-          devices: (
-        {
-          name: "Wireless Mouse MX Master 3"
-          smartshift: {
-            on: true
-            threshold: 30
-            torque: 50
-          }
-          hiresscroll: {
-            hires: true
-            invert: false
-            target: false
-          }
-          dpi: 1000
-          thumbwheel: {
-            divert: true;
-            invert:false;
-            left:{
-              mode: "OnInterval";
-              interval:3;
-              action:{
-                type:"Keypress";
-                keys:["KEY_LEFTCTRL","KEY_PAGEUP"];
-              };
-            };
-            right: {
-              mode: "OnInterval";
-              interval: 3;
-              action: {
-                type: "Keypress";
-                keys: ["KEY_LEFTCTRL","KEY_PAGEDOWN"];
-              };
-            };
-          };
-        }
-      );
-
-    '';
     systemPackages = with pkgs;[
-      element-desktop-wayland
       zoom-us
       logiops
-      # nur.repos.tuxdude.logiops
-      # libreoffice
-      # thunderbird
     ];
   };
 }

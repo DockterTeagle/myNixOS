@@ -1,21 +1,19 @@
 { ... }:
 {
   home.file = {
-    ".config/solaar/rules.yaml" = {
-      text = ''
-        rules:
-          - name: "Firefox Side Scroll to Page Up/Down"
-          conditions:
-            - device_name: "MX Master 3"
-            - application: "firefox"
-          actions:
-            - action: "divert"
-              direction: "horizontal"
-              target: "pageup"
-            - action: "divert"
-              direction: "horizontal"
-              target: "pagedown"
-      '';
-    };
+    # ".config/solaar/rules.yaml" = {
+    #   text = ''
+    #           %YAML 1.3
+    #           ---
+    #     - Feature: THUMB WHEEL
+    #     - Rule: [ Modifiers: Control, Test: thumb_wheel_up, MouseScroll: [-2, 0] ]
+    #     - Rule:
+    #       - Modifiers: Control
+    #       - Test: thumb_wheel_down
+    #       - MouseScroll: [-2, 0]
+    #     - Rule: [ Or: [ Test: thumb_wheel_up, Test: thumb_wheel_down ], MouseScroll: [-1, 0] ]
+    #     ...
+    #   '';
+    # };
   };
 }

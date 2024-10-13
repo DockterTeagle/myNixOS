@@ -7,7 +7,6 @@
     grimblast
     gpu-screen-recorder
     btop
-    networkmanager
     matugen
     wl-clipboard
     swww

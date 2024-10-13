@@ -62,25 +62,25 @@
       };
       animations = {
         enabled = true;
-        bezier = [
-          "overshot, 0.05, 0.9, 0.1, 1.05"
-          "smoothOut, 0.36, 0, 0.66, -0.56"
-          "smoothIn, 0.25, 1, 0.5, 1"
-          "mycurve,.32,.97,.53,.98"
-          "expoOut,0.19,1.0,0.22,1.0"
-          "overshot,.32,.97,.37,1.16"
-          "easeInOut,.5,0,.5,1"
-        ];
+        # bezier = [
+        #   "overshot, 0.05, 0.9, 0.1, 1.05"
+        #   "smoothOut, 0.36, 0, 0.66, -0.56"
+        #   "smoothIn, 0.25, 1, 0.5, 1"
+        #   "mycurve,.32,.97,.53,.98"
+        #   "expoOut,0.19,1.0,0.22,1.0"
+        #   "overshot,.32,.97,.37,1.16"
+        #   "easeInOut,.5,0,.5,1"
+        # ];
 
-        animation = [
-          "windowsIn,0,4,expoOut"
-          "windowsOut,0,4,mycurve"
-          "fadeIn,0,3,mycurve"
-          "fadeOut,1,3,mycurve"
-          "fadeDim,1,1,expoOut"
-          "border,1,4,expoOut"
-          "workspaces,0,2,expoOut,fade"
-        ];
+        # animation = [
+        #   "windowsIn,0,4,expoOut"
+        #   "windowsOut,0,4,mycurve"
+        #   "fadeIn,0,3,mycurve"
+        #   "fadeOut,1,3,mycurve"
+        #   "fadeDim,1,1,expoOut"
+        #   "border,1,4,expoOut"
+        #   "workspaces,0,2,expoOut,fade"
+        # ];
 
       };
 
