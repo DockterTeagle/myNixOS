@@ -7,6 +7,8 @@
     ./formatters.nix
   ];
   environment.systemPackages = with pkgs;[
-    graphviz
+    xdotool
+    ripgrep
+    fd
   ];
 }

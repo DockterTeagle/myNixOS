@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs;[
     lua-language-server
-    # rocmPackages.llvm.clang-tools-extra
     pyright
+    ruff-lsp
     texlab
     vim-language-server
     marksman

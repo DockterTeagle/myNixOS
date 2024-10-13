@@ -15,3 +15,4 @@
 14. config logiops to get mx master 3 working and make it do different things on differnet programs
 15. MATLAB
 16. move basically all of tools into their own seperatre flakes
+17. make hyprland have tmux like leader key

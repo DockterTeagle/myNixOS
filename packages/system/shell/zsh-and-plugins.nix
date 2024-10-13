@@ -9,12 +9,9 @@
   environment.systemPackages = with pkgs; [
     lsof
     zsh
-    oh-my-zsh
     zsh-syntax-highlighting
     nix-zsh-completions
-    libgcc
     unzip
-    cmake
     nodejs
     fzf
     thefuck
