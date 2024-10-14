@@ -4,9 +4,7 @@
     spotify
     firefox
     discord
-    # webcord
     protonvpn-gui
-    sass
     swww
   ];
 }

@@ -10,6 +10,7 @@
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
       borders-plus-plus
       inputs.hy3.packages.x86_64-linux.hy3
+      hyprbars
     ];
 
     enable = true;
@@ -47,7 +48,6 @@
         drop_shadow = 1;
         shadow_range = 20;
         shadow_render_power = 2;
-        # "col.shadow" = "rgba(00000044)";
         shadow_offset = "0 0";
         blur = {
           enabled = 1;
