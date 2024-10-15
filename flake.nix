@@ -17,6 +17,7 @@
       inputs.darwin.follows = "";
     };
     agenix-rekey.url = "github:oddlama/agenix-rekey";
+    stylix.url = "github:danth/stylix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -114,19 +115,11 @@
             };
             modules = [
               ./configuration.nix
-              # # ({ pkgs, ... }:
-              #   let
-              #     nur-no-pkgs = import inputs.nur {
-              #       nurpkgs = import nixpkgs { system = "x86_64-linux"; };
-              #     };
-              #   in
-              #   {
-              #     imports = [];
-              #   })
               inputs.solaar.nixosModules.default
               inputs.lanzaboote.nixosModules.lanzaboote
               inputs.sops-nix.nixosModules.sops
               inputs.agenix.nixosModules.default
+              inputs.stylix.nixosModules.stylix
             ];
           };
           homeConfigurations = {
@@ -137,6 +130,7 @@
               };
               modules = [
                 ./users/cdockter/home.nix
+                inputs.stylix.homeManagerModules.stylix
               ];
             };
           };

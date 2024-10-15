@@ -5,5 +5,6 @@
     ./solaar.nix
     ./wayland
     ./terminal
+    ./stylix.nix
   ];
 }
