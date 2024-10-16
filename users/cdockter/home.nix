@@ -9,11 +9,6 @@
       gtk-decoration-layout = ":menu";
 
     };
-    cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      size = 24;
-      package = pkgs.bibata-cursors;
-    };
   };
   home = {
     # this value determines the home manager release that your configuration is
