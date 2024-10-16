@@ -6,8 +6,8 @@
     image = ./terminal/fastfetch/images/NixOS.png;
     targets = {
       neovim.enable = false;
-      tmux.enable = true;
-      kitty.enable = true;
+      tmux.enable = false;
+      kitty.enable = false;
       hyprland.enable = false;
     };
 

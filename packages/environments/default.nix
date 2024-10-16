@@ -31,7 +31,7 @@
   environment = {
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     systemPackages = with pkgs; [
-      cliphist
+      # cliphist
       # eww
       wl-clipboard
       polkit
