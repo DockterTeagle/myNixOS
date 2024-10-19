@@ -42,6 +42,7 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       forceFullCompositionPipeline = true;
+      # nvidia-drm.modeset = 1;
       prime = {
         sync.enable = true;
         intelBusId = "PCI:0:2:0"; #FIXME: these IDS are device dependant

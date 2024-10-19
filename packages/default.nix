@@ -15,5 +15,6 @@
     libnotify
     matlab
     qmk
+    nix-index
   ];
 }

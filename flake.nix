@@ -11,7 +11,6 @@
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-super-unstable.url = 0;
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -93,7 +92,7 @@
           inputs.nix-matlab.overlay
           inputs.hyprpanel.overlay
           inputs.neovim-nightly-overlay.overlays.default
-          inputs.nvimconfig.overlays.${systemSettings.system}.default
+          # inputs.nvimconfig.overlays.${systemSettings.system}.default
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
           inputs.nur.overlay

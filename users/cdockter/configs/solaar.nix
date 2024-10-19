@@ -1,19 +1,37 @@
 { ... }:
 {
   home.file = {
-    # ".config/solaar/rules.yaml" = {
-    #   text = ''
-    #           %YAML 1.3
-    #           ---
-    #     - Feature: THUMB WHEEL
-    #     - Rule: [ Modifiers: Control, Test: thumb_wheel_up, MouseScroll: [-2, 0] ]
-    #     - Rule:
-    #       - Modifiers: Control
-    #       - Test: thumb_wheel_down
-    #       - MouseScroll: [-2, 0]
-    #     - Rule: [ Or: [ Test: thumb_wheel_up, Test: thumb_wheel_down ], MouseScroll: [-1, 0] ]
-    #     ...
-    #   '';
-    # };
+    ".config/solaar/rules.yaml".text = ''
+            ---
+      - Rule:
+        - MouseGesture: Mouse Right
+        - KeyPress:
+          - [Super_L, Page_Down]
+          - click
+      - Rule:
+        - MouseGesture: Mouse Left
+        - KeyPress:
+          - [Super_L, Page_Up]
+          - click
+      - Rule:
+        - MouseGesture: Mouse Up
+        - KeyPress:
+          - [Super_L, a]
+          - click
+      - Rule:
+        - MouseGesture: Mouse Down
+        - KeyPress:
+          - [Super_L, d]
+          - click
+      - Rule:
+        - And:
+          - Key: [Mouse Gesture Button, released]
+          - MouseGesture: []
+        - KeyPress:
+          - [Super_L, s]
+          - click
+      ...
+      ---
+    '';
   };
 }
