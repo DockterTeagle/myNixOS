@@ -127,7 +127,6 @@
   environment = {
     systemPackages = with pkgs; [
       # TODO: sort all of these into the respective file
-      inputs.agenix.packages.${system}.default
       xclip
       pciutils
       wev

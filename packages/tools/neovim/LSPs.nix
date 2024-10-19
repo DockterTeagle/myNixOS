@@ -2,7 +2,6 @@
   environment.systemPackages = with pkgs;[
     lua-language-server
     pyright
-    ruff-lsp
     texlab
     vim-language-server
     marksman
@@ -13,6 +12,5 @@
     emacsPackages.lsp-julia
     vscode-langservers-extracted
     matlab-language-server
-    python312Packages.python-lsp-jsonrpc
   ];
 }

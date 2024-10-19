@@ -2,6 +2,7 @@
   description = "my main flake";
 
   inputs = {
+    nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     nh.url = "github:viperML/nh";
     nur.url = "github:nix-community/NUR";
     ranger-zoxide = {
@@ -92,6 +93,7 @@
           inputs.nix-matlab.overlay
           inputs.hyprpanel.overlay
           inputs.neovim-nightly-overlay.overlays.default
+          inputs.nvimconfig.overlays.${systemSettings.system}.default
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
           inputs.nur.overlay

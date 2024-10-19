@@ -13,7 +13,7 @@
     dart-sass
     brightnessctl
     gnome-bluetooth
-    python312Packages.gpustat
+    python313Packages.gpustat
     hyprcursor
     hyprpaper
     hyprpicker

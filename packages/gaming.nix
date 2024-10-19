@@ -5,7 +5,7 @@
     samba
     SDL2
     sdl-jstest
-    roccat-tools
+    # roccat-tools
   ];
   services.flatpak.enable = true;
   services.udev = {

@@ -76,6 +76,11 @@
 
   programs = {
     # let home manager install and manage itself.
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+    };
     home-manager.enable = true;
     git = {
       enable = true;

@@ -6,5 +6,7 @@
   environment.systemPackages = with pkgs; [
     pstree
     ranger
+    zulu
+    languagetool
   ];
 }

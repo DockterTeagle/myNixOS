@@ -2,8 +2,8 @@
 {
   environment.systemPackages = with pkgs;[
     selene
-    python312Packages.mypy
     ruff
     vale
+    # valeStyles.write-good
   ];
 }

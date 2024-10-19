@@ -17,6 +17,12 @@
       size = 24;
     };
     fonts = {
+      sizes = {
+        terminal = 15;
+        # applications = 15;
+        # desktop = 11;
+        # popups = 11;
+      };
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
         name = "JetBrainsMono Nerd Font ";

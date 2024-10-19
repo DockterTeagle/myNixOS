@@ -285,7 +285,6 @@ in
 {
   home = {
     shellAliases = {
-      nvim-chadpython = "NVIM_APPNAME=nvchad-python nvim";
       nhTotalSwitch = "nix flake update /home/cdockter/MyNixOS && nh os switch --verbose && nh home switch --verbose && nh clean all --keep=3 && nix flake archive /home/cdockter/MyNixOS/";
       cd = "z";
     };

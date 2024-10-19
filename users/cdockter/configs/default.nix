@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./firefox.nix
@@ -6,5 +6,8 @@
     ./wayland
     ./terminal
     ./stylix.nix
+  ];
+  home.packages = with pkgs;[
+    # valeStyles.write-good
   ];
 }
