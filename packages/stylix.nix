@@ -2,7 +2,7 @@
 {
 
   stylix = {
-    image = ../users/cdockter/configs/terminal/fastfetch/images/NixOS.png;
+    image = ../pictures/black-hole-cosmic-3840x2160-19145.jpg;
     enable = true;
     fonts = {
       sizes = {
