@@ -3,10 +3,9 @@
   services.mako = {
     enable = true;
     anchor = "top-right";
+    # borderColor = "#7e83b230";
     layer = "overlay";
-    # backgroundColor = ;
     sort = "-time";
-    # backgroundColor = ;
     extraConfig = ''
       [urgency=low]
       border-color=#b8bb26
