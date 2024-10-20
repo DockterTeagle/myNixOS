@@ -3,7 +3,7 @@
   stylix = {
     autoEnable = true;
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     image = ../../../pictures/black-hole-cosmic-3840x2160-19145.jpg;
     targets = {
       neovim.enable = false;
@@ -12,9 +12,9 @@
       hyprland.enable = false;
       waybar = {
         enable = true;
-        enableCenterBackColors = true;
-        enableLeftBackColors = true;
-        enableRightBackColors = true;
+        # enableCenterBackColors = true;
+        # enableLeftBackColors = true;
+        # enableRightBackColors = true;
       };
     };
 

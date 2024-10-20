@@ -5,6 +5,7 @@
     firefox
     geckodriver
     discord
+    vencord
     protonvpn-gui
     swww
     vesktop

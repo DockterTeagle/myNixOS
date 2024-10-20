@@ -104,7 +104,6 @@
         "version"
         "vulkan"
         "wallpaper"
-        "weather"
         "wm"
         "wifi"
         "wmtheme"
