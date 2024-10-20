@@ -4,7 +4,7 @@
     autoEnable = true;
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
-    image = ./terminal/fastfetch/images/NixOS.png;
+    image = ../../../pictures/black-hole-cosmic-3840x2160-19145.jpg;
     targets = {
       neovim.enable = false;
       tmux.enable = false;

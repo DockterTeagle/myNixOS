@@ -9,6 +9,7 @@
     ./system
     ./tools
     ./gaming.nix
+    ./stylix.nix
   ];
   environment.systemPackages = with pkgs; [
     woeusb

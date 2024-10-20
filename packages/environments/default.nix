@@ -18,7 +18,18 @@
         (import ./sway/default.nix { inherit inputs pkgs conf lib; })
     )
   ];
-  # programs.regreet.enable = true;
+  programs.regreet = {
+    enable = true;
+    settings = {
+      commands = {
+        reboot = [ "systemctl" "reboot" ];
+        poweroff = [ "systemctl" "poweroff" ];
+      };
+      appearance = {
+        greeting_msg = "Welcome back!";
+      };
+    };
+  };
   services.greetd = {
     enable = true;
     restart = true;
@@ -26,24 +37,7 @@
     settings = {
       default_session = {
         command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet ";
-        user = "greeter";
-      };
-    };
-  };
-  stylix = {
-    image = ../../users/cdockter/configs/terminal/fastfetch/images/NixOS.png;
-    enable = true;
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 24;
-    };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
-    targets = {
-      regreet.enable = true;
-      plymouth = {
-        enable = true;
-        logoAnimated = true;
+        # user = "greeter";
       };
     };
   };
