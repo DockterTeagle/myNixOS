@@ -8,9 +8,9 @@
   ];
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-      borders-plus-plus
-      inputs.hy3.packages.x86_64-linux.hy3
-      hyprbars
+      # borders-plus-plus
+      # inputs.hy3.packages.x86_64-linux.hy3
+      # hyprbars
     ];
 
     enable = true;

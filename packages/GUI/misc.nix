@@ -7,5 +7,6 @@
     discord
     protonvpn-gui
     swww
+    vesktop
   ];
 }

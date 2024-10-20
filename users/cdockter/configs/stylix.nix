@@ -10,8 +10,12 @@
       tmux.enable = false;
       kitty.enable = false;
       hyprland.enable = false;
-      mako.enable = true;
-      fzf.enable = true;
+      waybar = {
+        enable = true;
+        enableCenterBackColors = true;
+        enableLeftBackColors = true;
+        enableRightBackColors = true;
+      };
     };
 
     cursor = {
@@ -23,8 +27,8 @@
       sizes = {
         terminal = 15;
         # applications = 15;
-        # desktop = 11;
-        # popups = 11;
+        desktop = 11;
+        popups = 11;
       };
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };

@@ -8,8 +8,8 @@
       sizes = {
         terminal = 15;
         # applications = 15;
-        # desktop = 11;
-        # popups = 11;
+        desktop = 11;
+        popups = 11;
       };
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
@@ -23,6 +23,10 @@
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
     targets = {
+      grub = {
+        enable = true;
+        useImage = true;
+      };
       regreet.enable = true;
       plymouth = {
         enable = true;
