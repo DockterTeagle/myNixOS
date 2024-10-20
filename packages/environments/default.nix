@@ -3,6 +3,7 @@
 , mainUserSettings
 , conf
 , lib
+, config
 , ...
 }:
 {
@@ -17,17 +18,35 @@
         (import ./sway/default.nix { inherit inputs pkgs conf lib; })
     )
   ];
+  # programs.regreet.enable = true;
   services.greetd = {
     enable = true;
     restart = true;
-    package = pkgs.greetd.tuigreet;
+    package = pkgs.greetd.regreet;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet ";
+        user = "greeter";
       };
     };
   };
-
+  stylix = {
+    image = ../../users/cdockter/configs/terminal/fastfetch/images/NixOS.png;
+    enable = true;
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
+    targets = {
+      regreet.enable = true;
+      plymouth = {
+        enable = true;
+        logoAnimated = true;
+      };
+    };
+  };
   environment = {
     shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     systemPackages = with pkgs; [

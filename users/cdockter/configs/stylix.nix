@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   stylix = {
+    autoEnable = true;
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
     image = ./terminal/fastfetch/images/NixOS.png;
@@ -9,6 +10,8 @@
       tmux.enable = false;
       kitty.enable = false;
       hyprland.enable = false;
+      mako.enable = true;
+      fzf.enable = true;
     };
 
     cursor = {
