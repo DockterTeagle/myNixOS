@@ -5,7 +5,7 @@
     settings = {
       logo = {
         type = "kitty-direct";
-        source = ./images/NixOS.png;
+        source = ../../../../../pictures/NixOS.png;
         # padding = {
         #   right = 1;
         # };
