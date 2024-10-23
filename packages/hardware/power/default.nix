@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
     inotify-tools
-    # mcontrolcenter
+    mcontrolcenter
   ];
   services = {
     tlp = {
