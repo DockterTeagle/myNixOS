@@ -119,7 +119,6 @@
               ./configuration.nix
               inputs.solaar.nixosModules.default
               inputs.lanzaboote.nixosModules.lanzaboote
-              inputs.sops-nix.nixosModules.sops
               inputs.agenix.nixosModules.default
               inputs.stylix.nixosModules.stylix
             ];
