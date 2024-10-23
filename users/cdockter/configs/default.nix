@@ -7,7 +7,4 @@
     ./terminal
     ./stylix.nix
   ];
-  home.packages = with pkgs;[
-    # valeStyles.write-good
-  ];
 }

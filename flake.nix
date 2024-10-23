@@ -79,6 +79,7 @@
         term = "kitty";
         editor = "nvim";
         font = "JetBrains Mono Nerd Font";
+        nerdfont = "JetBrainsMono";
         homeDirectory = "/home/cdockter";
         theme = "Tokyo Night";
       };

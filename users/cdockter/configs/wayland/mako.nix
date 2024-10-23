@@ -6,6 +6,7 @@
     # borderColor = "#7e83b230";
     layer = "overlay";
     sort = "-time";
+    defaultTimeout = 1000;
     extraConfig = ''
       [urgency=low]
       border-color=#b8bb26

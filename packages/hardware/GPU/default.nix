@@ -40,7 +40,7 @@
         finegrained = false;
       };
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       forceFullCompositionPipeline = true;
       # nvidia-drm.modeset = 1;
       prime = {
