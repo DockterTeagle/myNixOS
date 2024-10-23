@@ -35,6 +35,9 @@
 
     blacklistedKernelModules = [ "snd_pcsp" ]; # Consider adding module_blacklist=i915 to this to maybe disable integrated GPU
     kernelPackages = pkgs.linuxPackages_latest;
-    extraModulePackages = [ pkgs.linuxPackages_latest.xpadneo ];
+    extraModulePackages = [
+      pkgs.linuxPackages_latest.xpadneo
+      # pkgs.linuxKernel.packages.linux_latest_libre.msi-ec
+    ];
   };
 }
