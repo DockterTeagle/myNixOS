@@ -1,75 +1,75 @@
 {
   programs.waybar = {
     enable = true;
-    #   style = '' 
-    #     * {
-    #       font-family : "JetBrains Mono Nerd Font";
-    #       font-size : 16px;
-    #       min-height : 30px;
-    #     }
-    #     window#waybar {
-    #       background: transparent;
-    #     }
-    #     #workspaces button {
-    #       background: transparent;
-    #       color: #0d74bd;
-    #     }
-    #
-    #     #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery, #idle_inhibitor, #network, #workspaces,#custom-gpu {
-    #       background-color: transparent;
-    #       color: #00ba69;
-    #       margin-top: 15px;
-    #       padding-left: 10px;
-    #       padding-right: 10px;
-    #       margin-right: 15px;
-    #     }
-    #
-    #     #custom-gpu  {
-    #       color: #82aaff;
-    #     }
-    #     #workspaces {
-    #       background-color: transparent;
-    #       color: #0d74bd;
-    #     }
-    #     #network {
-    #       background-color: transparent;
-    #       color: #82aaff;
-    #     }
-    #     #cpu {
-    #       color: #FFD700;
-    #     }
-    #
-    #     #memory {
-    #       color: #008000;
-    #       margin-top: 15px;
-    #       padding-left: 10px;
-    #       padding-right: 10px;
-    #       margin-right: 15px;
-    #     }
-    #
-    #     #disk {
-    #       color: #A8A8A8;
-    #
-    #     }
-    #
-    #     #backlight, #bluetooth {
-    #       color: #0056A3;
-    #       padding-right: 5px;
-    #       margin-right: 0
-    #     }
-    #
-    #     #idle_inhibitor {
-    #       color: #82aaff;
-    #     }
-    #     #pulseaudio {
-    #       color: #ba23d9;
-    #       padding-left: 5px;
-    #     }
-    #
-    #     #clock {
-    #       color: #00ba69;
-    #     }
-    # '';
+    style = '' 
+        * {
+          font-family : "JetBrains Mono Nerd Font";
+          font-size : 16px;
+          min-height : 1px;
+        }
+        window#waybar {
+          background: transparent;
+        }
+        #workspaces button {
+          background: transparent;
+          color: #0d74bd;
+        }
+
+        #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery, #idle_inhibitor, #network, #workspaces,#custom-gpu {
+          background-color: transparent;
+          color: #00ba69;
+          margin-top: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-right: 15px;
+        }
+
+        #custom-gpu  {
+          color: #82aaff;
+        }
+        #workspaces {
+          background-color: transparent;
+          color: #0d74bd;
+        }
+        #network {
+          background-color: transparent;
+          color: #82aaff;
+        }
+        #cpu {
+          color: #FFD700;
+        }
+
+        #memory {
+          color: #008000;
+          margin-top: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-right: 15px;
+        }
+
+        #disk {
+          color: #A8A8A8;
+
+        }
+
+        #backlight, #bluetooth {
+          color: #0056A3;
+          padding-right: 5px;
+          margin-right: 0
+        }
+
+        #idle_inhibitor {
+          color: #82aaff;
+        }
+        #pulseaudio {
+          color: #ba23d9;
+          padding-left: 5px;
+        }
+
+        #clock {
+          color: #00ba69;
+        }
+    '';
     settings = {
       mainBar = {
         layer = "top";

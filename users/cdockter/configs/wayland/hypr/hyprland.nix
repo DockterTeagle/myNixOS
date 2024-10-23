@@ -1,10 +1,10 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, mainUserSettings, ... }:
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
   ];
   home.packages = with pkgs;[
-    hyprpanel
+    # hyprpanel
   ];
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
@@ -96,6 +96,8 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
+        # "SUPER_L,$mainMod,exec,tofi-run --font${pkgs.nerdfonts.override{fonts = [mainUserSettings.nerdfont];}}/share/fonts/${mainUserSettings.nerdfont}-Regular.ttf"
+        # "SUPER_L,$mainMod,exec,tofi-run "
         "SUPER_L,$mainMod,exec,rofi -show run"
       ];
       bind = [
@@ -135,3 +137,4 @@
     };
   };
 }
+
