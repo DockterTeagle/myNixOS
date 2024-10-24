@@ -3,6 +3,7 @@
     selene
     ruff
     vale
+    write-good
     # valeStyles.write-good
   ];
 }

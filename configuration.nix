@@ -9,7 +9,8 @@
   mainUserSettings,
   inputs,
   ...
-}: {
+}:
+{
   # Imports
   imports = [
     # Include the results of the hardware scan.
@@ -17,8 +18,26 @@
     inputs.home-manager.nixosModules.home-manager
     ./MSI-GE75Raider-hardware-configuration.nix
     # Packages
-    (import ./packages {inherit mainUserSettings pkgs lib config systemSettings inputs;})
-    (import ./secret-managment {inherit mainUserSettings pkgs lib config systemSettings inputs;})
+    (import ./packages {
+      inherit
+        mainUserSettings
+        pkgs
+        lib
+        config
+        systemSettings
+        inputs
+        ;
+    })
+    (import ./secret-managment {
+      inherit
+        mainUserSettings
+        pkgs
+        lib
+        config
+        systemSettings
+        inputs
+        ;
+    })
   ];
   # swapDevices = [{
   #   device = "/swapfile";
@@ -31,7 +50,10 @@
   # Nix settings
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       substituters = [
         "https://hyprland.cachix.org"
         "https://cache.nixos.org"
@@ -80,7 +102,7 @@
   services = {
     dbus.enable = true;
     fwupd.enable = true;
-    gvfs.enable = true; #needed?
+    gvfs.enable = true; # needed?
     libinput.enable = true;
     onedrive.enable = true;
     printing.enable = false;
@@ -93,8 +115,8 @@
         layout = "us";
         variant = "";
       };
-      excludePackages = [pkgs.xterm];
-      videoDrivers = ["nvidia"];
+      excludePackages = [ pkgs.xterm ];
+      videoDrivers = [ "nvidia" ];
     };
   };
 
@@ -104,7 +126,11 @@
       shell = pkgs.zsh;
       isNormalUser = true;
       description = "Christopher Ryan Dockter";
-      extraGroups = ["networkmanager" "wheel" "audio"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "audio"
+      ];
     };
   };
 
@@ -138,7 +164,7 @@
       sbsigntool
       openresolv
       dmidecode # get system info
-      hwinfo #also get system info
+      hwinfo # also get system info
       home-manager
     ];
     # etc."machine-id".source = "/nix/persist/etc/machine-id";

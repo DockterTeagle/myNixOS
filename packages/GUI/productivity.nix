@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   hardware.logitech = {
     lcd.enable = true;
     wireless = {
@@ -8,7 +9,7 @@
   };
   systemd.services.logid = {
     description = "Logitech Devices Daemon (logiops)";
-    after = ["network.target"]; # Adjust as needed
+    after = [ "network.target" ]; # Adjust as needed
 
     # Run logid as root
     serviceConfig = {
@@ -17,7 +18,7 @@
       User = "root";
     };
 
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
     enable = true;
   };
   services = {

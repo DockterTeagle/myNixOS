@@ -79,9 +79,25 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = ["cpu" "custom/gpu" "memory" "disk"];
-        modules-right = ["temperature" "network" "pulseaudio" "backlight" "battery" "clock" "bluetooth"];
-        modules-center = ["hyprland/workspaces" "idle_inhibitor"];
+        modules-left = [
+          "cpu"
+          "custom/gpu"
+          "memory"
+          "disk"
+        ];
+        modules-right = [
+          "temperature"
+          "network"
+          "pulseaudio"
+          "backlight"
+          "battery"
+          "clock"
+          "bluetooth"
+        ];
+        modules-center = [
+          "hyprland/workspaces"
+          "idle_inhibitor"
+        ];
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
           on-click = "nm-connection-editor";
@@ -145,7 +161,17 @@
         backlight = {
           devicxe = "intel_backlight";
           format = "<span color='#2da14c'>{icon}</span> {percent}%";
-          format-icons = ["" "" "" "" "" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           on-scroll-up = "brightnessctl set +2%";
           on-scroll-down = "brightnessctl set 2%-";
           interval = 2;
@@ -161,8 +187,12 @@
             headphone = "󰋋 ";
             headset = "󰋎 ";
             phone = " ";
-            car = " "; #tf?
-            default = ["" " " " "];
+            car = " "; # tf?
+            default = [
+              ""
+              " "
+              " "
+            ];
           };
           on-click = "pavucontrol";
         };
@@ -186,7 +216,14 @@
         format-plugged = " {capacity}%";
         format-alt = "{icon} {time}";
         format-full = " {capacity}%";
-        format-icons = [" " " " " " " " " " " "];
+        format-icons = [
+          " "
+          " "
+          " "
+          " "
+          " "
+          " "
+        ];
         # format-charging = "<span color='#2da14c'> </span> {capacity}%";
         interval = 2;
       };

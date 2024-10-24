@@ -3,7 +3,8 @@
   pkgs,
   mainUserSettings,
   ...
-}: {
+}:
+{
   imports = [
     inputs.hyprland.homeManagerModules.default
   ];
@@ -21,7 +22,7 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
-      plugin = {}; # configure plugins here
+      plugin = { }; # configure plugins here
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
@@ -60,7 +61,7 @@
           ignore_opacity = 1;
           xray = 1;
           new_optimizations = 1;
-          noise = 0.03;
+          noise = 3.0e-2;
           contrast = 1.0;
         };
       };
@@ -134,7 +135,7 @@
         "$mainMod,c,killactive,"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       ];
-      windowrulev2 = ["idleinhibit focus, class:^steam_app_.*$"];
+      windowrulev2 = [ "idleinhibit focus, class:^steam_app_.*$" ];
     };
   };
 }
