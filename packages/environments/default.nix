@@ -1,29 +1,28 @@
-{ pkgs
-, inputs
-, mainUserSettings
-, conf
-, lib
-, config
-, ...
-}:
 {
+  pkgs,
+  inputs,
+  mainUserSettings,
+  conf,
+  lib,
+  config,
+  ...
+}: {
   imports = [
     (
       #this part should somehow be in home-manager
       if mainUserSettings.wm == "hyprland"
-      then (import ./hyprland/default.nix { inherit inputs pkgs conf lib; })
+      then (import ./hyprland/default.nix {inherit inputs pkgs conf lib;})
       else if mainUserSettings.wm == "sway"
-      then (import ./sway/default.nix { inherit inputs pkgs conf lib; })
-      else
-        (import ./sway/default.nix { inherit inputs pkgs conf lib; })
+      then (import ./sway/default.nix {inherit inputs pkgs conf lib;})
+      else (import ./sway/default.nix {inherit inputs pkgs conf lib;})
     )
   ];
   programs.regreet = {
     enable = true;
     settings = {
       commands = {
-        reboot = [ "systemctl" "reboot" ];
-        poweroff = [ "systemctl" "poweroff" ];
+        reboot = ["systemctl" "reboot"];
+        poweroff = ["systemctl" "poweroff"];
       };
       appearance = {
         greeting_msg = "Welcome back!";
@@ -53,9 +52,7 @@
       libva-utils
       fuseiso
       udiskie
-      nvidia-vaapi-driver # move me
       gsettings-desktop-schemas
-      # swaynotificationcenter
       wlr-randr
       grim
       grimblast

@@ -1,74 +1,74 @@
 {
   programs.waybar = {
     enable = true;
-    style = '' 
-        * {
-          font-family : "JetBrains Mono Nerd Font";
-          font-size : 16px;
-          min-height : 1px;
-        }
-        window#waybar {
-          background: transparent;
-        }
-        #workspaces button {
-          background: transparent;
-          color: #0d74bd;
-        }
+    style = ''
+      * {
+        font-family : "JetBrains Mono Nerd Font";
+        font-size : 16px;
+        min-height : 1px;
+      }
+      window#waybar {
+        background: transparent;
+      }
+      #workspaces button {
+        background: transparent;
+        color: #0d74bd;
+      }
 
-        #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery, #idle_inhibitor, #network, #workspaces,#custom-gpu {
-          background-color: transparent;
-          color: #00ba69;
-          margin-top: 15px;
-          padding-left: 10px;
-          padding-right: 10px;
-          margin-right: 15px;
-        }
+      #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery, #idle_inhibitor, #network, #workspaces,#custom-gpu {
+        background-color: transparent;
+        color: #00ba69;
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 15px;
+      }
 
-        #custom-gpu  {
-          color: #82aaff;
-        }
-        #workspaces {
-          background-color: transparent;
-          color: #0d74bd;
-        }
-        #network {
-          background-color: transparent;
-          color: #82aaff;
-        }
-        #cpu {
-          color: #FFD700;
-        }
+      #custom-gpu  {
+        color: #82aaff;
+      }
+      #workspaces {
+        background-color: transparent;
+        color: #0d74bd;
+      }
+      #network {
+        background-color: transparent;
+        color: #82aaff;
+      }
+      #cpu {
+        color: #FFD700;
+      }
 
-        #memory {
-          color: #008000;
-          margin-top: 15px;
-          padding-left: 10px;
-          padding-right: 10px;
-          margin-right: 15px;
-        }
+      #memory {
+        color: #008000;
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 15px;
+      }
 
-        #disk {
-          color: #A8A8A8;
+      #disk {
+        color: #A8A8A8;
 
-        }
+      }
 
-        #backlight, #bluetooth {
-          color: #0056A3;
-          padding-right: 5px;
-          margin-right: 0
-        }
+      #backlight, #bluetooth {
+        color: #0056A3;
+        padding-right: 5px;
+        margin-right: 0
+      }
 
-        #idle_inhibitor {
-          color: #82aaff;
-        }
-        #pulseaudio {
-          color: #ba23d9;
-          padding-left: 5px;
-        }
+      #idle_inhibitor {
+        color: #82aaff;
+      }
+      #pulseaudio {
+        color: #ba23d9;
+        padding-left: 5px;
+      }
 
-        #clock {
-          color: #00ba69;
-        }
+      #clock {
+        color: #00ba69;
+      }
     '';
     settings = {
       mainBar = {
@@ -79,9 +79,9 @@
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "cpu" "custom/gpu" "memory" "disk" ];
-        modules-right = [ "temperature" "network" "pulseaudio" "backlight" "battery" "clock" "bluetooth" ];
-        modules-center = [ "hyprland/workspaces" "idle_inhibitor" ];
+        modules-left = ["cpu" "custom/gpu" "memory" "disk"];
+        modules-right = ["temperature" "network" "pulseaudio" "backlight" "battery" "clock" "bluetooth"];
+        modules-center = ["hyprland/workspaces" "idle_inhibitor"];
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
           on-click = "nm-connection-editor";
@@ -126,7 +126,7 @@
           interval = 2;
         };
         disk = {
-          format = " {percentage_used}% ({free})";
+          format = "  {percentage_used}% ({free})";
           tooltip = true;
           interval = 2;
           on-click = "kitty sh -c 'ranger'";
@@ -145,7 +145,7 @@
         backlight = {
           devicxe = "intel_backlight";
           format = "<span color='#2da14c'>{icon}</span> {percent}%";
-          format-icons = [ "" "" "" "" "" "" "" "" "" ];
+          format-icons = ["" "" "" "" "" "" "" "" ""];
           on-scroll-up = "brightnessctl set +2%";
           on-scroll-down = "brightnessctl set 2%-";
           interval = 2;
@@ -162,7 +162,7 @@
             headset = "󰋎 ";
             phone = " ";
             car = " "; #tf?
-            default = [ "" " " " " ];
+            default = ["" " " " "];
           };
           on-click = "pavucontrol";
         };
@@ -186,7 +186,7 @@
         format-plugged = " {capacity}%";
         format-alt = "{icon} {time}";
         format-full = " {capacity}%";
-        format-icons = [ " " " " " " " " " " " " ];
+        format-icons = [" " " " " " " " " " " "];
         # format-charging = "<span color='#2da14c'> </span> {capacity}%";
         interval = 2;
       };

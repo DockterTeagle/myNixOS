@@ -10,7 +10,7 @@
       flake = false;
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,81 +60,80 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { nixpkgs, ... }@inputs:
-    let
-      systemSettings = {
-        system = "x86_64-linux";
-        hostName = "nixos";
-        timezone = "America/Chicago";
-        boot-loader = "lanzaboote";
+  outputs = {nixpkgs, ...} @ inputs: let
+    systemSettings = {
+      system = "x86_64-linux";
+      hostName = "nixos";
+      timezone = "America/Chicago";
+      boot-loader = "lanzaboote";
+    };
+    mainUserSettings = {
+      username = "cdockter";
+      name = "Christopher Ryan Dockter";
+      email = "steampowered.mom596@passinbox.com";
+      dotfilesdir = "~/.config";
+      wm = "hyprland";
+      wmType = "wayland";
+      browser = "firefox";
+      term = "kitty";
+      editor = "nvim";
+      font = "JetBrains Mono Nerd Font";
+      nerdfont = "JetBrainsMono";
+      homeDirectory = "/home/cdockter";
+      theme = "Tokyo Night";
+    };
+    pkgs = import nixpkgs {
+      system = systemSettings.system;
+      config = {
+        allowUnfree = true;
+        allowSubstitutes = true;
       };
-      mainUserSettings = {
-        username = "cdockter";
-        name = "Christopher Ryan Dockter";
-        email = "steampowered.mom596@passinbox.com";
-        dotfilesdir = "~/.config";
-        wm = "hyprland";
-        wmType = "wayland";
-        browser = "firefox";
-        term = "kitty";
-        editor = "nvim";
-        font = "JetBrains Mono Nerd Font";
-        nerdfont = "JetBrainsMono";
-        homeDirectory = "/home/cdockter";
-        theme = "Tokyo Night";
-      };
-      pkgs = import nixpkgs {
-        system = systemSettings.system;
-        config = {
-          allowUnfree = true;
-          allowSubstitutes = true;
-        };
-        overlays = [
-          inputs.nix-matlab.overlay
-          inputs.hyprpanel.overlay
-          inputs.neovim-nightly-overlay.overlays.default
-          # inputs.nvimconfig.overlays.${systemSettings.system}.default
-          inputs.nixpkgs-wayland.overlay
-          inputs.nixd.overlays.default
-          inputs.nur.overlay
-          inputs.nh.overlays.default
-        ];
-      };
-      home-manager = home-manager;
-    in
+      overlays = [
+        inputs.nix-matlab.overlay
+        inputs.hyprpanel.overlay
+        inputs.neovim-nightly-overlay.overlays.default
+        # inputs.nvimconfig.overlays.${systemSettings.system}.default
+        inputs.nixpkgs-wayland.overlay
+        inputs.nixd.overlays.default
+        inputs.nur.overlay
+        inputs.nh.overlays.default
+      ];
+    };
+    home-manager = home-manager;
+  in
     inputs.flake-parts.lib.mkFlake
-      { inherit inputs; }
-      {
-        imports = [
-          inputs.agenix-rekey.flakeModule
-        ];
-        debug = true;
-        systems = [ "x86_64-linux" ];
-        flake = {
-          nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit pkgs inputs systemSettings home-manager mainUserSettings;
+    {inherit inputs;}
+    {
+      imports = [
+        inputs.agenix-rekey.flakeModule
+      ];
+      debug = true;
+      systems = ["x86_64-linux"];
+      flake = {
+        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit pkgs inputs systemSettings home-manager mainUserSettings;
+          };
+          modules = [
+            ./configuration.nix
+            inputs.solaar.nixosModules.default
+            inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.agenix.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+        homeConfigurations = {
+          "cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit inputs mainUserSettings systemSettings;
             };
             modules = [
-              ./configuration.nix
-              inputs.solaar.nixosModules.default
-              inputs.lanzaboote.nixosModules.lanzaboote
-              inputs.agenix.nixosModules.default
-              inputs.stylix.nixosModules.stylix
+              ./users/cdockter/home.nix
+              inputs.stylix.homeManagerModules.stylix
             ];
-          };
-          homeConfigurations = {
-            "cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-              extraSpecialArgs = {
-                inherit inputs mainUserSettings systemSettings;
-              };
-              modules = [
-                ./users/cdockter/home.nix
-                inputs.stylix.homeManagerModules.stylix
-              ];
-            };
           };
         };
       };
+    };
 }

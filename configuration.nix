@@ -1,10 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, systemSettings, mainUserSettings, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  systemSettings,
+  mainUserSettings,
+  inputs,
+  ...
+}: {
   # Imports
   imports = [
     # Include the results of the hardware scan.
@@ -12,8 +17,8 @@
     inputs.home-manager.nixosModules.home-manager
     ./MSI-GE75Raider-hardware-configuration.nix
     # Packages
-    (import ./packages { inherit mainUserSettings pkgs lib config systemSettings inputs; })
-    (import ./secret-managment { inherit mainUserSettings pkgs lib config systemSettings inputs; })
+    (import ./packages {inherit mainUserSettings pkgs lib config systemSettings inputs;})
+    (import ./secret-managment {inherit mainUserSettings pkgs lib config systemSettings inputs;})
   ];
   # swapDevices = [{
   #   device = "/swapfile";
@@ -26,7 +31,7 @@
   # Nix settings
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       substituters = [
         "https://hyprland.cachix.org"
         "https://cache.nixos.org"
@@ -47,13 +52,12 @@
   xdg = {
     autostart.enable = true;
     portal = {
-      extraPortals = with pkgs;[
+      extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
       enable = true;
     };
   };
-
 
   # Time and Locale
   time.timeZone = "America/Chicago";
@@ -89,8 +93,8 @@
         layout = "us";
         variant = "";
       };
-      excludePackages = [ pkgs.xterm ];
-      videoDrivers = [ "nvidia" ];
+      excludePackages = [pkgs.xterm];
+      videoDrivers = ["nvidia"];
     };
   };
 
@@ -100,7 +104,7 @@
       shell = pkgs.zsh;
       isNormalUser = true;
       description = "Christopher Ryan Dockter";
-      extraGroups = [ "networkmanager" "wheel" "audio" ];
+      extraGroups = ["networkmanager" "wheel" "audio"];
     };
   };
 
@@ -108,12 +112,11 @@
   programs = {
     nh = {
       enable = true;
-      clean =
-        {
-          dates = "daily";
-          enable = true;
-          extraArgs = "--keep=3 -v";
-        };
+      clean = {
+        dates = "daily";
+        enable = true;
+        extraArgs = "--keep=3 -v";
+      };
       flake = "/home/cdockter/MyNixOS/";
     };
     zsh.enable = true;
@@ -140,7 +143,6 @@
     ];
     # etc."machine-id".source = "/nix/persist/etc/machine-id";
   };
-
 
   # Specialisation
 

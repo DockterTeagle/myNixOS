@@ -1,23 +1,27 @@
-{ inputs, pkgs, mainUserSettings, ... }:
 {
+  inputs,
+  pkgs,
+  mainUserSettings,
+  ...
+}: {
   imports = [
     inputs.hyprland.homeManagerModules.default
   ];
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     # hyprpanel
   ];
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-      # borders-plus-plus
+      borders-plus-plus
       # inputs.hy3.packages.x86_64-linux.hy3
-      # hyprbars
+      hyprbars
     ];
 
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
-      plugin = { }; # configure plugins here
+      plugin = {}; # configure plugins here
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
@@ -72,7 +76,6 @@
         workspace_swipe = "off";
       };
 
-
       "$mainMod" = "SUPER_L"; # Mod key
       "$terminal" = "kitty"; # Terminal
 
@@ -88,7 +91,6 @@
         "discord"
         "firefox"
       ];
-
 
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
@@ -131,10 +133,8 @@
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-
       ];
-      windowrulev2 = [ "idleinhibit focus, class:^steam_app_.*$" ];
+      windowrulev2 = ["idleinhibit focus, class:^steam_app_.*$"];
     };
   };
 }
-

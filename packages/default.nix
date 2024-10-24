@@ -1,5 +1,11 @@
-{ inputs, systemSettings, pkgs, lib, config, ... }:
 {
+  inputs,
+  systemSettings,
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./GUI
     ./environments

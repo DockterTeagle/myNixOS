@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   security.rtkit.enable = true;
   security.polkit = {
     enable = true;
@@ -19,7 +22,7 @@
     #   };
     # };
   };
-  environment.systemPackages = with pkgs;[
+  environment.systemPackages = with pkgs; [
     efivar
     efibootmgr
     cryptsetup
@@ -28,4 +31,3 @@
     pv
   ];
 }
-    

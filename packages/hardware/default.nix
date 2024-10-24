@@ -1,6 +1,6 @@
-{ ... }:
-{
+{...}: {
   imports = [
+    ./fans
     ./audio
     ./bluetooth
     ./power

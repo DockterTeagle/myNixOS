@@ -1,5 +1,4 @@
-_:
-{
+_: {
   boot.loader = {
     timeout = null;
     efi.canTouchEfiVariables = false;

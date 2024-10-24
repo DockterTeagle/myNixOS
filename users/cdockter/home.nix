@@ -1,5 +1,8 @@
-{ mainUserSettings, pkgs, ... }:
 {
+  mainUserSettings,
+  pkgs,
+  ...
+}: {
   imports = [
     ./configs
   ];
@@ -7,7 +10,6 @@
     enable = true;
     gtk4.extraConfig = {
       gtk-decoration-layout = ":menu";
-
     };
   };
   home = {

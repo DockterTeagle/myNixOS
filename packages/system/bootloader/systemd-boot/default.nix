@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   boot.loader = {
     timeout = null;
     systemd-boot.enable = true;

@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   fonts.fontconfig.enable = true;
-  fonts.packages = with pkgs;[
+  fonts.packages = with pkgs; [
     nerdfonts
     font-awesome
   ];
@@ -24,7 +23,6 @@
     tmux
     kitty
     wine
-    fastfetch
     ventoy # for writing ISO images
     vim-full
     gnumake
