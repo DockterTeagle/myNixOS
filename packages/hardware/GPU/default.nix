@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   environment = {
     variables = {
       LIBVA_DRIVER_NAME = "nvidia";
@@ -33,7 +34,7 @@
         libvdpau-va-gl
         intel-media-sdk
       ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [libva];
+      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
     };
     nvidia = {
       modesetting.enable = true;
@@ -48,7 +49,7 @@
       # nvidia-drm.modeset = 1;
       prime = {
         sync.enable = true;
-        intelBusId = "PCI:0:2:0"; #FIXME: these IDS are device dependant
+        intelBusId = "PCI:0:2:0"; # FIXME: these IDS are device dependant
         nvidiaBusId = "PCI:1:0:0";
       };
     };

@@ -3,7 +3,7 @@
     bibtex-tidy
     codespell
     nixfmt-rfc-style
-    alejandra
     cmake-format
+    treefmt2
   ];
 }

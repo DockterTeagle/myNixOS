@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.fastfetch = {
     enable = true;
     settings = {
@@ -85,9 +86,9 @@
         "physicalmemory"
         "player"
         # "poweradapter"
-        "proccesses"
+        "processes"
         "publicip"
-        "seperator"
+        "separator"
         "shell"
         "sound"
         "swap"

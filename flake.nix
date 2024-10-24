@@ -3,6 +3,10 @@
 
   inputs = {
     nvimconfig.url = "github:DockterTeagle/mynvimconfig";
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nh.url = "github:viperML/nh";
     nur.url = "github:nix-community/NUR";
     ranger-zoxide = {
@@ -101,18 +105,27 @@
     };
     home-manager = home-manager;
   in
-    inputs.flake-parts.lib.mkFlake
-    {inherit inputs;}
-    {
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.agenix-rekey.flakeModule
       ];
       debug = true;
-      systems = ["x86_64-linux"];
+      systems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       flake = {
+        formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit pkgs inputs systemSettings home-manager mainUserSettings;
+            inherit
+              pkgs
+              inputs
+              systemSettings
+              home-manager
+              mainUserSettings
+              ;
           };
           modules = [
             ./configuration.nix
@@ -120,6 +133,9 @@
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.agenix.nixosModules.default
             inputs.stylix.nixosModules.stylix
+            {
+              environment.systemPackages = [inputs.alejandra.defaultPackage.${systemSettings.system}];
+            }
           ];
         };
         homeConfigurations = {

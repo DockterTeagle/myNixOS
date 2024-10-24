@@ -2,7 +2,8 @@
   systemSettings,
   pkgs,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
     wirelesstools

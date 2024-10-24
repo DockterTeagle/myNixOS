@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   programs.ranger = {
     enable = true;
     package = pkgs.ranger;

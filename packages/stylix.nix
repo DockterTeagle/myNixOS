@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   stylix = {
     image = ../pictures/black-hole-cosmic-3840x2160-19145.jpg;
     enable = true;
@@ -10,7 +11,7 @@
         popups = 11;
       };
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
         name = "JetBrainsMono Nerd Font ";
       };
     };
