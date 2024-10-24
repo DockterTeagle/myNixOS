@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs;[
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
     texlab
     vim-language-server
     marksman

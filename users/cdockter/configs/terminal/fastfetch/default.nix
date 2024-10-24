@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.fastfetch = {
     enable = true;
     settings = {
@@ -19,7 +18,6 @@
         percent = {
           type = 3;
           ndigits = 3;
-
         };
         # bar = {
         #

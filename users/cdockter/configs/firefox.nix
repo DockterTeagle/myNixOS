@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     profiles = {
       cdockter = {
-        extensions = with pkgs.nur.repos.rycee.firefox-addons;[
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           tree-style-tab
           cookie-autodelete
           fakespot-fake-reviews-amazon
@@ -33,7 +32,6 @@
             }
         '';
       };
-
     };
   };
 }

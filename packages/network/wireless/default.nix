@@ -1,6 +1,9 @@
-{ systemSettings, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs;[
+  systemSettings,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
     networkmanagerapplet
     wirelesstools
     traceroute

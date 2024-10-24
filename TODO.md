@@ -16,3 +16,4 @@
 15. MATLAB
 16. move basically all of tools into their own seperatre flakes
 17. make hyprland have tmux like leader key
+18. make fastfetch image work in tmux

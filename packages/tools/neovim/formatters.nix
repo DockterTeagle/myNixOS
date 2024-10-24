@@ -1,8 +1,9 @@
-{ pkgs, ... }:
-{
-  environment.systemPackages = with pkgs;[
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
     bibtex-tidy
-    nixpkgs-fmt
+    codespell
+    nixfmt-rfc-style
+    alejandra
     cmake-format
   ];
 }

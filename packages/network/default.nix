@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./wireless
     # ./ssh

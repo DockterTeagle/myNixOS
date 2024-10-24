@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   hardware.bluetooth = {
     powerOnBoot = true;
     input = {
@@ -17,7 +16,7 @@
   };
   services = {
     blueman.enable = true;
-    udev.packages = [ pkgs.evtest ];
+    udev.packages = [pkgs.evtest];
   };
   environment.systemPackages = with pkgs; [
     bluez

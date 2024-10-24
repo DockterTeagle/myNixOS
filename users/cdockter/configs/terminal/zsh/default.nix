@@ -1,6 +1,5 @@
-{ ... }:
+{...}:
 #TODO: Change these into nix format and change all of these into their respective nerdfont
-
 # {
 #   "type": "julia",
 #   "style": "diamond",
@@ -281,8 +280,7 @@ let
   #   ];
   #   version = 2;
   # };
-in
-{
+in {
   home = {
     shellAliases = {
       nhTotalSwitch = "nix flake update /home/cdockter/MyNixOS && nh os switch --verbose && nh home switch --verbose && nh clean all --keep=3 && nix flake archive /home/cdockter/MyNixOS/";
@@ -309,20 +307,18 @@ in
       '';
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "thefuck" "colored-man-pages" "cp" "zoxide" "tmux" "alias-finder" ];
+        plugins = ["git" "thefuck" "colored-man-pages" "cp" "zoxide" "tmux" "alias-finder"];
       };
     };
-    starship =
-      let
-        tokyo_night = builtins.fromTOML (builtins.readFile ./tokyo-night.toml);
-      in
-      {
-        enable = true;
-        enableBashIntegration = true;
-        enableZshIntegration = true;
-        enableTransience = true;
-        # settings = tokyo_night;
-      };
+    starship = let
+      tokyo_night = builtins.fromTOML (builtins.readFile ./tokyo-night.toml);
+    in {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      enableTransience = true;
+      # settings = tokyo_night;
+    };
     # oh-my-posh = {
     #   enable = true;
     #   enableBashIntegration = true;
@@ -332,5 +328,3 @@ in
     # };
   };
 }
-
-

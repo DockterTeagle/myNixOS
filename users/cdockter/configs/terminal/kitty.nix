@@ -1,5 +1,9 @@
-{ pkgs, config, mainUserSettings, ... }:
 {
+  pkgs,
+  config,
+  mainUserSettings,
+  ...
+}: {
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;

@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   security.polkit.enable = true;
-  environment.systemPackages = with pkgs;[
+  environment.systemPackages = with pkgs; [
     swayidle
     swaylock
   ];
