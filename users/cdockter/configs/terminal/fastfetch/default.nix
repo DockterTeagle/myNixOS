@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.fastfetch = {
     enable = true;
     settings = {
@@ -43,7 +42,7 @@
           key = "Time";
           format = "{14}:{17}:{20}";
         }
-        # "battery"
+        "battery"
         "bios"
         # "bluetooth"
         "board"
@@ -55,12 +54,10 @@
         "cpu"
         "cpucache"
         "cpuusage"
-        "command"
         "colors"
         "cursor"
         "display"
         "disk"
-        "diskio"
         # "de"
         "dns"
         "editor"
@@ -68,13 +65,11 @@
         "gamepad"
         "gpu"
         "host"
-        "icons"
         "initsystem"
         "kernel"
         "lm"
         "loadavg"
         "localip"
-        "media"
         "memory"
         "monitor"
         "netio"
@@ -83,9 +78,7 @@
         "os"
         "packages"
         "physicaldisk"
-        "physicalmemory"
         "player"
-        # "poweradapter"
         "processes"
         "publicip"
         "separator"
@@ -93,20 +86,13 @@
         "sound"
         "swap"
         "terminal"
-        "terminalfont"
-        "terminalsize"
-        "terminaltheme"
         "title"
         "theme"
         "uptime"
-        "users"
         "version"
         "vulkan"
-        "wallpaper"
         "wm"
         "wifi"
-        "wmtheme"
-        "zpool"
       ];
     };
   };
