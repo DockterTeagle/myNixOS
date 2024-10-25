@@ -15,7 +15,7 @@
     # Include the results of the hardware scan.
     inputs.hyprland.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
-    ./MSI-GE75Raider-hardware-configuration.nix
+    ./systems/MSI-GE75Raider-hardware-configuration.nix
     # Packages
     (import ./packages {
       inherit

@@ -1,17 +1,13 @@
 {
   inputs,
-  pkgs,
   mainUserSettings,
   ...
 }: {
   imports = [
     inputs.hyprland.homeManagerModules.default
   ];
-  home.packages = with pkgs; [
-    # hyprpanel
-  ];
   wayland.windowManager.hyprland = {
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
+    plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
       borders-plus-plus
       inputs.hy3.packages.x86_64-linux.hy3
       hyprbars
@@ -21,7 +17,12 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
-      plugin = {}; # configure plugins here
+      plugin = {
+        hy3 = {};
+      }; # configure plugins here
+      general = {
+        layout = "hy3";
+      };
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
@@ -42,9 +43,6 @@
         };
         sensitivity = "0";
       };
-      env = [
-        "SLURP_ARGS,-d -b -B F050F022 -b 10101022 -c ff00ff"
-      ];
       decoration = {
         rounding = 0;
         dim_inactive = true;
@@ -76,8 +74,8 @@
         workspace_swipe = "off";
       };
 
-      "$mainMod" = "SUPER_L"; # Mod key
-      "$terminal" = "kitty"; # Terminal
+      "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
+      "$terminal" = "${mainUserSettings.term}"; # Terminal
 
       exec-once = [
         "hypridle"
@@ -85,7 +83,7 @@
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "hyprpaper "
+        "hyprpaper"
         "steam"
         "$terminal"
         "discord"
@@ -94,6 +92,7 @@
 
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
+        # "$mainMod, mouse:272, hy3:movewindow"
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
@@ -122,14 +121,14 @@
         "$mainMod , 8, workspace, 8"
         "$mainMod , 9, workspace, 9"
         "$mainMod , 0, workspace, 10"
-        "$mainMod , F, fullscreen"
         #key 172 is pause
         #shortcuts
         "$mainMod,l,exec,hyprctl dispatch exit"
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
-        "$mainMod SHIFT,F,fullscreen, 1"
+        "$mainMod_SHIFT,F,fullscreen, 1"
+        "$mainMod , F, fullscreen"
         "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
