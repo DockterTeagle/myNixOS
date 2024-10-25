@@ -1,5 +1,8 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  mainUserSettings,
+  ...
+}: {
   stylix = {
     autoEnable = true;
     enable = true;
@@ -31,8 +34,8 @@
         popups = 11;
       };
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-        name = "JetBrainsMono Nerd Font ";
+        package = pkgs.nerdfonts.override {fonts = ["${mainUserSettings.nerdfont}"];};
+        name = "${mainUserSettings.font}";
       };
     };
   };
