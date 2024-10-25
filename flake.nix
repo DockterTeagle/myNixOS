@@ -13,7 +13,6 @@
       url = "github:jchook/ranger-zoxide";
       flake = false;
     };
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nil.url = "github:oxalica/nil";
     agenix = {
@@ -94,7 +93,6 @@
         allowSubstitutes = true;
       };
       overlays = [
-        inputs.hyprpanel.overlay
         inputs.neovim-nightly-overlay.overlays.default
         # inputs.nvimconfig.overlays.${systemSettings.system}.default
         inputs.nixpkgs-wayland.overlay
