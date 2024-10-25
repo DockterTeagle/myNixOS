@@ -3,8 +3,7 @@
   config,
   mainUserSettings,
   ...
-}:
-{
+}: {
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;

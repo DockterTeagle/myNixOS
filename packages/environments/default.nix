@@ -4,14 +4,14 @@
   mainUserSettings,
   conf,
   lib,
-  config,
+  # config,
   ...
-}:
-{
+}: {
   imports = [
     (
       #this part should somehow be in home-manager
-      if mainUserSettings.wm == "hyprland" then
+      if mainUserSettings.wm == "hyprland"
+      then
         (import ./hyprland/default.nix {
           inherit
             inputs
@@ -20,7 +20,8 @@
             lib
             ;
         })
-      else if mainUserSettings.wm == "sway" then
+      else if mainUserSettings.wm == "sway"
+      then
         (import ./sway/default.nix {
           inherit
             inputs
@@ -42,6 +43,7 @@
   ];
   programs.regreet = {
     enable = true;
+    cageArgs = ["-s" "-m" "last"];
     settings = {
       commands = {
         reboot = [
@@ -62,18 +64,15 @@
     enable = true;
     restart = true;
     package = pkgs.greetd.regreet;
-    settings = {
-      default_session = {
-        command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet ";
-        # user = "greeter";
-      };
-    };
+    # settings = {
+    #   default_session = {
+    #     command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet ";
+    #     # user = "greeter";
+    #   };
+    # };
   };
   environment = {
-    shellAliases.obs = "env -u WAYLAND_DISPLAY obs";
     systemPackages = with pkgs; [
-      # cliphist
-      # eww
       wl-clipboard
       polkit
       polkit-kde-agent
@@ -87,7 +86,6 @@
       grimblast
       xdg-utils
       lshw
-      # waybar
       pavucontrol
       dbus
     ];

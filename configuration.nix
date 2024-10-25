@@ -14,7 +14,6 @@
   imports = [
     # Include the results of the hardware scan.
     inputs.hyprland.nixosModules.default
-    inputs.home-manager.nixosModules.home-manager
     ./systems/MSI-GE75Raider-hardware-configuration.nix
     # Packages
     (import ./packages {
@@ -42,10 +41,10 @@
   #   device = "/swapfile";
   #   size = 16 * 1024;
   # }];
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  # home-manager = {
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  # };
   # Nix settings
   nix = {
     settings = {
@@ -73,9 +72,6 @@
   xdg = {
     autostart.enable = true;
     portal = {
-      extraPortals = with pkgs; [
-        # xdg-desktop-portal-gtk
-      ];
       enable = true;
     };
   };
@@ -145,9 +141,7 @@
       flake = "/home/cdockter/MyNixOS/";
     };
     zsh.enable = true;
-    hyprland = {
-      enable = true;
-    };
+    hyprland.enable = true;
     dconf.enable = true;
   };
 

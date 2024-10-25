@@ -49,7 +49,7 @@
         "bootmgr"
         "break"
         # "brightness"
-        # "camera"
+        "camera"
         # "chassis"
         "cpu"
         "cpucache"
