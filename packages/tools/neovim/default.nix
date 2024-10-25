@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./DAPs.nix
     ./LSPs.nix
@@ -10,5 +9,6 @@
     xdotool
     ripgrep
     fd
+    ctags
   ];
 }

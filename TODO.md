@@ -10,9 +10,9 @@
 - [ ] config mako
 - [ ] fix git crashing when on https
 - [ ] sort remaining packages in zsh.nix and configuration.nix into their respective packages
-- [ ]find a way to only have one version of hyprland installed as currently there is two, one in home and one in system
+- [ ] find a way to only have one version of hyprland installed as currently there is two, one in home and one in system
 - [ ] configure solaar(if needed)
-- [ ]  config logiops to get mx master 3 working and make it do different things on different programs
+- [ ] config logiops to get mx master 3 working and make it do different things on different programs
 - [ ] move basically all of tools into their own seperatre flakes
 - [ ] make hyprland have tmux like leader key
 - [ ] make fastfetch image work in tmux

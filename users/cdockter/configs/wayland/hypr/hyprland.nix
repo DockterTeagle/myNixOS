@@ -8,7 +8,6 @@
   ];
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
-      borders-plus-plus
       inputs.hy3.packages.x86_64-linux.hy3
       hyprbars
     ];
@@ -21,7 +20,7 @@
         hy3 = {};
       }; # configure plugins here
       general = {
-        layout = "hy3";
+        # layout = "hy3";
       };
       input = {
         monitor = [

@@ -1,9 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     libgtop
-    bluez
-    bluez-tools
     grimblast
     gpu-screen-recorder
     btop
@@ -11,7 +8,6 @@
     wl-clipboard
     swww
     dart-sass
-    brightnessctl
     gnome-bluetooth
     python313Packages.gpustat
     hyprcursor

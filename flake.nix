@@ -9,11 +9,11 @@
     };
     nh.url = "github:viperML/nh";
     nur.url = "github:nix-community/NUR";
-    ranger-zoxide = {
-      url = "github:jchook/ranger-zoxide";
-      flake = false;
-    };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nil.url = "github:oxalica/nil";
     agenix = {
       url = "github:ryantm/agenix";
@@ -27,14 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nix-matlab = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "gitlab:doronbehar/nix-matlab";
-    };
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    }; # consider getting rid of this and replacing with the packages individual flakes
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -101,7 +93,7 @@
         inputs.nh.overlays.default
       ];
     };
-    home-manager = home-manager;
+    home-manager = inputs.home-manager;
   in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
@@ -137,7 +129,7 @@
           ];
         };
         homeConfigurations = {
-          "cdockter" = inputs.home-manager.lib.homeManagerConfiguration {
+          "cdockter" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             extraSpecialArgs = {
               inherit inputs mainUserSettings systemSettings;

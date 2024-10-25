@@ -1,6 +1,5 @@
-{ ... }:
-{
+{...}: {
   services.openssh = {
-    settings = { };
+    settings = {};
   };
 }
