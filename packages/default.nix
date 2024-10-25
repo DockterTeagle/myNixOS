@@ -5,8 +5,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   imports = [
     ./GUI
     ./environments
@@ -21,7 +20,6 @@
   environment.systemPackages = with pkgs; [
     woeusb
     libnotify
-    matlab
     qmk
     nix-index
   ];

@@ -9,8 +9,7 @@
   mainUserSettings,
   inputs,
   ...
-}:
-{
+}: {
   # Imports
   imports = [
     # Include the results of the hardware scan.
@@ -75,7 +74,7 @@
     autostart.enable = true;
     portal = {
       extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
+        # xdg-desktop-portal-gtk
       ];
       enable = true;
     };
@@ -115,8 +114,8 @@
         layout = "us";
         variant = "";
       };
-      excludePackages = [ pkgs.xterm ];
-      videoDrivers = [ "nvidia" ];
+      excludePackages = [pkgs.xterm];
+      videoDrivers = ["nvidia"];
     };
   };
 
