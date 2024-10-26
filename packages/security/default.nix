@@ -27,7 +27,6 @@
     efibootmgr
     cryptsetup
     mkpasswd
-    inputs.agenix.packages.${system}.default
     pv
   ];
 }

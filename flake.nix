@@ -15,12 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nil.url = "github:oxalica/nil";
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "";
-    };
-    agenix-rekey.url = "github:oddlama/agenix-rekey";
     stylix.url = "github:danth/stylix";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -96,9 +90,6 @@
     home-manager = inputs.home-manager;
   in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        inputs.agenix-rekey.flakeModule
-      ];
       debug = true;
       systems = [
         "x86_64-linux"
@@ -106,7 +97,7 @@
         "aarch64-darwin"
       ];
       flake = {
-        formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+        formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
@@ -121,7 +112,6 @@
             ./configuration.nix
             inputs.solaar.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
-            inputs.agenix.nixosModules.default
             inputs.stylix.nixosModules.stylix
             {
               environment.systemPackages = [inputs.alejandra.defaultPackage.${systemSettings.system}];
