@@ -3,9 +3,9 @@
     ./kitty.nix
     ./tmux.nix
     ./zsh
-    ./fastfetch
+    ./fastfetch.nix
     ./lsd.nix
-    ./neovim
+    ./neovim.nix
     ./ranger.nix
   ];
 }

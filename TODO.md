@@ -16,3 +16,4 @@
 - [ ] move basically all of tools into their own seperatre flakes
 - [ ] make hyprland have tmux like leader key
 - [ ] make fastfetch image work in tmux
+- [ ] make this system agnostic

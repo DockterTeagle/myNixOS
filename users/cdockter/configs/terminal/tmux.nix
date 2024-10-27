@@ -11,7 +11,7 @@
     newSession = true;
     terminal = "tmux-256color";
     mouse = true;
-    tmuxp.enable = true;
+    # tmuxp.enable = true;
     tmuxinator.enable = true;
     plugins = with pkgs.tmuxPlugins; [
       resurrect

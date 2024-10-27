@@ -167,7 +167,6 @@
 
   # System Auto Upgrade
   system.autoUpgrade = {
-    #TODO: make this use the flake
     enable = false;
     allowReboot = true;
   };
