@@ -1,6 +1,5 @@
 {
   description = "my main flake";
-
   inputs = {
     nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     alejandra = {
@@ -34,7 +33,6 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
-    ags.url = "github:Aylur/ags";
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +48,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {
+    nixpkgs,
+    flake-parts,
+    ...
+  } @ inputs: let
     systemSettings = {
       system = "x86_64-linux";
       hostName = "nixos";
@@ -89,13 +91,7 @@
     };
     home-manager = inputs.home-manager;
   in
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      debug = true;
-      systems = [
-        "x86_64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+    flake-parts.lib.mkFlake {inherit inputs;} {
       flake = {
         formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -113,9 +109,6 @@
             inputs.solaar.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
-            {
-              environment.systemPackages = [inputs.alejandra.defaultPackage.${systemSettings.system}];
-            }
           ];
         };
         homeConfigurations = {
@@ -131,5 +124,19 @@
           };
         };
       };
+      debug = true;
+      systems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      perSystem = {
+        config,
+        self',
+        inputs',
+        pkgs,
+        system,
+        ...
+      }: {};
     };
 }
