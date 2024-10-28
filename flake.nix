@@ -49,11 +49,7 @@
     };
   };
   outputs =
-    {
-      nixpkgs,
-      flake-parts,
-      ...
-    }@inputs:
+    { nixpkgs, flake-parts, ... }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -146,6 +142,12 @@
           ...
         }:
         {
+          devShells = {
+            default = pkgs.mkShell {
+              inherit (self'.checks.pre-commit-check) shellHook;
+              buildInputs = self'.checks.pre-commit-check.enabledPackages;
+            };
+          };
           checks = {
             pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
               src = ./.;

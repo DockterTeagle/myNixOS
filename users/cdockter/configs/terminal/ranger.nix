@@ -3,8 +3,6 @@
   programs.ranger = {
     enable = true;
     package = pkgs.ranger;
-    plugins =
-      [
-      ];
+    plugins = [ ];
   };
 }

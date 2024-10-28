@@ -1,12 +1,6 @@
+{ inputs, mainUserSettings, ... }:
 {
-  inputs,
-  mainUserSettings,
-  ...
-}:
-{
-  imports = [
-    inputs.hyprland.homeManagerModules.default
-  ];
+  imports = [ inputs.hyprland.homeManagerModules.default ];
   wayland.windowManager.hyprland = {
     # plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
     #   inputs.hy3.packages.x86_64-linux.hy3
