@@ -2,40 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
   pkgs,
-  lib,
-  systemSettings,
-  mainUserSettings,
   inputs,
   ...
-}: {
+}:
+{
   # Imports
   imports = [
     # Include the results of the hardware scan.
     inputs.hyprland.nixosModules.default
     ./systems/MSI-GE75Raider-hardware-configuration.nix
     # Packages
-    (import ./packages {
-      inherit
-        mainUserSettings
-        pkgs
-        lib
-        config
-        systemSettings
-        inputs
-        ;
-    })
-    (import ./secret-managment {
-      inherit
-        mainUserSettings
-        pkgs
-        lib
-        config
-        systemSettings
-        inputs
-        ;
-    })
+    ./packages
+    ./secret-managment
   ];
   # swapDevices = [{
   #   device = "/swapfile";
@@ -110,8 +89,8 @@
         layout = "us";
         variant = "";
       };
-      excludePackages = [pkgs.xterm];
-      videoDrivers = ["nvidia"];
+      excludePackages = [ pkgs.xterm ];
+      videoDrivers = [ "nvidia" ];
     };
   };
 
@@ -156,8 +135,8 @@
       openssl
       sbsigntool
       openresolv
-      dmidecode # get system info
-      hwinfo # also get system info
+      # dmidecode # get system info
+      # hwinfo # also get system info
       home-manager
     ];
     # etc."machine-id".source = "/nix/persist/etc/machine-id";

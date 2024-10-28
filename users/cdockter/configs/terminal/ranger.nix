@@ -1,8 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.ranger = {
     enable = true;
     package = pkgs.ranger;
-    plugins = [
-    ];
+    plugins =
+      [
+      ];
   };
 }

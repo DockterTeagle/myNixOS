@@ -2,7 +2,8 @@
   mainUserSettings,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./configs
   ];

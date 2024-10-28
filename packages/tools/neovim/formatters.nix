@@ -3,7 +3,8 @@
   inputs,
   systemSettings,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     bibtex-tidy
     codespell
