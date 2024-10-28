@@ -1,6 +1,5 @@
-{ inputs, mainUserSettings, ... }:
+{ inputs, cdockterSettings, ... }:
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
   wayland.windowManager.hyprland = {
     # plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
     #   inputs.hy3.packages.x86_64-linux.hy3
@@ -69,7 +68,7 @@
       };
 
       "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
-      "$terminal" = "${mainUserSettings.term}"; # Terminal
+      "$terminal" = "${cdockterSettings.term}"; # Terminal
 
       exec-once = [
         "hypridle"
@@ -91,7 +90,7 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
-        # "SUPER_L,$mainMod,exec,tofi-run --font${pkgs.nerdfonts.override{fonts = [mainUserSettings.nerdfont];}}/share/fonts/${mainUserSettings.nerdfont}-Regular.ttf"
+        # "SUPER_L,$mainMod,exec,tofi-run --font${pkgs.nerdfonts.override{fonts = [cdockterSettings.nerdfont];}}/share/fonts/${cdockterSettings.nerdfont}-Regular.ttf"
         # "SUPER_L,$mainMod,exec,tofi-run "
         "SUPER_L,$mainMod,exec,rofi -show run"
       ];

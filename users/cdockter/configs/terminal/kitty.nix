@@ -1,14 +1,14 @@
 {
   pkgs,
   config,
-  mainUserSettings,
+  cdockterSettings,
   ...
 }:
 {
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
-    font.name = mainUserSettings.font;
+    font.name = cdockterSettings.font;
     font.size = 15;
     settings = {
       # "background_opacity" = 1;
