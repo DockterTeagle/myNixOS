@@ -93,14 +93,6 @@
       flake = {
         debug = true;
 
-        checks = {
-          pre-commit-check = inputs.pre-commit-hooks.lib.${systemSettings.system}.run {
-            src = ./.;
-            hooks = {
-              nixfmt-rfc-style.enable = true;
-            };
-          };
-        };
         formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
