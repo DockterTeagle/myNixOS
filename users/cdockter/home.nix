@@ -1,12 +1,6 @@
+{ mainUserSettings, pkgs, ... }:
 {
-  mainUserSettings,
-  pkgs,
-  ...
-}:
-{
-  imports = [
-    ./configs
-  ];
+  imports = [ ./configs ];
   gtk = {
     enable = true;
     gtk4.extraConfig = {

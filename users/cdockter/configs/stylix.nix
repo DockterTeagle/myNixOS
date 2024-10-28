@@ -1,8 +1,4 @@
-{
-  pkgs,
-  mainUserSettings,
-  ...
-}:
+{ pkgs, mainUserSettings, ... }:
 {
   stylix = {
     autoEnable = true;
