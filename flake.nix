@@ -1,6 +1,7 @@
 {
   description = "my main flake";
   inputs = {
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
@@ -92,7 +93,18 @@
       home-manager = inputs.home-manager;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
       flake = {
+        debug = true;
+
+        checks = {
+          pre-commit-check = inputs.pre-commit-hooks.lib.${systemSettings.system}.run {
+            src = ./.;
+            hooks = {
+              nixfmt-rfc-style.enable = true;
+            };
+          };
+        };
         formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -124,19 +136,25 @@
           };
         };
       };
-      debug = true;
-      systems = [
-        "x86_64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-      # perSystem = {
-      #   config,
-      #   self',
-      #   inputs',
-      #   pkgs,
-      #   system,
-      #   ...
-      # }: {};
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          checks = {
+            pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+              src = ./.;
+              hooks = {
+                nixfmt-rfc-style.enable = true;
+              };
+            };
+          };
+        };
     };
+
 }
