@@ -5,7 +5,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./GUI
     ./environments

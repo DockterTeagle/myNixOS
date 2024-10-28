@@ -2,22 +2,23 @@
   inputs,
   mainUserSettings,
   ...
-}: {
+}:
+{
   imports = [
     inputs.hyprland.homeManagerModules.default
   ];
   wayland.windowManager.hyprland = {
-    plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
-      inputs.hy3.packages.x86_64-linux.hy3
-      hyprbars
-    ];
+    # plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
+    #   inputs.hy3.packages.x86_64-linux.hy3
+    #   hyprbars
+    # ];
 
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
       plugin = {
-        hy3 = {};
+        hy3 = { };
       }; # configure plugins here
       general = {
         # layout = "hy3";
@@ -132,7 +133,7 @@
         "$mainMod,c,killactive,"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       ];
-      windowrulev2 = ["idleinhibit focus, class:^steam_app_.*$"];
+      windowrulev2 = [ "idleinhibit focus, class:^steam_app_.*$" ];
     };
   };
 }
