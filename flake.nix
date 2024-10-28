@@ -1,27 +1,42 @@
 {
   description = "my main flake";
   inputs = {
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
-    nvimconfig.url = "github:DockterTeagle/mynvimconfig";
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nh.url = "github:viperML/nh";
-    nur.url = "github:nix-community/NUR";
+
+    # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix.url = "github:danth/stylix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nur.url = "github:nix-community/NUR";
+
+    # Pre-commit hooks for Git
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+
+    # Development Tools and Utilities
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nh.url = "github:viperML/nh";
+    nixd.url = "github:nix-community/nixd";
     sops-nix = {
       url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    solaar = {
+      url = "github:svenum/solaar-flake/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Neovim Configurations and Overlays
+    nvimconfig.url = "github:DockterTeagle/mynvimconfig";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    # Wayland and GUI Tools
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/hyprland?submodules=1";
@@ -33,20 +48,20 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
+    stylix.url = "github:danth/stylix";
+
+    # Additional Utilities
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    nixd.url = "github:nix-community/nixd";
+
+    # Optional inputs (commented out)
     # devour-flake = {
     #   url = "github:srid/devour-flake";
     #   flake = false;
     # };
-    solaar = {
-      url = "github:svenum/solaar-flake/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
   };
   outputs =
     { nixpkgs, flake-parts, ... }@inputs:
@@ -57,7 +72,7 @@
         timezone = "America/Chicago";
         boot-loader = "lanzaboote";
       };
-      mainUserSettings = {
+      cdockterSettings = {
         username = "cdockter";
         name = "Christopher Ryan Dockter";
         email = "steampowered.mom596@passinbox.com";
@@ -90,8 +105,8 @@
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
+      debug = true;
       flake = {
-        debug = true;
 
         formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -101,11 +116,12 @@
               inputs
               systemSettings
               home-manager
-              mainUserSettings
+              cdockterSettings
               ;
           };
           modules = [
             ./configuration.nix
+            inputs.hyprland.nixosModules.default
             inputs.solaar.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
@@ -115,11 +131,12 @@
           "cdockter" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             extraSpecialArgs = {
-              inherit inputs mainUserSettings systemSettings;
+              inherit inputs cdockterSettings systemSettings;
             };
             modules = [
               ./users/cdockter/home.nix
               inputs.stylix.homeManagerModules.stylix
+              inputs.hyprland.homeManagerModules.default
             ];
           };
         };

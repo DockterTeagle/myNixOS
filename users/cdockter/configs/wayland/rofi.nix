@@ -1,4 +1,4 @@
-{ pkgs, mainUserSettings, ... }:
+{ pkgs, ... }:
 {
   programs.rofi = {
     enable = true;
