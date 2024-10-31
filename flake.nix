@@ -14,10 +14,11 @@
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
 
     # Development Tools and Utilities
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixfmt.url = "github:nixos/nixfmt";
+    # alejandra = {
+    #   url = "github:kamadorueda/alejandra/3.0.0";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nh.url = "github:viperML/nh";
     nixd.url = "github:nix-community/nixd";
@@ -78,7 +79,6 @@
         email = "steampowered.mom596@passinbox.com";
         dotfilesdir = "~/.config";
         wm = "hyprland";
-        wmType = "wayland";
         browser = "firefox";
         term = "kitty";
         editor = "nvim";
@@ -108,7 +108,6 @@
       debug = true;
       flake = {
 
-        formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
@@ -157,7 +156,22 @@
               buildInputs = self'.checks.pre-commit-check.enabledPackages;
             };
           };
+          # homeConfigurations = {
+          #   "cdockter" = home-manager.lib.homeManagerConfiguration {
+          #     inherit pkgs;
+          #     extraSpecialArgs = {
+          #       inherit inputs cdockterSettings systemSettings;
+          #     };
+          #     modules = [
+          #       ./users/cdockter/home.nix
+          #       inputs.stylix.homeManagerModules.stylix
+          #       inputs.hyprland.homeManagerModules.default
+          #     ];
+          #   };
+          # };
+          formatter = pkgs.nixfmt-rfc-style;
           checks = {
+            # pre-commit-check = inputs'.pre-commit-hooks.lib.run {
             pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
               src = ./.;
               hooks = {

@@ -72,12 +72,12 @@
   };
 
   programs = {
-    # let home manager install and manage itself.
     direnv = {
       enable = true;
       nix-direnv.enable = true;
       enableZshIntegration = true;
     };
+    # let home manager install and manage itself.
     home-manager.enable = true;
     git = {
       enable = true;
