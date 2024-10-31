@@ -1,9 +1,4 @@
-{
-  pkgs,
-  inputs,
-  systemSettings,
-  ...
-}:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     bibtex-tidy
@@ -11,6 +6,6 @@
     nixfmt-rfc-style
     cmake-format
     treefmt2
-    inputs.alejandra.defaultPackage.${systemSettings.system}
+    alejandra
   ];
 }
