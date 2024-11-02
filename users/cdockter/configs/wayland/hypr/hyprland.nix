@@ -10,6 +10,9 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
+      # debug = {
+      #   disable_logs = false;
+      # };
       plugin = {
         hy3 = { };
       }; # configure plugins here

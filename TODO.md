@@ -12,7 +12,8 @@
 - [ ] sort remaining packages in zsh.nix and configuration.nix into their respective packages
 - [ ] find a way to only have one version of hyprland installed as currently there is two, one in home and one in system
 - [ ] configure solaar(if needed)
-- [ ] move basically all of tools into their own seperatre flakes
+- [ ] move basically all of tools into their own separate flakes
 - [ ] make hyprland have tmux like leader key
 - [ ] make fastfetch image work in tmux
 - [ ] make this system agnostic
+- [ ] use flake-parts more
