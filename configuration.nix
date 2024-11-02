@@ -112,7 +112,7 @@
         enable = true;
         extraArgs = "--keep=3 -v";
       };
-      flake = "/home/cdockter/MyNixOS/";
+      flake = "/home/cdockter/myNixOS/";
     };
     zsh.enable = true;
     hyprland.enable = true;

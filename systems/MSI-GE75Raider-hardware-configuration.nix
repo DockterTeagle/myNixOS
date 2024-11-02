@@ -8,7 +8,6 @@
   modulesPath,
   ...
 }:
-#clean me fans spongebob
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -25,14 +24,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/be07ad47-b72c-4112-a912-b0869f4b8b8b";
+    device = "/dev/disk/by-uuid/62ff14dc-cadc-4a4a-af03-66459dca395a";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-9410848d-3f81-429f-a6bd-773f1454acc6".device = "/dev/disk/by-uuid/9410848d-3f81-429f-a6bd-773f1454acc6";
+  boot.initrd.luks.devices."luks-f0bd682b-a6cc-4b16-835a-81f3be960b74".device = "/dev/disk/by-uuid/f0bd682b-a6cc-4b16-835a-81f3be960b74";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/A3D8-BF1E";
+    device = "/dev/disk/by-uuid/3BE8-556E";
     fsType = "vfat";
     options = [
       "fmask=0022"
@@ -41,11 +40,11 @@
   };
 
   fileSystems."/Drives/EHDD" = {
-    device = "/dev/disk/by-uuid/25cebdad-13ba-4676-8272-61d72cc168a8";
+    device = "/dev/disk/by-uuid/a6e7bbbd-757a-4f8d-981d-47630bfac731";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."EHDD".device = "/dev/disk/by-uuid/13ab5b6b-79f0-49a6-864f-c2239e5f8313";
+  boot.initrd.luks.devices."EHDD".device = "/dev/disk/by-uuid/84989735-d8b3-4005-89d1-c03af68e7408";
 
   swapDevices = [ ];
 
