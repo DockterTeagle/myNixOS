@@ -120,7 +120,7 @@
           };
           modules = [
             ./configuration.nix
-            inputs.hyprland.nixosModules.default
+            # inputs.hyprland.nixosModules.default
             inputs.solaar.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
@@ -135,7 +135,7 @@
             modules = [
               ./users/cdockter/home.nix
               inputs.stylix.homeManagerModules.stylix
-              inputs.hyprland.homeManagerModules.default
+              # inputs.hyprland.homeManagerModules.default
             ];
           };
         };
@@ -156,19 +156,6 @@
               buildInputs = self'.checks.pre-commit-check.enabledPackages;
             };
           };
-          # homeConfigurations = {
-          #   "cdockter" = home-manager.lib.homeManagerConfiguration {
-          #     inherit pkgs;
-          #     extraSpecialArgs = {
-          #       inherit inputs cdockterSettings systemSettings;
-          #     };
-          #     modules = [
-          #       ./users/cdockter/home.nix
-          #       inputs.stylix.homeManagerModules.stylix
-          #       inputs.hyprland.homeManagerModules.default
-          #     ];
-          #   };
-          # };
           formatter = pkgs.nixfmt-rfc-style;
           checks = {
             # pre-commit-check = inputs'.pre-commit-hooks.lib.run {

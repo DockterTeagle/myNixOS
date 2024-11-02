@@ -120,22 +120,20 @@
   };
 
   # System Environment
-  environment = {
-    systemPackages = with pkgs; [
-      # TODO: sort all of these into the respective file
-      xclip
-      pciutils
-      wev
-      acpi
-      openssl
-      sbsigntool
-      openresolv
-      # dmidecode # get system info
-      # hwinfo # also get system info
-      home-manager
-    ];
-    # etc."machine-id".source = "/nix/persist/etc/machine-id";
-  };
+  environment.systemPackages = with pkgs; [
+    # TODO: sort all of these into the respective file
+    xclip
+    pciutils
+    wev
+    acpi
+    openssl
+    sbsigntool
+    openresolv
+    # dmidecode # get system info
+    # hwinfo # also get system info
+    home-manager
+  ];
+  # etc."machine-id".source = "/nix/persist/etc/machine-id";
 
   # Specialisation
 
