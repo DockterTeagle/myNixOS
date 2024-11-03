@@ -31,9 +31,9 @@
       element-desktop-wayland
       zoom-us
       logiops
-      # nur.repos.tuxdude.logiops
       # libreoffice
-      # thunderbird
+      thunderbird
+      # protonmail-desktop
     ];
   };
 }

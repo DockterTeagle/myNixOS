@@ -117,7 +117,7 @@
           };
           modules = [
             ./configuration.nix
-            # inputs.hyprland.nixosModules.default
+            inputs.hyprland.nixosModules.default
             inputs.solaar.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
@@ -132,7 +132,7 @@
             modules = [
               ./users/cdockter/home.nix
               inputs.stylix.homeManagerModules.stylix
-              # inputs.hyprland.homeManagerModules.default
+              inputs.hyprland.homeManagerModules.default
             ];
           };
         };
