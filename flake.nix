@@ -1,7 +1,6 @@
 {
   description = "my main flake";
   inputs = {
-
     # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
@@ -62,7 +61,6 @@
     #   url = "github:srid/devour-flake";
     #   flake = false;
     # };
-
   };
   outputs =
     { nixpkgs, flake-parts, ... }@inputs:
@@ -107,7 +105,6 @@
       systems = [ "x86_64-linux" ];
       debug = true;
       flake = {
-
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
@@ -168,5 +165,4 @@
           };
         };
     };
-
 }

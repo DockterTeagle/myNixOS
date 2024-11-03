@@ -1,10 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    spotify
-    firefox
-    geckodriver
-    discord
-    swww
+    protonvpn-gui
+    proton-pass
+    element-desktop
+
   ];
 }
