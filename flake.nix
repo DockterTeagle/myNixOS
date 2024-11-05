@@ -31,7 +31,7 @@
     };
 
     # Neovim Configurations and Overlays
-    nvimconfig.url = "github:DockterTeagle/mynvimconfig";
+    # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # Wayland and GUI Tools
