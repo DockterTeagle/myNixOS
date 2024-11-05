@@ -23,5 +23,6 @@
     libnotify
     qmk
     nix-index
+    github-cli
   ];
 }
