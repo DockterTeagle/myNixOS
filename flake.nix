@@ -64,6 +64,7 @@
   };
   outputs =
     { nixpkgs, flake-parts, ... }@inputs:
+    #TODO: make the pkgs use flake-parts so that this is system agnostic
     let
       systemSettings = {
         system = "x86_64-linux";
