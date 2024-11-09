@@ -2,10 +2,12 @@
 {
   programs.firefox = {
     enable = true;
+    package = pkgs.latest.firefox-nightly-bin;
     profiles = {
       cdockter = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           tree-style-tab
+          tst-more-tree-commands
           cookie-autodelete
           fakespot-fake-reviews-amazon
           private-relay
@@ -14,7 +16,6 @@
           ublock-origin
           multi-account-containers
           proton-pass
-          tst-more-tree-commands
         ];
         name = "cdockter";
         isDefault = true;

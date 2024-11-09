@@ -10,13 +10,13 @@
     swww
     dart-sass
     gnome-bluetooth
-    python313Packages.gpustat
+    # python313Packages.gpustat
     hyprcursor
     hyprpaper
     hyprpicker
     hypridle
     hyprlock
-    wf-recorder
+    # wf-recorder
     hyprshot
   ];
 }
