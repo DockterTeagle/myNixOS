@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     spotify
-    firefox
+    latest.firefox-nightly-bin
     geckodriver
     discord
     swww

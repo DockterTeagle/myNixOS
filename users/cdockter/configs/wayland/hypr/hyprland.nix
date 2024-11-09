@@ -1,10 +1,10 @@
 { inputs, cdockterSettings, ... }:
 {
   wayland.windowManager.hyprland = {
-    # plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
-    #   inputs.hy3.packages.x86_64-linux.hy3
-    #   hyprbars
-    # ];
+    plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
+      inputs.hy3.packages.x86_64-linux.hy3
+      hyprbars
+    ];
 
     enable = true;
     xwayland.enable = true;
@@ -43,10 +43,10 @@
         rounding = 0;
         dim_inactive = true;
         dim_strength = 0.1;
-        drop_shadow = 1;
-        shadow_range = 20;
-        shadow_render_power = 2;
-        shadow_offset = "0 0";
+        # drop_shadow = 1;
+        # shadow_range = 20;
+        # shadow_render_power = 2;
+        # shadow_offset = "0 0";
         blur = {
           enabled = 1;
           size = 4;
@@ -84,7 +84,7 @@
         "steam"
         "$terminal"
         "discord"
-        "firefox"
+        "firefox-nightly"
       ];
 
       bindm = [
