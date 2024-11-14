@@ -10,6 +10,8 @@
       tmux.enable = false;
       kitty.enable = false;
       hyprland.enable = false;
+      hyprlock.enable = false;
+      hyprpaper.enable = false;
       waybar = {
         enable = true;
         # enableCenterBackColors = true;
