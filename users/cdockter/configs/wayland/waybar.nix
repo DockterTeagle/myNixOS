@@ -145,7 +145,7 @@
           format = "  {percentage_used}% ({free})";
           tooltip = true;
           interval = 2;
-          on-click = "kitty sh -c 'ranger'";
+          on-click = "kitty sh -c 'yazi'";
         };
         clock = {
           format = "  {:%d <small>%a</small> %H:%M}";
