@@ -7,6 +7,6 @@
     ./fastfetch.nix
     ./lsd.nix
     ./neovim.nix
-    ./ranger.nix
+    # ./ranger.nix
   ];
 }

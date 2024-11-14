@@ -79,11 +79,12 @@
       wl-clipboard
       polkit
       polkit-kde-agent
-      kdePackages.qtwayland
-      kdePackages.dolphin # fileManager
-      kdePackages.qtsvg
-      kdePackages.kio-fuse
-      kdePackages.kio-extras
+      yazi
+      # kdePackages.qtwayland
+      # kdePackages.dolphin # fileManager
+      # kdePackages.qtsvg
+      # kdePackages.kio-fuse
+      # kdePackages.kio-extras
       libva-utils
       fuseiso
       udiskie
