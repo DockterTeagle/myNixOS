@@ -13,6 +13,7 @@
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
 
     # Development Tools and Utilities
+    yazi.url = "github:sxyazi/yazi";
     # nixfmt.url = "github:nixos/nixfmt";
     # alejandra = {
     #   url = "github:kamadorueda/alejandra/3.0.0";
@@ -99,6 +100,7 @@
           inputs.nur.overlay
           inputs.nh.overlays.default
           inputs.mozilla.overlay
+          inputs.yazi.overlays.default
         ];
       };
       home-manager = inputs.home-manager;
