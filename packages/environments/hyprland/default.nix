@@ -5,7 +5,7 @@
     grimblast
     gpu-screen-recorder
     btop
-    matugen
+    # matugen
     wl-clipboard
     swww
     dart-sass
