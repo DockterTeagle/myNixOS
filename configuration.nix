@@ -121,13 +121,13 @@
 
   # System Environment
   environment = {
-    loginShellInit =
-      #bash
-      ''
-        if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-        exec  Hyprland
-        fi
-      '';
+    # loginShellInit =
+    #   #bash
+    #   ''
+    #     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    #     exec  Hyprland
+    #     fi
+    #   '';
     systemPackages = with pkgs; [
       # TODO: sort all of these into the respective file
       xclip
