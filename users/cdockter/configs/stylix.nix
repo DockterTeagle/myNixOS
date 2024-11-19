@@ -12,7 +12,6 @@
       hyprland.enable = false;
       hyprlock.enable = false;
       hyprpaper.enable = false;
-      yazi.enable = false;
       waybar = {
         enable = false;
         # enableCenterBackColors = true;
