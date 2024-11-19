@@ -95,7 +95,7 @@
           allowSubstitutes = true;
         };
         overlays = [
-          inputs.statix.overlays.default
+          # inputs.statix.overlays.default
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
