@@ -17,4 +17,4 @@
 - [ ] make fastfetch image work in tmux
 - [ ] make this system agnostic
 - [ ] use flake-parts more
-- [ ] get laptop to be not hot on power
+- [ X ] get laptop to be not hot on power

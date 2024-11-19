@@ -20,7 +20,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nh.url = "github:viperML/nh";
+    # nh.url = "github:viperML/nh";
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -100,7 +100,7 @@
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
           inputs.nur.overlay
-          inputs.nh.overlays.default
+          # inputs.nh.overlays.default
           inputs.mozilla.overlay
         ];
       };
@@ -128,18 +128,16 @@
             inputs.stylix.nixosModules.stylix
           ];
         };
-        homeConfigurations = {
-          "cdockter" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              inherit inputs cdockterSettings systemSettings;
-            };
-            modules = [
-              ./users/cdockter/home.nix
-              inputs.stylix.homeManagerModules.stylix
-              inputs.hyprland.homeManagerModules.default
-            ];
+        homeConfigurations.cdockter = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs cdockterSettings systemSettings;
           };
+          modules = [
+            ./users/cdockter/home.nix
+            inputs.stylix.homeManagerModules.stylix
+            inputs.hyprland.homeManagerModules.default
+          ];
         };
       };
       perSystem =
