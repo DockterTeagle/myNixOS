@@ -1,10 +1,10 @@
 { inputs, cdockterSettings, ... }:
 {
   wayland.windowManager.hyprland = {
-    # plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
-    #   inputs.hy3.packages.x86_64-linux.hy3
-    #   hyprbars
-    # ];
+    plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
+      inputs.hy3.packages.x86_64-linux.hy3
+      hyprbars
+    ];
 
     enable = true;
     xwayland.enable = true;
