@@ -78,9 +78,7 @@
         username = "cdockter";
         name = "Christopher Ryan Dockter";
         email = "steampowered.mom596@passinbox.com";
-        dotfilesdir = "~/.config";
         wm = "hyprland";
-        browser = "firefox";
         term = "kitty";
         editor = "nvim";
         font = "JetBrains Mono Nerd Font";
