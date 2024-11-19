@@ -12,7 +12,7 @@
   ];
   networking = {
     networkmanager.enable = true;
-    hostName = systemSettings.hostName;
+    inherit (systemSettings) hostName;
     # Open ports in the firewall
     # networking.firewall.allowedTCPPorts = [ ... ];
     # networking.firewall.allowedUDPPorts = [ ... ];

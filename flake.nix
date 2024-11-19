@@ -89,7 +89,7 @@
         theme = "Tokyo Night";
       };
       pkgs = import nixpkgs {
-        system = systemSettings.system;
+        inherit (systemSettings) system;
         config = {
           allowUnfree = true;
           allowSubstitutes = true;
@@ -104,7 +104,7 @@
           inputs.mozilla.overlay
         ];
       };
-      home-manager = inputs.home-manager;
+      inherit (inputs) home-manager;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
