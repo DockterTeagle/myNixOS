@@ -18,8 +18,8 @@
     stateVersion = "23.11";
     # home manager needs a bit of information about you and the paths it should
     # manage.
-    homeDirectory = cdockterSettings.homeDirectory;
-    username = cdockterSettings.username;
+    inherit (cdockterSettings) homeDirectory;
+    inherit (cdockterSettings) username;
     # home manager can also manage your environment variables through 'home.sessionvariables'. if you don't want to manage your shell through home
     # manager then you have to manually source 'hm-session-vars.sh' located at
     # either
