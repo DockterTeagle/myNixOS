@@ -5,7 +5,6 @@
     ruff
     vale
     write-good
-    deadnix
     statix
   ];
 }
