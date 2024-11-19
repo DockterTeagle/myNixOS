@@ -2,7 +2,7 @@
 {
   stylix = {
     autoEnable = true;
-    enable = true;
+    enable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     image = ../../../pictures/black-hole-cosmic-3840x2160-19145.jpg;
     targets = {
