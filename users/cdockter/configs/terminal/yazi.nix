@@ -2,8 +2,11 @@
 {
   programs.yazi = {
     enable = true;
-    enableBashIntegration = true;
     package = pkgs.yazi;
-
+    settings = {
+      manager = {
+        show_hidden = true;
+      };
+    };
   };
 }
