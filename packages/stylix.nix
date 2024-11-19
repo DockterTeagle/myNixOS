@@ -2,7 +2,7 @@
 {
   stylix = {
     image = ../pictures/black-hole-cosmic-3840x2160-19145.jpg;
-    enable = false;
+    enable = true;
     fonts = {
       sizes = {
         terminal = 15;

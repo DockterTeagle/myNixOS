@@ -100,7 +100,6 @@
           inputs.nur.overlay
           inputs.nh.overlays.default
           inputs.mozilla.overlay
-          inputs.yazi.overlays.default
         ];
       };
       home-manager = inputs.home-manager;
