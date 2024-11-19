@@ -6,6 +6,6 @@
     vale
     write-good
     deadnix
-    nixpkgs-lint
+    statix
   ];
 }
