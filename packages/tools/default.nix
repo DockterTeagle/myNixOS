@@ -7,5 +7,6 @@
     pstree
     zulu
     languagetool
+    obsidian
   ];
 }

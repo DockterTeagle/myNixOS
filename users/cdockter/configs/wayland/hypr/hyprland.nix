@@ -84,7 +84,7 @@
         "steam"
         "$terminal"
         "discord"
-        "firefox-nightly"
+        "firefox"
       ];
 
       bindm = [

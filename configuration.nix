@@ -11,10 +11,6 @@
     ./packages
     ./secret-managment
   ];
-  # swapDevices = [{
-  #   device = "/swapfile";
-  #   size = 16 * 1024;
-  # }];
   # home-manager = {
   #   useGlobalPkgs = true;
   #   useUserPackages = true;

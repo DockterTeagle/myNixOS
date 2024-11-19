@@ -20,7 +20,7 @@
       name = "Bibata-Modern-Ice";
       size = 24;
     };
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     targets = {
       grub = {
         enable = true;
