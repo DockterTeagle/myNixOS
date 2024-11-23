@@ -8,5 +8,6 @@
     zulu
     languagetool
     obsidian
+    just
   ];
 }
