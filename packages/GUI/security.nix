@@ -4,6 +4,5 @@
     protonvpn-gui
     proton-pass
     element-desktop
-
   ];
 }

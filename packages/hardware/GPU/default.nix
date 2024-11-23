@@ -1,4 +1,8 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 {
   environment = {
     variables = {
@@ -34,13 +38,13 @@
     };
     nvidia = {
       modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       open = false;
       powerManagement = {
         enable = false;
         finegrained = false;
       };
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
       forceFullCompositionPipeline = true;
       # nvidia-drm.modeset = 1;
       prime = {

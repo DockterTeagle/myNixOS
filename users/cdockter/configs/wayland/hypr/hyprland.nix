@@ -1,4 +1,8 @@
-{ inputs, cdockterSettings, ... }:
+{
+  inputs,
+  cdockterSettings,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [

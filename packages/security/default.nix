@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   security.rtkit.enable = true;
   security.polkit = {

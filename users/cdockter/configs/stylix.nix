@@ -1,4 +1,8 @@
-{ pkgs, cdockterSettings, ... }:
+{
+  pkgs,
+  cdockterSettings,
+  ...
+}:
 {
   stylix = {
     autoEnable = true;
