@@ -1,4 +1,8 @@
-{ cdockterSettings, pkgs, ... }:
+{
+  cdockterSettings,
+  pkgs,
+  ...
+}:
 {
   imports = [ ./configs ];
   gtk = {
