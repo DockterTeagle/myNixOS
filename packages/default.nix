@@ -15,7 +15,7 @@
     ./security
     ./system
     ./tools
-    ./gaming.nix
+    # ./gaming.nix
     ./stylix.nix
   ];
   environment.systemPackages = with pkgs; [
