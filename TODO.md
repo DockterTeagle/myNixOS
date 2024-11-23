@@ -18,3 +18,4 @@
 - [ ] make this system agnostic
 - [ ] use flake-parts more
 - [ X ] get laptop to be not hot on power
+- [ ] move zsh/ shell to tools
