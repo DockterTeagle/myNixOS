@@ -20,13 +20,12 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     flake-parts.url = "github:hercules-ci/flake-parts";
-    # nh.url = "github:viperML/nh";
+    nh.url = "github:viperML/nh";
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # statix.url = "github:oppiliappan/statix";
     solaar = {
       url = "github:svenum/solaar-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -97,7 +96,6 @@
           allowSubstitutes = true;
         };
         overlays = [
-          # inputs.statix.overlays.default
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
