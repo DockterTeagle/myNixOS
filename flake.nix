@@ -150,12 +150,11 @@
           ...
         }:
         {
-          devShells = {
-            default = pkgs.mkShell {
-              inherit (self'.checks.pre-commit-check) shellHook;
-              buildInputs = self'.checks.pre-commit-check.enabledPackages;
-            };
+          devShells.default = pkgs.mkShell {
+            inherit (self'.checks.pre-commit-check) shellHook;
+            buildInputs = self'.checks.pre-commit-check.enabledPackages;
           };
+
           formatter = pkgs.nixfmt-rfc-style;
           checks = {
             # pre-commit-check = inputs'.pre-commit-hooks.lib.run {
