@@ -32,7 +32,7 @@
       zoom-us
       logiops
       # libreoffice
-      thunderbird
+      # thunderbird
       # protonmail-desktop
     ];
   };
