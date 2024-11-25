@@ -30,7 +30,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = [
       pkgs.linuxPackages_latest.xpadneo
-      pkgs.linuxKernel.packages.linux_6_11.msi-ec
+      pkgs.linuxKernel.packages.linux_6_12.msi-ec
     ];
   };
 }
