@@ -28,12 +28,7 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      element-desktop-wayland
-      zoom-us
       logiops
-      # libreoffice
-      # thunderbird
-      # protonmail-desktop
     ];
   };
 }
