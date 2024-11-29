@@ -50,7 +50,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     stylix.url = "github:danth/stylix";
-
+    ags.url = "github:Aylur/ags";
     # Additional Utilities
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
@@ -137,6 +137,7 @@
             ./users/cdockter/home.nix
             inputs.stylix.homeManagerModules.stylix
             inputs.hyprland.homeManagerModules.default
+            inputs.ags.homeManagerModules.default
           ];
         };
       };
