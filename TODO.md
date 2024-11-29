@@ -20,3 +20,4 @@
 - [ X ] get laptop to be not hot on power
 - [ ] move zsh/ shell to tools
 - [ ] clean msi fans
+- [ ] get a script to add all flakes and update them in system
