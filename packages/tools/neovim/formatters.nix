@@ -6,6 +6,5 @@
     nixfmt-rfc-style
     cmake-format
     treefmt2
-    alejandra
   ];
 }

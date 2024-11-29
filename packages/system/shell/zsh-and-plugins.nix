@@ -2,7 +2,7 @@
 {
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
-    # nerdfonts
+    nerdfonts
     font-awesome
   ];
   #TODO: not all of these belong here
