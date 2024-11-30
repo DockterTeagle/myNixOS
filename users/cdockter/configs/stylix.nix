@@ -5,7 +5,6 @@
 }:
 {
   stylix = {
-    autoEnable = true;
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     image = ../../../pictures/black-hole-cosmic-3840x2160-19145.jpg;
@@ -16,6 +15,7 @@
       hyprland.enable = false;
       hyprlock.enable = false;
       hyprpaper.enable = false;
+      rofi.enable = false;
       waybar = {
         enable = false;
         # enableCenterBackColors = true;
@@ -37,7 +37,7 @@
         popups = 11;
       };
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "${cdockterSettings.font}";
       };
     };

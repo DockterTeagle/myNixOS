@@ -106,7 +106,7 @@
     nh = {
       enable = true;
       clean = {
-        dates = "daily";
+        dates = "weekly";
         enable = true;
         extraArgs = "--keep=3";
       };
