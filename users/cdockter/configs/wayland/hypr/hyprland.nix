@@ -12,7 +12,7 @@
 
     enable = true;
     xwayland.enable = true;
-    systemd.enable = true;
+    systemd.enable = false;
     settings = {
       # debug = {
       #   disable_logs = false;
@@ -78,17 +78,17 @@
       "$terminal" = "${cdockterSettings.term}"; # Terminal
 
       exec-once = [
-        "hypridle"
-        "nm-applet"
-        "waybar"
+        "uwsm app -- hypridle"
+        "uwsm app -- nm-applet"
+        "uwsm app -- waybar"
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hyprpaper"
-        "steam"
-        "$terminal"
-        "discord"
-        "firefox"
+        "uwsm app -- steam"
+        "uwsm app -- $terminal"
+        "uwsm app -- discord"
+        "uwsm app -- firefox"
       ];
 
       bindm = [
@@ -124,7 +124,7 @@
         "$mainMod , 0, workspace, 10"
         #key 172 is pause
         #shortcuts
-        "$mainMod,l,exec,hyprctl dispatch exit"
+        "$mainMod,l,exec,uwsm stop"
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
