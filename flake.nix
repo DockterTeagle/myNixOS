@@ -100,8 +100,8 @@
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
-          inputs.nur.overlay
-          # inputs.nh.overlays.default
+          inputs.nur.overlays.default
+          inputs.nh.overlays.default
           inputs.mozilla.overlay
         ];
       };
