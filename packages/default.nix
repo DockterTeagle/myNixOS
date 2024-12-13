@@ -24,5 +24,7 @@
     qmk
     nix-index
     github-cli
+    rar
+    unrar
   ];
 }
