@@ -23,7 +23,6 @@
     gitFull
     tmux
     kitty
-    wine
     ventoy # for writing ISO images
     vim-full
     gnumake

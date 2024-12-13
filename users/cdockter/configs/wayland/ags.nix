@@ -10,7 +10,7 @@
     configDir = ./ags;
     extraPackages = with pkgs; [
       gtksourceview5
-      webkitgtk
+      webkitgtk_6_0
       accountsservice
       inputs.ags.packages.${systemSettings.system}.apps
       inputs.ags.packages.${systemSettings.system}.auth
