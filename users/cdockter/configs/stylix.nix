@@ -15,7 +15,7 @@
       hyprland.enable = false;
       hyprlock.enable = false;
       hyprpaper.enable = false;
-      rofi.enable = false;
+      rofi.enable = true;
       waybar = {
         enable = false;
         # enableCenterBackColors = true;
@@ -25,8 +25,8 @@
     };
 
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-light";
       size = 24;
     };
     fonts = {

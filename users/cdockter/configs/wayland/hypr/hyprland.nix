@@ -81,7 +81,7 @@
         "uwsm app -- hypridle"
         "uwsm app -- nm-applet"
         "uwsm app -- waybar"
-        "hyprctl setcursor Bibata-Modern-Ice 24"
+        "hyprctl setcursor phinger-cursors-light 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hyprpaper"
