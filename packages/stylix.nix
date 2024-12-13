@@ -16,8 +16,8 @@
       };
     };
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-light";
       size = 24;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
