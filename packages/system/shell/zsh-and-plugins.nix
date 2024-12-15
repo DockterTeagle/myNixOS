@@ -7,6 +7,7 @@
   ];
   #TODO: not all of these belong here
   environment.systemPackages = with pkgs; [
+    sesh
     lsof
     zsh
     zsh-syntax-highlighting
