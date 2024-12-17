@@ -179,14 +179,17 @@
 
           formatter = pkgs.nixfmt-rfc-style;
           checks = {
-            # pre-commit-check = inputs'.pre-commit-hooks.lib.run {
             pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
               src = ./.;
               hooks = {
+                # nix
                 nixfmt-rfc-style.enable = true;
                 statix.enable = true;
                 flake-checker.enable = true;
                 deadnix.enable = true;
+                #javascript
+                denofmt.enable = true;
+                denolint.enable = true;
               };
             };
           };
