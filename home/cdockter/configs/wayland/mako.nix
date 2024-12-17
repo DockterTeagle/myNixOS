@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+_: {
   services.mako = {
     enable = true;
     anchor = "top-right";
