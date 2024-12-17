@@ -1,7 +1,0 @@
-keys:
-  - &primary age1zvl5msk0jve57kk27ee60l5dm9gu2j6pqayln5rt6jzq3f8mpahsen6m0p 
-creation_rules:
-  - path_regex: secret-managment/sops-nix/secrets.yaml
-    key_groups:
-    - age:
-      - *primary
