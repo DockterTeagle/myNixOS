@@ -21,14 +21,6 @@
     wantedBy = [ "multi-user.target" ];
     enable = true;
   };
-  services = {
-    solaar = {
-      enable = true;
-    };
-  };
-  environment = {
-    systemPackages = with pkgs; [
-      logiops
-    ];
-  };
+  services.solaar.enable = true;
+  environment.systemPackages = [ pkgs.logiops ];
 }
