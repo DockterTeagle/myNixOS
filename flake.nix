@@ -154,7 +154,7 @@
         {
           devShells.default = pkgs.mkShell {
             inherit (self'.checks.pre-commit-check) shellHook;
-            buildInputs = [
+            packages = [
               (ags.packages.${system}.default.override {
                 extraPackages = with ags.packages.${system}; [
                   # cherry pick packages
