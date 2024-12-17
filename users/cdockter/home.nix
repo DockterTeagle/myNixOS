@@ -88,6 +88,7 @@
       userName = "Dr.Teagle";
       userEmail = cdockterSettings.email;
       extraConfig = {
+        core.editor = "nvim";
         init.defaultBranch = "main";
       };
       lfs.enable = true;
