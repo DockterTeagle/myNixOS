@@ -9,57 +9,57 @@
  * The based EJS template file is used for the generated .d.ts file of each GIR module like Gtk-4.0, GObject-2.0, ...
  */
 
-declare module 'gi://fontconfig?version=2.0' {
-    // Module dependencies
-    import type GObject from 'gi://GObject?version=2.0';
+declare module "gi://fontconfig?version=2.0" {
+  // Module dependencies
+  import type GObject from "gi://GObject?version=2.0";
 
-    export namespace fontconfig {
-        /**
-         * fontconfig-2.0
-         */
+  export namespace fontconfig {
+    /**
+     * fontconfig-2.0
+     */
 
-        function init(): void;
-        class Pattern {
-            static $gtype: GObject.GType<Pattern>;
+    function init(): void;
+    class Pattern {
+      static $gtype: GObject.GType<Pattern>;
 
-            // Constructors
+      // Constructors
 
-            _init(...args: any[]): void;
-        }
-
-        class CharSet {
-            static $gtype: GObject.GType<CharSet>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
-        }
-
-        class Config {
-            static $gtype: GObject.GType<Config>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
-        }
-
-        /**
-         * Name of the imported GIR library
-         * `see` https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188
-         */
-        const __name__: string;
-        /**
-         * Version of the imported GIR library
-         * `see` https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L189
-         */
-        const __version__: string;
+      _init(...args: any[]): void;
     }
 
-    export default fontconfig;
+    class CharSet {
+      static $gtype: GObject.GType<CharSet>;
+
+      // Constructors
+
+      _init(...args: any[]): void;
+    }
+
+    class Config {
+      static $gtype: GObject.GType<Config>;
+
+      // Constructors
+
+      _init(...args: any[]): void;
+    }
+
+    /**
+     * Name of the imported GIR library
+     * `see` https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188
+     */
+    const __name__: string;
+    /**
+     * Version of the imported GIR library
+     * `see` https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L189
+     */
+    const __version__: string;
+  }
+
+  export default fontconfig;
 }
 
-declare module 'gi://fontconfig' {
-    import Fontconfig20 from 'gi://fontconfig?version=2.0';
-    export default Fontconfig20;
+declare module "gi://fontconfig" {
+  import Fontconfig20 from "gi://fontconfig?version=2.0";
+  export default Fontconfig20;
 }
 // END

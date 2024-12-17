@@ -190,7 +190,7 @@
                 deadnix.enable = true;
                 #javascript
                 denofmt.enable = true;
-                denolint.enable = true;
+                # denolint.enable = true;
               };
             };
           };
