@@ -18,7 +18,7 @@
         bind = SHIFT,z,fullscreen,1 
         # add more later
         bind = ,escape,submap,reset 
-        bind = ,catchall, submap, reset
+        # bind = ,catchall, submap, reset
         submap = reset
       '';
     enable = true;
