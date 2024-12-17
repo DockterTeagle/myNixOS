@@ -135,7 +135,7 @@
             inherit inputs cdockterSettings systemSettings;
           };
           modules = [
-            ./users/cdockter/home.nix
+            ./home/cdockter/home.nix
             inputs.stylix.homeManagerModules.stylix
             inputs.hyprland.homeManagerModules.default
             inputs.ags.homeManagerModules.default

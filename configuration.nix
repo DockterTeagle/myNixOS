@@ -6,10 +6,10 @@
   # Imports
   imports = [
     # Include the results of the hardware scan.
-    ./systems/MSI-GE75Raider-hardware-configuration.nix
+    ./system/systems/MSI-GE75Raider-hardware-configuration.nix
     # Packages
-    ./packages
-    ./secret-managment
+    ./system/packages
+    ./system/secret-managment
   ];
   # home-manager = {
   #   useGlobalPkgs = true;
