@@ -2,7 +2,7 @@
   description = "my main flake";
   inputs = {
     # Core Nix Packages and Flakes
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -174,6 +174,7 @@
                 ];
               })
               self'.checks.pre-commit-check.enabledPackages
+              pkgs.hyprls
             ];
           };
 
