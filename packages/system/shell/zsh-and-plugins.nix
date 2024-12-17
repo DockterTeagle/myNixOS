@@ -25,12 +25,12 @@
     tmux
     kitty
     ventoy # for writing ISO images
-    vim-full
+    # vim-full
     gnumake
     feh
     man-db
-    wget
-    curl
+    # wget
+    # curl
     zip
     btop
     lsd
