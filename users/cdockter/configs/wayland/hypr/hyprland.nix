@@ -1,5 +1,5 @@
 {
-  inputs,
+  # inputs,
   cdockterSettings,
   ...
 }:
@@ -10,6 +10,17 @@
     #   hyprbars
     # ];
 
+    extraConfig =
+      #hyprlang
+      ''
+        bind = $mainMod,space,submap, prefix
+        submap = prefix
+        bind = SHIFT,z,fullscreen,1 
+        # add more later
+        bind = ,escape,submap,reset 
+        bind = ,catchall, submap, reset
+        submap = reset
+      '';
     enable = true;
     xwayland.enable = true;
     systemd.enable = false;
@@ -87,7 +98,7 @@
         "hyprpaper"
         "uwsm app -- steam"
         "uwsm app -- $terminal"
-        "uwsm app -- discord"
+        "uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "uwsm app -- firefox"
       ];
 
@@ -102,6 +113,9 @@
         # "SUPER_L,$mainMod,exec,tofi-run "
         "SUPER_L,$mainMod,exec,rofi -show run"
       ];
+      bindl = [
+        "$mainMod,l,exec,uwsm stop"
+      ];
       bind = [
         # ",121,exec,pamixer -t"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
@@ -110,6 +124,7 @@
         ",XF86AudioLowerVolume,exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
+        ",XF86AudioPlay, exec, playerctl play-pause"
         ",Print,exec,grimblast save screen |wl-copy -t image/png"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
@@ -122,17 +137,15 @@
         "$mainMod , 8, workspace, 8"
         "$mainMod , 9, workspace, 9"
         "$mainMod , 0, workspace, 10"
-        #key 172 is pause
         #shortcuts
-        "$mainMod,l,exec,uwsm stop"
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
-        "$mainMod_SHIFT,F,fullscreen, 1"
-        "$mainMod , F, fullscreen"
-        "$mainMod,D,exec,discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        # "$mainMod_SHIFT,F,fullscreen, 1"
+        # "$mainMod , F, fullscreen"
+        "$mainMod,D,exec,uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
-        "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       ];
       windowrulev2 = [ "idleinhibit focus, class:^steam_app_.*$" ];
     };
