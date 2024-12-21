@@ -141,6 +141,7 @@
     #   '';
     systemPackages = with pkgs; [
       # TODO: sort all of these into the respective file
+      clipboard-jh
       xclip
       pciutils
       wev
