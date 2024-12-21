@@ -79,7 +79,6 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      wl-clipboard
       cliphist
       polkit
       polkit-kde-agent

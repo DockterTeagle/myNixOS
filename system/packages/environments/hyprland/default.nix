@@ -7,6 +7,7 @@
     btop
     # matugen
     wl-clipboard
+    wl-clipboard-x11
     swww
     dart-sass
     gnome-bluetooth

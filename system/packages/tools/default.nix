@@ -9,6 +9,5 @@
     languagetool
     obsidian
     just
-    gcc
   ];
 }
