@@ -19,7 +19,6 @@
     lazygit
     zathura
     slurp # for screenshots
-    wl-clipboard
     texlive.combined.scheme-full
     gitFull
     tmux
