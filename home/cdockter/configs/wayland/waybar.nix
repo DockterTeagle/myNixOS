@@ -15,7 +15,7 @@
         color: #0d74bd;
       }
 
-      #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery, #idle_inhibitor, #network, #workspaces,#custom-gpu {
+      #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery,  #network, #workspaces,#custom-gpu {
         background-color: transparent;
         color: #00ba69;
         margin-top: 15px;
@@ -58,9 +58,6 @@
         margin-right: 0
       }
 
-      #idle_inhibitor {
-        color: #82aaff;
-      }
       #pulseaudio {
         color: #ba23d9;
         padding-left: 5px;
@@ -96,7 +93,6 @@
         ];
         modules-center = [
           "hyprland/workspaces"
-          "idle_inhibitor"
         ];
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
