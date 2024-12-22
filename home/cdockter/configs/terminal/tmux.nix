@@ -26,7 +26,7 @@
       tmux-thumbs
     ];
     extraConfig =
-      #tmux.conf
+      #tmux
       ''
           set -g detach-on-destroy off
           bind -n M-Left select-pane -L
@@ -34,11 +34,9 @@
           bind -n M-Up select-pane -U
           bind -n M-Down select-pane -D
 
-            # Shift arrow to switch windows
           bind -n S-Left  previous-window
           bind -n S-Right next-window
 
-            # Shift Alt vim keys to switch windows
           bind -n M-H previous-window
           bind -n M-L next-window
 
