@@ -13,13 +13,15 @@
     extraConfig =
       #hyprlang
       ''
-        bind = $mainMod,space,submap, prefix
-        submap = prefix
-        bind = SHIFT,z,fullscreen,1 
-        # add more later
-        bind = ,escape,submap,reset 
-        # bind = ,catchall, submap, reset
-        submap = reset
+          bind = $mainMod,space,submap, prefix
+          submap = prefix
+          bind = SHIFT,z,fullscreen,1 
+          bind = ,z,fullscreen,
+          # add more later
+        #also add an indicator somewhere
+          bind = ,escape,submap,reset 
+          # bind = ,catchall, submap, reset
+          submap = reset
       '';
     enable = true;
     xwayland.enable = true;

@@ -1,72 +1,71 @@
 {
   programs.waybar = {
     enable = true;
-    style = ''
-      * {
-        font-family : "JetBrains Mono Nerd Font";
-        font-size : 16px;
-        min-height : 1px;
-      }
-      window#waybar {
-        background: transparent;
-      }
-      #workspaces button {
-        background: transparent;
-        color: #0d74bd;
-      }
+    style =
+      #css
+      ''
+        * {
+          font-family : "JetBrains Mono Nerd Font";
+          font-size : 16px;
+          min-height : 1px;
+        }
+        window#waybar {
+          background: transparent;
+        }
+        #workspaces button {
+          background: transparent;
+          color: #0d74bd;
+        }
 
-      #cpu, #backlight,  #temperature, #disk, #clock,  #pulseaudio, #bluetooth,  #battery,  #network, #workspaces,#custom-gpu {
-        background-color: transparent;
-        color: #00ba69;
-        margin-top: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-right: 15px;
-      }
+        #cpu,   #temperature, #disk,   #pulseaudio, #bluetooth,  #battery,  #network, #workspaces,#custom-gpu {
+          background-color: transparent;
+          color: #00ba69;
+          margin-top: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-right: 15px;
+        }
 
-      #custom-gpu  {
-        color: #82aaff;
-      }
-      #workspaces {
-        background-color: transparent;
-        color: #0d74bd;
-      }
-      #network {
-        background-color: transparent;
-        color: #82aaff;
-      }
-      #cpu {
-        color: #FFD700;
-      }
+        #custom-gpu  {
+          color: #82aaff;
+        }
+        #workspaces {
+          background-color: transparent;
+          color: #0d74bd;
+        }
+        #network {
+          background-color: transparent;
+          color: #82aaff;
+        }
+        #cpu {
+          color: #FFD700;
+        }
 
-      #memory {
-        color: #008000;
-        margin-top: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-right: 15px;
-      }
+        #memory {
+          color: #008000;
+          margin-top: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-right: 15px;
+        }
 
-      #disk {
-        color: #A8A8A8;
+        #disk {
+          color: #A8A8A8;
 
-      }
+        }
 
-      #backlight, #bluetooth {
-        color: #0056A3;
-        padding-right: 5px;
-        margin-right: 0
-      }
+         #bluetooth {
+          color: #0056A3;
+          padding-right: 5px;
+          margin-right: 0
+        }
 
-      #pulseaudio {
-        color: #ba23d9;
-        padding-left: 5px;
-      }
+        #pulseaudio {
+          color: #ba23d9;
+          padding-left: 5px;
+        }
 
-      #clock {
-        color: #00ba69;
-      }
-    '';
+      '';
     settings = {
       mainBar = {
         layer = "top";
@@ -86,9 +85,7 @@
           "temperature"
           "network"
           "pulseaudio"
-          "backlight"
-          "battery"
-          "clock"
+          # "battery"
           "bluetooth"
         ];
         modules-center = [
@@ -143,17 +140,17 @@
           interval = 2;
           on-click = "kitty sh -c 'yazi'";
         };
-        clock = {
-          format = "  {:%d <small>%a</small> %H:%M}";
-          format-alt = "  {:%A %B %d %Y (%V) | %r}";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          calendar-weeks-pos = "right";
-          today-format = "<span color='#f38ba8'><b><u>{}</u></b></span>";
-          format-calendar = "<span color='#f2cdcd'><b>{}</b></span>";
-          format-calendar-weeks = "<span color='#94e2d5'><b>W{:%U}</b></span>";
-          format-calendar-weekdays = "<span color='#f9e2af'><b>{}</b></span>";
-          interval = 1;
-        };
+        # clock = {
+        #   format = "  {:%d <small>%a</small> %H:%M}";
+        #   format-alt = "  {:%A %B %d %Y (%V) | %r}";
+        #   tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        #   calendar-weeks-pos = "right";
+        #   today-format = "<span color='#f38ba8'><b><u>{}</u></b></span>";
+        #   format-calendar = "<span color='#f2cdcd'><b>{}</b></span>";
+        #   format-calendar-weeks = "<span color='#94e2d5'><b>W{:%U}</b></span>";
+        #   format-calendar-weekdays = "<span color='#f9e2af'><b>{}</b></span>";
+        #   interval = 1;
+        # };
         backlight = {
           devicxe = "intel_backlight";
           format = "<span color='#2da14c'>{icon}</span> {percent}%";
