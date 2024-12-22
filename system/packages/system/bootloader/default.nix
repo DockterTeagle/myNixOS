@@ -20,6 +20,8 @@
       "udev.log_priority=3"
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
       "bluetooth.disable_ertm=0"
+      "snd-hda-intel.model=auto"
+      "snd-hda-intel.probe_mask=1"
     ];
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
@@ -29,6 +31,7 @@
     blacklistedKernelModules = [ "snd_pcsp" ]; # Consider adding module_blacklist=i915 to this to maybe disable integrated GPU
     kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = [
+      pkgs.linuxKernel.packages.linux_6_12.xone
       pkgs.linuxPackages_latest.xpadneo
       pkgs.linuxKernel.packages.linux_6_12.msi-ec
     ];
