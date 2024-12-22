@@ -7,6 +7,7 @@
       cdockter = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           tree-style-tab
+          facebook-container
           tst-more-tree-commands
           cookie-autodelete
           fakespot-fake-reviews-amazon
