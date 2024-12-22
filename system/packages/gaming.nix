@@ -5,7 +5,7 @@
     samba
     SDL2
     sdl-jstest
-    # roccat-tools
+    roccat-tools
   ];
   services.udev = {
     extraRules = ''
@@ -13,15 +13,27 @@
     '';
     enable = true;
   };
-  programs.steam = {
-    protontricks.enable = true;
-    extest.enable = true;
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
+  hardware.xone.enable = true;
+  programs = {
+    java.enable = true;
+    steam = {
+      # package = pkgs.steam.override {
+      #   withPrimus = true;
+      #   extraPkgs = pks: [
+      #     bumblebee
+      #     glxinfo
+      #   ];
+      # };
+      protontricks.enable = true;
+      extest.enable = true;
+      gamescopeSession.enable = true;
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
   };
 }
