@@ -8,6 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # impermanence = {
+    #   url = "github:nix-community/impermanence";
+    # };
 
     # Pre-commit hooks for Git
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
