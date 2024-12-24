@@ -17,7 +17,8 @@
     hyprpicker
     hypridle
     hyprlock
-    # wf-recorder
     hyprshot
+    hyprsunset
+    # wf-recorder
   ];
 }
