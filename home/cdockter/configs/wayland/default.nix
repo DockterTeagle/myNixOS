@@ -3,7 +3,7 @@
   imports = [
     ./hypr
     ./rofi.nix
-    ./mako.nix
+    # ./mako.nix
     ./waybar.nix
     ./ags.nix
   ];
