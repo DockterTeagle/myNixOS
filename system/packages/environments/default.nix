@@ -83,11 +83,11 @@
       polkit
       polkit-kde-agent
       yazi
-      # kdePackages.qtwayland
-      # kdePackages.dolphin # fileManager
-      # kdePackages.qtsvg
-      # kdePackages.kio-fuse
-      # kdePackages.kio-extras
+      kdePackages.qtwayland
+      kdePackages.dolphin # fileManager
+      kdePackages.qtsvg
+      kdePackages.kio-fuse
+      kdePackages.kio-extras
       libva-utils
       fuseiso
       udiskie
