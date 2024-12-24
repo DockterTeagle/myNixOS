@@ -5,7 +5,11 @@
     samba
     SDL2
     sdl-jstest
-    roccat-tools
+    (heroic.override {
+      extraPkgs = pkgs: [
+        pkgs.gamescope
+      ];
+    })
   ];
   services.udev = {
     extraRules = ''
@@ -13,8 +17,33 @@
     '';
     enable = true;
   };
-  hardware.xone.enable = true;
+  hardware = {
+    xone.enable = true;
+    graphics = {
+      extraPackages32 = with pkgs; [
+        extest
+        attr
+        libGLU
+        libGL
+        intel-media-driver
+        intel-ocl
+        intel-vaapi-driver
+
+      ];
+      extraPackages = with pkgs; [
+        libGL
+        libGLU
+        intel-media-driver
+        intel-ocl
+        intel-vaapi-driver
+        extest
+        attr
+      ];
+    };
+  };
   programs = {
+    gamescope.enable = true;
+    gamemode.enable = true;
     java.enable = true;
     steam = {
       # package = pkgs.steam.override {

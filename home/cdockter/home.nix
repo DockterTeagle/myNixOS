@@ -46,6 +46,7 @@
       XDG_PICTURES_DIR = "/home/cdockter/Pictures/";
       HYPRSHOT_DIR = "/home/cdockter/Pictures/";
       MOZ_ENABLE_WAYLAND = 1;
+      LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/libs";
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
