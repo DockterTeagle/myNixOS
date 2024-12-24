@@ -17,7 +17,7 @@
           color: #0d74bd;
         }
 
-        #cpu,   #temperature, #disk,   #pulseaudio, #bluetooth,  #battery,  #network, #workspaces,#custom-gpu {
+        #cpu,   #temperature, #disk,   #pulseaudio, #bluetooth,  #battery,  #network, #workspaces,#custom-gpu,#clock {
           background-color: transparent;
           color: #00ba69;
           margin-top: 15px;
@@ -57,7 +57,7 @@
          #bluetooth {
           color: #0056A3;
           padding-right: 5px;
-          margin-right: 0
+          margin-right: 15px;
         }
 
         #pulseaudio {
@@ -87,6 +87,7 @@
           "pulseaudio"
           # "battery"
           "bluetooth"
+          "clock"
         ];
         modules-center = [
           "hyprland/workspaces"
