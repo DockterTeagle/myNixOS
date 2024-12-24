@@ -56,6 +56,7 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";
     # Additional Utilities
@@ -110,6 +111,7 @@
           inputs.nur.overlays.default
           inputs.nh.overlays.default
           inputs.mozilla.overlay
+          inputs.hyprpanel.overlay
         ];
       };
       inherit (inputs) home-manager;
@@ -146,6 +148,7 @@
             inputs.stylix.homeManagerModules.stylix
             inputs.hyprland.homeManagerModules.default
             inputs.ags.homeManagerModules.default
+            inputs.hyprpanel.homeManagerModules.hyprpanel
           ];
         };
       };
