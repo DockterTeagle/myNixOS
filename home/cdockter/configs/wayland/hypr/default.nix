@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./hyprpanel.nix
+    ./hyprpanel.nix
     ./hyprland.nix
     ./hyprEcosystem
   ];
