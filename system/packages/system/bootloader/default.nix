@@ -33,7 +33,6 @@
     extraModulePackages = [
       pkgs.linuxKernel.packages.linux_6_12.xone
       pkgs.linuxPackages_latest.xpadneo
-      pkgs.linuxKernel.packages.linux_6_12.msi-ec
     ];
   };
 }

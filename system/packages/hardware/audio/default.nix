@@ -1,12 +1,4 @@
-{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    alsa-firmware
-    alsa-utils
-    wireplumber
-    # playerctl
-    # pamixer
-  ];
   services = {
     pipewire = {
       wireplumber.extraConfig.bluetoothEnhancements = {
