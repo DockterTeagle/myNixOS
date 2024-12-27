@@ -21,11 +21,7 @@
       WLR_NO_HARDWARE_CURSORS = 1;
     };
   };
-  imports = [
-    # ./gpu-config.nix
-  ];
   hardware = {
-    enableAllFirmware = true;
     graphics = {
       enable = true;
       enable32Bit = true;
