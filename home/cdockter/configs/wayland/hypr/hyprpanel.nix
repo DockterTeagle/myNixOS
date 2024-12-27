@@ -57,6 +57,12 @@
       scalingPriority = "both";
       tear = true;
       bar = {
+        workspaces = {
+          icons = {
+            active = " ";
+          };
+        };
+        media.show_active_only = true;
         customModules = {
 
         };

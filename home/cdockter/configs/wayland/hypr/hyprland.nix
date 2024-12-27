@@ -93,7 +93,7 @@
       exec-once = [
         "uwsm app -- hypridle"
         "uwsm app -- nm-applet"
-        "uwsm app -- waybar"
+        # "uwsm app -- waybar"
         "hyprctl setcursor phinger-cursors-light 24"
         # "cb"cb
         "wl-paste --type text --watch cliphist store"
