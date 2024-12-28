@@ -1,4 +1,5 @@
 {
+  inputs,
   cdockterSettings,
   pkgs,
   ...
@@ -41,12 +42,9 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
-      SDL_GAMECONTROLLERCONFIG = "030018dc5e040000220b000000006800,*,a:b0,b:b1,back:b4,dpdown:b12,dpleft:b13,dpright:b14,dpup:b11,guide:b5,leftshoulder:b9,leftstick:b7,lefttrigger:a4,leftx:a0,lefty:a1,rightshoulder:b10,rightstick:b8,righttrigger:a5,rightx:a2,righty:a3,start:b6,x:b2,y:b3,paddle1:b15,paddle2:b17,paddle3:b16,paddle4:b18,crc:dc18,platform:Linux";
-      STEAM_COMPAT_MOUNTS = "SDL_GAMECONTROLLERCONFIG";
       XDG_PICTURES_DIR = "/home/cdockter/Pictures/";
       HYPRSHOT_DIR = "/home/cdockter/Pictures/";
       MOZ_ENABLE_WAYLAND = 1;
-      LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/libs";
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
@@ -99,4 +97,7 @@
     enable = true;
     windowManager.command = cdockterSettings.wm;
   };
+  home.packages = [
+    inputs.ghostty.packages.x86_64-linux.default
+  ];
 }
