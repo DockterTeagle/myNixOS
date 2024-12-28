@@ -25,3 +25,4 @@
 - [ ] clean msi fans
 - [ ] get a script to add all flakes and update them in system
 - [ ] consider impermance?
+- [ ] get Nixpkgs to fix their shit
