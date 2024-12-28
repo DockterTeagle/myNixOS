@@ -29,6 +29,7 @@
       #tmux
       ''
           set -g detach-on-destroy off
+          set -g allow-passthrough on
           bind -n M-Left select-pane -L
           bind -n M-Right select-pane -R
           bind -n M-Up select-pane -U
