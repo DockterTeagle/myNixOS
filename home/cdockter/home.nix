@@ -45,6 +45,7 @@
       XDG_PICTURES_DIR = "/home/cdockter/Pictures/";
       HYPRSHOT_DIR = "/home/cdockter/Pictures/";
       MOZ_ENABLE_WAYLAND = 1;
+      WINEDLLPATH = "$WINEDLLPATH:/home/cdockter/.local/bin/discord-rpc/bin64:/home/cdockter/.local/bin/discord-rpc/bin32/";
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
