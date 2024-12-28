@@ -1,19 +1,22 @@
 { pkgs, ... }:
 {
-  hardware.bluetooth = {
-    powerOnBoot = true;
-    input = {
-      General = {
-        UserspaceHID = false;
-        ClassicBondedOnly = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth = {
+      powerOnBoot = true;
+      input = {
+        General = {
+          UserspaceHID = false;
+          ClassicBondedOnly = false;
+        };
       };
-    };
-    settings = {
-      General = {
-        Experimental = true;
+      settings = {
+        General = {
+          Experimental = true;
+        };
       };
+      enable = true;
     };
-    enable = true;
   };
   services = {
     blueman.enable = true;
