@@ -2,6 +2,7 @@
   description = "my main flake";
   inputs = {
     # Core Nix Packages and Flakes
+    ghostty.url = "github:ghostty-org/ghostty";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
