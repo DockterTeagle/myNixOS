@@ -91,18 +91,18 @@
       "$terminal" = "${cdockterSettings.term}"; # Terminal
 
       exec-once = [
-        "uwsm app -- hypridle"
-        "uwsm app -- nm-applet"
+        # "uwsm app -- hypridle"
+        # "uwsm app -- nm-applet"
         # "uwsm app -- waybar"
         "hyprctl setcursor phinger-cursors-light 24"
         # "cb"cb
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hyprpaper"
-        "uwsm app -- steam"
-        "uwsm app -- $terminal"
-        "uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
-        "uwsm app -- firefox"
+        # "uwsm app -- steam"
+        # "uwsm app -- $terminal"
+        # "uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        # "uwsm app -- firefox"
       ];
 
       bindm = [
