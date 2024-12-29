@@ -151,7 +151,7 @@
       openresolv
       # dmidecode # get system info
       # hwinfo # also get system info
-      home-manager
+      # home-manager
     ];
   };
   # etc."machine-id".source = "/nix/persist/etc/machine-id";
