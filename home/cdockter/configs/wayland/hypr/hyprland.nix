@@ -54,7 +54,7 @@
           disable_while_typing = true;
           natural_scroll = "yes";
         };
-        sensitivity = "0";
+        sensitivity = "0.25";
       };
       decoration = {
         rounding = 0;
