@@ -1,6 +1,7 @@
 {
   imports = [
     ./starship
+    ./bat.nix
     ./zsh.nix
     ./kitty.nix
     ./tmux.nix
