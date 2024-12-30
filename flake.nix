@@ -38,7 +38,6 @@
       url = "github:svenum/solaar-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mozilla.url = "github:mozilla/nixpkgs-mozilla";
     # Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -111,7 +110,6 @@
           inputs.nixd.overlays.default
           inputs.nur.overlays.default
           inputs.nh.overlays.default
-          inputs.mozilla.overlay
           inputs.hyprpanel.overlay
         ];
       };
