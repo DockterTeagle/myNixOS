@@ -1,5 +1,4 @@
 {
-  inputs,
   cdockterSettings,
   pkgs,
   ...
@@ -98,7 +97,7 @@
     enable = true;
     windowManager.command = cdockterSettings.wm;
   };
-  home.packages = [
-    inputs.ghostty.packages.x86_64-linux.default
-  ];
+  # home.packages = [
+  #   inputs.ghostty.packages.x86_64-linux.default
+  # ];
 }
