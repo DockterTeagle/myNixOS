@@ -9,7 +9,7 @@
     keyMode = "vi";
     shortcut = "space";
     newSession = true;
-    terminal = "tmux-256color";
+    terminal = "screen-256color";
     mouse = true;
     tmuxp.enable = true;
     # shell = "\${pkgs.zsh}/bin/zsh";
@@ -22,7 +22,7 @@
       open
       vim-tmux-navigator
       tmux-fzf
-      tokyo-night-tmux
+      # tokyo-night-tmux
       tmux-thumbs
     ];
     extraConfig =

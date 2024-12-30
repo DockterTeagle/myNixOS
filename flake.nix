@@ -91,7 +91,7 @@
         name = "Christopher Ryan Dockter";
         email = "steampowered.mom596@passinbox.com";
         wm = "hyprland";
-        term = "kitty";
+        term = "foot";
         editor = "nvim";
         font = "JetBrains Mono Nerd Font";
         nerdfont = "JetBrainsMono";
