@@ -1,7 +1,7 @@
-_: {
+{
   home.file = {
     ".config/solaar/config.yaml".text =
-      #Yaml
+      #yaml
       ''divert-keys: {82: 0, 83: 0, 86: 0, 195: 2, 196: 0}'';
     ".config/solaar/rules.yaml".text =
       #yaml
