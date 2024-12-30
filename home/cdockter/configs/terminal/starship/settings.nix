@@ -2,7 +2,6 @@ let
   inherit (builtins)
     concatStringsSep
     ;
-  vertical = "||";
 in
 
 {
@@ -12,7 +11,6 @@ in
     "[╓](bold)"
     "$fill"
     "\n"
-    vertical
     "$username"
     "$hostname"
     "$kubernetes"
@@ -68,10 +66,8 @@ in
     "$jobs"
     "$battery"
     "\n"
-    vertical
     "$directory"
     "\n"
-    vertical
     "$status"
     " [ $shell](bold)"
     "$shlvl"
