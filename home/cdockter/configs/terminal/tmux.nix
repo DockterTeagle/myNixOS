@@ -13,6 +13,7 @@
     terminal = "tmux-256color";
     mouse = true;
     tmuxp.enable = true;
+    # shell = "\${pkgs.zsh}/bin/zsh";
     tmuxinator.enable = true;
     plugins = with pkgs.tmuxPlugins; [
       resurrect
