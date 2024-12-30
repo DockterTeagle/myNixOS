@@ -2,7 +2,6 @@
 {
   programs.firefox = {
     enable = true;
-    # package = pkgs.latest.firefox-nightly-bin;
     profiles = {
       cdockter = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [

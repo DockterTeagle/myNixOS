@@ -1,12 +1,10 @@
 {
-  pkgs,
   cdockterSettings,
   ...
 }:
 {
   programs.kitty = {
     enable = true;
-    package = pkgs.kitty;
     font.name = cdockterSettings.font;
     font.size = 15;
     settings = {
