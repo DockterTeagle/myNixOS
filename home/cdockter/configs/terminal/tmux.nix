@@ -2,7 +2,6 @@
 {
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
     escapeTime = 0;
     baseIndex = 1;
     clock24 = true;
