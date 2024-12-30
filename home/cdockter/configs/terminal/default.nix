@@ -1,9 +1,9 @@
-{ ... }:
 {
   imports = [
+    ./starship
+    ./zsh.nix
     ./kitty.nix
     ./tmux.nix
-    ./zsh
     ./fastfetch.nix
     ./lsd.nix
     ./neovim.nix
