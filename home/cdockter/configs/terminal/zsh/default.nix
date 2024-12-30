@@ -73,6 +73,10 @@
           {
             add_newline = false;
             format = concatStringsSep "" [
+              "\n"
+              "[╓](bold)"
+              "$fill"
+              "\n"
               vertical
               "$username"
               "$hostname"
@@ -147,6 +151,32 @@
               format = " [ : $path]($style)[$read_only]($read_only_style) ";
             };
             direnv.disabled = false;
+            shell.disabled = false;
+            shlvl = {
+              disabled = false;
+              threshold = 2;
+              style = "bold red";
+              symbol = "";
+            };
+            status = {
+              disabled = false;
+              symbol = " ";
+            };
+            username = {
+              show_always = true;
+              format = " [  $user]($style) ";
+            };
+            git_branch = {
+              format = "[$symbol$branch]($style) ";
+            };
+            nix_shell = {
+              format = "via [$symbol$state]($style) ";
+            };
+            custom.mob = {
+              command = "echo $MOB_TIMER_ROOM";
+              format = "[ ($output)]($style) ";
+              when = "[[ -v MOB_TIMER_ROOM ]]";
+            };
             aws.symbol = " ";
             conda.symbol = " ";
             dart.symbol = " ";
