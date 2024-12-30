@@ -13,6 +13,7 @@
     ./tools
     ./gaming.nix
     ./stylix.nix
+    ./clipboard.nix
   ];
   environment.systemPackages = with pkgs; [
     woeusb

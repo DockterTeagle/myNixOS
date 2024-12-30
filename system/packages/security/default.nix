@@ -28,5 +28,8 @@
     cryptsetup
     mkpasswd
     pv
+    openssl
+    sbsigntool
+    openresolv
   ];
 }
