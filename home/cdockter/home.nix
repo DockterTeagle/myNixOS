@@ -1,11 +1,13 @@
 {
   cdockterSettings,
   pkgs,
-  inputs,
   ...
 }:
 {
-  imports = [ ./configs ];
+  imports = [
+    ./configs
+    ./scripts.nix
+  ];
   gtk = {
     enable = true;
     gtk4.extraConfig = {
@@ -25,21 +27,21 @@
     # manage.
     inherit (cdockterSettings) homeDirectory;
     inherit (cdockterSettings) username;
-    # home manager can also manage your environment variables through 'home.sessionvariables'. if you don't want to manage your shell through home
-    # manager then you have to manually source 'hm-session-vars.sh' located at
-    # either
-    #
-    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
-    #
     sessionVariables = {
+      # home manager can also manage your environment variables through 'home.sessionvariables'. if you don't want to manage your shell through home
+      # manager then you have to manually source 'hm-session-vars.sh' located at
+      # either
+      #
+      #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+      #
+      # or
+      #
+      #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+      #
+      # or
+      #
+      #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
+      #
       NIXOS_OZONE_WL = "1";
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
       XDG_PICTURES_DIR = "/home/cdockter/Pictures/";
@@ -107,7 +109,7 @@
     enable = true;
     windowManager.command = cdockterSettings.wm;
   };
-  home.packages = [
-    inputs.ghostty.packages.x86_64-linux.default
-  ];
+  home.packages =
+    [
+    ];
 }
