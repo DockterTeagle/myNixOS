@@ -30,8 +30,12 @@
       ''
           set -g detach-on-destroy off
           set -g allow-passthrough on
+          set -g focus-events on
           bind -n M-Left select-pane -L
           bind -n M-Right select-pane -R
+          set-option -a cursor-style 'blinking-bar'
+          set-option -a terminal-features 'xterm-256color:RGB'
+          set-option -a terminal-features 'cstyle'
           bind -n M-Up select-pane -U
           bind -n M-Down select-pane -D
 
