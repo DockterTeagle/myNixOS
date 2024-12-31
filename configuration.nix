@@ -153,11 +153,13 @@
   # Specialisation
 
   # System Auto Upgrade
-  system.autoUpgrade = {
-    enable = false;
-    allowReboot = true;
-  };
+  system = {
+    autoUpgrade = {
+      enable = false;
+      allowReboot = true;
+    };
 
-  # NixOS Release Version
-  system.stateVersion = "23.11"; # Did you read the comment?
+    # NixOS Release Version
+    stateVersion = "23.11"; # Did you read the comment?
+  };
 }
