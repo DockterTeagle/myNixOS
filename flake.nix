@@ -2,7 +2,7 @@
   description = "my main flake";
   inputs = {
     # Core Nix Packages and Flakes
-    # ghostty.url = "github:ghostty-org/ghostty";
+    ghostty.url = "github:ghostty-org/ghostty";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -91,7 +91,7 @@
         name = "Christopher Ryan Dockter";
         email = "steampowered.mom596@passinbox.com";
         wm = "hyprland";
-        term = "foot";
+        term = "ghostty";
         editor = "nvim";
         font = "JetBrains Mono Nerd Font";
         nerdfont = "JetBrainsMono";
