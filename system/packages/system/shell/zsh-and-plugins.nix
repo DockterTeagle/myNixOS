@@ -1,37 +1,23 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   fonts.fontconfig.enable = true;
-  fonts.packages = with pkgs; [
-    # nerdfonts
-    font-awesome
-  ];
   #TODO: not all of these belong here
   environment.systemPackages = with pkgs; [
+    inputs.ghostty.packages.x86_64-linux.default
     sesh
     lsof
     zsh
-    zsh-syntax-highlighting
-    nix-zsh-completions
     unzip
-    nodejs
+    zip
     fzf
-    thefuck
     lazygit
     zathura
     slurp # for screenshots
-    texlive.combined.scheme-full
     gitFull
-    tmux
-    kitty
     ventoy # for writing ISO images
     # vim-full
-    gnumake
     feh
     man-db
-    # wget
-    # curl
-    zip
     btop
-    lsd
   ];
 }

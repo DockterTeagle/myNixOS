@@ -93,8 +93,6 @@
       udiskie
       gsettings-desktop-schemas
       wlr-randr
-      grim
-      grimblast
       xdg-utils
       lshw
       pavucontrol
