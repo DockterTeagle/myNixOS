@@ -1,6 +1,7 @@
 {
   cdockterSettings,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -66,6 +67,15 @@
           skip_dir = "Pictures"
         '';
       };
+      ".config/ghostty/config" = {
+        text = ''
+          theme = tokyonight
+          gtk-titlebar = false
+          window-decoration = false
+          font-size = 15
+          window-padding-y = 0
+        '';
+      };
       # # you can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
@@ -97,7 +107,7 @@
     enable = true;
     windowManager.command = cdockterSettings.wm;
   };
-  # home.packages = [
-  #   inputs.ghostty.packages.x86_64-linux.default
-  # ];
+  home.packages = [
+    inputs.ghostty.packages.x86_64-linux.default
+  ];
 }
