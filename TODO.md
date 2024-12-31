@@ -1,10 +1,7 @@
 # TODO
 
-- [x] Figure out how to make checklists
 - [ ] config all the hypr plugins that I use
-- [x] config the hypr ecosystem
 - [ ] config fastfetch
-- [x] change oh-my-posh to have transient prompt and nerd fonts
 
 - [ ] get laptop audio and battery working
 - [ ] config hyprpaper or swww
@@ -20,7 +17,6 @@
 - [ ] make fastfetch image work in tmux
 - [ ] make this system agnostic
 - [ ] use flake-parts more
-- [ X ] get laptop to be not hot on power
 - [ ] move zsh/ shell to tools
 - [ ] clean msi fans
 - [ ] get a script to add all flakes and update them in system
