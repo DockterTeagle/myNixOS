@@ -91,10 +91,9 @@
         name = "Christopher Ryan Dockter";
         email = "steampowered.mom596@passinbox.com";
         wm = "hyprland";
-        term = "foot";
+        term = "ghostty";
         editor = "nvim";
-        font = "JetBrains Mono Nerd Font";
-        nerdfont = "JetBrainsMono";
+        font = "JetBrains Mono Nerd Font ";
         homeDirectory = "/home/cdockter";
       };
       pkgs = import nixpkgs {

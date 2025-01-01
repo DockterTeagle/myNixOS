@@ -22,3 +22,5 @@
 - [ ] consider impermance?
 - [ ] get Nixpkgs to fix their shit
 - [ ] fix issue where foot and ghostty return to box after opening neovim
+- [ ] wait for ghostty to fix cpu error
+- [ ] fix tokyo-night tmux missing icon
