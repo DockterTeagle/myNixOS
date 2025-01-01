@@ -1,9 +1,9 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   fonts.fontconfig.enable = true;
   #TODO: not all of these belong here
   environment.systemPackages = with pkgs; [
-    inputs.ghostty.packages.x86_64-linux.default
+    # inputs.ghostty.packages.x86_64-linux.defaultghostty
     sesh
     lsof
     zsh
