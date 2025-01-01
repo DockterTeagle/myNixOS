@@ -1,11 +1,11 @@
 {
-  hardware.logitech = {
-    lcd.enable = true;
-    wireless = {
-      enableGraphical = true;
-      enable = true;
-    };
-  };
+  # hardware.logitech = {
+  #   lcd.enable = true;
+  #   wireless = {
+  #     enableGraphical = true;
+  #     enable = true;
+  #   };
+  # };
   # systemd.services.logid = {
   #   description = "Logitech Devices Daemon (logiops)";
   #   after = [ "network.target" ]; # Adjust as needed
