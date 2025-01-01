@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   stylix = {
-    image = ../../pictures/black-hole-cosmic-3840x2160-19145.jpg;
+    image = ../../assets/pictures/black-hole-cosmic-3840x2160-19145.jpg;
     enable = true;
     fonts = {
       sizes = {

@@ -7,7 +7,7 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
-    image = ../../../pictures/black-hole-cosmic-3840x2160-19145.jpg;
+    image = ../../../assets/pictures/black-hole-cosmic-3840x2160-19145.jpg;
     targets = {
       neovim.enable = false;
       tmux.enable = false;
