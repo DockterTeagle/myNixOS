@@ -20,6 +20,7 @@
     libnotify
     qmk
     nix-index
+    nix-alien
     github-cli
     rar
     unrar
