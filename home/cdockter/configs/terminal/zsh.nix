@@ -1,15 +1,10 @@
 {
   programs = {
     thefuck = {
+      enableFishIntegration = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
       enable = true;
-    };
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-      enableBashIntegration = true;
-      options = [ "--cmd cd" ];
     };
     zsh = {
       enable = true;
