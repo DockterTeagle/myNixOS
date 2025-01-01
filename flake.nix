@@ -12,7 +12,7 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    }; # updated
+    };
     nur.url = "github:nix-community/NUR";
     # disko = {
     #   url = "github:nix-community/disko";
@@ -53,7 +53,7 @@
     swww.url = "github:LGFae/swww";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    stylix.url = "github:danth/stylix"; # updated
+    stylix.url = "github:danth/stylix";
     # Additional Utilities
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
