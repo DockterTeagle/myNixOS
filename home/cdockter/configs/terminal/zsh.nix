@@ -1,5 +1,10 @@
 {
   programs = {
+    thefuck = {
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      enable = true;
+    };
     zoxide = {
       enable = true;
       enableZshIntegration = true;

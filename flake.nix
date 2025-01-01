@@ -47,6 +47,7 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    swww.url = "github:LGFae/swww";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -110,6 +111,7 @@
           inputs.nur.overlays.default
           inputs.nh.overlays.default
           inputs.hyprpanel.overlay
+          inputs.swww.overlays.default
         ];
       };
       inherit (inputs) home-manager;

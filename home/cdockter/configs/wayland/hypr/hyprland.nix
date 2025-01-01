@@ -15,8 +15,8 @@
       ''
           bind = $mainMod,space,submap, prefix
           submap = prefix
-          bind = SHIFT,z,fullscreen,1 
-          bind = ,z,fullscreen,
+          bind = SHIFT,z,fullscreen, 
+          bind = ,z,fullscreen,1
           # add more later
         #also add an indicator somewhere
           bind = ,escape,submap,reset 
@@ -95,10 +95,11 @@
         # "uwsm app -- nm-applet"
         # "uwsm app -- waybar"
         "hyprctl setcursor phinger-cursors-light 24"
+        "swww-daemon"
         # "cb"cb
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "hyprpaper"
+        "hypridle"
         # "uwsm app -- steam"
         # "uwsm app -- $terminal"
         # "uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
@@ -128,7 +129,7 @@
         ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
         ",XF86AudioPlay, exec, playerctl play-pause"
-        ",Print,exec,grimblast save screen |wl-copy -t image/png"
+        ",Print,exec, hyprshot -m output"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
         "$mainMod , 2, workspace, 2"

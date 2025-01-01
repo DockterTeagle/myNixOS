@@ -20,7 +20,7 @@
       name = "phinger-cursors-light";
       size = 24;
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
     targets = {
       grub = {
         enable = true;

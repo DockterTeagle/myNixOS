@@ -7,5 +7,7 @@
     defaultEditor = true;
     withNodeJs = true;
     withPython3 = true;
+    vimdiffAlias = true;
+    vimAlias = true;
   };
 }

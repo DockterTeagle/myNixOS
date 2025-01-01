@@ -22,7 +22,7 @@
       open
       vim-tmux-navigator
       tmux-fzf
-      # tokyo-night-tmux
+      tokyo-night-tmux
       tmux-thumbs
     ];
     extraConfig =
@@ -33,9 +33,9 @@
           set -g focus-events on
           bind -n M-Left select-pane -L
           bind -n M-Right select-pane -R
-          set-option -a cursor-style 'blinking-bar'
-          set-option -a terminal-features 'xterm-256color:RGB'
-          set-option -a terminal-features 'cstyle'
+          set-option -g cursor-style 'blinking-bar'
+          set-option -ag terminal-features 'xterm-256color:RGB'
+          set-option -ag terminal-features 'cstyle'
           bind -n M-Up select-pane -U
           bind -n M-Down select-pane -D
 
