@@ -92,7 +92,7 @@
         name = "Christopher Ryan Dockter";
         email = "steampowered.mom596@passinbox.com";
         wm = "hyprland";
-        term = "ghostty";
+        term = "foot";
         editor = "nvim";
         font = "JetBrains Mono Nerd Font";
         nerdfont = "JetBrainsMono";
