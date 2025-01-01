@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, cdockterSettings, ... }:
 {
   stylix = {
     image = ../../assets/pictures/black-hole-cosmic-3840x2160-19145.jpg;
@@ -12,7 +12,7 @@
       };
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font ";
+        name = "${cdockterSettings.font}";
       };
     };
     cursor = {
