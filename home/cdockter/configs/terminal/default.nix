@@ -12,5 +12,6 @@
     ./lsd.nix
     ./neovim.nix
     ./yazi.nix
+    ./fzf.nix
   ];
 }

@@ -11,10 +11,6 @@
     ./system/packages
     ./system/secret-managment
   ];
-  # home-manager = {
-  #   useGlobalPkgs = true;
-  #   useUserPackages = true;
-  # };
   # Nix settings
   nix = {
     settings = {

@@ -96,6 +96,20 @@
     home-manager.enable = true;
     git = {
       enable = true;
+      # delta = {
+      #   enable = true;
+      # };
+      # diff-highlight = {
+      #   enable = true;
+      # };
+      # diff-so-fancy = {
+      #   enable = true;
+      #   changeHunkIndicators = true;
+      # };
+      # difftastic = {
+      #   enable = true;
+      #   background = "dark";
+      # };
       userName = "Dr.Teagle";
       userEmail = cdockterSettings.email;
       extraConfig = {

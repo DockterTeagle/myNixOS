@@ -9,7 +9,6 @@
     zsh
     unzip
     zip
-    fzf
     lazygit
     zathura
     slurp # for screenshots

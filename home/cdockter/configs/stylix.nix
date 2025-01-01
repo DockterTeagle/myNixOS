@@ -10,7 +10,7 @@
     image = ../../../pictures/black-hole-cosmic-3840x2160-19145.jpg;
     targets = {
       neovim.enable = false;
-      # tmux.enable = false;
+      tmux.enable = false;
       # kitty.enable = false;
       hyprland.enable = false;
       hyprlock.enable = false;
