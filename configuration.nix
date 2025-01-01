@@ -99,6 +99,7 @@
 
   # Programs
   programs = {
+    # nix-ld.dev.enable = true;
     nix-ld.enable = true;
     nh = {
       enable = true;

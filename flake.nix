@@ -108,6 +108,16 @@
           allowSubstitutes = true;
         };
         overlays = [
+          # (final: prev: {
+          #   ghostty = prev.ghostty.overrideAttrs (_: {
+          #     preBuild = ''
+          #       # fixes iowait when using io_uring
+          #       shopt -s globstar
+          #       sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
+          #       shopt -u globstar
+          #     '';
+          #   });
+          # })
           inputs.neovim-nightly-overlay.overlays.default
           # inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
@@ -115,7 +125,7 @@
           inputs.nh.overlays.default
           inputs.hyprpanel.overlay
           inputs.nix-alien.overlays.default
-          # inputs.swww.overlays.default
+          inputs.swww.overlays.default
         ];
       };
       inherit (inputs) home-manager;
