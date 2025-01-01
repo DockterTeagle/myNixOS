@@ -1,4 +1,4 @@
-_: {
+{
   boot.loader = {
     timeout = null;
     efi.canTouchEfiVariables = false;
@@ -8,6 +8,5 @@ _: {
       efiSupport = false;
       useOSProber = true;
     };
-    #TODO: Understand all of these options
   };
 }
