@@ -23,3 +23,4 @@
 - [ ] fix issue where foot and ghostty return to box after opening neovim
 - [ ] wait for ghostty to fix cpu error
 - [ ] fix tokyo-night tmux missing icon
+- [ ] change the starship to go down rather than across

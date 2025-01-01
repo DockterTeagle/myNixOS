@@ -2,16 +2,17 @@ let
   inherit (builtins)
     concatStringsSep
     ;
+  vertical = "┃ ";
+  corner_top = "╭"; # Top corner
+  corner_bottom = "╰"; # Bottom corner"
 in
 
 {
   add_newline = false;
   format = concatStringsSep "" [
+    "${corner_top}"
     "\n"
-    "[╓](bold)"
-    "$fill"
-    "\n"
-    "$username"
+    "${vertical}$username"
     "$hostname"
     "$kubernetes"
     "$vcsh"
@@ -66,17 +67,15 @@ in
     "$jobs"
     "$battery"
     "\n"
-    "$directory"
+    "${vertical}$directory"
     "\n"
-    "$status"
+    "${vertical}$status"
     " [ $shell](bold)"
     "$shlvl"
     "$character"
+    "\n"
+    "${corner_bottom}"
   ];
-  fill = {
-    symbol = "─";
-    style = "bold";
-  };
   directory = {
     truncation_length = 0;
     format = " [ : $path]($style)[$read_only]($read_only_style) ";
