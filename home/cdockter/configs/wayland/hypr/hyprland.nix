@@ -91,19 +91,11 @@
       "$terminal" = "${cdockterSettings.term}"; # Terminal
 
       exec-once = [
-        # "uwsm app -- hypridle"
-        # "uwsm app -- nm-applet"
-        # "uwsm app -- waybar"
         "hyprctl setcursor phinger-cursors-light 24"
         "swww-daemon"
-        # "cb"cb
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hypridle"
-        # "uwsm app -- steam"
-        # "uwsm app -- $terminal"
-        # "uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
-        # "uwsm app -- firefox"
       ];
 
       bindm = [
@@ -113,15 +105,12 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
-        # "SUPER_L,$mainMod,exec,tofi-run --font${pkgs.nerdfonts.override{fonts = [cdockterSettings.nerdfont];}}/share/fonts/${cdockterSettings.nerdfont}-Regular.ttf"
-        # "SUPER_L,$mainMod,exec,tofi-run "
         "SUPER_L,$mainMod,exec,rofi -show run"
       ];
       bindl = [
         "$mainMod,l,exec,uwsm stop"
       ];
       bind = [
-        # ",121,exec,pamixer -t"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -145,8 +134,6 @@
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$terminal"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
-        # "$mainMod_SHIFT,F,fullscreen, 1"
-        # "$mainMod , F, fullscreen"
         "$mainMod,D,exec,uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
