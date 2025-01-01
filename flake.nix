@@ -12,7 +12,7 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
+    }; # updated
     nur.url = "github:nix-community/NUR";
     # disko = {
     #   url = "github:nix-community/disko";
@@ -21,10 +21,8 @@
     # impermanence = {
     #   url = "github:nix-community/impermanence";
     # };
-
     # Pre-commit hooks for Git
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
-
     # Development Tools and Utilities
     yazi.url = "github:sxyazi/yazi";
     # nixfmt.url = "github:nixos/nixfmt";
@@ -54,17 +52,8 @@
     # };
     swww.url = "github:LGFae/swww";
     hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    # hy3 = {
-    #   url = "github:outfoxxed/hy3";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    stylix.url = "github:danth/stylix";
-    # ags.url = "github:Aylur/ags";
+    stylix.url = "github:danth/stylix"; # updated
     # Additional Utilities
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
@@ -119,11 +108,9 @@
           #   });
           # })
           inputs.neovim-nightly-overlay.overlays.default
-          # inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
           inputs.nur.overlays.default
           inputs.nh.overlays.default
-          inputs.hyprpanel.overlay
           inputs.nix-alien.overlays.default
           inputs.swww.overlays.default
         ];
