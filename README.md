@@ -1,1 +1,3 @@
-For the love of God dont use this config, it is only for me and the only reason it is public is so others can help me troubleshoot
+For the love of God dont use this config, it is only for me and the only reason
+it is public is so others can help me troubleshoot Pixel art is by on
+reddit:u/Littleone24_
