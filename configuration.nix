@@ -136,14 +136,6 @@
     #     exec  Hyprland
     #     fi
     #   '';
-    systemPackages = with pkgs; [
-      # TODO: sort all of these into the respective file
-      pciutils
-      acpi
-      # dmidecode # get system info
-      # hwinfo # also get system info
-      # home-manager
-    ];
   };
   # etc."machine-id".source = "/nix/persist/etc/machine-id";
 
