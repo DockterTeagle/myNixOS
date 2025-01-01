@@ -13,5 +13,6 @@
     ./neovim.nix
     ./yazi.nix
     ./fzf.nix
+    ./zoxide.nix
   ];
 }
