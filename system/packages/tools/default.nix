@@ -2,6 +2,7 @@
 {
   imports = [
     ./neovim
+    ./shell
   ];
   environment.systemPackages = with pkgs; [
     pstree
