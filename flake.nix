@@ -4,6 +4,7 @@
     # Core Nix Packages and Flakes
     ghostty.url = "github:ghostty-org/ghostty";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-alien.url = "github:thiagokokada/nix-alien";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -109,6 +110,7 @@
           inputs.nur.overlays.default
           inputs.nh.overlays.default
           inputs.hyprpanel.overlay
+          inputs.nix-alien.overlays.default
           # inputs.swww.overlays.default
         ];
       };
