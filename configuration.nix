@@ -86,7 +86,7 @@
   # Users
   users.users = {
     cdockter = {
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       isNormalUser = true;
       description = "Christopher Ryan Dockter";
       extraGroups = [
@@ -120,7 +120,7 @@
         };
       };
     };
-    zsh.enable = true;
+    fish.enable = true;
     hyprland = {
       enable = true;
       withUWSM = true;

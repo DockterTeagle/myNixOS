@@ -22,7 +22,6 @@
     }))
     sesh
     lsof
-    zsh
     unzip
     zip
     lazygit
