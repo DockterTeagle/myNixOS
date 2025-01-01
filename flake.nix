@@ -25,11 +25,6 @@
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     # Development Tools and Utilities
     yazi.url = "github:sxyazi/yazi";
-    # nixfmt.url = "github:nixos/nixfmt";
-    # alejandra = {
-    #   url = "github:kamadorueda/alejandra/3.0.0";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nh.url = "github:viperML/nh";
     nixd.url = "github:nix-community/nixd";
@@ -72,7 +67,6 @@
       flake-parts,
       ...
     }@inputs:
-    #TODO: make the pkgs use flake-parts so that this is system agnostic
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -97,16 +91,6 @@
           allowSubstitutes = true;
         };
         overlays = [
-          # (final: prev: {
-          #   ghostty = prev.ghostty.overrideAttrs (_: {
-          #     preBuild = ''
-          #       # fixes iowait when using io_uring
-          #       shopt -s globstar
-          #       sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
-          #       shopt -u globstar
-          #     '';
-          #   });
-          # })
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixd.overlays.default
           inputs.nur.overlays.default
