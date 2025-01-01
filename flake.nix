@@ -44,23 +44,23 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # Wayland and GUI Tools
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixpkgs-wayland = {
+    #   url = "github:nix-community/nixpkgs-wayland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     swww.url = "github:LGFae/swww";
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hy3 = {
+    #   url = "github:outfoxxed/hy3";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
-    ags.url = "github:Aylur/ags";
+    # ags.url = "github:Aylur/ags";
     # Additional Utilities
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
@@ -105,7 +105,7 @@
         };
         overlays = [
           inputs.neovim-nightly-overlay.overlays.default
-          inputs.nixpkgs-wayland.overlay
+          # inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
           inputs.nur.overlays.default
           inputs.nh.overlays.default
@@ -147,7 +147,7 @@
             ./home/cdockter/home.nix
             inputs.stylix.homeManagerModules.stylix
             inputs.hyprland.homeManagerModules.default
-            inputs.ags.homeManagerModules.default
+            # inputs.ags.homeManagerModules.default
             inputs.hyprpanel.homeManagerModules.hyprpanel
           ];
         };
