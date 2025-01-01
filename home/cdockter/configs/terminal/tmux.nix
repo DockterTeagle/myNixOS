@@ -31,6 +31,7 @@
           set -g detach-on-destroy off
           set -g allow-passthrough on
           set -g focus-events on
+          # set -g status-left " #{?client_prefix,󰠠 ,#[dim]󰤂 }#[bold,nodim]#S$hostname "
           bind -n M-Left select-pane -L
           bind -n M-Right select-pane -R
           set-option -g cursor-style 'blinking-bar'
