@@ -43,3 +43,4 @@
 /home/cdockter/configs/wayland/ags/@girs/vulkan-1.0.d.ts filter=lfs diff=lfs merge=lfs -text
 /home/cdockter/configs/wayland/ags/@girs/webkit2-4.0.d.ts filter=lfs diff=lfs merge=lfs -text
 /home/cdockter/configs/wayland/ags/@girs/webkit2webextension-4.0.d.ts filter=lfs diff=lfs merge=lfs -text
+/assets/pictures/black-hole-cosmic-3840x2160-19145.jpg filter=lfs diff=lfs merge=lfs -text
