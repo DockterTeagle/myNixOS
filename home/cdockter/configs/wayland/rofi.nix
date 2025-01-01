@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, cdockterSettings, ... }:
 {
   programs.rofi = {
     enable = true;
@@ -8,7 +8,7 @@
     extraConfig = {
       run-command = "uwsm app -- {cmd}";
     };
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = "${cdockterSettings.term}";
     location = "center";
   };
 }
