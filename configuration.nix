@@ -100,7 +100,6 @@
   # Programs
   programs = {
     # nix-ld.dev.enable = true;
-    nix-ld.enable = true;
     nh = {
       enable = true;
       clean = {
@@ -121,6 +120,7 @@
       };
     };
     fish.enable = true;
+    zsh.enable = true;
     hyprland = {
       enable = true;
       withUWSM = true;
