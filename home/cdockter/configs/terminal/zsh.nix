@@ -7,7 +7,7 @@
       enable = true;
     };
     zsh = {
-      enable = false;
+      enable = true;
       autosuggestion.enable = true;
       dotDir = ".config/zsh";
       syntaxHighlighting.enable = true;
