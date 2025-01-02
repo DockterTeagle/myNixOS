@@ -25,6 +25,8 @@
 
       '';
     shellAbbrs = {
+      AlecaFrame = # fish
+        "protonhax run 230410 \"/home/cdockter/.local/share/Steam/steamapps/compatdata/230410/pfx/drive_c/users/steamuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Overwolf/AlecaFrame.lnk\"";
       cpv = # fish
         "rsync -pogbr -hhh --backup-dir=\"/tmp/rsync-$USERNAME\" --progress";
       tkss = "tmux kill-session ";
@@ -54,6 +56,7 @@
 
     interactiveShellInit = ''
 
+      fish_add_path --append ~/.local/bin
       set -g fish_greeting ""
     '';
   };
