@@ -142,6 +142,7 @@
           self',
           pkgs,
           system,
+          inputs',
           ...
         }:
         {
@@ -149,6 +150,7 @@
             inherit (self'.checks.pre-commit-check) shellHook;
             packages = [
               self'.checks.pre-commit-check.enabledPackages
+              inputs'.nixd.packages.nixd
             ];
           };
 
