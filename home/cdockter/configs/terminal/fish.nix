@@ -34,6 +34,8 @@
         "git add";
       gaa = # fish
         "git add --all";
+      gc = # fish
+        "git commit";
       gl = # fish
         "git pull";
       gp = # fish
