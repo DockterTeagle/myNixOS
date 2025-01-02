@@ -3,6 +3,7 @@
     # Enable the module.
     # Default: false
     enable = true;
+    overlay.enable = true;
 
     # Automatically restart HyprPanel with systemd.
     # Useful when updating your config so that you
