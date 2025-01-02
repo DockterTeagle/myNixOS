@@ -36,10 +36,10 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # Wayland and GUI Tools
-    # nixpkgs-wayland = {
-    #   url = "github:nix-community/nixpkgs-wayland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     swww.url = "github:LGFae/swww";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
@@ -87,6 +87,7 @@
         };
         overlays = [
           inputs.neovim-nightly-overlay.overlays.default
+          inputs.nixpkgs-wayland.overlay
           inputs.nixd.overlays.default
           inputs.nur.overlays.default
           inputs.nh.overlays.default
