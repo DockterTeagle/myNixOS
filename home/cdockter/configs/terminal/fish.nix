@@ -8,20 +8,27 @@
     loginShellInit =
       #fish
       ''
-        fish_vi_key_bindings;
 
-        bind --mode insert \t fish_vi_on_paging
       '';
-    shellAliases = {
+    shellAbbrs = {
+      tkss = "tmux kill-session ";
       tksv = "tmux kill-server";
-      tmuxconf = "$EDITOR $ZSH_TMUX_CONFIG";
-      ta = "tmux attach -t";
-      tad = "tmux attach -d -t";
-      tkss = "tmux kill-session -t";
+      ta = "tmux attach ";
+      g = # fish
+        "git";
+      ga = # fish
+        "git add";
+      gaa = # fish
+        "git add --all";
+      gl = # fish
+        "git pull";
+      gp = # fish
+        "git push";
+      grtr = # fish
+        "cd \"$(git rev-parse --show-toplevel || echo .)\"";
     };
 
     interactiveShellInit = ''
-      bind --mode insert \t fish_vi_on_paging
 
       set -g fish_greeting ""
     '';
