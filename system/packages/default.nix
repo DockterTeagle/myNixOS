@@ -10,7 +10,7 @@
     ./network # This module is scary
     ./security
     ./system
-    ./tools
+    ./terminal
     ./gaming.nix
     ./stylix.nix
     ./clipboard.nix

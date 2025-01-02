@@ -5,8 +5,6 @@
   ...
 }:
 {
-  fonts.fontconfig.enable = true;
-  #TODO: not all of these belong here
   environment.systemPackages = with pkgs; [
     (inputs.ghostty.packages.${systemSettings.system}.default.overrideAttrs (old: {
       preBuild =
@@ -20,18 +18,5 @@
             shopt -u globstar
           '';
     }))
-    sesh
-    lsof
-    unzip
-    zip
-    lazygit
-    zathura
-    slurp # for screenshots
-    gitFull
-    ventoy # for writing ISO images
-    # vim-full
-    feh
-    man-db
-    btop
   ];
 }

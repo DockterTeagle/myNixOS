@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
-    ./neovim
     ./shell
+    ./neovim
+    ./ghostty.nix
   ];
   environment.systemPackages = with pkgs; [
     pstree
