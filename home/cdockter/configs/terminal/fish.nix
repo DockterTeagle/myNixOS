@@ -2,9 +2,23 @@
   programs.fish = {
     enable = true;
     generateCompletions = true;
-    functions =
-      {
+    functions = {
+      sesh_sessions = {
+        body = # fish
+          "
+           exec </dev/tty
+          exec <&1
+          set session (sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+
+
+          if test -z \"$session\"
+              return
+          end
+
+          sesh connect $session
+          ";
       };
+    };
     loginShellInit =
       #fish
       ''
@@ -24,8 +38,14 @@
         "git pull";
       gp = # fish
         "git push";
+      update = # fish
+        "topgrade";
       grtr = # fish
         "cd \"$(git rev-parse --show-toplevel || echo .)\"";
+      cdi = # fish
+        "__zoxide_zi";
+      cd = # fish
+        "__zoxide_z";
     };
 
     interactiveShellInit = ''
