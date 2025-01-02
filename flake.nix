@@ -4,11 +4,6 @@
     # Core Nix Packages and Flakes
     ghostty.url = "github:ghostty-org/ghostty";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-alien.url = "github:thiagokokada/nix-alien";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -95,7 +90,6 @@
           inputs.nixd.overlays.default
           inputs.nur.overlays.default
           inputs.nh.overlays.default
-          inputs.nix-alien.overlays.default
           inputs.swww.overlays.default
         ];
       };
@@ -121,7 +115,6 @@
             inputs.solaar.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
-            # inputs.nix-ld.nixosModules.nix-ld
           ];
         };
         homeConfigurations.cdockter = home-manager.lib.homeManagerConfiguration {
@@ -164,9 +157,6 @@
                 statix.enable = true;
                 flake-checker.enable = true;
                 deadnix.enable = true;
-                #javascript
-                denofmt.enable = true;
-                # denolint.enable = true;
               };
             };
           };
