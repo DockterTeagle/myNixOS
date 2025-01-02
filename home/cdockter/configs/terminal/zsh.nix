@@ -43,8 +43,6 @@
           "git"
           "thefuck"
           "colored-man-pages"
-          "cp"
-          "zoxide"
           "tmux"
           "alias-finder"
         ];
