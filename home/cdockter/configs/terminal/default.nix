@@ -15,5 +15,6 @@
     ./fzf.nix
     ./fish.nix
     ./zoxide.nix
+    ./btop.nix
   ];
 }
