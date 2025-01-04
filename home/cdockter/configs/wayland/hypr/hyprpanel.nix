@@ -59,6 +59,7 @@
       tear = true;
       bar = {
         workspaces = {
+          monitorSpecific = false;
           icons = {
             active = " ";
           };
