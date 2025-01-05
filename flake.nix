@@ -92,11 +92,15 @@
           inputs.nur.overlays.default
           inputs.nh.overlays.default
           inputs.swww.overlays.default
+          inputs.hyprpanel.overlay
         ];
       };
       inherit (inputs) home-manager;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.pre-commit-hooks.flakeModule
+      ];
       systems = [ "x86_64-linux" ];
       debug = true;
       flake = {
@@ -136,7 +140,6 @@
           self',
           pkgs,
           system,
-          inputs',
           ...
         }:
         {
@@ -144,7 +147,7 @@
             inherit (self'.checks.pre-commit-check) shellHook;
             packages = [
               self'.checks.pre-commit-check.enabledPackages
-              inputs'.nixd.packages.nixd
+              # inputs'.nixd.packages.nixd
             ];
           };
 
