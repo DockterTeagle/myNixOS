@@ -1,3 +1,4 @@
+# { pkgs, ... }:
 {
   # hardware.logitech = {
   #   lcd.enable = true;

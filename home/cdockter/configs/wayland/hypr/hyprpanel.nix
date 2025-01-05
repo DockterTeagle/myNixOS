@@ -77,8 +77,7 @@
         power.logout = "uwsm stop";
         clock = {
           weather = {
-            unit = "metric";
-            location = "Houston";
+            enabled = false;
           };
           time = {
             military = true;
