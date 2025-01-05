@@ -130,7 +130,6 @@
           modules = [
             ./home/cdockter/home.nix
             inputs.stylix.homeManagerModules.stylix
-            inputs.hyprland.homeManagerModules.default
             inputs.hyprpanel.homeManagerModules.hyprpanel
           ];
         };
