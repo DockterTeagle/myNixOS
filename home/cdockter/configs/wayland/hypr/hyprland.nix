@@ -1,6 +1,7 @@
 {
-  # inputs,
+  inputs,
   cdockterSettings,
+  systemSettings,
   ...
 }:
 {
@@ -10,6 +11,7 @@
     #   hyprbars
     # ];
 
+    package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
     extraConfig =
       #hyprlang
       ''
@@ -88,7 +90,7 @@
       };
 
       "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
-      "$terminal" = "${cdockterSettings.term}"; # Terminal
+      "$term" = "${cdockterSettings.term}"; # terminal
 
       exec-once = [
         "hyprctl setcursor phinger-cursors-light 24"
@@ -96,7 +98,7 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hypridle"
-        "uwsm app -- $term"
+        "$term"
         "uwsm app -- firefox"
         "uwsm app -- Discord"
       ];
@@ -135,7 +137,7 @@
         "$mainMod , 0, workspace, 10"
         #shortcuts
         "$mainMod_SHIFT,l,exec,hyprlock"
-        "$mainMod,q,exec,$terminal"
+        "$mainMod,q,exec,$term"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
         "$mainMod,D,exec,uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
