@@ -45,7 +45,8 @@
 
           bind -n M-H previous-window
           bind -n M-L next-window
-
+          bind -N "last-session (via sesh) " L run-shell "sesh last"
+          bind -N "switch to root session (via sesh) " 9 run-shell "sesh connect --root \'$(pwd)\'"
           bind '"' split-window -v -c "#{pane_current_path}"
           bind % split-window -h -c "#{pane_current_path}"
           bind-key "T" run-shell "sesh connect \"$(

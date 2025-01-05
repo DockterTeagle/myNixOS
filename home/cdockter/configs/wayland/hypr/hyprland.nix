@@ -110,7 +110,8 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindr = [
-        "SUPER_L,$mainMod,exec,rofi -show run"
+        "SUPER_L,$mainMod,exec,rofi -show drun -show-icons run"
+        # "SUPER_L,$mainMod,exec,tofi-run "
       ];
       bindl = [
         "$mainMod,l,exec,uwsm stop"

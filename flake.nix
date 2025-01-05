@@ -77,7 +77,8 @@
         wm = "hyprland";
         term = "ghostty";
         editor = "nvim";
-        font = "JetBrains Mono Nerd Font ";
+        font = "JetBrains Mono Nerd Font";
+        nerdfont = "jetbrains-mono";
         homeDirectory = "/home/cdockter";
       };
       pkgs = import nixpkgs {
