@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   hardware = {
-    pulseaudio.enable = false;
     bluetooth = {
       powerOnBoot = true;
       input = {
@@ -19,6 +18,7 @@
     };
   };
   services = {
+    pulseaudio.enable = false;
     blueman.enable = true;
     udev.packages = [ pkgs.evtest ];
   };
