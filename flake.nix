@@ -58,6 +58,7 @@
   };
   outputs =
     {
+      home-manager,
       nixpkgs,
       flake-parts,
       ...
@@ -95,12 +96,12 @@
           inputs.hyprpanel.overlay
         ];
       };
-      inherit (inputs) home-manager;
+      inherit home-manager;
     in
+    # home-manager = import inputs.home-manager {
+    #   inherit pkgs;
+    # };
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        inputs.pre-commit-hooks.flakeModule
-      ];
       systems = [ "x86_64-linux" ];
       debug = true;
       flake = {
