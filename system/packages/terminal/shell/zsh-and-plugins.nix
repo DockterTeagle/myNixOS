@@ -12,12 +12,10 @@
     zip
     lazygit
     zathura
-    slurp # for screenshots
     gitFull
     ventoy # for writing ISO images
     # vim-full
     feh
     man-db
-    btop
   ];
 }
