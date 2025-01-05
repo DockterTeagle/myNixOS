@@ -148,6 +148,8 @@
             packages = [
               self'.checks.pre-commit-check.enabledPackages
               # inputs'.nixd.packages.nixd
+              pkgs.statix
+              pkgs.beautysh
             ];
           };
 
