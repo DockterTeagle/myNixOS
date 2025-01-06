@@ -99,7 +99,6 @@
           inputs.hyprpanel.overlay
         ];
       };
-      inherit home-manager;
     in
     # home-manager = import inputs.home-manager {
     #   inherit pkgs;
