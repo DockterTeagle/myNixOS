@@ -25,8 +25,8 @@
     };
 
     cursor = {
-      package = pkgs.phinger-cursors;
-      name = "phinger-cursors-light";
+      package = pkgs.${cdockterSettings.cursorPackage};
+      name = "${cdockterSettings.cursorName}";
       size = 24;
     };
     fonts = {
