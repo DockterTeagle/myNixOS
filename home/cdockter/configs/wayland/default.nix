@@ -1,7 +1,7 @@
 {
   imports = [
     ./hypr
-    ./rofi.nix
+    ./rofi
     # ./mako.nix
     # ./waybar.nix
     # ./ags.nix
