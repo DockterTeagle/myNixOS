@@ -9,10 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    # disko = {
-    #   url = "github:nix-community/disko";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # impermanence = {
     #   url = "github:nix-community/impermanence";
     # };
@@ -123,6 +123,7 @@
             inputs.solaar.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
+            inputs.disko.nixosModules.disko
           ];
         };
         homeConfigurations.cdockter = home-manager.lib.homeManagerConfiguration {

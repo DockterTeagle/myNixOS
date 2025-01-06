@@ -7,17 +7,17 @@
         #!${pkgs.bash}/bin/bash
         phd=$${XDG_RUNTIME_DIR:-/run/user/$UID}/protonhax
         usage() {
-          echo "Usage:"
-          echo "protonhax init <cmd>"
-          printf "\tShould only be called by Steam with \"protonhax init %%COMMAND%%\"\n"
-          echo "protonhax ls"
-          printf "\tLists all currently running games\n"
-          echo "protonhax run <appid> <cmd>"
-          printf "\tRuns <cmd> in the context of <appid> with proton\n"
-          echo "protonhax cmd <appid>"
-          printf "\tRuns cmd.exe in the context of <appid>\n"
-          echo "protonhax exec <appid> <cmd>"
-          printf "\tRuns <cmd> in the context of <appid>\n"
+            echo "Usage:"
+            echo "protonhax init <cmd>"
+            printf "\tShould only be called by Steam with \"protonhax init %%COMMAND%%\"\n"
+            echo "protonhax ls"
+            printf "\tLists all currently running games\n"
+            echo "protonhax run <appid> <cmd>"
+            printf "\tRuns <cmd> in the context of <appid> with proton\n"
+            echo "protonhax cmd <appid>"
+            printf "\tRuns cmd.exe in the context of <appid>\n"
+            echo "protonhax exec <appid> <cmd>"
+            printf "\tRuns <cmd> in the context of <appid>\n"
         }
 
         if [[ $# -lt 1 ]]; then
@@ -84,7 +84,14 @@
     (writeShellScriptBin "home-manager-rollback"
       #bash
       ''
-        source $(home-manager generations | fzf | awk -F '-> ' '{print $2 "/activate"}')
+        GENERATION=$(home-manager generations | fzf | awk -F '-> ' '{print $2 "/activate"}')
+
+        if [[ -n "$GENERATION" && -f "$GENERATION" ]]; then
+            source "$GENERATION"
+        else
+            echo "No generation selected or invalid selection."
+            exit 1
+        fi
       ''
     )
   ];

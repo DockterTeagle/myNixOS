@@ -93,7 +93,7 @@
       "$term" = "${cdockterSettings.term}"; # terminal
 
       exec-once = [
-        "hyprctl setcursor phinger-cursors-light 24"
+        "hyprctl setcursor Bibata-Modern-Ice 24"
         "swww-daemon"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -146,7 +146,7 @@
       ];
       windowrulev2 = [
         "idleinhibit focus, class:^steam_app_.*$"
-        "idleinhibit ,10,class:^(firefox|chromium|chrome)$, title:^(.*YouTube.*)$"
+        "idleinhibit focus ,class:^(firefox|chromium|chrome)$, title:^(.*YouTube.*)$"
       ];
     };
   };

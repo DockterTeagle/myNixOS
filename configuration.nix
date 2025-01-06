@@ -6,7 +6,7 @@
   # Imports
   imports = [
     # Include the results of the hardware scan.
-    ./system/systems/MSI-GE75Raider-hardware-configuration.nix
+    ./system/systems/MSI-GE75Raider
     # Packages
     ./system/packages
     ./system/secret-managment
