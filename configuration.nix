@@ -73,7 +73,7 @@
 
     # XServer and GNOME
     xserver = {
-      enable = false;
+      enable = true;
       xkb = {
         layout = "us";
         variant = "";
