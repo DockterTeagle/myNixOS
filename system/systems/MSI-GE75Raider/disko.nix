@@ -10,7 +10,7 @@
           partitions = {
             luks = {
               size = "100%";
-              label = "luksBase";
+              label = "luksEHDD";
               content = {
                 type = "luks";
                 name = "cryptHDD";
