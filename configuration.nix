@@ -79,7 +79,9 @@
         variant = "";
       };
       excludePackages = [ pkgs.xterm ];
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [
+        "nvidia"
+      ];
     };
   };
 
