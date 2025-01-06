@@ -80,6 +80,8 @@
         font = "JetBrains Mono Nerd Font";
         nerdfont = "jetbrains-mono";
         homeDirectory = "/home/cdockter";
+        cursorPackage = "bibata-cursors";
+        cursorName = "Bibata-Modern-Ice";
       };
       pkgs = import nixpkgs {
         inherit (systemSettings) system;
@@ -107,9 +109,9 @@
       debug = true;
       flake = {
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
           specialArgs = {
             inherit
-              pkgs
               inputs
               systemSettings
               home-manager
