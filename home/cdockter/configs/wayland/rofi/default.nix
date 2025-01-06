@@ -8,7 +8,7 @@
 
     extraConfig = {
       run-command = "uwsm app -- {cmd}";
-      run-shell-command = "kitty --hold {cmd}";
+      run-shell-command = "ghostty -e {cmd}";
     };
     terminal = "${cdockterSettings.term}";
     location = "center";

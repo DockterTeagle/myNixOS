@@ -14,6 +14,29 @@
       gtk-decoration-layout = ":menu";
     };
   };
+  systemd.user = {
+    enable = true;
+    # services.home-manager-rollback = {
+    #   Unit = {
+    #     Description = "roll back feature for home-manager";
+    #     Before = "graphical-session.target";
+    #     After = "graphical-session-pre.target";
+    #     Wants = "graphical-session-pre.target";
+    #
+    #   };
+    #   Service = {
+    #     Type = "oneshot";
+    #     ExecStart = "/home/cdockter/.nix-profile/bin/home-manager-rollback";
+    #     StandardInput = "tty-force";
+    #     StandardOutput = "journal";
+    #     StandardError = "journal";
+    #     Environment = "PATH=%h/.nix-profile/bin:/usr/local/bin:/usr/bin:/bin";
+    #   };
+    #   Install = {
+    #     WantedBy = [ "default.target" ];
+    #   };
+    # };
+  };
   home = {
     # this value determines the home manager release that your configuration is
     # compatible with. this helps avoid breakage when a new home manager release
@@ -76,6 +99,8 @@
           window-decoration = false
           font-size = 15
           window-padding-y = 0
+          mouse-hide-while-typing = true
+          confirm-close-surface = false
         '';
       };
       # # you can also set the file content immediately.
