@@ -10,7 +10,7 @@
           partitions = {
             luks = {
               size = "100%";
-              label = "luks";
+              label = "luksBase";
               content = {
                 type = "luks";
                 name = "cryptHDD";
@@ -44,7 +44,6 @@
           type = "gpt";
           partitions = {
             ESP = {
-              label = "boot";
               name = "ESP";
               size = "500M";
               type = "EF00";
@@ -53,13 +52,13 @@
                 format = "vfat";
                 mountpoint = "/boot";
                 mountOptions = [
-                  "defaults"
+                  "umask=0077"
                 ];
               };
             };
             luks = {
               size = "100%";
-              label = "luks";
+              label = "luksBase";
               content = {
                 type = "luks";
                 name = "cryptroot";
