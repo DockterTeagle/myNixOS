@@ -1,5 +1,6 @@
 { pkgs, cdockterSettings, ... }:
 {
+  imports = [ ./tofi.nix ];
   programs.rofi = {
     enable = true;
     # package = pkgs.tofi;
@@ -7,8 +8,7 @@
 
     extraConfig = {
       run-command = "uwsm app -- {cmd}";
-      run-shell-command = "ghostty --hold {cmd}";
-      run-shell = "{cmd}";
+      run-shell-command = "kitty --hold {cmd}";
     };
     terminal = "${cdockterSettings.term}";
     location = "center";
