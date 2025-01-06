@@ -17,8 +17,8 @@
     kernelModules = [ "kvm-intel" ];
     initrd = {
       luks.devices = {
-        "luks-f0bd682b-a6cc-4b16-835a-81f3be960b74".device = "/dev/disk/by-uuid/f0bd682b-a6cc-4b16-835a-81f3be960b74";
-        "EHDD".device = "/dev/disk/by-uuid/84989735-d8b3-4005-89d1-c03af68e7408";
+        # "luks-f0bd682b-a6cc-4b16-835a-81f3be960b74".device = "/dev/disk/by-uuid/f0bd682b-a6cc-4b16-835a-81f3be960b74";
+        # "EHDD".device = "/dev/disk/by-uuid/84989735-d8b3-4005-89d1-c03af68e7408";
       };
       kernelModules = [ ];
       availableKernelModules = [
@@ -32,22 +32,22 @@
     };
   };
   fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/62ff14dc-cadc-4a4a-af03-66459dca395a";
-      fsType = "ext4";
-    };
-    "/boot" = {
-      device = "/dev/disk/by-uuid/3BE8-556E";
-      fsType = "vfat";
-      options = [
-        "fmask=0022"
-        "dmask=0022"
-      ];
-    };
-    "/Drives/EHDD" = {
-      device = "/dev/disk/by-uuid/a6e7bbbd-757a-4f8d-981d-47630bfac731";
-      fsType = "ext4";
-    };
+    # "/" = {
+    #   device = "/dev/disk/by-uuid/62ff14dc-cadc-4a4a-af03-66459dca395a";
+    #   fsType = "ext4";
+    # };
+    # "/boot" = {
+    #   device = "/dev/disk/by-uuid/3BE8-556E";
+    #   fsType = "vfat";
+    #   options = [
+    #     "fmask=0022"
+    #     "dmask=0022"
+    #   ];
+    # };
+    # "/Drives/EHDD" = {
+    #   device = "/dev/disk/by-uuid/a6e7bbbd-757a-4f8d-981d-47630bfac731";
+    #   fsType = "ext4";
+    # };
   };
   swapDevices = [ ];
 
