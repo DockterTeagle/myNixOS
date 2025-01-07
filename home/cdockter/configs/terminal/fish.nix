@@ -56,6 +56,7 @@
 
     interactiveShellInit = ''
 
+      set -g fish_key_bindings fish_vi_key_bindings
       fish_add_path --append ~/.local/bin
       set -g fish_greeting ""
     '';

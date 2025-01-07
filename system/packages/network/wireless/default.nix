@@ -1,6 +1,7 @@
 {
   systemSettings,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -11,6 +12,7 @@
     inetutils
   ];
   networking = {
+    wireless.enable = lib.mkForce false;
     networkmanager.enable = true;
     inherit (systemSettings) hostName;
     # Open ports in the firewall
@@ -18,6 +20,5 @@
     # networking.firewall.allowedUDPPorts = [ ... ];
     # Or disable the firewall altogether
     # networking.firewall.enable = false;
-    # wireless.enable = true; # Enables wireless support via wpa_supplicant.
   };
 }

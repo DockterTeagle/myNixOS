@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.systemPackages = with pkgs; [
     brightnessctl
@@ -6,6 +6,7 @@
     mcontrolcenter
   ];
   services = {
+    power-profiles-daemon.enable = lib.mkForce false;
     tlp = {
       enable = true;
       settings = {

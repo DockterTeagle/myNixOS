@@ -60,9 +60,9 @@
       bar = {
         workspaces = {
           monitorSpecific = false;
-          icons = {
-            active = " ";
-          };
+          # icons = {
+          #   active = " ";
+          # };
         };
         media.show_active_only = true;
         customModules = {

@@ -107,24 +107,48 @@
       systems = [ "x86_64-linux" ];
       debug = true;
       flake = {
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-          inherit pkgs;
-          specialArgs = {
-            inherit
-              inputs
-              systemSettings
-              home-manager
-              cdockterSettings
-              ;
+        nixosConfigurations = {
+          isoImage = nixpkgs.lib.nixosSystem {
+            inherit pkgs;
+            inherit (systemSettings) system;
+            modules = [
+              ./configuration.nix
+              inputs.hyprland.nixosModules.default
+              inputs.solaar.nixosModules.default
+              inputs.lanzaboote.nixosModules.lanzaboote
+              inputs.stylix.nixosModules.stylix
+              inputs.disko.nixosModules.disko
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+            ];
+            specialArgs = {
+              inherit
+                inputs
+                systemSettings
+                home-manager
+                cdockterSettings
+                ;
+            };
           };
-          modules = [
-            ./configuration.nix
-            inputs.hyprland.nixosModules.default
-            inputs.solaar.nixosModules.default
-            inputs.lanzaboote.nixosModules.lanzaboote
-            inputs.stylix.nixosModules.stylix
-            inputs.disko.nixosModules.disko
-          ];
+          nixos = nixpkgs.lib.nixosSystem {
+            inherit pkgs;
+            specialArgs = {
+              inherit
+                inputs
+                systemSettings
+                home-manager
+                cdockterSettings
+                ;
+            };
+            modules = [
+              ./configuration.nix
+              inputs.hyprland.nixosModules.default
+              inputs.solaar.nixosModules.default
+              inputs.lanzaboote.nixosModules.lanzaboote
+              inputs.stylix.nixosModules.stylix
+              inputs.disko.nixosModules.disko
+            ];
+          };
         };
         homeConfigurations.cdockter = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

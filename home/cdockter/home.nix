@@ -112,6 +112,10 @@
   };
 
   programs = {
+    ssh = {
+      enable = true;
+      hashKnownHosts = true;
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;

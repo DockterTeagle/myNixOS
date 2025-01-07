@@ -4,11 +4,70 @@
     settings = {
       general = {
         disable_loading_bar = true;
-        grace = 300;
+        grace = 1;
         # hide_cursor = true;
         no_fade_in = false;
       };
       background = [ { monitor = " "; } ];
+      label = [
+        {
+          monitor = "";
+          text = "cmd[update:18000000] echo \"<b> \"$(date +'%A, %-d %B %Y')\" </b>\"";
+          font_size = 34;
+          font_family = "JetBrains Mono Nerd Font 10";
+          position = "0, -150";
+          halign = "center";
+          valign = "top";
+        }
+        # Week
+        # {
+        #   monitor = "";
+        # text = cmd[update:18000000] echo "<b> "$(date +'Week %U')" </b>"
+        # color = $color5
+        # font_size = 24
+        # font_family = JetBrains Mono Nerd Font 10
+        # position = 0, -250
+        # halign = center
+        # valign = top
+        #         label {
+        #     monitor =
+        #     #text = cmd[update:1000] echo "<b><big> $(date +"%I:%M:%S %p") </big></b>" # AM/PM
+        #     text = cmd[update:1000] echo "<b><big> $(date +"%H:%M:%S") </big></b>" # 24H
+        #     color = $color15
+        #     font_size = 94
+        #     font_family = JetBrains Mono Nerd Font 10
+        #
+        #     position = 0, 0
+        #     halign = center
+        #     valign = center
+        # }
+        #
+        # # User
+        # label {
+        #     monitor =
+        #     text =    $USER
+        #     color = $color12
+        #     font_size = 18
+        #     font_family = Inter Display Medium
+        #
+        #     position = 0, 100
+        #     halign = center
+        #     valign = bottom
+        # }
+        #
+        # # uptime
+        # label {
+        #     monitor =
+        #     text = cmd[update:60000] echo "<b> "$(uptime -p || $Scripts/UptimeNixOS.sh)" </b>"
+        #     color = $color12
+        #     font_size = 24
+        #     font_family = JetBrains Mono Nerd Font 10
+        #     position = 0, 0
+        #     halign = right
+        #     valign = bottom
+        # }
+        # }
+      ];
       input-field = [
         {
           monitor = " ";
