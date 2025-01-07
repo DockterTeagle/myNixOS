@@ -5,7 +5,10 @@
 }:
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
-  environment.systemPackages = with pkgs; [ sops ];
+  environment.systemPackages = with pkgs; [
+    sops
+    age
+  ];
   # sops = {
   #   defaultSopsFile = ./secrets.yaml;
   #   defaultSopsFormat = "yaml";

@@ -13,7 +13,7 @@
     lazygit
     zathura
     gitFull
-    ventoy # for writing ISO images
+    ventoy-full # for writing ISO images
     # vim-full
     feh
     man-db
