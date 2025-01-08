@@ -100,9 +100,6 @@
         ];
       };
     in
-    # home-manager = import inputs.home-manager {
-    #   inherit pkgs;
-    # };
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       debug = true;
