@@ -50,6 +50,8 @@
         "cd \"$(git rev-parse --show-toplevel || echo .)\"";
       cdi = # fish
         "__zoxide_zi";
+      man = # fish
+        "batman";
       cd = # fish
         "__zoxide_z";
     };

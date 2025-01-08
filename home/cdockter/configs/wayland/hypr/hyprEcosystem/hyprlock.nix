@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       general = {
-        disable_loading_bar = true;
+        disable_loading_bar = false;
         grace = 1;
         # hide_cursor = true;
         no_fade_in = false;

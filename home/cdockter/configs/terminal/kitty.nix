@@ -1,11 +1,7 @@
 {
-  cdockterSettings,
-  ...
-}:
-{
   programs.kitty = {
     enable = true;
-    font.name = cdockterSettings.font;
+    # font.name = cdockterSettings.font;
     font.size = 15;
     settings = {
       # "background_opacity" = 1;

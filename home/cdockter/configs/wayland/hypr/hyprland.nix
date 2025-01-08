@@ -146,7 +146,7 @@
       ];
       windowrulev2 = [
         "idleinhibit focus, class:^steam_app_.*$"
-        "idleinhibit focus ,class:^(firefox|chromium|chrome)$, title:^(.*YouTube.*)$"
+        "idleinhibit fullscreen,class:^(firefox|chromium|chrome)$, title:^(.*YouTube.*)$"
       ];
     };
   };
