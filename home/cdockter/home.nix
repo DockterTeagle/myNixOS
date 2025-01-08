@@ -101,6 +101,7 @@
           window-padding-y = 0
           mouse-hide-while-typing = true
           confirm-close-surface = false
+          font-family = ${cdockterSettings.font}
         '';
       };
       # # you can also set the file content immediately.
