@@ -3,9 +3,10 @@
   ...
 }:
 {
-  security.rtkit.enable = true;
-  security.polkit = {
-    enable = true;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    pam.services.hyprlock = { };
   };
   systemd = {
     # user.services.polkit-gnome-authentication-agent-1 = {
