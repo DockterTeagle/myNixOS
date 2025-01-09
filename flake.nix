@@ -2,6 +2,7 @@
   description = "my main flake";
   inputs = {
     # Core Nix Packages and Flakes
+    nixcord.url = "github:kaylorben/nixcord";
     ghostty.url = "github:ghostty-org/ghostty";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
@@ -156,6 +157,7 @@
             ./home/cdockter/home.nix
             inputs.stylix.homeManagerModules.stylix
             inputs.hyprpanel.homeManagerModules.hyprpanel
+            inputs.nixcord.homeManagerModules.nixcord
           ];
         };
       };
