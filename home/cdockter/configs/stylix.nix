@@ -12,7 +12,10 @@
       neovim.enable = false;
       tmux.enable = false;
       # kitty.enable = false;
-      hyprland.enable = false;
+      hyprland = {
+        enable = true;
+        hyprpaper.enable = false;
+      };
       hyprlock.enable = false;
       hyprpaper.enable = false;
       rofi.enable = true;
@@ -35,6 +38,10 @@
         # applications = 15;
         desktop = 11;
         popups = 11;
+      };
+      emoji = {
+        package = pkgs.noto-fonts-monochrome-emoji;
+        name = "Noto Monochrome Emoji";
       };
       monospace = {
         package = pkgs.${cdockterSettings.nerdfont};
