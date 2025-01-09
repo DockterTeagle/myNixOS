@@ -92,18 +92,6 @@
           skip_dir = "Pictures"
         '';
       };
-      ".config/ghostty/config" = {
-        text = ''
-          theme = tokyonight
-          gtk-titlebar = false
-          window-decoration = false
-          font-size = 15
-          window-padding-y = 0
-          mouse-hide-while-typing = true
-          confirm-close-surface = false
-          font-family = ${cdockterSettings.font}
-        '';
-      };
       # # you can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
