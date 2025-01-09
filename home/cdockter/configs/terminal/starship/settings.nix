@@ -71,7 +71,7 @@ in
     "\n"
     "${vertical}$status"
     " [ $shell](bold)"
-    "$shlvl"
+    # "$shlvl"
     "$character"
     "\n"
     "${corner_bottom}"
