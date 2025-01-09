@@ -69,7 +69,6 @@
         system = "x86_64-linux";
         hostName = "nixos";
         timezone = "America/Chicago";
-        boot-loader = "lanzaboote";
       };
       cdockterSettings = {
         username = "cdockter";
