@@ -93,10 +93,10 @@
       "$term" = "${cdockterSettings.term}"; # terminal
 
       exec-once = [
+        "hyprctl setcursor Bibata-Modern-Ice 24"
         "swww-daemon"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "hypridle"
         "$term"
         "uwsm app -- firefox"
         "uwsm app -- Discord"
