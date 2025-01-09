@@ -22,7 +22,7 @@
     };
   };
   hardware = {
-    enableAllFirmware = true;
+    enableAllFirmware = false;
     graphics = {
       enable = true;
       enable32Bit = true;
