@@ -99,7 +99,7 @@
         "wl-paste --type image --watch cliphist store"
         "$term"
         "uwsm app -- firefox"
-        "uwsm app -- Discord"
+        "uwsm app -- vesktop"
       ];
 
       bindm = [
@@ -139,7 +139,7 @@
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,$term"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
-        "$mainMod,D,exec,uwsm app -- discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod,D,exec,uwsm app -- vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       ];
