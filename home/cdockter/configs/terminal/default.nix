@@ -16,5 +16,6 @@
     ./fish.nix
     ./zoxide.nix
     ./btop.nix
+    ./ghostty.nix
   ];
 }
