@@ -8,7 +8,6 @@
       frameless = true;
       plugins = {
         blurNSFW.enable = true;
-        alwaysAnimate.enable = true;
         anonymiseFileNames = {
           enable = true;
           anonymiseByDefault = true;
