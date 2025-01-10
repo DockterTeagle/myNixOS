@@ -1,10 +1,9 @@
 {
   imports = [
-    ./firefox.nix
+    ./GUI
     ./solaar.nix
     ./wayland
     ./terminal
     ./stylix.nix
-    ./nixcord.nix
   ];
 }
