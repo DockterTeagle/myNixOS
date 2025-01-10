@@ -28,6 +28,8 @@
           '';
         "Upgrade nixos" = "nh os switch";
         "Upgrade home-manager" = "nh  home switch";
+        "Update Lazy.nvim plugins" = # bash
+          ''nvim --headless -c ' Lazy! sync ' -c 'qall' '';
       };
     };
   };
