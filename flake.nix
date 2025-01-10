@@ -191,6 +191,7 @@
               inputs'.nixd.packages.nixd
               pkgs.statix
               pkgs.beautysh
+              pkgs.gitlint
             ];
           };
 
