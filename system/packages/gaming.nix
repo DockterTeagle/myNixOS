@@ -18,27 +18,28 @@
     enable = true;
   };
   hardware = {
+    steam-hardware.enable = true;
     xone.enable = true;
     graphics = {
-      extraPackages32 = with pkgs; [
-        extest
-        attr
-        libGLU
-        libGL
-        intel-media-driver
-        intel-ocl
-        intel-vaapi-driver
-
-      ];
-      extraPackages = with pkgs; [
-        libGL
-        libGLU
-        intel-media-driver
-        intel-ocl
-        intel-vaapi-driver
-        extest
-        attr
-      ];
+      # extraPackages32 = with pkgs; [
+      #   extest
+      #   attr
+      #   libGLU
+      #   libGL
+      #   intel-media-driver
+      #   intel-ocl
+      #   intel-vaapi-driver
+      #
+      # ];
+      # extraPackages = with pkgs; [
+      #   libGL
+      #   libGLU
+      #   intel-media-driver
+      #   intel-ocl
+      #   intel-vaapi-driver
+      #   extest
+      #   attr
+      # ];
     };
   };
   programs = {
