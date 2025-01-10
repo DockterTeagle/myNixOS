@@ -6,10 +6,7 @@
   # Imports
   imports = [
     # Include the results of the hardware scan.
-    ./system/systems/MSI-GE75Raider
-    # Packages
-    ./system/packages
-    ./system/secret-managment
+    ./system
   ];
   # Nix settings
   nix = {
@@ -72,17 +69,19 @@
     tumbler.enable = true;
 
     # XServer and GNOME
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
+    xserver =
+      #TODO: disable me sometime
+      {
+        enable = true;
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
+        excludePackages = [ pkgs.xterm ];
+        videoDrivers = [
+          "nvidia"
+        ];
       };
-      excludePackages = [ pkgs.xterm ];
-      videoDrivers = [
-        "nvidia"
-      ];
-    };
   };
 
   # Users
@@ -110,16 +109,6 @@
         extraArgs = "--keep=3";
       };
       flake = "/home/cdockter/myNixOS/";
-    };
-    uwsm = {
-      # enable = true;
-      # waylandCompositors = {
-      #   hyprland = {
-      #     prettyName = "Hyprland";
-      #     comment = "Hyprland compositor managed by UWSM";
-      #     binPath = "/run/current-system/sw/bin/Hyprland";
-      #   };
-      # };
     };
     fish.enable = true;
     zsh.enable = true;
