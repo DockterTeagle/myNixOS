@@ -112,7 +112,7 @@
               "fakespot-fake-reviews-amazon"
               "onetab"
             ]);
-          allowSubstitutes = true;
+          allowSubstitutes = false;
         };
         overlays = [
           inputs.neovim-nightly-overlay.overlays.default
