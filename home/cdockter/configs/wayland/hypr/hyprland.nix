@@ -94,7 +94,6 @@
 
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Ice 24"
-        "swww-daemon"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "$term"
