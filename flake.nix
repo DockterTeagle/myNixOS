@@ -70,9 +70,17 @@
         hostName = "nixos";
         timezone = "America/Chicago";
       };
+      SystemModules = [
+        ./configuration.nix
+        inputs.hyprland.nixosModules.default
+        inputs.solaar.nixosModules.default
+        inputs.lanzaboote.nixosModules.lanzaboote
+        inputs.stylix.nixosModules.stylix
+        inputs.disko.nixosModules.disko
+      ];
       cdockterSettings = {
         username = "cdockter";
-        name = "Christopher Ryan Dockter";
+        description = "Christopher Ryan Dockter";
         email = "steampowered.mom596@passinbox.com";
         wm = "hyprland";
         term = "ghostty";
@@ -86,7 +94,24 @@
       pkgs = import nixpkgs {
         inherit (systemSettings) system;
         config = {
-          allowUnfree = true;
+          # allowUnfree = true;
+          allowUnfreePredicate =
+            pkg:
+            (builtins.elem (nixpkgs.lib.getName pkg) [
+              "nvidia-x11"
+              "discord"
+              "steam-unwrapped"
+              "steam"
+              "nvidia_driver"
+              "xow_dongle-firmware"
+              "obsidian"
+              "rar"
+              "unrar"
+              "intel-ocl"
+              "nvidia-settings"
+              "fakespot-fake-reviews-amazon"
+              "onetab"
+            ]);
           allowSubstitutes = true;
         };
         overlays = [
@@ -108,15 +133,12 @@
           isoImage = nixpkgs.lib.nixosSystem {
             inherit pkgs;
             inherit (systemSettings) system;
-            modules = [
-              ./configuration.nix
-              inputs.hyprland.nixosModules.default
-              inputs.solaar.nixosModules.default
-              inputs.lanzaboote.nixosModules.lanzaboote
-              inputs.stylix.nixosModules.stylix
-              inputs.disko.nixosModules.disko
-              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-              "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+            modules = nixpkgs.lin.concatLists [
+              SystemModules
+              [
+                "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+                "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+              ]
             ];
             specialArgs = {
               inherit
@@ -137,14 +159,7 @@
                 cdockterSettings
                 ;
             };
-            modules = [
-              ./configuration.nix
-              inputs.hyprland.nixosModules.default
-              inputs.solaar.nixosModules.default
-              inputs.lanzaboote.nixosModules.lanzaboote
-              inputs.stylix.nixosModules.stylix
-              inputs.disko.nixosModules.disko
-            ];
+            modules = SystemModules;
           };
         };
         homeConfigurations.cdockter = home-manager.lib.homeManagerConfiguration {
