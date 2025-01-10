@@ -162,7 +162,7 @@
       };
       perSystem =
         {
-          # inputs',
+          inputs',
           self',
           pkgs,
           system,
@@ -173,7 +173,7 @@
             inherit (self'.checks.pre-commit-check) shellHook;
             packages = [
               self'.checks.pre-commit-check.enabledPackages
-              # inputs'.nixd.packages.nixd
+              inputs'.nixd.packages.nixd
               pkgs.statix
               pkgs.beautysh
             ];
