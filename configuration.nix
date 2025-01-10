@@ -131,15 +131,6 @@
   };
 
   # System Environment
-  environment = {
-    # loginShellInit =
-    #   #bash
-    #   ''
-    #     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    #     exec  Hyprland
-    #     fi
-    #   '';
-  };
   # etc."machine-id".source = "/nix/persist/etc/machine-id";
 
   # Specialisation
