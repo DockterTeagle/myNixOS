@@ -14,7 +14,7 @@
     targets = {
       neovim.enable = false;
       tmux.enable = false;
-      # kitty.enable = false;
+      kitty.variant256Colors = true;
       hyprland = {
         enable = true;
         # hyprpaper.enable = false;
