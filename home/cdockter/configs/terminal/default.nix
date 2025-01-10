@@ -17,5 +17,6 @@
     ./zoxide.nix
     ./btop.nix
     ./ghostty.nix
+    ./n3.nix
   ];
 }
