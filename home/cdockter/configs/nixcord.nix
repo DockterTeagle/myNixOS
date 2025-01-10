@@ -8,10 +8,14 @@
       frameless = true;
       plugins = {
         blurNSFW.enable = true;
+        alwaysAnimate.enable = true;
+        # betterFolders = {
+        #   enable = true;
+        #   closeOthers = true;
+        # };
         anonymiseFileNames = {
           enable = true;
           anonymiseByDefault = true;
-          # randomisedLength = true;
         };
       };
     };
