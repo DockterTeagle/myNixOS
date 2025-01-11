@@ -39,7 +39,8 @@
         # layout = "hy3";
       };
       cursor = {
-        min_refresh_rate = 60;
+        no_hardware_cursors = true;
+        # min_refresh_rate = 60;
       };
       render = {
         direct_scanout = true;
