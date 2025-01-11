@@ -114,7 +114,7 @@
           inputs.nixd.overlays.default
           inputs.nur.overlays.default
           inputs.nh.overlays.default
-          inputs.swww.overlays.default
+          # inputs.swww.overlays.default
           inputs.hyprpanel.overlay
         ];
       };
