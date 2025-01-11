@@ -2,26 +2,29 @@
   description = "my main flake";
   inputs = {
     # Core Nix Packages and Flakes
+    flake-parts.url = "github:hercules-ci/flake-parts";
     nixcord.url = "github:kaylorben/nixcord";
-    ghostty.url = "github:ghostty-org/ghostty";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    #Boot
+    ##Secure boot
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ##Disk allocation
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # impermanence = {
-    #   url = "github:nix-community/impermanence";
-    # };
     # Pre-commit hooks for Git
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     # Development Tools and Utilities
     yazi.url = "github:sxyazi/yazi";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     nh.url = "github:viperML/nh";
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
@@ -32,9 +35,6 @@
       url = "github:svenum/solaar-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Neovim Configurations and Overlays
-    # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # Wayland and GUI Tools
     nixpkgs-wayland = {
@@ -45,17 +45,11 @@
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
-    # Additional Utilities
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Optional inputs (commented out)
-    # devour-flake = {
-    #   url = "github:srid/devour-flake";
-    #   flake = false;
-    # };
+    #Terminal
+    ghostty.url = "github:ghostty-org/ghostty";
+    ## Neovim Configurations and Overlays
+    # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
   outputs =
     {
