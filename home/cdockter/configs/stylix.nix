@@ -14,14 +14,7 @@
     targets = {
       neovim.enable = false;
       tmux.enable = false;
-      kitty.variant256Colors = true;
-      hyprland = {
-        enable = true;
-        # hyprpaper.enable = false;
-      };
       hyprlock.enable = false;
-      # hyprpaper.enable = false;
-      rofi.enable = true;
       waybar = {
         enable = false;
         # enableCenterBackColors = true;
