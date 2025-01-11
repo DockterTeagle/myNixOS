@@ -38,6 +38,12 @@
       general = {
         # layout = "hy3";
       };
+      cursor = {
+        # min_refresh_rate = 60;
+      };
+      # render = {
+      #   direct_scanout = true;
+      # };
       input = {
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
