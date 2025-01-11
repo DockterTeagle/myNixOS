@@ -3,10 +3,12 @@
   ...
 }:
 {
+  imports = [ ./antivirus ];
   security = {
     rtkit.enable = true;
     polkit.enable = true;
     pam.services.hyprlock = { };
+    # antivirus.enable = true;
   };
   systemd = {
     # user.services.polkit-gnome-authentication-agent-1 = {
