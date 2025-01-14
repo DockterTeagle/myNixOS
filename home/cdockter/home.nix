@@ -32,8 +32,7 @@
   #       StandardInput = "tty-force";
   #       StandardOutput = "journal";
   #       StandardError = "journal";
-  #       Environment = "PATH=%h/.nix-profile/bin:/usr/local/bin:/usr/bin:/bin";
-  #     };
+  #       Environment = "PATH=%h/.nix-profile/bin:/usr/local/bin:/usr/bin:/bin"; };
   #     Install = {
   #       WantedBy = [ "default.target" ];
   #     };
@@ -67,6 +66,7 @@
       #
       #  /etc/profiles/per-user/cdockter/etc/profile.d/hm-session-vars.sh
       #
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
       NIXOS_OZONE_WL = "1";
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
       XDG_PICTURES_DIR = "/home/cdockter/Pictures/";

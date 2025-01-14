@@ -38,6 +38,7 @@
       general = {
         # layout = "hy3";
       };
+      #FIXME: make no_hardware_cursors false once hypr is updated
       cursor = {
         no_hardware_cursors = true;
         # min_refresh_rate = 60;
@@ -57,13 +58,17 @@
         kb_rules = "";
         numlock_by_default = true;
 
-        follow_mouse = "1";
+        follow_mouse = 1;
 
         touchpad = {
           disable_while_typing = true;
           natural_scroll = "yes";
         };
         sensitivity = "0.25";
+      };
+      misc = {
+        disable_hyprland_logo = true; # sorry vaxry
+        disable_splash_rendering = true;
       };
       decoration = {
         rounding = 0;
@@ -74,7 +79,7 @@
         # shadow_render_power = 2;
         # shadow_offset = "0 0";
         blur = {
-          enabled = 1;
+          enabled = true;
           size = 4;
           passes = 4;
           ignore_opacity = 1;
@@ -88,10 +93,10 @@
         enabled = true;
       };
 
-      dwindle = {
-        pseudotile = "yes";
-        preserve_split = "yes";
-      };
+      # dwindle = {
+      #   pseudotile = "yes";
+      #   preserve_split = "yes";
+      # };
       gestures = {
         workspace_swipe = "off";
       };
