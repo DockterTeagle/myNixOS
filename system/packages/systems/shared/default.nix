@@ -6,7 +6,6 @@
   imports = [
     ./terminal
     ./clipboard.nix
-    ./gaming.nix
     ./stylix.nix
   ];
   environment.systemPackages = with pkgs; [
