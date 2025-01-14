@@ -1,3 +1,6 @@
 {
-  wsl.defaultUser = "cdockter";
+  wsl = {
+    defaultUser = "cdockter";
+    useWindowsDriver = true;
+  };
 }
