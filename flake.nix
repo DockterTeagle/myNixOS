@@ -5,6 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixcord.url = "github:kaylorben/nixcord";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -139,6 +140,13 @@
                 cdockterSettings
                 ;
             };
+          };
+          NixOS-WSL = nixpkgs.lib.nixosSystem {
+            inherit pkgs;
+            modules = nixpkgs.lib.concatLists [
+              SystemModules
+              [ inputs.nixos-wsl.nixosModules.default ]
+            ];
           };
           nixos = nixpkgs.lib.nixosSystem {
             inherit pkgs;
