@@ -144,8 +144,14 @@
           NixOS-WSL = nixpkgs.lib.nixosSystem {
             inherit pkgs;
             modules = nixpkgs.lib.concatLists [
-              SystemModules
-              [ inputs.nixos-wsl.nixosModules.default ]
+              #SystemModules
+              [
+                inputs.nixos-wsl.nixosModules.default
+                {
+                  system.stateVersion = "24.05";
+                  wsl.enable = true;
+                }
+              ]
             ];
           };
           nixos = nixpkgs.lib.nixosSystem {
