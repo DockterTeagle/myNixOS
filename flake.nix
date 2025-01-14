@@ -186,16 +186,6 @@
             inputs.nixcord.homeManagerModules.nixcord
           ];
         };
-        homeConfigurations.cdockter-wsl = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs cdockterSettings systemSettings;
-          };
-          modules = [
-            ./home/cdockter/home.nix
-            inputs.stylix.homeManagerModules.stylix
-          ];
-        };
       };
       perSystem =
         {
