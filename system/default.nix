@@ -1,7 +1,7 @@
 {
   imports = [
-    ./packages
+    # ./packages
     ./secret-managment
-    # ./systems/MSI-GE75Raider
+    ./systems/WSL
   ];
 }

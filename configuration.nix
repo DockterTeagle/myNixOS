@@ -6,7 +6,7 @@
   # Imports
   imports = [
     # Include the results of the hardware scan.
-    # ./system
+    ./system
   ];
   # Nix settings
   nix = {
