@@ -4,16 +4,19 @@
     fangfrisch
   ];
   services.clamav = {
-    daemon.enable = true;
+    daemon = {
+      enable = true;
+    };
     updater = {
       enable = true;
       frequency = 12;
+      interval = "hourly";
     };
     scanner.enable = true;
     fangfrisch = {
       # interval = "10min";
       enable = true;
-      # settings = { securiteinfo = «thunk»; };
+      # settings = { securiteinfo = thunk»; };
     };
   };
 }
