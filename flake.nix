@@ -125,7 +125,7 @@
           isoImage = nixpkgs.lib.nixosSystem {
             inherit pkgs;
             inherit (systemSettings) system;
-            modules = nixpkgs.lin.concatLists [
+            modules = nixpkgs.lib.concatLists [
               SystemModules
               [
                 "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
