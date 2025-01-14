@@ -44,6 +44,8 @@
         "git pull";
       gp = # fish
         "git push";
+      gcl = # fish
+        "git clone";
       update = # fish
         "topgrade";
       grtr = # fish
