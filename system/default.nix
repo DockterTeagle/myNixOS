@@ -2,6 +2,6 @@
   imports = [
     ./packages
     ./secret-managment
-    ./systems/MSI-GE75Raider
+    # ./systems/MSI-GE75Raider
   ];
 }

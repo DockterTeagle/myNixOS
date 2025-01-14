@@ -5,8 +5,8 @@
 {
   imports = [
     ./GUI
-    ./environments
-    ./hardware
+    # ./environments
+    # ./hardware
     ./network # This module is scary
     ./security
     ./system

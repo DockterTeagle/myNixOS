@@ -143,15 +143,22 @@
           };
           NixOS-WSL = nixpkgs.lib.nixosSystem {
             inherit pkgs;
-            modules = nixpkgs.lib.concatLists [
-              #SystemModules
-              [
-                inputs.nixos-wsl.nixosModules.default
-                {
-                  system.stateVersion = "24.05";
-                  wsl.enable = true;
-                }
-              ]
+            specialArgs = {
+              inherit
+                inputs
+                systemSettings
+                home-manager
+                cdockterSettings
+                ;
+            };
+            modules = [
+              inputs.nixos-wsl.nixosModules.default
+              ./configuration.nix
+              inputs.stylix.nixosModules.stylix
+              {
+                system.stateVersion = "24.05";
+                wsl.enable = true;
+              }
             ];
           };
           nixos = nixpkgs.lib.nixosSystem {
@@ -179,6 +186,16 @@
             inputs.nixcord.homeManagerModules.nixcord
           ];
         };
+        homeConfigurations.cdockter-wsl = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs cdockterSettings systemSettings;
+          };
+          modules = [
+            ./home/cdockter/home.nix
+            inputs.stylix.homeManagerModules.stylix
+          ];
+        };
       };
       perSystem =
         {
@@ -197,6 +214,9 @@
               pkgs.statix
               pkgs.beautysh
               pkgs.gitlint
+              pkgs.ripgrep
+              pkgs.xclip
+              pkgs.wslu
             ];
           };
 

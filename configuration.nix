@@ -6,7 +6,7 @@
   # Imports
   imports = [
     # Include the results of the hardware scan.
-    ./system
+    # ./system
   ];
   # Nix settings
   nix = {
@@ -132,6 +132,6 @@
     };
 
     # NixOS Release Version
-    stateVersion = "23.11"; # Did you read the comment?
+    # stateVersion = "23.11"; # Did you read the comment?
   };
 }
