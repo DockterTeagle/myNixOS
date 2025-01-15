@@ -22,6 +22,7 @@
       "bluetooth.disable_ertm=0"
       "snd-hda-intel.model=auto"
       "snd-hda-intel.probe_mask=1"
+      "threadirqs"
     ];
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key

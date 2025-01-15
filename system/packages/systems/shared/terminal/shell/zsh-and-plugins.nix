@@ -12,7 +12,6 @@
     zip
     lazygit
     zathura
-    gitFull
     ventoy-full # for writing ISO images
     # vim-full
     feh

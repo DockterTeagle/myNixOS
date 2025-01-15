@@ -13,6 +13,7 @@
           "nix"
           "system"
           "home_manager"
+          "clam_av_db"
         ];
         set_title = false;
         cleanup = true;

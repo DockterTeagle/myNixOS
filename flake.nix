@@ -25,8 +25,6 @@
     # Pre-commit hooks for Git
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     # Development Tools and Utilities
-    yazi.url = "github:sxyazi/yazi";
-    nh.url = "github:viperML/nh";
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -46,6 +44,8 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:danth/stylix";
     #Terminal
+    nh.url = "github:viperML/nh";
+    yazi.url = "github:sxyazi/yazi";
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
@@ -125,7 +125,7 @@
           isoImage = nixpkgs.lib.nixosSystem {
             inherit pkgs;
             inherit (systemSettings) system;
-            modules = nixpkgs.lin.concatLists [
+            modules = nixpkgs.lib.concatLists [
               SystemModules
               [
                 "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
@@ -215,7 +215,6 @@
             pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
               src = ./.;
               hooks = {
-                # nix
                 nixfmt-rfc-style.enable = true;
                 statix.enable = true;
                 flake-checker.enable = true;
