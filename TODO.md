@@ -26,3 +26,5 @@
 - [ ] change the starship to go down rather than across
 - [ ] check if transient prompt is possible in starship and if it is enable it
 - [ ] get a yubikey
+- [ ] configure this to set wsl auto
+- [ ] configure nh to detect as well
