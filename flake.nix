@@ -143,15 +143,22 @@
           };
           NixOS-WSL = nixpkgs.lib.nixosSystem {
             inherit pkgs;
-            modules = nixpkgs.lib.concatLists [
-              #SystemModules
-              [
-                inputs.nixos-wsl.nixosModules.default
-                {
-                  system.stateVersion = "24.05";
-                  wsl.enable = true;
-                }
-              ]
+            specialArgs = {
+              inherit
+                inputs
+                systemSettings
+                home-manager
+                cdockterSettings
+                ;
+            };
+            modules = [
+              inputs.nixos-wsl.nixosModules.default
+              ./configuration.nix
+              inputs.stylix.nixosModules.stylix
+              {
+                system.stateVersion = "24.05";
+                wsl.enable = true;
+              }
             ];
           };
           nixos = nixpkgs.lib.nixosSystem {
