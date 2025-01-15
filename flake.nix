@@ -63,6 +63,7 @@
         system = "x86_64-linux";
         hostName = "nixos";
         timezone = "America/Chicago";
+        WSL = false;
       };
       SystemModules = [
         ./configuration.nix
