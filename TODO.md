@@ -1,9 +1,13 @@
 # TODO
 
-- [ ] config all the hypr plugins that I use
-- [ ] config fastfetch
+<!-- toc:start -->
+- [TODO](#todo)
+<!--toc:end-->
 
-- [ ] get laptop audio and battery working
+- [ ] Config all the hypr plugins that I use
+- [ ] Config fastfetch
+
+- [ ] Get laptop audio and battery working
 - [ ] config hyprpaper or swww
 - [ ] config mako
 - [ ] fix git crashing when on https
@@ -17,9 +21,8 @@
 - [ ] make fastfetch image work in tmux
 - [ ] make this system agnostic
 - [ ] use flake-parts more
-- [ ] clean msi fans
-- [ ] consider impermance?
-- [ ] get Nixpkgs to fix their shit
+- [ ] clean MSI fans
+- [ ] consider impermanence?
 - [ ] fix issue where foot and ghostty return to box after opening neovim
 - [ ] wait for ghostty to fix cpu error
 - [ ] fix tokyo-night tmux missing icon
