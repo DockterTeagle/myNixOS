@@ -3,7 +3,6 @@
   inputs = {
     # Core Nix Packages and Flakes
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixcord.url = "github:kaylorben/nixcord";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
@@ -42,6 +41,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    nixcord.url = "github:kaylorben/nixcord";
     stylix.url = "github:danth/stylix";
     #Terminal
     nh.url = "github:viperML/nh";
@@ -205,6 +205,8 @@
               pkgs.statix
               pkgs.beautysh
               pkgs.gitlint
+              pkgs.marksman
+              pkgs.ltex-ls-plus
             ];
           };
 
