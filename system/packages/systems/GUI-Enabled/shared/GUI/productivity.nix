@@ -1,4 +1,4 @@
-# { pkgs, ... }:
+{ pkgs, ... }:
 {
   # hardware.logitech = {
   #   lcd.enable = true;
@@ -7,6 +7,9 @@
   #     enable = true;
   #   };
   # };
+  environment.systemPackages = with pkgs; [
+    onlyoffice-bin_latest
+  ];
   services.solaar = {
     enable = true;
     batteryIcons = "solaar";
