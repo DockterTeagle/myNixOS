@@ -1,3 +1,4 @@
+{ cdockterSettings, ... }:
 {
   programs.hyprpanel = {
     # Enable the module.
@@ -24,27 +25,14 @@
 
     layout = {
       "bar.layouts" = {
-        "0" = {
+        "*" = {
           left = [
             "dashboard"
             "workspaces"
           ];
-          middle = [ "media" ];
+          middle = [ ];
           right = [
-            "volume"
-            "network"
-            "bluetooth"
-            "clock"
-            "notifications"
-          ];
-        };
-        "1" = {
-          left = [
-            "dashboard"
-            "workspaces"
-          ];
-          middle = [ "media" ];
-          right = [
+            # "systray"
             "volume"
             "network"
             "bluetooth"
@@ -60,6 +48,8 @@
       bar = {
         workspaces = {
           monitorSpecific = false;
+          showWsIcons = true;
+          showApplicationIcons = true;
           # icons = {
           #   active = " ";
           # };
@@ -98,7 +88,7 @@
           transparent = true;
         };
         font = {
-          name = "JetBrainsMonoNL Nerd Font Propo Italic";
+          name = cdockterSettings.font;
         };
       };
     };
