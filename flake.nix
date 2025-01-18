@@ -80,7 +80,7 @@
         wm = "hyprland";
         term = "ghostty";
         editor = "nvim";
-        font = "JetBrains Mono Nerd Font";
+        font = "JetBrainsMono NF";
         nerdfont = "jetbrains-mono";
         homeDirectory = "/home/cdockter";
         cursorPackage = "bibata-cursors";
