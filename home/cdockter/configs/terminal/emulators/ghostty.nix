@@ -6,10 +6,10 @@
 {
   programs.ghostty = {
     enable = true;
+    clearDefaultKeybinds = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
-    installBatSyntax = true;
     installVimSyntax = true;
     package = inputs.ghostty.packages.${systemSettings.system}.default.overrideAttrs (old: {
       preBuild =
@@ -26,6 +26,8 @@
     settings = {
       gtk-titlebar = false;
       window-decoration = false;
+      mouse-hide-while-typing = true;
+      confirm-close-surface = false;
     };
   };
 }
