@@ -15,12 +15,6 @@
       neovim.enable = false;
       tmux.enable = false;
       hyprlock.enable = false;
-      waybar = {
-        enable = false;
-        # enableCenterBackColors = true;
-        # enableLeftBackColors = true;
-        # enableRightBackColors = true;
-      };
     };
 
     cursor = {
