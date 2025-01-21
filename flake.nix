@@ -89,7 +89,6 @@
       pkgs = import nixpkgs {
         inherit (systemSettings) system;
         config = {
-          # allowUnfree = true;
           allowUnfreePredicate =
             pkg:
             (builtins.elem (nixpkgs.lib.getName pkg) [
@@ -100,6 +99,7 @@
               "nvidia_driver"
               "xow_dongle-firmware"
               "obsidian"
+              "spotify"
               # "rar"
               # "unrar"
               "intel-ocl"
@@ -199,14 +199,14 @@
         {
           devShells.default = pkgs.mkShell {
             inherit (self'.checks.pre-commit-check) shellHook;
-            packages = [
+            packages = with pkgs; [
               self'.checks.pre-commit-check.enabledPackages
               inputs'.nixd.packages.nixd
-              pkgs.statix
-              pkgs.beautysh
-              pkgs.gitlint
-              pkgs.marksman
-              pkgs.ltex-ls-plus
+              statix
+              beautysh
+              gitlint
+              marksman
+              ltex-ls-plus
             ];
           };
 
