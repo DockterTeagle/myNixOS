@@ -141,7 +141,4 @@
     enable = true;
     windowManager.command = cdockterSettings.wm;
   };
-  home.packages =
-    [
-    ];
 }
