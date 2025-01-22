@@ -4,4 +4,3 @@ reddit:u/Littleone24_
 current issues are as following with most recent inputs update:
 - [ ] nvidida packages beta fails to build
 - [ ] xpadneo fails to build.
-- [ ] lanzaboote fails to build
