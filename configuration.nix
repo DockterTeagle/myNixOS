@@ -126,10 +126,7 @@
 
   # System Auto Upgrade
   system = {
-    autoUpgrade = {
-      enable = false;
-      allowReboot = true;
-    };
+    autoUpgrade.enable = false;
 
     # NixOS Release Version
     stateVersion = "23.11"; # Did you read the comment?
