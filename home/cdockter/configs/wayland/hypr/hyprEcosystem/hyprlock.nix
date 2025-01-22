@@ -10,6 +10,7 @@
       };
       background = [ { monitor = " "; } ];
       label = [
+        #Date
         {
           monitor = "";
           text = "cmd[update:18000000] echo \"<b> \"$(date +'%A, %-d %B %Y')\" </b>\"";
@@ -20,40 +21,37 @@
           valign = "top";
         }
         # Week
-        # {
-        #   monitor = "";
-        # text = cmd[update:18000000] echo "<b> "$(date +'Week %U')" </b>"
-        # color = $color5
-        # font_size = 24
-        # font_family = JetBrains Mono Nerd Font 10
-        # position = 0, -250
-        # halign = center
-        # valign = top
-        #         label {
-        #     monitor =
-        #     #text = cmd[update:1000] echo "<b><big> $(date +"%I:%M:%S %p") </big></b>" # AM/PM
-        #     text = cmd[update:1000] echo "<b><big> $(date +"%H:%M:%S") </big></b>" # 24H
-        #     color = $color15
-        #     font_size = 94
-        #     font_family = JetBrains Mono Nerd Font 10
-        #
-        #     position = 0, 0
-        #     halign = center
-        #     valign = center
-        # }
-        #
-        # # User
-        # label {
-        #     monitor =
-        #     text =    $USER
-        #     color = $color12
-        #     font_size = 18
-        #     font_family = Inter Display Medium
-        #
-        #     position = 0, 100
-        #     halign = center
-        #     valign = bottom
-        # }
+        {
+          monitor = "";
+          text = "cmd[update:18000000] echo \"<b> \"$(date +'Week %U')\" </b>\"";
+          font_size = 24;
+          font_family = "JetBrains Mono Nerd Font 10";
+          position = "0, -250";
+          halign = "center";
+          valign = "top";
+        }
+        #Time
+        {
+          monitor = "";
+          text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\""; # 24H
+          font_size = 94;
+          font_family = "JetBrains Mono Nerd Font 10";
+
+          position = "0, 0";
+          halign = "center";
+          valign = "center";
+        }
+        # User
+        {
+          monitor = "";
+          text = "    $USER";
+          font_size = 18;
+          font_family = "Inter Display Medium";
+          position = "0, 100";
+          halign = "center";
+          valign = "bottom";
+        }
+
         #
         # # uptime
         # label {
@@ -75,7 +73,7 @@
           outline_thickness = 3;
           dots_size = 0.33;
           dots_spacing = 0.15;
-          dots_center = false;
+          dots_center = true;
           dots_rounding = -1;
           outer_color = "rgb(151515)";
           inner_color = "rgb(200, 200, 200)";
@@ -92,9 +90,9 @@
           capslock_color = -1;
           numlock_color = -1;
           bothlock_color = -1;
-          position = "0, -20";
+          position = "0, 200";
           halign = "center";
-          valign = "center";
+          valign = "bottom";
         }
       ];
     };
