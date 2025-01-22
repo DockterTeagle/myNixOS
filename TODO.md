@@ -32,3 +32,4 @@
 - [ ] configure this to set wsl auto
 - [ ] configure nh to detect as well
 - [ ] make all includes work, but make them optional to turn on
+- [ ] refactor into system/systems and system/packages
