@@ -9,11 +9,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    #Used exclusively for firefox
     nur.url = "github:nix-community/NUR";
     #Boot
     ##Secure boot
     lanzaboote = {
-      url = "github:nix-community/lanzaboote";
+      url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ##Disk allocation
@@ -21,9 +22,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Pre-commit hooks for Git
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     # Development Tools and Utilities
+    ## Pre-commit hooks for Git
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    ##lsp
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
       url = "github:Mic92/sops-nix";
