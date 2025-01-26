@@ -33,3 +33,4 @@
 - [ ] configure nh to detect as well
 - [ ] make all includes work, but make them optional to turn on
 - [ ] refactor into system/systems and system/packages
+- [ ] fix the starship prompt issue
