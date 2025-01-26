@@ -19,6 +19,7 @@
   };
   hardware = {
     steam-hardware.enable = true;
+    xpadneo.enable = true;
     xone.enable = true;
     graphics = {
       # extraPackages32 = with pkgs; [
