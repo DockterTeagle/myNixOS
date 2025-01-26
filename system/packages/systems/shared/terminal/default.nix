@@ -10,7 +10,7 @@
     zulu
     languagetool
     obsidian
-    just
+    # just
     ncdu
   ];
 }
