@@ -76,19 +76,6 @@
         inputs.stylix.nixosModules.stylix
         inputs.disko.nixosModules.disko
       ];
-      cdockterSettings = {
-        username = "cdockter";
-        description = "Christopher Ryan Dockter";
-        email = "steampowered.mom596@passinbox.com";
-        wm = "hyprland";
-        term = "ghostty";
-        editor = "nvim";
-        font = "JetBrainsMono NF";
-        nerdfont = "jetbrains-mono";
-        homeDirectory = "/home/cdockter";
-        cursorPackage = "bibata-cursors";
-        cursorName = "Bibata-Modern-Ice";
-      };
       pkgs = import nixpkgs {
         inherit (systemSettings) system;
         config = {
@@ -120,6 +107,19 @@
           inputs.hyprpanel.overlay
           inputs.yazi.overlays.default
         ];
+      };
+      cdockterSettings = {
+        username = "cdockter";
+        description = "Christopher Ryan Dockter";
+        email = "steampowered.mom596@passinbox.com";
+        wm = "hyprland";
+        term = "ghostty";
+        editor = "nvim";
+        font = "JetBrainsMono NF";
+        nerdfont = "jetbrains-mono";
+        homeDirectory = "/home/cdockter";
+        cursorPackage = pkgs.catppuccin-cursors.mochaLight;
+        cursorName = "Catppucin Mocha Light";
       };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
