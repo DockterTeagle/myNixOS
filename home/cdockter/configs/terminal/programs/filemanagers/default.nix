@@ -1,6 +1,6 @@
 {
   imports = [
-    ./n3.nix
+    # ./n3.nix
     ./yazi.nix
   ];
 }
