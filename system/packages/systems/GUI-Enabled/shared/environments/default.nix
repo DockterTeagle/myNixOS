@@ -82,7 +82,6 @@
       cliphist
       polkit
       polkit-kde-agent
-      yazi
       kdePackages.qtwayland
       kdePackages.dolphin # fileManager
       kdePackages.qtsvg
