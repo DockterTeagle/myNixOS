@@ -118,6 +118,7 @@
           inputs.nur.overlays.default
           inputs.nh.overlays.default
           inputs.hyprpanel.overlay
+          inputs.yazi.overlays.default
         ];
       };
     in
