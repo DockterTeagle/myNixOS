@@ -81,18 +81,8 @@
     systemPackages = with pkgs; [
       cliphist
       polkit
-      polkit-kde-agent
-      kdePackages.qtwayland
-      kdePackages.dolphin # fileManager
-      kdePackages.qtsvg
-      kdePackages.kio-fuse
-      kdePackages.kio-extras
       libva-utils
       fuseiso
-      udiskie
-      gsettings-desktop-schemas
-      wlr-randr
-      xdg-utils
       lshw
       pavucontrol
       dbus
