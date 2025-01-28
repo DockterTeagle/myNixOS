@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 {
-  imports = [ ./lanzaboote ];
+  imports = [ ./lanzaboote ]; # TODO: make this depend on system or something so its not hardcoded
   environment.systemPackages = with pkgs; [ sbctl ];
   boot = {
     plymouth = {
@@ -11,6 +11,7 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
+      #silent Boot
       "quiet"
       "splash"
       "boot.shell_on_fail"
@@ -18,6 +19,7 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      #other stuff
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
       "bluetooth.disable_ertm=0"
       "snd-hda-intel.model=auto"
