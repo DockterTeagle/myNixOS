@@ -40,7 +40,7 @@
       };
       #FIXME: make no_hardware_cursors false once hypr is updated
       cursor = {
-        no_hardware_cursors = true;
+        no_hardware_cursors = false;
         # min_refresh_rate = 60;
       };
       render = {
@@ -105,7 +105,6 @@
       "$term" = "${cdockterSettings.term}"; # terminal
 
       exec-once = [
-        "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "$term"
