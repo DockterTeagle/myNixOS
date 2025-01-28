@@ -1,12 +1,8 @@
-{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    fangfrisch
-  ];
   services.clamav = {
-    daemon = {
-      enable = true;
-    };
+    # daemon = {
+    #   enable = true;
+    # }; ONLY enable if more ram, uses 1.5 GB of ram
     updater = {
       enable = true;
       frequency = 12;
