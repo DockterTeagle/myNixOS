@@ -118,8 +118,8 @@
         font = "JetBrainsMono NF";
         nerdfont = "jetbrains-mono";
         homeDirectory = "/home/cdockter";
-        cursorPackage = pkgs.catppuccin-cursors.mochaLight;
-        cursorName = "Catppucin Mocha Light";
+        cursorPackage = pkgs.bibata-cursors;
+        cursorName = "Bibata-Modern-Ice";
       };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
