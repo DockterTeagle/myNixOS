@@ -68,6 +68,8 @@
       #
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       NIXOS_OZONE_WL = "1";
+      HYPRCURSOR_THEME = cdockterSettings.cursorName;
+      HYPRCURSOR_SIZE = 24;
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
       XDG_PICTURES_DIR = "/home/cdockter/Pictures/";
       HYPRSHOT_DIR = "/home/cdockter/Pictures/";
