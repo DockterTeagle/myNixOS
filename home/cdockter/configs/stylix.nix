@@ -18,8 +18,8 @@
     };
 
     cursor = {
-      package = pkgs.${cdockterSettings.cursorPackage};
-      name = "${cdockterSettings.cursorName}";
+      package = cdockterSettings.cursorPackage;
+      name = cdockterSettings.cursorName;
       size = 24;
     };
     fonts = {
@@ -35,7 +35,7 @@
       };
       monospace = {
         package = pkgs.${cdockterSettings.nerdfont};
-        name = "${cdockterSettings.font}";
+        name = cdockterSettings.font;
       };
     };
   };
