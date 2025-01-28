@@ -105,6 +105,7 @@
       enable = true;
       clean = {
         enable = true;
+        dates = "weekly";
         extraArgs = "--keep=3";
       };
       flake = "/home/cdockter/myNixOS/";
