@@ -48,6 +48,10 @@
     stylix.url = "github:danth/stylix";
     #Terminal
     nh.url = "github:viperML/nh";
+    # firefox-addons = {
+    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     yazi.url = "github:sxyazi/yazi";
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
@@ -68,13 +72,13 @@
         timezone = "America/Chicago";
         WSL = false;
       };
-      SystemModules = [
+      SystemModules = with inputs; [
         ./configuration.nix
-        inputs.hyprland.nixosModules.default
-        inputs.solaar.nixosModules.default
-        inputs.lanzaboote.nixosModules.lanzaboote
-        inputs.stylix.nixosModules.stylix
-        inputs.disko.nixosModules.disko
+        hyprland.nixosModules.default
+        solaar.nixosModules.default
+        lanzaboote.nixosModules.lanzaboote
+        stylix.nixosModules.stylix
+        disko.nixosModules.disko
       ];
       pkgs = import nixpkgs {
         inherit (systemSettings) system;
@@ -99,13 +103,13 @@
             ]);
           allowSubstitutes = false;
         };
-        overlays = [
-          inputs.neovim-nightly-overlay.overlays.default
-          inputs.nixpkgs-wayland.overlay
-          inputs.nur.overlays.default
-          inputs.nh.overlays.default
-          inputs.hyprpanel.overlay
-          inputs.yazi.overlays.default
+        overlays = with inputs; [
+          neovim-nightly-overlay.overlays.default
+          nixpkgs-wayland.overlay
+          nur.overlays.default
+          nh.overlays.default
+          hyprpanel.overlay
+          yazi.overlays.default
         ];
       };
       cdockterSettings = {
@@ -128,7 +132,6 @@
       flake = {
         nixosConfigurations = {
           isoImage = nixpkgs.lib.nixosSystem {
-            inherit pkgs;
             inherit (systemSettings) system;
             modules = nixpkgs.lib.concatLists [
               SystemModules
@@ -141,18 +144,15 @@
               inherit
                 inputs
                 systemSettings
-                home-manager
                 cdockterSettings
                 ;
             };
           };
           NixOS-WSL = nixpkgs.lib.nixosSystem {
-            inherit pkgs;
             specialArgs = {
               inherit
                 inputs
                 systemSettings
-                home-manager
                 cdockterSettings
                 ;
             };
@@ -172,24 +172,25 @@
               inherit
                 inputs
                 systemSettings
-                home-manager
                 cdockterSettings
                 ;
             };
             modules = SystemModules;
           };
         };
-        homeConfigurations.cdockter = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs cdockterSettings systemSettings;
+        homeConfigurations = {
+          cdockter = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = {
+              inherit inputs cdockterSettings systemSettings;
+            };
+            modules = [
+              ./home/cdockter/home.nix
+              inputs.stylix.homeManagerModules.stylix
+              inputs.hyprpanel.homeManagerModules.hyprpanel
+              inputs.nixcord.homeManagerModules.nixcord
+            ];
           };
-          modules = [
-            ./home/cdockter/home.nix
-            inputs.stylix.homeManagerModules.stylix
-            inputs.hyprpanel.homeManagerModules.hyprpanel
-            inputs.nixcord.homeManagerModules.nixcord
-          ];
         };
       };
       perSystem =
