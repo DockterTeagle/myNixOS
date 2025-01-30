@@ -13,7 +13,7 @@
     installVimSyntax = true;
     package = inputs.ghostty.packages.${systemSettings.system}.default.overrideAttrs (old: {
       preBuild =
-        (old.preBuild or [ ])
+        (old.preBuild or "")
         +
           #bash
           ''
