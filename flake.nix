@@ -42,7 +42,16 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
+    };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     nixcord.url = "github:kaylorben/nixcord";
     stylix.url = "github:danth/stylix";
