@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     xdotool
-    # ripgrep
+    ripgrep
     ctags
   ];
 }
