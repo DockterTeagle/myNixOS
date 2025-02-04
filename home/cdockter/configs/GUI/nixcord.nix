@@ -13,6 +13,9 @@
         #   enable = true;
         #   closeOthers = true;
         # };
+        fakeNitro = {
+          enable = true;
+        };
         anonymiseFileNames = {
           enable = true;
           anonymiseByDefault = true;
