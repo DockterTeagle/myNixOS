@@ -7,9 +7,6 @@
         style = "beam";
         blink = "yes";
       };
-      main = {
-        term = "xterm-256color";
-      };
     };
   };
 }
