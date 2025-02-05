@@ -218,6 +218,7 @@
               inputs'.nixd.packages.nixd
               statix
               beautysh
+              yq
               gitlint
               marksman
               ltex-ls-plus
