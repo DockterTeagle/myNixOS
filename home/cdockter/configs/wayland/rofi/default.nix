@@ -2,7 +2,6 @@
 {
   imports = [ ./tofi.nix ];
   home.packages = with pkgs; [
-
     rofi-power-menu
   ];
   programs.rofi = {
