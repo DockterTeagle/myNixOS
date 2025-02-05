@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
     inotify-tools
-    mcontrolcenter
   ];
   services = {
     power-profiles-daemon.enable = lib.mkForce false;
