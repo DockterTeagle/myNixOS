@@ -215,8 +215,9 @@
             inherit (self'.checks.pre-commit-check) shellHook;
             packages = with pkgs; [
               self'.checks.pre-commit-check.enabledPackages
-              inputs'.nixd.packages.nixd
               statix
+              inputs'.nixd.packages.nixd
+              #formatters
               beautysh
               yq
               gitlint
