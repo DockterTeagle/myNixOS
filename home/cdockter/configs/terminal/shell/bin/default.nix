@@ -6,5 +6,6 @@
     ./fzf.nix
     ./lsd.nix
     ./zoxide.nix
+    ./thefuck.nix
   ];
 }
