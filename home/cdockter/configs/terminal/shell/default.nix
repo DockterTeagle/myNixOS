@@ -5,5 +5,6 @@
     ./fish.nix
     ./zsh.nix
     ./tmux.nix
+    ./nushell.nix
   ];
 }
