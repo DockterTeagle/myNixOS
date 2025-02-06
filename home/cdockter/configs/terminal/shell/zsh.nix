@@ -1,12 +1,5 @@
 {
   programs = {
-    thefuck = {
-      enableFishIntegration = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-      enableNushellIntegration = true;
-      enable = true;
-    };
     zsh = {
       enable = true;
       autosuggestion.enable = true;
