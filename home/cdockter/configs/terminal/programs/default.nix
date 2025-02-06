@@ -4,5 +4,7 @@
     ./topgrade.nix
     ./filemanagers
     ./systemmonitors
+    ./bin
+    ./tmux.nix
   ];
 }
