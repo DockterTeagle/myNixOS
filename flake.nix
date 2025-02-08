@@ -44,10 +44,6 @@
     };
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
     hy3 = {
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
@@ -193,11 +189,11 @@
             extraSpecialArgs = {
               inherit inputs cdockterSettings systemSettings;
             };
-            modules = [
+            modules = with inputs; [
               ./home/cdockter/home.nix
-              inputs.stylix.homeManagerModules.stylix
-              inputs.hyprpanel.homeManagerModules.hyprpanel
-              inputs.nixcord.homeManagerModules.nixcord
+              stylix.homeManagerModules.stylix
+              hyprpanel.homeManagerModules.hyprpanel
+              nixcord.homeManagerModules.nixcord
             ];
           };
         };
