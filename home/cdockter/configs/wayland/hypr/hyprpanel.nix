@@ -30,9 +30,8 @@
             "dashboard"
             "workspaces"
           ];
-          middle = [ ];
+          middle = [ "systray" ];
           right = [
-            # "systray"
             "volume"
             "network"
             "bluetooth"
