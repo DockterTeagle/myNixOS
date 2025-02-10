@@ -35,3 +35,4 @@
 - [ ] refactor into system/systems and system/packages
 - [ ] fix the starship prompt issue
 - [ ] make a changelog like thing that shows each resolved item in this TODO, and explains how it was resolved
+- [ ] try out nushell
