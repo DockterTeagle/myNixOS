@@ -137,6 +137,7 @@
       flake = {
         nixosConfigurations = {
           isoImage = nixpkgs.lib.nixosSystem {
+            inherit pkgs;
             inherit (systemSettings) system;
             modules = nixpkgs.lib.concatLists [
               SystemModules
@@ -154,6 +155,7 @@
             };
           };
           NixOS-WSL = nixpkgs.lib.nixosSystem {
+            inherit pkgs;
             specialArgs = {
               inherit
                 inputs
