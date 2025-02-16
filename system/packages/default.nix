@@ -4,16 +4,7 @@
 }:
 {
   imports = [
-    # ./GUI
-    # ./environments
-    # ./hardware
-    # ./network # This module is scary
-    # ./security
-    # ./system
-    ./terminal
-    # ./gaming.nix
-    ./stylix.nix
-    ./clipboard.nix
+    ./per-system
   ];
   environment.systemPackages = with pkgs; [
     woeusb

@@ -69,19 +69,19 @@
     tumbler.enable = true;
 
     # XServer and GNOME
-    xserver =
-      #TODO: disable me sometime
-      {
-        enable = true;
-        xkb = {
-          layout = "us";
-          variant = "";
-        };
-        excludePackages = [ pkgs.xterm ];
-        videoDrivers = [
-          "nvidia"
-        ];
-      };
+    # xserver =
+    #   #TODO: disable me sometime
+    #   {
+    #     enable = true;
+    #     xkb = {
+    #       layout = "us";
+    #       variant = "";
+    #     };
+    #     excludePackages = [ pkgs.xterm ];
+    #     videoDrivers = [
+    #       "nvidia"
+    #     ];
+    #   };
   };
 
   # Users

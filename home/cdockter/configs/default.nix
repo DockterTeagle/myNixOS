@@ -1,8 +1,8 @@
 {
   imports = [
-    ./GUI
+    # ./GUI
     ./solaar.nix
-    ./wayland
+    # ./wayland
     ./terminal
     ./stylix.nix
   ];
