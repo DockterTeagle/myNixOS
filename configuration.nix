@@ -34,12 +34,12 @@
   };
 
   # XDG settings
-  xdg = {
-    autostart.enable = true;
-    portal = {
-      enable = true;
-    };
-  };
+  # xdg = {
+  #   autostart.enable = true;
+  #   portal = {
+  #     enable = true;
+  #   };
+  # };
 
   # Time and Locale
   time.timeZone = "America/Chicago";
@@ -112,10 +112,10 @@
     };
     fish.enable = true;
     zsh.enable = true;
-    hyprland = {
-      enable = true;
-      withUWSM = true;
-    };
+    # hyprland = {
+    #   enable = true;
+    #   withUWSM = true;
+    # };
     dconf.enable = true;
   };
 
