@@ -6,12 +6,12 @@
 }:
 {
   wayland.windowManager.hyprland = {
-    # plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
-    #   inputs.hy3.packages.x86_64-linux.hy3
-    #   hyprbars
+    # plugins = with inputs; [
+    #   hy3.packages.x86_64-linux.hy3
     # ];
 
     package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
     extraConfig =
       #hyprlang
       ''
@@ -32,16 +32,20 @@
       # debug = {
       #   disable_logs = false;
       # };
-      plugin = {
-        hy3 = { };
-      }; # configure plugins here
+      # plugin = {
+      #   hy3 = {
+      #     autotile = {
+      #       enable = true;
+      #     };
+      #   };
+      # }; # configure plugins here
       general = {
         # layout = "hy3";
       };
       #FIXME: make no_hardware_cursors false once hypr is updated
       cursor = {
-        no_hardware_cursors = false;
-        # min_refresh_rate = 60;
+        no_hardware_cursors = true;
+        min_refresh_rate = 60;
       };
       render = {
         direct_scanout = true;
