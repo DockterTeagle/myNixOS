@@ -7,5 +7,6 @@
     ./lsd.nix
     ./zoxide.nix
     ./thefuck.nix
+    ./carapace.nix
   ];
 }
