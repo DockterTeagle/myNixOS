@@ -10,9 +10,7 @@ in
 {
   add_newline = false;
   format = concatStringsSep "" [
-    "${corner_top}"
-    "\n"
-    "${vertical}$username"
+    "${corner_top} $username"
     "$hostname"
     "$kubernetes"
     "$vcsh"
@@ -23,11 +21,13 @@ in
     "$git_status"
     "$hg_branch"
     "$docker_context"
+    "(\n"
+    "${vertical}"
+    " $direnv"
     "$package"
     "$cmake"
     "$dart"
     "$deno"
-    "$direnv"
     "$dotnet"
     "$elixir"
     "$elm"
@@ -64,17 +64,15 @@ in
     "$crystal"
     "$cmd_duration"
     "$lua"
-    "$jobs"
-    "$battery"
+    "$jobs)"
     "\n"
     "${vertical}$directory"
     "\n"
-    "${vertical}$status"
+    "${corner_bottom} $status"
     " [ $shell](bold)"
-    # "$shlvl"
+    "$shlvl"
     "$character"
-    "\n"
-    "${corner_bottom}"
+    # "${corner_bottom}"
   ];
   directory = {
     truncation_length = 0;
