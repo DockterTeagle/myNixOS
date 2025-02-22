@@ -3,14 +3,14 @@ let
     concatStringsSep
     ;
   vertical = "┃ ";
-  corner_top = "╭"; # Top corner
-  corner_bottom = "╰"; # Bottom corner"
+  corner_top = "⎧ "; # Top corner
+  corner_bottom = "╰ "; # Bottom corner"
 in
 
 {
   add_newline = false;
   format = concatStringsSep "" [
-    "${corner_top} $username"
+    "${corner_top}$username"
     "$hostname"
     "$kubernetes"
     "$vcsh"
@@ -68,7 +68,7 @@ in
     "\n"
     "${vertical}$directory"
     "\n"
-    "${corner_bottom} $status"
+    "${corner_bottom}$status"
     " [ $shell](bold)"
     "$shlvl"
     "$character"
