@@ -11,23 +11,18 @@
     enableFishIntegration = true;
     enableZshIntegration = true;
     installVimSyntax = true;
-    package = inputs.ghostty.packages.${systemSettings.system}.default.overrideAttrs (old: {
-      preBuild =
-        (old.preBuild or "")
-        +
-          #bash
-          ''
-            # use Epoll due to io_uring spamming iowait
-            shopt -s globstar
-            sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
-            shopt -u globstar
-          '';
-    });
+    installBatSyntax = true;
+    package = inputs.ghostty.packages.${systemSettings.system}.default;
     settings = {
       gtk-titlebar = false;
       window-decoration = false;
       mouse-hide-while-typing = true;
       confirm-close-surface = false;
+      async-backend = "epoll";
+      keybind = [
+        "ctrl+shift+v=paste_from_clipboard"
+        "ctrl+shift+c=copy_to_clipboard"
+      ];
     };
   };
 }
