@@ -3,8 +3,7 @@
   cdockterSettings,
   systemSettings,
   ...
-}:
-{
+}: {
   wayland.windowManager.hyprland = {
     # plugins = with inputs; [
     #   hy3.packages.x86_64-linux.hy3
@@ -15,15 +14,15 @@
     extraConfig =
       #hyprlang
       ''
-          bind = $mainMod,space,submap, prefix
-          submap = prefix
-          bind = SHIFT,z,fullscreen, 
-          bind = ,z,fullscreen,1
-          # add more later
+        bind = $mainMod,space,submap, prefix
+        submap = prefix
+        bind = SHIFT,z,fullscreen,
+        bind = ,z,fullscreen,1
+        # add more later
         #also add an indicator somewhere
-          bind = ,escape,submap,reset 
-          # bind = ,catchall, submap, reset
-          submap = reset
+        bind = ,escape,submap,reset
+        # bind = ,catchall, submap, reset
+        submap = reset
       '';
     enable = true;
     xwayland.enable = true;
@@ -111,8 +110,8 @@
       exec-once = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "$term"
-        "uwsm app -- firefox"
+        "uwsm app -- $term"
+        "uwsm app -- zen-twilight"
         "uwsm app -- vesktop"
       ];
 
@@ -151,7 +150,7 @@
         "$mainMod , 0, workspace, 10"
         #shortcuts
         "$mainMod_SHIFT,l,exec,hyprlock"
-        "$mainMod,q,exec,$term"
+        "$mainMod,q,exec,uwsm app -- $term"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
         "$mainMod,D,exec,uwsm app -- vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"

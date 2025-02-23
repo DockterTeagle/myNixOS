@@ -1,7 +1,10 @@
-{ pkgs, lib, ... }:
 {
-  imports = [ ./lanzaboote ]; # TODO: make this depend on system or something so its not hardcoded
-  environment.systemPackages = with pkgs; [ sbctl ];
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [./lanzaboote]; # TODO: make this depend on system or something so its not hardcoded
+  environment.systemPackages = with pkgs; [sbctl];
   boot = {
     plymouth = {
       enable = true;

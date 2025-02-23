@@ -1,13 +1,12 @@
 let
-  inherit (builtins)
+  inherit
+    (builtins)
     concatStringsSep
     ;
   vertical = "┃ ";
   corner_top = "⎧ "; # Top corner
   corner_bottom = "╰ "; # Bottom corner"
-in
-
-{
+in {
   add_newline = false;
   format = concatStringsSep "" [
     "${corner_top}$username"

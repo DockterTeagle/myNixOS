@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.neovim = {
     package = pkgs.neovim;
     # package = inputs.nvimconfig.packages.${systemSettings.system}.default;

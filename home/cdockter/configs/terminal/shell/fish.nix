@@ -4,7 +4,8 @@
     generateCompletions = true;
     functions = {
       sesh_sessions = {
-        body = # fish
+        body =
+          # fish
           "
            exec </dev/tty
           exec <&1
@@ -25,36 +26,50 @@
 
       '';
     shellAbbrs = {
-      AlecaFrame = # fish
+      AlecaFrame =
+        # fish
         "protonhax run 230410 \"/home/cdockter/.local/share/Steam/steamapps/compatdata/230410/pfx/drive_c/users/steamuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Overwolf/AlecaFrame.lnk\"";
-      cpv = # fish
+      cpv =
+        # fish
         "rsync -pogbr -hhh --backup-dir=\"/tmp/rsync-$USERNAME\" --progress";
       tkss = "tmux kill-session ";
       tksv = "tmux kill-server";
       ta = "tmux attach ";
-      g = # fish
+      g =
+        # fish
         "git";
-      ga = # fish
+      ga =
+        # fish
         "git add";
-      gaa = # fish
+      gaa =
+        # fish
         "git add --all";
-      gc = # fish
+      gc =
+        # fish
         "git commit";
-      gl = # fish
+      gl =
+        # fish
         "git pull";
-      gp = # fish
+      gp =
+        # fish
         "git push";
-      gcl = # fish
+      gcl =
+        # fish
         "git clone";
-      update = # fish
+      update =
+        # fish
         "topgrade";
-      grtr = # fish
+      grtr =
+        # fish
         "cd \"$(git rev-parse --show-toplevel || echo .)\"";
-      cdi = # fish
+      cdi =
+        # fish
         "__zoxide_zi";
-      man = # fish
+      man =
+        # fish
         "batman";
-      cd = # fish
+      cd =
+        # fish
         "__zoxide_z";
     };
 

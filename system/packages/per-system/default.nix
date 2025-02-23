@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   options.programs.gui = {
     enable = lib.mkEnableOption "Enable the GUI";
   };

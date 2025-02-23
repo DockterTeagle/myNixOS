@@ -1,5 +1,8 @@
-{ pkgs, cdockterSettings, ... }:
 {
+  pkgs,
+  cdockterSettings,
+  ...
+}: {
   stylix = {
     image = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/wallpapers/nixos-wallpaper-catppuccin-mocha.png";

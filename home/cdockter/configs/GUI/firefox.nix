@@ -3,15 +3,14 @@
   inputs,
   systemSettings,
   ...
-}:
-{
-  home.packages = with inputs; [ zen-browser.packages.${systemSettings.system}.twilight ];
+}: {
+  home.packages = with inputs; [zen-browser.packages.${systemSettings.system}.twilight];
   programs.firefox = {
     enable = true;
     profiles = {
       cdockter = {
         extensions = {
-          settings = { };
+          settings = {};
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
             tree-style-tab
             facebook-container

@@ -1,13 +1,9 @@
-{
-  pkgs,
-  ...
-}:
-{
-  imports = [ ./antivirus ];
+{pkgs, ...}: {
+  imports = [./antivirus];
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-    pam.services.hyprlock = { };
+    pam.services.hyprlock = {};
     # antivirus.enable = true;
   };
   systemd = {

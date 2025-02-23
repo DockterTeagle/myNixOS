@@ -2,8 +2,7 @@
   inputs,
   systemSettings,
   ...
-}:
-{
+}: {
   programs.ghostty = {
     enable = true;
     clearDefaultKeybinds = true;
