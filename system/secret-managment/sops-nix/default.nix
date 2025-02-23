@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = [inputs.sops-nix.nixosModules.sops];
@@ -8,17 +9,19 @@
     sops
     age
   ];
-  # sops = {
-  #   defaultSopsFile = ./secrets.yaml;
-  #   defaultSopsFormat = "yaml";
-  #   age.keyFile = "/home/cdockter/.config/sops/age/keys.txt";
-  #   secrets.example-key = { };
-  # };
-  # programs.gnupg = {
-  #   agent = {
-  #     enable = true;
-  #     enableSSHSupport = true;
-  #
-  #   };
-  # };
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/cdockter/.config/sops/age/keys.txt";
+    secrets = {
+      cdockter_password = {
+        format = "yaml";
+        neededForUsers = true;
+      };
+      nixAccessTokens = {
+        mode = "0440";
+        group = config.users.groups.keys.name;
+      };
+    };
+  };
 }

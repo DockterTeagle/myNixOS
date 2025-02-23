@@ -4,6 +4,7 @@
 {
   pkgs,
   cdockterSettings,
+  config,
   ...
 }: {
   # Imports
@@ -13,6 +14,9 @@
   ];
   # Nix settings
   nix = {
+    # extraOptions = ''
+    #   !include ${config.sops.secrets.nixAccessTokens.path}
+    # '';
     settings = {
       experimental-features = [
         "nix-command"
@@ -71,6 +75,7 @@
     printing.enable = false;
     tumbler.enable = true;
 
+    pcscd.enable = true;
     # XServer and GNOME
     xserver =
       #TODO: disable me sometime
@@ -92,6 +97,7 @@
     cdockter = {
       shell = pkgs.fish;
       isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets.cdockter_password.path;
       inherit (cdockterSettings) description;
       extraGroups = [
         "networkmanager"
@@ -104,6 +110,12 @@
   # Programs
   programs = {
     # nix-ld.dev.enable = true;
+    gnupg = {
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
+    };
     nh = {
       enable = true;
       clean = {
