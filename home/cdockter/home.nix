@@ -2,8 +2,7 @@
   cdockterSettings,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ./configs
     ./scripts.nix

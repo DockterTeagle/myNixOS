@@ -1,7 +1,6 @@
 {
   disko.devices = {
     disk = {
-
       EHDD = {
         type = "disk";
         device = "/dev/sda";

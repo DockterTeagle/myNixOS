@@ -5,6 +5,6 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableNushellIntegration = true;
-    options = [ "--no-cmd" ];
+    options = ["--no-cmd"];
   };
 }

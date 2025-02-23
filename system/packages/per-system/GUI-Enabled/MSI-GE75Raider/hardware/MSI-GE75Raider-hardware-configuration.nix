@@ -6,15 +6,12 @@
   lib,
   modulesPath,
   ...
-}:
-
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
-
     initrd = {
       availableKernelModules = [
         "xhci_pci"
@@ -24,10 +21,10 @@
         "sd_mod"
         "rtsx_usb_sdmmc"
       ];
-      kernelModules = [ ];
+      kernelModules = [];
     };
-    kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ ];
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

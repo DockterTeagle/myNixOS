@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #Boot
     ##Secure boot
     lanzaboote = {
@@ -63,76 +67,73 @@
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
-  outputs =
-    {
-      home-manager,
-      nixpkgs,
-      flake-parts,
-      ...
-    }@inputs:
-    let
-      systemSettings = {
-        system = "x86_64-linux";
-        hostName = "nixos";
-        timezone = "America/Chicago";
-        WSL = false;
+  outputs = {
+    home-manager,
+    nixpkgs,
+    flake-parts,
+    ...
+  } @ inputs: let
+    systemSettings = {
+      system = "x86_64-linux";
+      hostName = "nixos";
+      timezone = "America/Chicago";
+      WSL = false;
+    };
+    SystemModules = with inputs; [
+      ./configuration.nix
+      hyprland.nixosModules.default
+      solaar.nixosModules.default
+      lanzaboote.nixosModules.lanzaboote
+      stylix.nixosModules.stylix
+      disko.nixosModules.disko
+    ];
+    pkgs = import nixpkgs {
+      inherit (systemSettings) system;
+      config = {
+        allowUnfreePredicate = pkg: (builtins.elem (nixpkgs.lib.getName pkg) [
+          "nvidia-x11"
+          "discord"
+          "steam-unwrapped"
+          "steam"
+          "nvidia_driver"
+          "xow_dongle-firmware"
+          "obsidian"
+          "spotify"
+          # "rar"
+          # "unrar"
+          "intel-ocl"
+          "nvidia-settings"
+          "fakespot-fake-reviews-amazon"
+          "onetab"
+        ]);
+        allowSubstitutes = false;
       };
-      SystemModules = with inputs; [
-        ./configuration.nix
-        hyprland.nixosModules.default
-        solaar.nixosModules.default
-        lanzaboote.nixosModules.lanzaboote
-        stylix.nixosModules.stylix
-        disko.nixosModules.disko
+      overlays = with inputs; [
+        neovim-nightly-overlay.overlays.default
+        nixpkgs-wayland.overlay
+        nur.overlays.default
+        nh.overlays.default
+        hyprpanel.overlay
+        yazi.overlays.default
+        alejandra.overlay
       ];
-      pkgs = import nixpkgs {
-        inherit (systemSettings) system;
-        config = {
-          allowUnfreePredicate =
-            pkg:
-            (builtins.elem (nixpkgs.lib.getName pkg) [
-              "nvidia-x11"
-              "discord"
-              "steam-unwrapped"
-              "steam"
-              "nvidia_driver"
-              "xow_dongle-firmware"
-              "obsidian"
-              "spotify"
-              # "rar"
-              # "unrar"
-              "intel-ocl"
-              "nvidia-settings"
-              "fakespot-fake-reviews-amazon"
-              "onetab"
-            ]);
-          allowSubstitutes = false;
-        };
-        overlays = with inputs; [
-          neovim-nightly-overlay.overlays.default
-          nixpkgs-wayland.overlay
-          nur.overlays.default
-          nh.overlays.default
-          hyprpanel.overlay
-          yazi.overlays.default
-        ];
-      };
-      cdockterSettings = {
-        username = "cdockter";
-        description = "Christopher Ryan Dockter";
-        email = "steampowered.mom596@passinbox.com";
-        wm = "hyprland";
-        term = "ghostty";
-        editor = "nvim";
-        font = "JetBrainsMono NF";
-        nerdfont = "jetbrains-mono";
-        homeDirectory = "/home/cdockter";
-        cursorPackage = pkgs.bibata-cursors;
-        cursorName = "Bibata-Modern-Ice";
-      };
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    };
+    cdockterSettings = {
+      username = "cdockter";
+      description = "Christopher Ryan Dockter";
+      email = "steampowered.mom596@passinbox.com";
+      wm = "hyprland";
+      term = "ghostty";
+      editor = "nvim";
+      font = "JetBrainsMono NF";
+      nerdfont = "jetbrains-mono";
+      homeDirectory = "/home/cdockter";
+      cursorPackage = pkgs.bibata-cursors;
+      cursorName = "Bibata-Modern-Ice";
+    };
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
       debug = true;
       flake = {
         nixosConfigurations = {
@@ -200,42 +201,41 @@
           };
         };
       };
-      perSystem =
-        {
-          inputs',
-          self',
-          pkgs,
-          system,
-          ...
-        }:
-        {
-          devShells.default = pkgs.mkShell {
-            inherit (self'.checks.pre-commit-check) shellHook;
-            packages = with pkgs; [
-              self'.checks.pre-commit-check.enabledPackages
-              statix
-              inputs'.nixd.packages.nixd
-              #formatters
-              beautysh
-              yq
-              gitlint
-              marksman
-              ltex-ls-plus
-            ];
-          };
+      perSystem = {
+        inputs',
+        self',
+        pkgs,
+        system,
+        ...
+      }: {
+        devShells.default = pkgs.mkShell {
+          inherit (self'.checks.pre-commit-check) shellHook;
+          packages = with pkgs; [
+            self'.checks.pre-commit-check.enabledPackages
+            statix
+            inputs'.nixd.packages.nixd
+            #formatters
+            beautysh
+            yq
+            gitlint
+            marksman
+            ltex-ls-plus
+          ];
+        };
 
-          formatter = pkgs.nixfmt-rfc-style;
-          checks = {
-            pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-              src = ./.;
-              hooks = {
-                nixfmt-rfc-style.enable = true;
-                statix.enable = true;
-                flake-checker.enable = true;
-                deadnix.enable = true;
-              };
+        formatter = pkgs.alejandra;
+        checks = {
+          pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              alejandra.enable = true;
+              statix.enable = true;
+              flake-checker.enable = true;
+              deadnix.enable = true;
+              trufflehog.enable = true;
             };
           };
         };
+      };
     };
 }

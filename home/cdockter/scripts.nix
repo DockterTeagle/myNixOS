@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    (writeShellScriptBin "protonhax"
+    (
+      writeShellScriptBin "protonhax"
       #bash
       ''
         #!${pkgs.bash}/bin/bash
@@ -81,7 +81,8 @@
         fi
       ''
     )
-    (writeShellScriptBin "home-manager-rollback"
+    (
+      writeShellScriptBin "home-manager-rollback"
       #bash
       ''
         GENERATION=$(home-manager generations | fzf | awk -F '-> ' '{print $2 "/activate"}')
@@ -94,7 +95,8 @@
         fi
       ''
     )
-    (writeShellScriptBin "file-search"
+    (
+      writeShellScriptBin "file-search"
       #bash
       ''
         fd --type f --hidden --exclude .git --color=always . | rofi -dmenu -i -p "Search Files:" -markup-rows

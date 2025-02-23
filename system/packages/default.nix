@@ -1,3 +1,3 @@
 {
-  imports = [ ./per-system ];
+  imports = [./per-system];
 }
