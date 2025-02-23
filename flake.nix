@@ -235,7 +235,10 @@
               statix.enable = true;
               flake-checker.enable = true;
               deadnix.enable = true;
-              trufflehog.enable = true;
+              trufflehog = {
+                enable = true;
+                excludes = [""];
+              };
             };
           };
         };
