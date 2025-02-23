@@ -228,6 +228,9 @@
           pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
+              markdownlint.enable = true;
+              mdl.enable = true;
+              mdsh.enable = true;
               alejandra.enable = true;
               statix.enable = true;
               flake-checker.enable = true;
