@@ -1,0 +1,8 @@
+keys:
+  - &cdockter age18r0acalespqnu703j3585p0gw4s8mlwfpnsh8z54are5yw0jjugsjhh7zw
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+        - *cdockter
+
