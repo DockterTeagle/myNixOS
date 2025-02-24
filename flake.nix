@@ -87,6 +87,7 @@
       lanzaboote.nixosModules.lanzaboote
       stylix.nixosModules.stylix
       disko.nixosModules.disko
+      sops-nix.nixosModules.sops
     ];
     pkgs = import nixpkgs {
       inherit (systemSettings) system;
@@ -198,6 +199,7 @@
               stylix.homeManagerModules.stylix
               hyprpanel.homeManagerModules.hyprpanel
               nixcord.homeManagerModules.nixcord
+              sops-nix.homeManagerModules.sops
             ];
           };
         };

@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./configs
+    ./secrets
     ./scripts.nix
   ];
   gtk = {
