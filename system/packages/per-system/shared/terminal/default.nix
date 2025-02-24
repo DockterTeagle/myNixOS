@@ -7,7 +7,6 @@
     pstree
     gnumake
     zulu
-    languagetool
     obsidian
     # just
     ncdu
