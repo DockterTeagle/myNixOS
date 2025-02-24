@@ -101,8 +101,6 @@
           "xow_dongle-firmware"
           "obsidian"
           "spotify"
-          # "rar"
-          # "unrar"
           "intel-ocl"
           "nvidia-settings"
           "fakespot-fake-reviews-amazon"
