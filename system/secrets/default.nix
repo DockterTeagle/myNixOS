@@ -3,10 +3,8 @@
   config,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    sops
-    age
-  ];
+  imports = [./sops-nix];
+  services.yubikey-agent.enable = true;
   sops = {
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
@@ -22,4 +20,12 @@
       };
     };
   };
+  environment.systemPackages = with pkgs; [
+    sops
+    age
+    yubikey-manager
+    gpg-tui
+    gnupg
+    pinentry-all
+  ];
 }
