@@ -3,7 +3,6 @@
   config,
   ...
 }: {
-  imports = [./sops-nix];
   services.yubikey-agent.enable = true;
   sops = {
     defaultSopsFile = ./secrets.yaml;
