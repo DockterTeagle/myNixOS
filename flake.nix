@@ -27,7 +27,7 @@
     };
     # Development Tools and Utilities
     ## Pre-commit hooks for Git
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     ##lsp
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
@@ -137,6 +137,9 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       debug = true;
+      imports = [
+        inputs.git-hooks-nix.flakeModule
+      ];
       flake = {
         nixosConfigurations = {
           isoImage = nixpkgs.lib.nixosSystem {
@@ -215,10 +218,8 @@
           inherit (self'.checks.pre-commit-check) shellHook;
           packages = with pkgs; [
             self'.checks.pre-commit-check.enabledPackages
-            statix
             inputs'.nixd.packages.nixd
             #formatters
-            beautysh
             yq
             gitlint
             marksman
@@ -228,9 +229,16 @@
 
         formatter = pkgs.alejandra;
         checks = {
-          pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+          pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
             src = ./.;
             hooks = {
+              #shell
+              beautysh.enable = true;
+              #yaml
+              check-yaml.enable = true;
+              sort-simple-yaml.enable = true;
+              yamlfmt.enable = true;
+              yamllint.enable = true;
               # markdown
               markdownlint.enable = true;
               mdl.enable = true;
@@ -245,7 +253,7 @@
                 enable = true;
               };
               #git
-              annex.enable = true;
+              # annex.enable = true;
               check-merge-conflicts.enable = true;
               detect-private-keys.enable = true;
               commitizen.enable = true;
