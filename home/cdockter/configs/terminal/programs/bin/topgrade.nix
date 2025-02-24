@@ -24,7 +24,7 @@
         "Update All Nix Flakes" =
           # bash
           ''
-                  bash -c 'fd -t f flake.nix ~/ --print0 --exclude .local | xargs -0 -P 4 -I {} bash -c "
+                  bash -c 'fd -t f --hidden flake.nix ~/ --print0 --exclude .local | xargs -0 -P 4 -I {} bash -c "
                 dir=\$(dirname \"{}\");
                 echo \"Updating flake in directory: \$dir\";
                 nix flake update --flake \"\$dir\" || true
