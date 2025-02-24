@@ -235,11 +235,6 @@
             hooks = {
               #shell
               beautysh.enable = true;
-              #yaml
-              check-yaml.enable = true;
-              sort-simple-yaml.enable = true;
-              yamlfmt.enable = true;
-              yamllint.enable = true;
               # markdown
               markdownlint.enable = true;
               mdl.enable = true;
