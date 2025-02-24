@@ -224,6 +224,7 @@
             gitlint
             marksman
             ltex-ls-plus
+            codespell
           ];
         };
 
