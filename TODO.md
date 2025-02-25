@@ -3,12 +3,12 @@
 - [ ] Config all the hypr plugins that I use
 - [ ] Config fastfetch
 - [ ] Get laptop audio and battery working
-- [X] config hyprpaper or swww
+- [x] config hyprpaper or swww
   - using stylix
-- [X] config mako
+- [x] config mako
   - using hyprpanel for now
 - [ ] fix git crashing when on https
-- [X] sort remaining packages in zsh.nix and configuration.nix into their
+- [x] sort remaining packages in zsh.nix and configuration.nix into their
       respective packages
 - [ ] find a way to only have one version of hyprland installed as currently
       there is two, one in home and one in system
