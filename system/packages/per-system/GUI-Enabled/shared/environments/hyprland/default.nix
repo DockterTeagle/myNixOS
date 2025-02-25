@@ -9,6 +9,8 @@
     hyprpicker
     hyprshot
     hyprsunset
+    hyprpolkitagent
+    hyprsysteminfo
     # wf-recorder
   ];
 }
