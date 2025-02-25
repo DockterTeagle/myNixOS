@@ -1,8 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, cdockterSettings, ... }:
 {
+  pkgs,
+  cdockterSettings,
+  config,
+  ...
+}: {
   # Imports
   imports = [
     # Include the results of the hardware scan.
@@ -10,6 +14,9 @@
   ];
   # Nix settings
   nix = {
+    # extraOptions = ''
+    #   !include ${config.sops.secrets.nixAccessTokens.path}
+    # '';
     settings = {
       experimental-features = [
         "nix-command"
@@ -68,20 +75,21 @@
     printing.enable = false;
     tumbler.enable = true;
 
+    pcscd.enable = true;
     # XServer and GNOME
-    # xserver =
-    #   #TODO: disable me sometime
-    #   {
-    #     enable = true;
-    #     xkb = {
-    #       layout = "us";
-    #       variant = "";
-    #     };
-    #     excludePackages = [ pkgs.xterm ];
-    #     videoDrivers = [
-    #       "nvidia"
-    #     ];
-    #   };
+    xserver =
+      #TODO: disable me sometime
+      {
+        enable = true;
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
+        excludePackages = [pkgs.xterm];
+        videoDrivers = [
+          "nvidia"
+        ];
+      };
   };
 
   # Users
@@ -89,6 +97,7 @@
     cdockter = {
       shell = pkgs.fish;
       isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets.cdockter_password.path;
       inherit (cdockterSettings) description;
       extraGroups = [
         "networkmanager"
@@ -101,6 +110,12 @@
   # Programs
   programs = {
     # nix-ld.dev.enable = true;
+    gnupg = {
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
+    };
     nh = {
       enable = true;
       clean = {

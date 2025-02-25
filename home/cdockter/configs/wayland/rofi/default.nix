@@ -1,6 +1,8 @@
-{ pkgs, cdockterSettings, ... }:
 {
-  imports = [ ./tofi.nix ];
+  pkgs,
+  cdockterSettings,
+  ...
+}: {
   home.packages = with pkgs; [
     rofi-power-menu
   ];

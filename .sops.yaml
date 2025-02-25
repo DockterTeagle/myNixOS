@@ -1,0 +1,8 @@
+keys:
+  - &gpg 9CF09FF37BA2FA67
+  - &age age18r0acalespqnu703j3585p0gw4s8mlwfpnsh8z54are5yw0jjugsjhh7zw
+creation_rules:
+  - path_regex: system/secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *age

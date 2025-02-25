@@ -8,7 +8,7 @@
         # hide_cursor = true;
         no_fade_in = false;
       };
-      background = [ { monitor = " "; } ];
+      background = [{monitor = " ";}];
       label = [
         #Date
         {
