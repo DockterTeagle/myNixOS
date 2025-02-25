@@ -218,6 +218,7 @@
             marksman
             ltex-ls-plus
             codespell
+            markdownlint-cli2
           ];
         };
 
@@ -229,8 +230,12 @@
               #shell
               beautysh.enable = true;
               # markdown
-              markdownlint.enable = true;
-              mdl.enable = true;
+              markdownlint = {
+                enable = true;
+                settings = {
+                };
+              };
+              # mdl.enable = true;
               mdsh.enable = true;
               #nix
               alejandra.enable = true;
