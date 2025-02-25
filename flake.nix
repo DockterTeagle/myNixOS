@@ -217,6 +217,7 @@
           packages = with pkgs; [
             self'.checks.pre-commit-check.enabledPackages
             inputs'.nixd.packages.nixd
+            bash-language-server
             #formatters
             yq
             gitlint
