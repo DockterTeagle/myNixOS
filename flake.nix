@@ -232,6 +232,7 @@
               #shell
               beautysh.enable = true;
               # markdown
+              prettier.enable = true; #heard this is slow lets try it out
               markdownlint.enable = true;
               mdsh.enable = true;
               #nix
