@@ -218,6 +218,7 @@
             self'.checks.pre-commit-check.enabledPackages
             inputs'.nixd.packages.nixd
             bash-language-server
+            commitlint
             #formatters
             yq
             gitlint
