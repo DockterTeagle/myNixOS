@@ -10,8 +10,9 @@
 - [ ] fix git crashing when on https
 - [x] sort remaining packages in zsh.nix and configuration.nix into their
       respective packages
-- [ ] find a way to only have one version of hyprland installed as currently
+- [x] find a way to only have one version of hyprland installed as currently
       there is two, one in home and one in system
+  - fixed by setting to null in home-manager
 - [ ] configure solaar(if needed)
 - [ ] move basically all of tools into their own separate flakes
 - [ ] make hyprland have tmux like leader key
