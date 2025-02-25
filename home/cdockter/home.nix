@@ -71,9 +71,10 @@
       HYPRCURSOR_THEME = cdockterSettings.cursorName;
       HYPRCURSOR_SIZE = 24;
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
-      XDG_PICTURES_DIR = "/home/cdockter/Pictures/";
-      HYPRSHOT_DIR = "/home/cdockter/Pictures/";
+      XDG_PICTURES_DIR = "/home/cdockter/Pictures";
+      HYPRSHOT_DIR = "/home/cdockter/Pictures";
       MOZ_ENABLE_WAYLAND = 1;
+      LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
