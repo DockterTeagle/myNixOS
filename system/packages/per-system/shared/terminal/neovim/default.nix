@@ -3,5 +3,6 @@
     xdotool
     ripgrep
     ctags
+    sqlite
   ];
 }
