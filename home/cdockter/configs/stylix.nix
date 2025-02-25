@@ -19,7 +19,7 @@
     cursor = {
       package = cdockterSettings.cursorPackage;
       name = cdockterSettings.cursorName;
-      size = 24;
+      size = cdockterSettings.cursorSize;
     };
     fonts = {
       sizes = {

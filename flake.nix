@@ -124,6 +124,7 @@
       homeDirectory = "/home/cdockter";
       cursorPackage = pkgs.bibata-cursors;
       cursorName = "Bibata-Modern-Ice";
+      cursorSize = 24;
     };
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -214,7 +215,6 @@
             bash-language-server
             commitlint
             #formatters
-            gitlint
             marksman
             ltex-ls-plus
             codespell

@@ -27,7 +27,7 @@
       # name = "phinger-cursors-light";
       package = cdockterSettings.cursorPackage;
       name = cdockterSettings.cursorName;
-      size = 24;
+      size = cdockterSettings.cursorSize;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
     targets = {
