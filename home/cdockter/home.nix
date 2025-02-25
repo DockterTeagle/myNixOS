@@ -137,8 +137,7 @@
       userName = "Dr.Teagle";
       userEmail = cdockterSettings.email;
       signing = {
-        #E1E9635137D31A0F
-        key = "E1E9635137D31A0F";
+        key = "89F9174BB101BBD0";
         format = "openpgp";
         signByDefault = true;
       };
