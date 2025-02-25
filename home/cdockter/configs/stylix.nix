@@ -2,8 +2,7 @@
   pkgs,
   cdockterSettings,
   ...
-}:
-{
+}: {
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
@@ -20,7 +19,7 @@
     cursor = {
       package = cdockterSettings.cursorPackage;
       name = cdockterSettings.cursorName;
-      size = 24;
+      size = cdockterSettings.cursorSize;
     };
     fonts = {
       sizes = {

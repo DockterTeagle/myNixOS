@@ -10,8 +10,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #Used exclusively for firefox
-    nur.url = "github:nix-community/NUR";
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #Boot
     ##Secure boot
     lanzaboote = {
@@ -25,7 +27,7 @@
     };
     # Development Tools and Utilities
     ## Pre-commit hooks for Git
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     ##lsp
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
@@ -53,87 +55,84 @@
     stylix.url = "github:danth/stylix";
     #Terminal
     nh.url = "github:viperML/nh";
-    # firefox-addons = {
-    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    #Used exclusively for firefox
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     yazi.url = "github:sxyazi/yazi";
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
-  outputs =
-    {
-      home-manager,
-      nixpkgs,
-      flake-parts,
-      ...
-    }@inputs:
-    let
-      systemSettings = {
-        system = "x86_64-linux";
-        hostName = "nixos";
-        timezone = "America/Chicago";
-        WSL = false;
+  outputs = {
+    home-manager,
+    nixpkgs,
+    flake-parts,
+    ...
+  } @ inputs: let
+    systemSettings = {
+      system = "x86_64-linux";
+      hostName = "nixos";
+      timezone = "America/Chicago";
+      WSL = false;
+    };
+    SystemModules = with inputs; [
+      ./configuration.nix
+      hyprland.nixosModules.default
+      solaar.nixosModules.default
+      lanzaboote.nixosModules.lanzaboote
+      stylix.nixosModules.stylix
+      disko.nixosModules.disko
+      sops-nix.nixosModules.sops
+    ];
+    pkgs = import nixpkgs {
+      inherit (systemSettings) system;
+      config = {
+        allowUnfreePredicate = pkg: (builtins.elem (nixpkgs.lib.getName pkg) [
+          "nvidia-x11"
+          "discord"
+          "steam-unwrapped"
+          "steam"
+          "nvidia_driver"
+          "xow_dongle-firmware"
+          "obsidian"
+          "spotify"
+          "intel-ocl"
+          "nvidia-settings"
+          "fakespot-fake-reviews-amazon"
+          "onetab"
+        ]);
+        allowSubstitutes = false;
       };
-      SystemModules = with inputs; [
-        ./configuration.nix
-        hyprland.nixosModules.default
-        solaar.nixosModules.default
-        lanzaboote.nixosModules.lanzaboote
-        stylix.nixosModules.stylix
-        disko.nixosModules.disko
+      overlays = with inputs; [
+        neovim-nightly-overlay.overlays.default
+        nixpkgs-wayland.overlay
+        nh.overlays.default
+        hyprpanel.overlay
+        yazi.overlays.default
+        alejandra.overlay
       ];
-      pkgs = import nixpkgs {
-        inherit (systemSettings) system;
-        config = {
-          allowUnfreePredicate =
-            pkg:
-            (builtins.elem (nixpkgs.lib.getName pkg) [
-              "nvidia-x11"
-              "discord"
-              "steam-unwrapped"
-              "steam"
-              "nvidia_driver"
-              "xow_dongle-firmware"
-              "obsidian"
-              "spotify"
-              # "rar"
-              # "unrar"
-              "intel-ocl"
-              "nvidia-settings"
-              "fakespot-fake-reviews-amazon"
-              "onetab"
-            ]);
-          allowSubstitutes = false;
-        };
-        overlays = with inputs; [
-          neovim-nightly-overlay.overlays.default
-          nixpkgs-wayland.overlay
-          nur.overlays.default
-          nh.overlays.default
-          hyprpanel.overlay
-          yazi.overlays.default
-        ];
-      };
-      cdockterSettings = {
-        username = "cdockter";
-        description = "Christopher Ryan Dockter";
-        email = "steampowered.mom596@passinbox.com";
-        wm = "hyprland";
-        term = "ghostty";
-        editor = "nvim";
-        font = "JetBrainsMono NF";
-        nerdfont = "jetbrains-mono";
-        homeDirectory = "/home/cdockter";
-        cursorPackage = pkgs.bibata-cursors;
-        cursorName = "Bibata-Modern-Ice";
-      };
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    };
+    cdockterSettings = {
+      username = "cdockter";
+      description = "Christopher Ryan Dockter";
+      email = "steampowered.mom596@passinbox.com";
+      wm = "hyprland";
+      term = "ghostty";
+      editor = "nvim";
+      font = "JetBrainsMono NF";
+      nerdfont = "jetbrains-mono";
+      homeDirectory = "/home/cdockter";
+      cursorPackage = pkgs.bibata-cursors;
+      cursorName = "Bibata-Modern-Ice";
+      cursorSize = 24;
+    };
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
       debug = true;
+      imports = [
+        inputs.git-hooks-nix.flakeModule
+      ];
       flake = {
         nixosConfigurations = {
           isoImage = nixpkgs.lib.nixosSystem {
@@ -196,46 +195,73 @@
               stylix.homeManagerModules.stylix
               hyprpanel.homeManagerModules.hyprpanel
               nixcord.homeManagerModules.nixcord
+              sops-nix.homeManagerModules.sops
             ];
           };
         };
       };
-      perSystem =
-        {
-          inputs',
-          self',
-          pkgs,
-          system,
-          ...
-        }:
-        {
-          devShells.default = pkgs.mkShell {
-            inherit (self'.checks.pre-commit-check) shellHook;
-            packages = with pkgs; [
-              self'.checks.pre-commit-check.enabledPackages
-              statix
-              inputs'.nixd.packages.nixd
-              #formatters
-              beautysh
-              yq
-              gitlint
-              marksman
-              ltex-ls-plus
-            ];
-          };
+      perSystem = {
+        inputs',
+        self',
+        pkgs,
+        system,
+        ...
+      }: {
+        devShells.default = pkgs.mkShell {
+          inherit (self'.checks.pre-commit-check) shellHook;
+          packages = with pkgs; [
+            self'.checks.pre-commit-check.enabledPackages
+            # lsps
+            inputs'.nixd.packages.nixd
+            bash-language-server
+            marksman
+            ltex-ls-plus
+            #formatters
+            markdownlint-cli2
+            #linters
+            commitlint
+            codespell
+          ];
+        };
 
-          formatter = pkgs.nixfmt-rfc-style;
-          checks = {
-            pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-              src = ./.;
-              hooks = {
-                nixfmt-rfc-style.enable = true;
-                statix.enable = true;
-                flake-checker.enable = true;
-                deadnix.enable = true;
+        formatter = pkgs.alejandra;
+        checks = {
+          pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              #shell
+              # beautysh.enable = true;
+              # markdown
+              # prettier.enable = true; #heard this is slow lets try it out
+              markdownlint.enable = true;
+              mdsh.enable = true;
+              #nix
+              # alejandra.enable = true;
+              statix.enable = true;
+              flake-checker.enable = true;
+              deadnix.enable = true;
+              #secrets
+              trufflehog.enable = true;
+              #etc
+              treefmt = {
+                enable = true;
+                settings = {
+                  formatters = with pkgs; [
+                    alejandra
+                    nodePackages.prettier
+                  ];
+                };
               };
+              #git
+              # annex.enable = true;
+              check-merge-conflicts.enable = true;
+              detect-private-keys.enable = true;
+              commitizen.enable = true;
+              convco.enable = true;
+              forbid-new-submodules.enable = true;
             };
           };
         };
+      };
     };
 }

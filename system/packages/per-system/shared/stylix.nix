@@ -1,5 +1,8 @@
-{ pkgs, cdockterSettings, ... }:
 {
+  pkgs,
+  cdockterSettings,
+  ...
+}: {
   stylix = {
     image = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/wallpapers/nixos-wallpaper-catppuccin-mocha.png";
@@ -24,7 +27,7 @@
       # name = "phinger-cursors-light";
       package = cdockterSettings.cursorPackage;
       name = cdockterSettings.cursorName;
-      size = 24;
+      size = cdockterSettings.cursorSize;
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
     targets = {

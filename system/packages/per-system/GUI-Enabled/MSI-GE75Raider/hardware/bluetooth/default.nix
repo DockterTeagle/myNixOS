@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   hardware = {
     bluetooth = {
       powerOnBoot = true;
@@ -20,7 +19,7 @@
   services = {
     pulseaudio.enable = false;
     blueman.enable = true;
-    udev.packages = [ pkgs.evtest ];
+    udev.packages = [pkgs.evtest];
     pipewire = {
       wireplumber.extraConfig.bluetoothEnhancements = {
         "monitor.bluez.properties" = {
@@ -49,7 +48,6 @@
             "sbc_xq"
             "sbc"
           ];
-
         };
       };
     };

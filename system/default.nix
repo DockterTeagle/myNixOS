@@ -1,6 +1,6 @@
 {
   imports = [
     ./packages
-    ./secret-managment
+    ./secrets
   ];
 }

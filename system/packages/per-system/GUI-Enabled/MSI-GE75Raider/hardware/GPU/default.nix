@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   environment = {
     variables = {
       LIBVA_DRIVER_NAME = "nvidia";
@@ -29,8 +28,9 @@
         vaapiVdpau
         libvdpau-va-gl
         intel-media-sdk
+        egl-wayland
       ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [libva];
     };
     nvidia = {
       modesetting.enable = true;

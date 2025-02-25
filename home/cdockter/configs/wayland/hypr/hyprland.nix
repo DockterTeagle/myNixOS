@@ -1,29 +1,27 @@
 {
-  inputs,
+  # inputs,
   cdockterSettings,
-  systemSettings,
   ...
-}:
-{
+}: {
   wayland.windowManager.hyprland = {
-    # plugins = with inputs.hyprland-plugins.packages.x86_64-linux; [
-    #   inputs.hy3.packages.x86_64-linux.hy3
-    #   hyprbars
+    # plugins = with inputs; [
+    #   hy3.packages.x86_64-linux.hy3
     # ];
 
-    package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
+    package = null;
+    portalPackage = null;
     extraConfig =
       #hyprlang
       ''
-          bind = $mainMod,space,submap, prefix
-          submap = prefix
-          bind = SHIFT,z,fullscreen, 
-          bind = ,z,fullscreen,1
-          # add more later
+        bind = $mainMod,space,submap, prefix
+        submap = prefix
+        bind = SHIFT,z,fullscreen,
+        bind = ,z,fullscreen,1
+        # add more later
         #also add an indicator somewhere
-          bind = ,escape,submap,reset 
-          # bind = ,catchall, submap, reset
-          submap = reset
+        bind = ,escape,submap,reset
+        # bind = ,catchall, submap, reset
+        submap = reset
       '';
     enable = true;
     xwayland.enable = true;
@@ -32,16 +30,20 @@
       # debug = {
       #   disable_logs = false;
       # };
-      plugin = {
-        hy3 = { };
-      }; # configure plugins here
+      # plugin = {
+      #   hy3 = {
+      #     autotile = {
+      #       enable = true;
+      #     };
+      #   };
+      # }; # configure plugins here
       general = {
         # layout = "hy3";
       };
       #FIXME: make no_hardware_cursors false once hypr is updated
       cursor = {
-        no_hardware_cursors = false;
-        # min_refresh_rate = 60;
+        no_hardware_cursors = true;
+        min_refresh_rate = 60;
       };
       render = {
         direct_scanout = true;
@@ -107,8 +109,10 @@
       exec-once = [
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "$term"
-        "uwsm app -- firefox"
+        "systemctl --user enable --now hyprpolkitagent.service"
+        "systemctl --user enable --now hyprsunset.service"
+        "uwsm app -- $term"
+        "uwsm app -- zen-twilight"
         "uwsm app -- vesktop"
       ];
 
@@ -147,7 +151,7 @@
         "$mainMod , 0, workspace, 10"
         #shortcuts
         "$mainMod_SHIFT,l,exec,hyprlock"
-        "$mainMod,q,exec,$term"
+        "$mainMod,q,exec,uwsm app -- $term"
         "$mainMod_SHIFT,s,exec,hyprshot -m region"
         "$mainMod,D,exec,uwsm app -- vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
@@ -156,6 +160,7 @@
       windowrulev2 = [
         "idleinhibit focus, class:^steam_app_.*$"
         "idleinhibit fullscreen,class:^(firefox|chromium|chrome)$, title:^(.*YouTube.*)$"
+        "suppressevent maximize, class:.*"
       ];
     };
   };

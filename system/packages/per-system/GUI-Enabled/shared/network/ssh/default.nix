@@ -1,6 +1,6 @@
 {
   services.openssh = {
     enabled = false;
-    settings = { };
+    settings = {};
   };
 }

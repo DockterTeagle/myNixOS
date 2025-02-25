@@ -1,5 +1,4 @@
-{ cdockterSettings, ... }:
-{
+{cdockterSettings, ...}: {
   programs.hyprpanel = {
     # Enable the module.
     # Default: false
@@ -30,7 +29,7 @@
             "dashboard"
             "workspaces"
           ];
-          middle = [ "systray" ];
+          middle = ["systray"];
           right = [
             "volume"
             "network"
@@ -55,7 +54,6 @@
         };
         media.show_active_only = true;
         customModules = {
-
         };
         workspaces.show_icons = true;
         launcher = {

@@ -1,11 +1,15 @@
 {
   imports = [
     ./bat.nix
+    ./carapace.nix
     ./fastfetch.nix
     ./fd.nix
     ./fzf.nix
     ./lsd.nix
-    ./zoxide.nix
+    ./neovim.nix
     ./thefuck.nix
+    ./tmux.nix
+    ./topgrade.nix
+    ./zoxide.nix
   ];
 }

@@ -6,12 +6,12 @@
   lib,
   # config,
   ...
-}:
-{
+}: {
   imports = [
     (
       #this part should somehow be in home-manager
-      if cdockterSettings.wm == "hyprland" then
+      if cdockterSettings.wm == "hyprland"
+      then
         (import ./hyprland/default.nix {
           inherit
             inputs
@@ -20,7 +20,8 @@
             lib
             ;
         })
-      else if cdockterSettings.wm == "sway" then
+      else if cdockterSettings.wm == "sway"
+      then
         (import ./sway/default.nix {
           inherit
             inputs
