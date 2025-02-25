@@ -56,7 +56,6 @@
     #Terminal
     nh.url = "github:viperML/nh";
     #Used exclusively for firefox
-    nur.url = "github:nix-community/NUR";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     yazi.url = "github:sxyazi/yazi";
     ghostty.url = "github:ghostty-org/ghostty";
