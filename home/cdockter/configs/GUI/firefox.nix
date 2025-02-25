@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   systemSettings,
   ...
@@ -11,19 +10,19 @@
       cdockter = {
         extensions = {
           settings = {};
-          packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            tree-style-tab
-            facebook-container
-            tst-more-tree-commands
-            cookie-autodelete
-            fakespot-fake-reviews-amazon
-            private-relay
-            leechblock-ng
-            onetab
-            ublock-origin
-            multi-account-containers
-            proton-pass
-          ];
+          # packages = with inputs.firefox-addons.packages.${systemSettings.system}; [
+          #   tree-style-tab
+          #   facebook-container
+          #   tst-more-tree-commands
+          #   cookie-autodelete
+          #   fakespot-fake-reviews-amazon
+          #   private-relay
+          #   leechblock-ng
+          #   onetab
+          #   ublock-origin
+          #   multi-account-containers
+          #   proton-pass
+          # ];
         };
         name = "cdockter";
         isDefault = true;
