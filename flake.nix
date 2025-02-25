@@ -231,7 +231,6 @@
               beautysh.enable = true;
               # markdown
               markdownlint.enable = true;
-
               mdsh.enable = true;
               #nix
               alejandra.enable = true;
