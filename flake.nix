@@ -135,7 +135,8 @@
     cdockterSettings = {
       username = "cdockter";
       description = "Christopher Ryan Dockter";
-      email = "steampowered.mom596@passinbox.com";
+
+      email = "65212972+DockterTeagle@users.noreply.github.com";
       wm = "hyprland";
       term = "ghostty";
       editor = "nvim";
@@ -155,24 +156,6 @@
       ];
       flake = {
         nixosConfigurations = {
-          isoImage = nixpkgs.lib.nixosSystem {
-            inherit pkgs;
-            inherit (systemSettings) system;
-            modules = nixpkgs.lib.concatLists [
-              SystemModules
-              [
-                "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-                "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-              ]
-            ];
-            specialArgs = {
-              inherit
-                inputs
-                systemSettings
-                cdockterSettings
-                ;
-            };
-          };
           wsl = nixpkgs.lib.nixosSystem {
             inherit pkgs;
             specialArgs = {
