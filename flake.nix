@@ -58,10 +58,6 @@
     #Used exclusively for firefox
     nur.url = "github:nix-community/NUR";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    # firefox-addons = {
-    # url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     yazi.url = "github:sxyazi/yazi";
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
@@ -111,7 +107,6 @@
       overlays = with inputs; [
         neovim-nightly-overlay.overlays.default
         nixpkgs-wayland.overlay
-        nur.overlays.default
         nh.overlays.default
         hyprpanel.overlay
         yazi.overlays.default
