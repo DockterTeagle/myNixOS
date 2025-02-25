@@ -214,7 +214,6 @@
             bash-language-server
             commitlint
             #formatters
-            yq
             gitlint
             marksman
             ltex-ls-plus
