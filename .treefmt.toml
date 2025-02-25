@@ -1,0 +1,16 @@
+# One CLI to format the code tree - https://git.numtide.com/numtide/treefmt
+[formatter.alejandra]
+command = "alejandra"
+includes = ["*.nix"]
+[formatter.prettier]
+command = "prettierd"
+includes = ["*.md","*.yaml","*.js"]
+# [formatter.mylanguage]
+# # Formatter to run
+# command = "command-to-run"
+# # Command-line arguments for the command
+# options = []
+# # Glob pattern of files to include
+# includes = [ "*.<language-extension>" ]
+# # Glob patterns of files to exclude
+# excludes = []

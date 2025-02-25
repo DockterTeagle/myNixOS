@@ -230,19 +230,27 @@
             src = ./.;
             hooks = {
               #shell
-              beautysh.enable = true;
+              # beautysh.enable = true;
               # markdown
-              prettier.enable = true; #heard this is slow lets try it out
+              # prettier.enable = true; #heard this is slow lets try it out
               markdownlint.enable = true;
               mdsh.enable = true;
               #nix
-              alejandra.enable = true;
+              # alejandra.enable = true;
               statix.enable = true;
               flake-checker.enable = true;
               deadnix.enable = true;
               #secrets
-              trufflehog = {
+              trufflehog.enable = true;
+              #etc
+              treefmt = {
                 enable = true;
+                settings = {
+                  formatters = with pkgs; [
+                    alejandra
+                    prettierd
+                  ];
+                };
               };
               #git
               # annex.enable = true;
