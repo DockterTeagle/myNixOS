@@ -1,7 +1,6 @@
 {
-  inputs,
+  # inputs,
   cdockterSettings,
-  systemSettings,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -9,8 +8,8 @@
     #   hy3.packages.x86_64-linux.hy3
     # ];
 
-    package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
+    package = null;
+    portalPackage = null;
     extraConfig =
       #hyprlang
       ''
