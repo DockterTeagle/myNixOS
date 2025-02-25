@@ -28,6 +28,7 @@
         vaapiVdpau
         libvdpau-va-gl
         intel-media-sdk
+        egl-wayland
       ];
       extraPackages32 = with pkgs.pkgsi686Linux; [libva];
     };

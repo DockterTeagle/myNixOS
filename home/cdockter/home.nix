@@ -75,6 +75,7 @@
       HYPRSHOT_DIR = "/home/cdockter/Pictures";
       MOZ_ENABLE_WAYLAND = 1;
       LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
+      NVD_BACKEND = "direct";
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
