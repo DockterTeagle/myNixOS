@@ -4,7 +4,7 @@
   };
   imports = [
     ./shared
-    # ./GUI-Enabled
-    ./TUI-Only
+    ./GUI-Enabled
+    # ./TUI-Only
   ];
 }

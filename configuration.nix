@@ -4,6 +4,7 @@
 {
   pkgs,
   cdockterSettings,
+  systemSettings,
   config,
   ...
 }: {
@@ -139,6 +140,7 @@
 
   # Specialisation
 
+  wsl.enable = systemSettings.WSL;
   # System Auto Upgrade
   system = {
     autoUpgrade.enable = false;
