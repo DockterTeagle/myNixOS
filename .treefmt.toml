@@ -3,7 +3,7 @@
 command = "alejandra"
 includes = ["*.nix"]
 [formatter.prettier]
-command = "prettierd"
+command = "prettier"
 includes = ["*.md","*.yaml","*.js"]
 # [formatter.mylanguage]
 # # Formatter to run
