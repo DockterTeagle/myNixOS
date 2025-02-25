@@ -211,14 +211,16 @@
           inherit (self'.checks.pre-commit-check) shellHook;
           packages = with pkgs; [
             self'.checks.pre-commit-check.enabledPackages
+            # lsps
             inputs'.nixd.packages.nixd
             bash-language-server
-            commitlint
-            #formatters
             marksman
             ltex-ls-plus
-            codespell
+            #formatters
             markdownlint-cli2
+            #linters
+            commitlint
+            codespell
           ];
         };
 
