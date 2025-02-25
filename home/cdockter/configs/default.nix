@@ -5,5 +5,6 @@
     ./wayland
     ./terminal
     ./stylix.nix
+    ./mangohud.nix
   ];
 }
