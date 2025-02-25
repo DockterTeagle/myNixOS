@@ -230,12 +230,8 @@
               #shell
               beautysh.enable = true;
               # markdown
-              markdownlint = {
-                enable = true;
-                settings = {
-                };
-              };
-              # mdl.enable = true;
+              markdownlint.enable = true;
+
               mdsh.enable = true;
               #nix
               alejandra.enable = true;
