@@ -1,5 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
+    inputs.nix-gaming.packages.${pkgs.system}.viper
+    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+    inputs.nix-gaming.packages.${pkgs.system}.northstar-proton
     jstest-gtk
     samba
     SDL2
@@ -20,44 +27,21 @@
     steam-hardware.enable = true;
     xpadneo.enable = true;
     xone.enable = true;
-    graphics = {
-      # extraPackages32 = with pkgs; [
-      #   extest
-      #   attr
-      #   libGLU
-      #   libGL
-      #   intel-media-driver
-      #   intel-ocl
-      #   intel-vaapi-driver
-      #
-      # ];
-      # extraPackages = with pkgs; [
-      #   libGL
-      #   libGLU
-      #   intel-media-driver
-      #   intel-ocl
-      #   intel-vaapi-driver
-      #   extest
-      #   attr
-      # ];
-    };
   };
   programs = {
     gamescope.enable = true;
     gamemode.enable = true;
     java.enable = true;
     steam = {
-      # package = pkgs.steam.override {
-      #   withPrimus = true;
-      #   extraPkgs = pks: [
-      #     bumblebee
-      #     glxinfo
-      #   ];
-      # };
+      enable = true;
+      package = pkgs.steam.override {
+        # withPrimus = true;
+        extraPkgs = pkgs: [pkgs.bumblebee pkgs.glxinfo];
+      };
+      platformOptimizations.enable = true;
       protontricks.enable = true;
       extest.enable = true;
       gamescopeSession.enable = true;
-      enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;

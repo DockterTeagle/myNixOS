@@ -62,6 +62,7 @@
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
   outputs = {
     home-manager,
@@ -75,18 +76,10 @@
       timezone = "America/Chicago";
       WSL = false;
     };
-    SystemModules = with inputs; [
-      ./configuration.nix
-      hyprland.nixosModules.default
-      solaar.nixosModules.default
-      lanzaboote.nixosModules.lanzaboote
-      stylix.nixosModules.stylix
-      disko.nixosModules.disko
-      sops-nix.nixosModules.sops
-    ];
     pkgs = import nixpkgs {
       inherit (systemSettings) system;
       config = {
+        nvidia.acceptLicense = true;
         allowUnfreePredicate = pkg: (builtins.elem (nixpkgs.lib.getName pkg) [
           "nvidia-x11"
           "discord"
@@ -112,6 +105,17 @@
         alejandra.overlay
       ];
     };
+    SystemModules = with inputs; [
+      ./configuration.nix
+      hyprland.nixosModules.default
+      solaar.nixosModules.default
+      lanzaboote.nixosModules.lanzaboote
+      stylix.nixosModules.stylix
+      disko.nixosModules.disko
+      sops-nix.nixosModules.sops
+      nix-gaming.nixosModules.pipewireLowLatency
+      nix-gaming.nixosModules.platformOptimizations
+    ];
     cdockterSettings = {
       username = "cdockter";
       description = "Christopher Ryan Dockter";

@@ -21,6 +21,9 @@
     blueman.enable = true;
     udev.packages = [pkgs.evtest];
     pipewire = {
+      lowLatency = {
+        enable = true;
+      };
       wireplumber.extraConfig.bluetoothEnhancements = {
         "monitor.bluez.properties" = {
           # Enable advanced codecs

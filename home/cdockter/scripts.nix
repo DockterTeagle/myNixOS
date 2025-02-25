@@ -2,10 +2,11 @@
   home.packages = with pkgs; [
     (
       writeShellScriptBin "protonhax"
-      #bash
       ''
-        #!${pkgs.bash}/bin/bash
+        export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
         phd=$${XDG_RUNTIME_DIR:-/run/user/$UID}/protonhax
+        notify-send "ScriptStart" "protonhaxscriptstart"
+        # Function to print usage
         usage() {
             echo "Usage:"
             echo "protonhax init <cmd>"
@@ -20,6 +21,37 @@
             printf "\tRuns <cmd> in the context of <appid>\n"
         }
 
+        # List of all variables in the script that could contain paths
+        path_vars=(
+          "phd"
+          "XDG_RUNTIME_DIR"
+          "STEAM_COMPAT_DATA_PATH"
+          "STEAM_COMPAT_CLIENT_INSTALL_PATH"
+          "STEAM_COMPAT_INSTALL_PATH"
+          "STEAM_COMPAT_LIBRARY_PATHS"
+          "STEAM_RUNTIME_LIBRARY_PATH"
+          "STEAM_COMPAT_TOOL_PATHS"
+          "STEAM_EXTRA_COMPAT_TOOLS_PATHS"
+        )
+
+        # Function to check if a variable points to a valid path
+        check_path_var() {
+          local var_name="$1"
+          local var_value="$${!var_name}"
+
+          if [[ -n "$var_value" && "$var_value" =~ ^/ ]]; then
+            if [[ ! -e "$var_value" ]]; then
+              notify-send "ProtonHax Warning" "Invalid path: $var_name ($var_value) does not exist." --urgency=critical
+            fi
+          fi
+        }
+
+        # Loop through all predefined path variables
+        for var in "''${path_vars[@]}"; do
+          check_path_var "$var"
+        done
+
+        # If arguments are missing, show usage
         if [[ $# -lt 1 ]]; then
             usage
             exit 1
@@ -57,6 +89,11 @@
             SteamAppId=$1
             shift
 
+            if [[ ! -f "$phd/$SteamAppId/env" ]]; then
+              notify-send "ProtonHax Error" "No environment file found for AppID $SteamAppId." --urgency=critical
+              exit 2
+            fi
+
             source $phd/$SteamAppId/env
 
             if [[ "$c" == "run" ]]; then
@@ -81,6 +118,7 @@
         fi
       ''
     )
+
     (
       writeShellScriptBin "home-manager-rollback"
       #bash
