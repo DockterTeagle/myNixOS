@@ -4,7 +4,7 @@ command = "alejandra"
 includes = ["*.nix"]
 [formatter.prettier]
 command = "prettier"
-includes = ["*.md","*.yaml","*.js"]
+includes = ["*.md","*.yaml","*.js","*.json"]
 # [formatter.mylanguage]
 # # Formatter to run
 # command = "command-to-run"
