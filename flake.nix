@@ -70,12 +70,27 @@
     flake-parts,
     ...
   } @ inputs: let
-    systemSettings = {
+    nixosSettings = {
       system = "x86_64-linux";
       hostName = "nixos";
       timezone = "America/Chicago";
       WSL = false;
     };
+    nixosWSLSettings = {
+      inherit (nixosSettings) system timezone;
+      hostName = "NixOS-WSL";
+      WSL = true;
+    };
+    selectSettings = name:
+      if name == "wsl"
+      then nixosWSLSettings
+      else nixosSettings;
+    nixosProfile = builtins.getEnv "NIXOS_POFILE";
+    systemSettings = selectSettings (
+      if nixosProfile != ""
+      then nixosProfile
+      else "nixos"
+    );
     pkgs = import nixpkgs {
       inherit (systemSettings) system;
       config = {
@@ -115,6 +130,7 @@
       sops-nix.nixosModules.sops
       nix-gaming.nixosModules.pipewireLowLatency
       nix-gaming.nixosModules.platformOptimizations
+      nixos-wsl.nixosModules.default
     ];
     cdockterSettings = {
       username = "cdockter";
@@ -157,7 +173,7 @@
                 ;
             };
           };
-          NixOS-WSL = nixpkgs.lib.nixosSystem {
+          wsl = nixpkgs.lib.nixosSystem {
             inherit pkgs;
             specialArgs = {
               inherit
@@ -166,15 +182,7 @@
                 cdockterSettings
                 ;
             };
-            modules = [
-              inputs.nixos-wsl.nixosModules.default
-              ./configuration.nix
-              inputs.stylix.nixosModules.stylix
-              {
-                system.stateVersion = "23.11";
-                wsl.enable = true;
-              }
-            ];
+            modules = SystemModules;
           };
           nixos = nixpkgs.lib.nixosSystem {
             inherit pkgs;
