@@ -136,6 +136,11 @@
       # };
       userName = "Dr.Teagle";
       userEmail = cdockterSettings.email;
+      signing = {
+        key = "9CF09FF37BA2FA67";
+        format = "openpgp";
+        signByDefault = true;
+      };
       extraConfig = {
         core.editor = "nvim";
         init.defaultBranch = "main";
