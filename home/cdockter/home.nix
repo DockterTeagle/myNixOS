@@ -76,6 +76,8 @@
       MOZ_ENABLE_WAYLAND = 1;
       LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
       NVD_BACKEND = "direct";
+      PROTON_NO_ESYNC = 1;
+      PROTON_NO_FSYNC = 1;
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
