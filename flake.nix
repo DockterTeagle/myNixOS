@@ -248,7 +248,7 @@
                 settings = {
                   formatters = with pkgs; [
                     alejandra
-                    prettierd
+                    nodePackages.prettier
                   ];
                 };
               };
