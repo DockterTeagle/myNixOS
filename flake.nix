@@ -220,7 +220,7 @@
           ];
         };
 
-        formatter = pkgs.alejandra;
+        formatter = pkgs.treefmt;
         checks = {
           pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
             src = ./.;
