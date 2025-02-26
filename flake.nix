@@ -108,6 +108,7 @@
           "nvidia-settings"
           "fakespot-fake-reviews-amazon"
           "onetab"
+          "nvidia-persistenced"
         ]);
         allowSubstitutes = false;
       };

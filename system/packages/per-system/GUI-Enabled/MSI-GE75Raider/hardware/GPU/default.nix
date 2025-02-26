@@ -30,12 +30,13 @@
         intel-media-sdk
         egl-wayland
       ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [libva];
+      extraPackages32 = with pkgs.pkgsi686Linux; [libva]; #why
     };
     nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       open = false;
+      nvidiaPersistenced = true;
       powerManagement = {
         enable = false;
         finegrained = false;
