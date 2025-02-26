@@ -5,6 +5,7 @@
     ./fastfetch.nix
     ./fd.nix
     ./fzf.nix
+    ./gpg.nix
     ./lsd.nix
     ./neovim.nix
     ./thefuck.nix
