@@ -6,24 +6,36 @@
   environment.systemPackages = with pkgs; [
     inputs.nix-gaming.packages.${pkgs.system}.viper
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+    winetricks
     inputs.nix-gaming.packages.${pkgs.system}.northstar-proton
     jstest-gtk
     samba
     SDL2
     sdl-jstest
+    umu-launcher
     (heroic.override {
       extraPkgs = pkgs: [
         pkgs.gamescope
       ];
     })
   ];
-  services.udev = {
-    extraRules = ''
-      SUBSYSTEM=="input", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0b00", MODE="0666"
-    '';
-    enable = true;
+  services = {
+    hardware = {
+      openrgb = {
+        enable = true;
+      };
+    };
+    udev = {
+      extraRules = ''
+        SUBSYSTEM=="input", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0b00", MODE="0666"
+      '';
+      enable = true;
+    };
   };
   hardware = {
+    keyboard.qmk = {
+      enable = true;
+    };
     steam-hardware.enable = true;
     xpadneo.enable = true;
     xone.enable = true;
@@ -34,13 +46,13 @@
     java.enable = true;
     steam = {
       enable = true;
-      package = pkgs.steam.override {
-        extraEnv = {
-          MANGOHUD = true;
-          RADV_TEX_ANSIO = true;
-        };
-        extraLibraries = p: with p; [atk];
-      };
+      # package = pkgs.steam.override {
+      #   extraEnv = {
+      #     MANGOHUD = true;
+      #     RADV_TEX_ANSIO = true;
+      #   };
+      #   extraLibraries = p: with p; [atk];
+      # };
       platformOptimizations.enable = true;
       protontricks.enable = true;
       extest.enable = true;
