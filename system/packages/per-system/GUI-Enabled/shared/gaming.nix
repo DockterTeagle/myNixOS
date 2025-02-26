@@ -35,16 +35,21 @@
     steam = {
       enable = true;
       package = pkgs.steam.override {
-        # withPrimus = true;
-        extraPkgs = pkgs: [pkgs.bumblebee pkgs.glxinfo];
+        extraEnv = {
+          MANGOHUD = true;
+          RADV_TEX_ANSIO = true;
+        };
+        extraLibraries = p: with p; [atk];
       };
       platformOptimizations.enable = true;
       protontricks.enable = true;
       extest.enable = true;
-      gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
+      extraPackages = with pkgs; [
+        gamescope
+      ];
       extraCompatPackages = with pkgs; [
         proton-ge-bin
       ];
