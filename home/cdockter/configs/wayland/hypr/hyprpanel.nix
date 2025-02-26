@@ -29,7 +29,8 @@
             "dashboard"
             "workspaces"
           ];
-          middle = ["systray"];
+          # middle = ["systray"];
+          middle = [];
           right = [
             "volume"
             "network"
