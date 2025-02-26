@@ -216,6 +216,7 @@
             #linters
             commitlint
             codespell
+            gitleaks
           ];
         };
 
@@ -254,6 +255,11 @@
               commitizen.enable = true;
               convco.enable = true;
               forbid-new-submodules.enable = true;
+              gitleaks = {
+                name = "gitleaks";
+                enable = true;
+                entry = "gitleaks dir";
+              };
             };
           };
         };
