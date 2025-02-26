@@ -3,9 +3,7 @@
     (
       writeShellScriptBin "protonhax"
       ''
-        export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
-        phd=$${XDG_RUNTIME_DIR:-/run/user/$UID}/protonhax
-        notify-send "ScriptStart" "protonhaxscriptstart"
+        phd=''${XDG_RUNTIME_DIR:-/run/user/$UID}/protonhax
         # Function to print usage
         usage() {
             echo "Usage:"
@@ -22,34 +20,8 @@
         }
 
         # List of all variables in the script that could contain paths
-        path_vars=(
-          "phd"
-          "XDG_RUNTIME_DIR"
-          "STEAM_COMPAT_DATA_PATH"
-          "STEAM_COMPAT_CLIENT_INSTALL_PATH"
-          "STEAM_COMPAT_INSTALL_PATH"
-          "STEAM_COMPAT_LIBRARY_PATHS"
-          "STEAM_RUNTIME_LIBRARY_PATH"
-          "STEAM_COMPAT_TOOL_PATHS"
-          "STEAM_EXTRA_COMPAT_TOOLS_PATHS"
-        )
 
         # Function to check if a variable points to a valid path
-        check_path_var() {
-          local var_name="$1"
-          local var_value="$${!var_name}"
-
-          if [[ -n "$var_value" && "$var_value" =~ ^/ ]]; then
-            if [[ ! -e "$var_value" ]]; then
-              notify-send "ProtonHax Warning" "Invalid path: $var_name ($var_value) does not exist." --urgency=critical
-            fi
-          fi
-        }
-
-        # Loop through all predefined path variables
-        for var in "''${path_vars[@]}"; do
-          check_path_var "$var"
-        done
 
         # If arguments are missing, show usage
         if [[ $# -lt 1 ]]; then
@@ -62,7 +34,7 @@
 
         if [[ "$c" == "init" ]]; then
             mkdir -p $phd/$SteamAppId
-            printf "%s\n" "$${@}" | grep -m 1 "/proton" > $phd/$SteamAppId/exe
+            printf "%s\n" "''${@}" | grep -m 1 "/proton" > $phd/$SteamAppId/exe
             printf "%s" "$STEAM_COMPAT_DATA_PATH/pfx" > $phd/$SteamAppId/pfx
             declare -px > $phd/$SteamAppId/env
             "$@"
