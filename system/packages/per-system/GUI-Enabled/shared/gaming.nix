@@ -1,13 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    inputs.nix-gaming.packages.${pkgs.system}.viper
-    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     winetricks
-    inputs.nix-gaming.packages.${pkgs.system}.northstar-proton
     jstest-gtk
     samba
     SDL2
