@@ -1,6 +1,10 @@
 {
   programs.mangohud = {
-    enable = true;
-    enableSessionWide = true;
+    # enable = true;
+    settingsPerApplication = {
+      warframe = {
+        no_display = true;
+      };
+    };
   };
 }
