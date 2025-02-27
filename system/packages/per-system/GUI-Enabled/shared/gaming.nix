@@ -13,11 +13,11 @@
     SDL2
     sdl-jstest
     umu-launcher
-    (heroic.override {
-      extraPkgs = pkgs: [
-        pkgs.gamescope
-      ];
-    })
+    # (heroic.override {
+    #   extraPkgs = pkgs: [
+    #     pkgs.gamescope
+    #   ];
+    # })
   ];
   services = {
     hardware = {
@@ -46,13 +46,6 @@
     java.enable = true;
     steam = {
       enable = true;
-      # package = pkgs.steam.override {
-      #   extraEnv = {
-      #     MANGOHUD = true;
-      #     RADV_TEX_ANSIO = true;
-      #   };
-      #   extraLibraries = p: with p; [atk];
-      # };
       platformOptimizations.enable = true;
       protontricks.enable = true;
       extest.enable = true;
