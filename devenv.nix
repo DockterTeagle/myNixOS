@@ -1,6 +1,7 @@
 {
   inputs',
   pkgs,
+  treefmt,
   ...
 }: {
   #TODO: get the treefmt to work as a hook and expose its packages to the shell
@@ -16,7 +17,6 @@
         marksman
         ltex-ls-plus
         #formatters
-        markdownlint-cli2
         #linters
         commitlint
         inputs'.alejandra.packages.default
@@ -24,6 +24,7 @@
       ];
       git-hooks = {
         enabledPackages = with pkgs; [
+          markdownlint-cli
           markdownlint-cli2
           mdsh
           statix
@@ -33,7 +34,7 @@
           trufflehog
           commitizen
           convco
-          treefmt
+          treefmt.build.wrapper
         ];
         hooks = {
           # markdown
@@ -59,9 +60,13 @@
           # annex.enable = true;
           check-merge-conflicts.enable = true;
           commitizen.enable = true;
+
           convco.enable = true;
           forbid-new-submodules.enable = true;
-          # treefmt.enable = true;
+          treefmt = {
+            package = treefmt.build.wrapper;
+            enable = true;
+          };
         };
       };
     };

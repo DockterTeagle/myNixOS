@@ -84,10 +84,14 @@
       perSystem = {
         inputs',
         pkgs,
+        config,
         ...
       }: {
         treefmt = import ./treefmt.nix {inherit inputs' self pkgs;};
-        devenv = import ./devenv.nix {inherit inputs' pkgs;};
+        devenv = import ./devenv.nix {
+          inherit self inputs' pkgs;
+          inherit (config) treefmt;
+        };
       };
       flake = let
         nixosSettings = {
@@ -122,6 +126,8 @@
             allowUnfreePredicate = pkg:
               builtins.elem (nixpkgs.lib.getName pkg) [
                 "nvidia-x11"
+                "nvidia-persistenced"
+                "nvidia-settings"
                 "discord"
                 "steam-unwrapped"
                 "steam"
@@ -130,10 +136,8 @@
                 "obsidian"
                 "spotify"
                 "intel-ocl"
-                "nvidia-settings"
                 "fakespot-fake-reviews-amazon"
                 "onetab"
-                "nvidia-persistenced"
               ];
             allowSubstitutes = false;
           };
