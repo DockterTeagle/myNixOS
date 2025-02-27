@@ -35,14 +35,13 @@
     nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
-      open = false;
+      open = true;
       nvidiaPersistenced = true;
       powerManagement = {
         enable = false;
         finegrained = false;
       };
       nvidiaSettings = true;
-      forceFullCompositionPipeline = true;
       prime = {
         offload.enable = true;
         allowExternalGpu = true;
