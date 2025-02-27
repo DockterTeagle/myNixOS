@@ -1,0 +1,66 @@
+{
+  inputs',
+  pkgs,
+  ...
+}: {
+  shells = {
+    # create devShells.default
+    default = {
+      packages = with pkgs; [
+        # lsps
+        inputs'.nixd.packages.nixd
+        bash-language-server
+        marksman
+        ltex-ls-plus
+        #formatters
+        markdownlint-cli2
+        #linters
+        commitlint
+        inputs'.alejandra.packages.default
+        codespell
+      ];
+      git-hooks = {
+        enabledPackages = with pkgs; [
+          markdownlint-cli2
+          mdsh
+          statix
+          flake-checker
+          deadnix
+          gitleaks
+          trufflehog
+          commitizen
+          convco
+          treefmt
+        ];
+        hooks = {
+          # markdown
+          markdownlint.enable = true;
+          mdsh.enable = true;
+          #nix
+          statix.enable = true;
+          flake-checker.enable = true;
+          deadnix.enable = true;
+          #secrets
+          gitleaks = {
+            name = "gitleaks";
+            enable = true;
+            entry = "gitleaks dir";
+          };
+          # trufflehog={
+          #     enable = true;
+          #       entry = ''trufflehog git "file://$(git rev-parse --show-top-level)" --since-commit HEAD --only-verified --fail'';
+          #     };
+          detect-private-keys.enable = true;
+          #etc
+          #git
+          # annex.enable = true;
+          check-merge-conflicts.enable = true;
+          commitizen.enable = true;
+          convco.enable = true;
+          forbid-new-submodules.enable = true;
+          # treefmt.enable = true;
+        };
+      };
+    };
+  };
+}
