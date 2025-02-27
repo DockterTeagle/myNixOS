@@ -226,10 +226,10 @@
                   enable = true;
                   entry = "gitleaks dir";
                 };
-                trufflehog={
-                    enable = true;
-                      entry = ''trufflehog git "file://$(git rev-parse --show-top-level)'';
-                    };
+                # trufflehog={
+                #     enable = true;
+                #       entry = ''trufflehog git "file://$(git rev-parse --show-top-level)" --since-commit HEAD --only-verified --fail'';
+                #     };
                 detect-private-keys.enable = true;
                 #etc
                 #git
