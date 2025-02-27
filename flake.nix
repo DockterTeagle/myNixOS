@@ -10,6 +10,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     alejandra = {
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,7 @@
     # Development Tools and Utilities
     ## Pre-commit hooks for Git
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
+    devenv.url = "github:cachix/devenv";
     ##lsp
     nixd.url = "github:nix-community/nixd";
     sops-nix = {
@@ -151,9 +153,101 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       debug = true;
-      imports = [
-        inputs.git-hooks-nix.flakeModule
+      imports = with inputs; [
+        git-hooks-nix.flakeModule
+        treefmt-nix.flakeModule
+        devenv.flakeModule
       ];
+      perSystem = {
+        inputs',
+        pkgs,
+          config,
+        ...
+      }: {
+        treefmt = {
+          flakeFormatter = true;
+          programs = {
+            alejandra = {
+              enable = true;
+              package = inputs'.alejandra.packages.default;
+            };
+            beautysh = {
+              enable = true;
+              package = pkgs.beautysh;
+            };
+            prettier = {
+              enable = true;
+              package = pkgs.nodePackages_latest.prettier;
+            };
+          };
+          # build = {
+          #   check = self;
+          # };
+        };
+        devenv.shells = {
+          # create devShells.default
+          default = {
+            packages = with pkgs; [
+              # lsps
+              inputs'.nixd.packages.nixd
+              bash-language-server
+              marksman
+              ltex-ls-plus
+              #formatters
+              markdownlint-cli2
+              #linters
+              commitlint
+              codespell
+            ];
+            git-hooks = {
+              enabledPackages = with pkgs; [
+                markdownlint-cli2
+                mdsh
+                statix
+                flake-checker
+                deadnix
+                gitleaks
+                trufflehog
+                commitizen
+                convco
+                treefmt
+              ];
+              hooks = {
+                # markdown
+                markdownlint.enable = true;
+                mdsh.enable = true;
+                #nix
+                statix.enable = true;
+                flake-checker.enable = true;
+                deadnix.enable = true;
+                #secrets
+                gitleaks = {
+                  name = "gitleaks";
+                  enable = true;
+                  entry = "gitleaks dir";
+                };
+                trufflehog={
+                    enable = true;
+                      entry = ''trufflehog git "file://$(git rev-parse --show-top-level)'';
+                    };
+                detect-private-keys.enable = true;
+                #etc
+                #git
+                # annex.enable = true;
+                check-merge-conflicts.enable = true;
+                commitizen.enable = true;
+                convco.enable = true;
+                forbid-new-submodules.enable = true;
+                # treefmt.enable = true;
+              };
+            };
+                enterShell = #bash
+                ''
+                   export PATH="${config.treefmt.build.devShell}/bin:$PATH"
+                  '';
+          };
+        };
+      };
       flake = {
         nixosConfigurations = {
           wsl = nixpkgs.lib.nixosSystem {
@@ -192,75 +286,6 @@
               nixcord.homeManagerModules.nixcord
               sops-nix.homeManagerModules.sops
             ];
-          };
-        };
-      };
-      perSystem = {
-        inputs',
-        self',
-        pkgs,
-        system,
-        ...
-      }: {
-        devShells.default = pkgs.mkShell {
-          inherit (self'.checks.pre-commit-check) shellHook;
-          packages = with pkgs; [
-            self'.checks.pre-commit-check.enabledPackages
-            # lsps
-            inputs'.nixd.packages.nixd
-            bash-language-server
-            marksman
-            ltex-ls-plus
-            #formatters
-            markdownlint-cli2
-            #linters
-            commitlint
-            codespell
-            gitleaks
-          ];
-        };
-
-        formatter = pkgs.treefmt;
-        checks = {
-          pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              #shell
-              # beautysh.enable = true;
-              # markdown
-              # prettier.enable = true; #heard this is slow lets try it out
-              markdownlint.enable = true;
-              mdsh.enable = true;
-              #nix
-              # alejandra.enable = true;
-              statix.enable = true;
-              flake-checker.enable = true;
-              deadnix.enable = true;
-              #secrets
-              trufflehog.enable = true;
-              #etc
-              treefmt = {
-                enable = true;
-                settings = {
-                  formatters = with pkgs; [
-                    alejandra
-                    nodePackages.prettier
-                  ];
-                };
-              };
-              #git
-              # annex.enable = true;
-              check-merge-conflicts.enable = true;
-              detect-private-keys.enable = true;
-              commitizen.enable = true;
-              convco.enable = true;
-              forbid-new-submodules.enable = true;
-              gitleaks = {
-                name = "gitleaks";
-                enable = true;
-                entry = "gitleaks dir";
-              };
-            };
           };
         };
       };
