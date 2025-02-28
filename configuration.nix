@@ -15,9 +15,9 @@
   ];
   # Nix settings
   nix = {
-    # extraOptions = ''
-    #   !include ${config.sops.secrets.nixAccessTokens.path}
-    # '';
+    extraOptions = ''
+      !include ${config.sops.secrets.nixAccessTokens.path}
+    '';
     settings = {
       experimental-features = [
         "nix-command"
