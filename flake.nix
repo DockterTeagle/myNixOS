@@ -123,7 +123,13 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    yazi.url = "github:sxyazi/yazi"; #uses cache so dont override
+    yazi = {
+      url = "github:sxyazi/yazi"; #uses cache so dont override
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
@@ -291,12 +297,12 @@
         config,
         ...
       }: {
-        treefmt = import ./treefmt.nix {inherit inputs' self pkgs;};
+        treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self pkgs;};
         topology.modules = [
-          ./topology.nix
+          ./flakeModules/topology.nix
           {inherit (self) nixosConfigurations;}
         ];
-        devenv = import ./devenv.nix {
+        devenv = import ./flakeModules/devenv.nix {
           inherit self inputs' pkgs;
           inherit (config) treefmt;
         };
