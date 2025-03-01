@@ -1,6 +1,7 @@
 {
   cdockterSettings,
   pkgs,
+  config,
   ...
 }: {
   imports = [
@@ -8,6 +9,26 @@
     ./secrets
     ./scripts.nix
   ];
+  nix = {
+    package = pkgs.nix;
+    extraOptions = ''
+      !include ${config.sops.secrets.nixAccessTokens.path}
+    '';
+  };
+  xdg = {
+    userDirs = {
+      pictures = "${cdockterSettings.homeDirectory}/Pictures";
+    };
+    portal = {
+      xdgOpenUsePortal = true;
+      config = {
+        preferred = {
+          default = "hyprland;gtk";
+          org.freedestop.impl.portal.FileChooser = "kde";
+        };
+      };
+    };
+  };
   gtk = {
     enable = true;
     gtk4.extraConfig = {
@@ -71,8 +92,6 @@
       HYPRCURSOR_THEME = cdockterSettings.cursorName;
       HYPRCURSOR_SIZE = 24;
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
-      XDG_PICTURES_DIR = "/home/cdockter/Pictures";
-      HYPRSHOT_DIR = "/home/cdockter/Pictures";
       MOZ_ENABLE_WAYLAND = 1;
       LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
       NVD_BACKEND = "direct";
