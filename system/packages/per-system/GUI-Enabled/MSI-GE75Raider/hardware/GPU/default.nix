@@ -24,6 +24,7 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+      package32 = pkgs.pkgsi686Linux.mesa.drivers;
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl

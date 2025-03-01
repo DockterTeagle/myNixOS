@@ -5,7 +5,6 @@
     wl-clipboard-x11
     dart-sass
     gnome-bluetooth
-    hyprcursor
     hyprpicker
     hyprshot
     hyprsunset
