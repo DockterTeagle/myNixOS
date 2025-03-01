@@ -5,6 +5,12 @@
   # in
   inputs = {
     # Core Nix Packages and Flakes
+    # nixos-unified = {
+    #   url = "github:srid/nixos-unified";
+    #   # inputs={
+    #   #   nixpkgs.follows = "nixpkgs";
+    #   # };
+    # };
     std = {
       url = "github:divnix/std";
       inputs = {
@@ -91,6 +97,7 @@
     };
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
+    hyprlock.url = "github:hyprwm/hyprlock";
     hy3 = {
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
@@ -125,10 +132,10 @@
     };
     yazi = {
       url = "github:sxyazi/yazi"; #uses cache so dont override
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
+      # inputs = {
+      #   flake-utils.follows = "flake-utils";
+      #   nixpkgs.follows = "nixpkgs";
+      # };
     };
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
@@ -361,6 +368,7 @@
             nixpkgs-wayland.overlay
             nh.overlays.default
             hyprpanel.overlay
+            hyprlock.overlays.default
             yazi.overlays.default
             alejandra.overlay
           ];
@@ -368,7 +376,6 @@
 
         SystemModules = with inputs; [
           ./configuration.nix
-          hyprland.nixosModules.default
           solaar.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
           stylix.nixosModules.stylix
@@ -395,7 +402,7 @@
         };
 
         # Common arguments for nixosConfigurations
-        specialArgs = {inherit inputs systemSettings cdockterSettings;};
+        specialArgs = {inherit inputs systemSettings cdockterSettings self;};
       in {
         nixosConfigurations = builtins.listToAttrs (map (name: {
           inherit name;
