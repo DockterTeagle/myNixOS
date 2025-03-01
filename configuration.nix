@@ -6,6 +6,8 @@
   cdockterSettings,
   systemSettings,
   config,
+  inputs,
+  self,
   ...
 }: {
   # Imports
@@ -15,13 +17,15 @@
   ];
   # Nix settings
   nix = {
-    extraOptions = ''
-      !include ${config.sops.secrets.nixAccessTokens.path}
-    '';
     settings = {
       experimental-features = [
         "nix-command"
         "flakes"
+        "pipe-operators"
+        "recursive-nix"
+        "verified-fetches"
+        "no-url-literals"
+        "ca-derivations"
       ];
       substituters = [
         "https://hyprland.cachix.org"
@@ -42,14 +46,6 @@
       auto-optimise-store = true;
     };
   };
-
-  # XDG settings
-  # xdg = {
-  #   autostart.enable = true;
-  #   portal = {
-  #     enable = true;
-  #   };
-  # };
 
   # Time and Locale
   time.timeZone = "America/Chicago";
@@ -79,19 +75,17 @@
     tumbler.enable = true;
     pcscd.enable = true;
     # XServer and GNOME
-    xserver =
-      #TODO: disable me sometime
-      {
-        enable = true;
-        xkb = {
-          layout = "us";
-          variant = "";
-        };
-        excludePackages = [pkgs.xterm];
-        videoDrivers = [
-          "nvidia"
-        ];
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
       };
+      excludePackages = [pkgs.xterm];
+      videoDrivers = [
+        "nvidia"
+      ];
+    };
   };
 
   # Users
@@ -125,13 +119,15 @@
         dates = "weekly";
         extraArgs = "--keep=3";
       };
-      flake = "/home/cdockter/myNixOS/";
+      flake = self;
     };
     fish.enable = true;
     zsh.enable = true;
     hyprland = {
       enable = true;
       withUWSM = true;
+      package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
     };
   };
 
