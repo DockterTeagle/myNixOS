@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   services.yubikey-agent.enable = true;
   sops = {
     defaultSopsFile = ./secrets.yaml;
@@ -12,10 +8,6 @@
       cdockter_password = {
         format = "yaml";
         neededForUsers = true;
-      };
-      nixAccessTokens = {
-        mode = "0440";
-        group = config.users.groups.keys.name;
       };
     };
   };
