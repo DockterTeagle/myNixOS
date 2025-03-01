@@ -12,7 +12,7 @@
     };
     targets = {
       neovim.enable = false;
-      tmux.enable = false;
+      # tmux.enable = false;
       hyprlock.enable = false;
     };
 

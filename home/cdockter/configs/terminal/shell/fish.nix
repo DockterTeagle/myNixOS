@@ -7,8 +7,6 @@
         body =
           # fish
           "
-           exec </dev/tty
-          exec <&1
           set session (sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
 
 
@@ -73,11 +71,13 @@
         "__zoxide_z";
     };
 
-    interactiveShellInit = ''
-
-      set -g fish_key_bindings fish_vi_key_bindings
-      fish_add_path --append ~/.local/bin
-      set -g fish_greeting ""
-    '';
+    interactiveShellInit =
+      #fish
+      ''
+        set -g fish_key_bindings fish_vi_key_bindings
+        bind \es 'sesh_sessions'
+        fish_add_path --append ~/.local/bin
+        set -g fish_greeting ""
+      '';
   };
 }
