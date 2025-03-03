@@ -7,9 +7,9 @@
     # Core Nix Packages and Flakes
     # nixos-unified = {
     #   url = "github:srid/nixos-unified";
-    #   # inputs={
-    #   #   nixpkgs.follows = "nixpkgs";
-    #   # };
+    #   inputs={
+    #     nixpkgs.follows = "nixpkgs";
+    #   };
     # };
     std = {
       url = "github:divnix/std";
