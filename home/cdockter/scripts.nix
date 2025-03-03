@@ -105,12 +105,5 @@
         fi
       ''
     )
-    (
-      writeShellScriptBin "file-search"
-      #bash
-      ''
-        fd --type f --hidden --exclude .git --color=always . | rofi -dmenu -i -p "Search Files:" -markup-rows
-      ''
-    )
   ];
 }
