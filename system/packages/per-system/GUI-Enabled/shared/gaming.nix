@@ -6,23 +6,17 @@
     SDL2
     sdl-jstest
     umu-launcher
-    # (heroic.override {
-    #   extraPkgs = pkgs: [
-    #     pkgs.gamescope
-    #   ];
-    # })
+    (heroic.override {
+      extraPkgs = pkgs: [
+        pkgs.gamescope
+      ];
+    })
   ];
   services = {
     hardware = {
       openrgb = {
         enable = true;
       };
-    };
-    udev = {
-      extraRules = ''
-        SUBSYSTEM=="input", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0b00", MODE="0666"
-      '';
-      enable = true;
     };
   };
   hardware = {
@@ -45,9 +39,6 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
-      extraPackages = with pkgs; [
-        gamescope
-      ];
       extraCompatPackages = with pkgs; [
         proton-ge-bin
       ];
