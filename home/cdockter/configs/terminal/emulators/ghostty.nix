@@ -1,8 +1,4 @@
-{
-  inputs,
-  systemSettings,
-  ...
-}: {
+{pkgs, ...}: {
   programs.ghostty = {
     enable = true;
     clearDefaultKeybinds = true;
@@ -11,7 +7,7 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     installBatSyntax = true;
-    package = inputs.ghostty.packages.${systemSettings.system}.default;
+    package = pkgs.ghostty;
     settings = {
       gtk-titlebar = false;
       window-decoration = false;
