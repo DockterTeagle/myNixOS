@@ -15,8 +15,6 @@
     std = {
       url = "github:divnix/std";
       inputs = {
-        yants.follows = "yants";
-        paisano.follows = "paisano";
         lib.follows = "nixpkgs";
         nixpkgs.follows = "nixpkgs";
       };
@@ -54,8 +52,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Development Tools and Utilities
-    ## Pre-commit hooks for Git
-    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     devenv.url = "github:cachix/devenv";
     ##lsp
     nixd = {
@@ -75,7 +71,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-compat.follows = "flake-compat";
-        snowfall-lib.follows = "snowfall-lib";
       };
     };
 
@@ -85,7 +80,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-compat.follows = "flake-compat";
-        lib-aggregate.follows = "lib-aggregate";
       };
     };
     ##Hyprland
@@ -111,7 +105,6 @@
         nixpkgs.follows = "nixpkgs";
         flake-compat.follows = "flake-compat";
         flake-utils.follows = "flake-utils";
-        git-hooks.follows = "git-hooks-nix";
         home-manager.follows = "home-manager";
       };
     };
@@ -124,10 +117,6 @@
     };
     yazi = {
       url = "github:sxyazi/yazi"; #uses cache so dont override
-      # inputs = {
-      #   flake-utils.follows = "flake-utils";
-      #   nixpkgs.follows = "nixpkgs";
-      # };
     };
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
@@ -136,51 +125,19 @@
     nix-gaming.url = "github:fufexan/nix-gaming"; #uses cachix, dont override
     nix-topology.url = "github:oddlama/nix-topology";
     #to minimize duplicated packages
-    lib-aggregate = {
-      url = "github:nix-community/lib-aggregate";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs-lib.follows = "nixpkgs";
-      };
-    };
     flake-utils.url = "github:numtide/flake-utils";
-    flake-utils-plus = {
-      url = "github:gytis-ivaskevicius/flake-utils-plus";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
-      inputs = {
-        flake-compat.follows = "flake-compat";
-        nixpkgs.follows = "nixpkgs";
-        flake-utils-plus.follows = "flake-utils-plus";
-      };
-    };
-    paisano = {
-      url = "github:divnix/paisano";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        yants.follows = "yants";
-      };
-    };
-    yants = {
-      url = "github:divnix/yants";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs = {
     home-manager,
     nixpkgs,
     flake-parts,
-    self,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = nixpkgs.lib.systems.flakeExposed;
       debug = true;
       imports = with inputs; [
-        git-hooks-nix.flakeModule
         treefmt-nix.flakeModule
         devenv.flakeModule
         # ez-configs.flakeModule
@@ -196,7 +153,7 @@
         self',
         ...
       }: {
-        treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self pkgs;};
+        treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self' pkgs;};
         topology.modules = [
           ./flakeModules/topology.nix
           {inherit (self') nixosConfigurations;}
@@ -206,6 +163,6 @@
           inherit (config) treefmt;
         };
       };
-      flake = import ./flakeModules/systemFlake.nix {inherit inputs self nixpkgs home-manager;};
+      flake = import ./flakeModules/systemFlake.nix {inherit inputs nixpkgs home-manager;};
     };
 }
