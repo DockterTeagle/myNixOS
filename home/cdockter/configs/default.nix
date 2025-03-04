@@ -1,10 +1,9 @@
 {
   imports = [
+    ./services
     ./GUI
-    ./solaar.nix
     ./wayland
     ./terminal
     ./stylix.nix
-    ./mangohud.nix
   ];
 }
