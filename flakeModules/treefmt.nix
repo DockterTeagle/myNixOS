@@ -1,6 +1,6 @@
 {
   inputs',
-  self,
+  self',
   ...
 }: {
   flakeFormatter = true;
@@ -17,6 +17,6 @@
     };
   };
   build = {
-    check = self;
+    check = self';
   };
 }

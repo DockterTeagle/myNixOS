@@ -52,6 +52,8 @@
       allowSubstitutes = false;
     };
     overlays = with inputs; [
+      nixgl.overlay
+      ghostty.overlays.default
       nix.overlays.default
       neovim-nightly-overlay.overlays.default
       nixpkgs-wayland.overlay
@@ -59,7 +61,6 @@
       hyprpanel.overlay
       hyprlock.overlays.default
       yazi.overlays.default
-      alejandra.overlay
     ];
   };
 
