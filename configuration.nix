@@ -17,7 +17,7 @@
   # Nix settings
   nix = {
     settings = {
-      max-jobs = 5;
+      # max-jobs = 5;
       experimental-features = [
         "nix-command"
         "flakes"
@@ -30,7 +30,6 @@
       substituters = [
         "https://hyprland.cachix.org"
         "https://cache.nixos.org"
-        "https://nixpkgs-wayland.cachix.org"
         "https://nix-community.cachix.org"
         "https://yazi.cachix.org"
         "https://nix-gaming.cachix.org"
@@ -38,7 +37,6 @@
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
@@ -66,7 +64,10 @@
 
   # Services
   services = {
-    dbus.enable = true;
+    dbus = {
+      implementation = "broker";
+      apparmor = "enabled";
+    };
     fwupd.enable = true;
     gvfs.enable = true; # needed?
     libinput.enable = true;
@@ -129,11 +130,6 @@
       portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
     };
   };
-
-  # System Environment
-  # etc."machine-id".source = "/nix/persist/etc/machine-id";
-
-  # Specialisation
 
   wsl.enable = systemSettings.WSL;
   # System Auto Upgrade
