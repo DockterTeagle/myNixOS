@@ -2,7 +2,6 @@
   nixpkgs,
   home-manager,
   inputs,
-  self,
   ...
 }: let
   nixosSettings = {
@@ -65,7 +64,7 @@
   };
 
   SystemModules = with inputs; [
-    ./configuration.nix
+    ../configuration.nix
     solaar.nixosModules.default
     lanzaboote.nixosModules.lanzaboote
     stylix.nixosModules.stylix
@@ -92,7 +91,7 @@
   };
 
   # Common arguments for nixosConfigurations
-  specialArgs = {inherit inputs systemSettings cdockterSettings self;};
+  specialArgs = {inherit inputs systemSettings cdockterSettings;};
 in {
   nixosConfigurations = builtins.listToAttrs (map (name: {
     inherit name;
@@ -108,7 +107,7 @@ in {
       inherit pkgs;
       extraSpecialArgs = specialArgs;
       modules = with inputs; [
-        ./home/cdockter/home.nix
+        ../home/cdockter/home.nix
         stylix.homeManagerModules.stylix
         hyprpanel.homeManagerModules.hyprpanel
         nixcord.homeManagerModules.nixcord

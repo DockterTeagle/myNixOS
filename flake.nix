@@ -206,7 +206,6 @@
           inherit (config) treefmt;
         };
       };
-      #TODO: find a way to compress me or make me into a separate file
-      flake = import ./systemFlake.nix {inherit inputs self nixpkgs home-manager;};
+      flake = import ./flakeModules/systemFlake.nix {inherit inputs self nixpkgs home-manager;};
     };
 }
