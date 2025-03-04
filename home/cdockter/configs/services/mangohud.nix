@@ -1,6 +1,6 @@
 {
   programs.mangohud = {
-    # enable = true;
+    enable = true;
     settingsPerApplication = {
       warframe = {
         no_display = true;
