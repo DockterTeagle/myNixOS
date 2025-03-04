@@ -86,7 +86,6 @@
       fuseiso
       lshw
       pavucontrol
-      dbus
     ];
   };
 }
