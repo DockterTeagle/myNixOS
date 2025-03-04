@@ -3,10 +3,10 @@
     gpu-screen-recorder
     wl-clipboard
     wl-clipboard-x11
+    grimblast
+    slurp
     dart-sass
-    gnome-bluetooth
     hyprpicker
-    hyprshot
     hyprsunset
     hyprpolkitagent
     hyprsysteminfo
