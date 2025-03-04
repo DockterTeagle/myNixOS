@@ -3,7 +3,7 @@
   systemSettings,
   ...
 }: {
-  home.packages = with inputs; [zen-browser.packages.${systemSettings.system}.twilight];
+  home.packages = with inputs; [zen-browser.packages.${systemSettings.system}.twilight-official];
   programs.firefox = {
     enable = true;
     profiles = {
