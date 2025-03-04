@@ -7,7 +7,6 @@
   systemSettings,
   config,
   inputs,
-  self,
   ...
 }: {
   # Imports
@@ -18,6 +17,7 @@
   # Nix settings
   nix = {
     settings = {
+      max-jobs = 5;
       experimental-features = [
         "nix-command"
         "flakes"
@@ -70,7 +70,6 @@
     fwupd.enable = true;
     gvfs.enable = true; # needed?
     libinput.enable = true;
-    # onedrive.enable = true;
     printing.enable = false;
     tumbler.enable = true;
     pcscd.enable = true;
@@ -119,7 +118,7 @@
         dates = "weekly";
         extraArgs = "--keep=3";
       };
-      flake = self;
+      flake = "/home/cdockter/myNixOS";
     };
     fish.enable = true;
     zsh.enable = true;
