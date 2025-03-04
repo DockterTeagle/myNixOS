@@ -143,7 +143,7 @@
         ",XF86MonBrightnessDown,exec,brightnessctl s 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl s +5%"
         ",XF86AudioPlay, exec, playerctl play-pause"
-        ",Print,exec, hyprshot -m output"
+        ",Print,exec, grimblast save screen"
         #manage workspaces
         "$mainMod , 1, workspace, 1"
         "$mainMod , 2, workspace, 2"
@@ -158,7 +158,7 @@
         #shortcuts
         "$mainMod_SHIFT,l,exec,hyprlock"
         "$mainMod,q,exec,uwsm app -- $term"
-        "$mainMod_SHIFT,s,exec,hyprshot -m region"
+        "$mainMod_SHIFT,s,exec,grimblast save area"
         "$mainMod,D,exec,uwsm app -- vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod,c,killactive,"
         "$mainMod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
