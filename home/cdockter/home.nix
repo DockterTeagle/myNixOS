@@ -17,6 +17,11 @@
   };
   xdg = {
     userDirs = {
+      enable = true;
+      extraConfig = {
+        XDG_SCREENSHOTS_DIR = "${cdockterSettings.homeDirectory}/Pictures/Screenshots";
+      };
+      createDirectories = true;
       pictures = "${cdockterSettings.homeDirectory}/Pictures";
     };
     portal = {
@@ -91,12 +96,9 @@
       NIXOS_OZONE_WL = "1";
       HYPRCURSOR_THEME = cdockterSettings.cursorName;
       HYPRCURSOR_SIZE = 24;
-      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
       MOZ_ENABLE_WAYLAND = 1;
       LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
       NVD_BACKEND = "direct";
-      PROTON_NO_ESYNC = 1;
-      PROTON_NO_FSYNC = 1;
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
