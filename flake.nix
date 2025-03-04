@@ -302,15 +302,16 @@
         inputs',
         pkgs,
         config,
+        self',
         ...
       }: {
         treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self pkgs;};
         topology.modules = [
           ./flakeModules/topology.nix
-          {inherit (self) nixosConfigurations;}
+          {inherit (self') nixosConfigurations;}
         ];
         devenv = import ./flakeModules/devenv.nix {
-          inherit self inputs' pkgs;
+          inherit self' inputs' pkgs;
           inherit (config) treefmt;
         };
       };
