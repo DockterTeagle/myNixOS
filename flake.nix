@@ -11,6 +11,7 @@
     #     nixpkgs.follows = "nixpkgs";
     #   };
     # };
+    nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     std = {
       url = "github:divnix/std";
       inputs = {
@@ -18,14 +19,6 @@
         paisano.follows = "paisano";
         lib.follows = "nixpkgs";
         nixpkgs.follows = "nixpkgs";
-      };
-    };
-    nur = {
-      url = "github:nix-community/nur";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
       };
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -116,7 +109,6 @@
       url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        nur.follows = "nur";
         flake-compat.follows = "flake-compat";
         flake-utils.follows = "flake-utils";
         git-hooks.follows = "git-hooks-nix";
@@ -194,110 +186,9 @@
         # ez-configs.flakeModule
         nix-topology.flakeModule
         std.flakeModule
+        nixos-healthchecks.flakeModule
+        nixos-healthchecks.nixosModules.default
       ];
-      # ezConfigs = {
-      #   globalArgs = let
-      #     nixosSettings = {
-      #       system = "x86_64-linux";
-      #       hostName = "nixos";
-      #       timezone = "America/Chicago";
-      #       WSL = false;
-      #     };
-      #     nixosWSLSettings =
-      #       nixosSettings
-      #       // {
-      #         hostName = "NixOS-WSL";
-      #         WSL = true;
-      #       };
-      #
-      #     # Determine the profile: if the environment variable is empty, default to "nixos"
-      #     profile = let
-      #       p = builtins.getEnv "NIXOS_POFILE";
-      #     in
-      #       if p != ""
-      #       then p
-      #       else "nixos";
-      #     systemSettings =
-      #       if profile == "wsl"
-      #       then nixosWSLSettings
-      #       else nixosSettings;
-      #
-      #     pkgs = import nixpkgs {
-      #       inherit (systemSettings) system;
-      #       config = {
-      #         nvidia.acceptLicense = true;
-      #         allowUnfreePredicate = pkg:
-      #           builtins.elem (nixpkgs.lib.getName pkg) [
-      #             "nvidia-x11"
-      #             "nvidia-persistenced"
-      #             "nvidia-settings"
-      #             "discord"
-      #             "steam-unwrapped"
-      #             "steam"
-      #             "nvidia_driver"
-      #             "xow_dongle-firmware"
-      #             "obsidian"
-      #             "spotify"
-      #             "intel-ocl"
-      #             "fakespot-fake-reviews-amazon"
-      #             "onetab"
-      #           ];
-      #         allowSubstitutes = false;
-      #       };
-      #       overlays = with inputs; [
-      #         neovim-nightly-overlay.overlays.default
-      #         nixpkgs-wayland.overlay
-      #         nh.overlays.default
-      #         hyprpanel.overlay
-      #         yazi.overlays.default
-      #         alejandra.overlay
-      #       ];
-      #     };
-      #
-      #     SystemModules = with inputs; [
-      #       ./configuration.nix
-      #       hyprland.nixosModules.default
-      #       solaar.nixosModules.default
-      #       lanzaboote.nixosModules.lanzaboote
-      #       stylix.nixosModules.stylix
-      #       disko.nixosModules.disko
-      #       sops-nix.nixosModules.sops
-      #       nix-gaming.nixosModules.pipewireLowLatency
-      #       nix-gaming.nixosModules.platformOptimizations
-      #       nixos-wsl.nixosModules.default
-      #     ];
-      #
-      #     cdockterSettings = {
-      #       username = "cdockter";
-      #       description = "Christopher Ryan Dockter";
-      #       email = "65212972+DockterTeagle@users.noreply.github.com";
-      #       wm = "hyprland";
-      #       term = "ghostty";
-      #       editor = "nvim";
-      #       font = "JetBrainsMono NF";
-      #       nerdfont = "jetbrains-mono";
-      #       homeDirectory = "/home/cdockter";
-      #       cursorPackage = pkgs.bibata-cursors;
-      #       cursorName = "Bibata-Modern-Ice";
-      #       cursorSize = 24;
-      #     };
-      #
-      #     # Common arguments for nixosConfigurations
-      #     specialArgs = {inherit inputs systemSettings cdockterSettings;};
-      #   in {inherit pkgs specialArgs;};
-      #   home = {
-      #     configurationsDirectory = ./home;
-      #     extraSpecialArgs = {};
-      #     users = {
-      #       cdockter = {
-      #         standalone = {
-      #           enable = true;
-      #           pkgs = pkgs;
-      #         };
-      #       };
-      #     };
-      #   };
-      # };
       perSystem = {
         inputs',
         pkgs,
@@ -315,6 +206,7 @@
           inherit (config) treefmt;
         };
       };
+      #TODO: find a way to compress me or make me into a separate file
       flake = let
         nixosSettings = {
           system = "x86_64-linux";
