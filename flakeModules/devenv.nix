@@ -4,9 +4,7 @@
   treefmt,
   ...
 }: {
-  #TODO: get the treefmt to work as a hook and expose its packages to the shell
   shells = {
-    # create devShells.default
     default = {
       cachix.enable = true;
       cachix.pull = ["pre-commit-hooks"];
