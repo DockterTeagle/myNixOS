@@ -1,10 +1,8 @@
 {
   description = "my main flake";
-  # inputs = let
-  #   hyprland = ./inputs/hyprland.nix;
-  # in
   inputs = {
     # Core Nix Packages and Flakes
+    nixgl.url = "github:nix-community/nixGL";
     # nixos-unified = {
     #   url = "github:srid/nixos-unified";
     #   inputs={
@@ -118,7 +116,13 @@
     yazi = {
       url = "github:sxyazi/yazi"; #uses cache so dont override
     };
-    ghostty.url = "github:ghostty-org/ghostty";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        flake-compat.follows = "flake-compat";
+      };
+    };
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay"; #uses cache so dont override
@@ -126,7 +130,10 @@
     nix-topology.url = "github:oddlama/nix-topology";
     #to minimize duplicated packages
     flake-utils.url = "github:numtide/flake-utils";
-    flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
+    flake-compat = {
+      url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
+      flake = false;
+    };
   };
   outputs = {
     home-manager,
