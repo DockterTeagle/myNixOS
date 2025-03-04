@@ -91,10 +91,10 @@
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
     hyprlock.url = "github:hyprwm/hyprlock";
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hy3 = {
+    #   url = "github:outfoxxed/hy3";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     # ez-configs.url = "github:ehllie/ez-configs";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     nixcord = {
@@ -207,118 +207,6 @@
         };
       };
       #TODO: find a way to compress me or make me into a separate file
-      flake = let
-        nixosSettings = {
-          system = "x86_64-linux";
-          hostName = "nixos";
-          timezone = "America/Chicago";
-          WSL = false;
-        };
-        nixosWSLSettings =
-          nixosSettings
-          // {
-            hostName = "NixOS-WSL";
-            WSL = true;
-          };
-
-        # Determine the profile: if the environment variable is empty, default to "nixos"
-        profile = let
-          p = builtins.getEnv "NIXOS_POFILE";
-        in
-          if p != ""
-          then p
-          else "nixos";
-        systemSettings =
-          if profile == "wsl"
-          then nixosWSLSettings
-          else nixosSettings;
-
-        pkgs = import nixpkgs {
-          inherit (systemSettings) system;
-          config = {
-            nvidia.acceptLicense = true;
-            allowUnfreePredicate = pkg:
-              builtins.elem (nixpkgs.lib.getName pkg) [
-                "nvidia-x11"
-                "nvidia-persistenced"
-                "nvidia-settings"
-                "discord"
-                "steam-unwrapped"
-                "steam"
-                "nvidia_driver"
-                "xow_dongle-firmware"
-                "obsidian"
-                "spotify"
-                "intel-ocl"
-                "fakespot-fake-reviews-amazon"
-                "onetab"
-              ];
-            allowSubstitutes = false;
-          };
-          overlays = with inputs; [
-            nix.overlays.default
-            neovim-nightly-overlay.overlays.default
-            nixpkgs-wayland.overlay
-            nh.overlays.default
-            hyprpanel.overlay
-            hyprlock.overlays.default
-            yazi.overlays.default
-            alejandra.overlay
-          ];
-        };
-
-        SystemModules = with inputs; [
-          ./configuration.nix
-          solaar.nixosModules.default
-          lanzaboote.nixosModules.lanzaboote
-          stylix.nixosModules.stylix
-          disko.nixosModules.disko
-          sops-nix.nixosModules.sops
-          nix-gaming.nixosModules.pipewireLowLatency
-          nix-gaming.nixosModules.platformOptimizations
-          nixos-wsl.nixosModules.default
-        ];
-
-        cdockterSettings = {
-          username = "cdockter";
-          description = "Christopher Ryan Dockter";
-          email = "65212972+DockterTeagle@users.noreply.github.com";
-          wm = "hyprland";
-          term = "ghostty";
-          editor = "nvim";
-          font = "JetBrainsMono NF";
-          nerdfont = "jetbrains-mono";
-          homeDirectory = "/home/cdockter";
-          cursorPackage = pkgs.bibata-cursors;
-          cursorName = "Bibata-Modern-Ice";
-          cursorSize = 24;
-        };
-
-        # Common arguments for nixosConfigurations
-        specialArgs = {inherit inputs systemSettings cdockterSettings self;};
-      in {
-        nixosConfigurations = builtins.listToAttrs (map (name: {
-          inherit name;
-          value = nixpkgs.lib.nixosSystem {
-            inherit pkgs;
-            inherit specialArgs;
-            modules = SystemModules;
-          };
-        }) ["wsl" "nixos"]);
-
-        homeConfigurations = {
-          cdockter = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = specialArgs;
-            modules = with inputs; [
-              ./home/cdockter/home.nix
-              stylix.homeManagerModules.stylix
-              hyprpanel.homeManagerModules.hyprpanel
-              nixcord.homeManagerModules.nixcord
-              sops-nix.homeManagerModules.sops
-            ];
-          };
-        };
-      };
+      flake = import ./systemFlake.nix {inherit inputs self nixpkgs home-manager;};
     };
 }
