@@ -2,6 +2,11 @@
   description = "my main flake";
   inputs = {
     # Core Nix Packages and Flakes
+    # lix.url = "https://git.lix.systems/api/v1/repos/lix-project/lix";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixgl.url = "github:nix-community/nixGL";
     # nixos-unified = {
     #   url = "github:srid/nixos-unified";
