@@ -35,6 +35,9 @@
       };
     };
   };
+  qt = {
+    enable = true;
+  };
   gtk = {
     enable = true;
     gtk4.extraConfig = {
@@ -100,6 +103,7 @@
       MOZ_ENABLE_WAYLAND = 1;
       LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
       NVD_BACKEND = "direct";
+      QT_QPA_PLATFORM = "wayland;xcb";
     };
     # the home.packages option allows you to install nix packages into your
     # environment.
