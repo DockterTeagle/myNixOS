@@ -1,5 +1,10 @@
 {
   wayland.windowManager.hyprland = {
+    /*
+    TODO: make an indicator to tell when in prefix/ special mode,
+    also make it execute only one command at a time unless told to. Also
+    make all binds have docs and a help key
+    */
     extraConfig =
       #hyprlang
       ''
