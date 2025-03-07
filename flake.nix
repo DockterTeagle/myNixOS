@@ -15,13 +15,6 @@
     #   };
     # };
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
-    std = {
-      url = "github:divnix/std";
-      inputs = {
-        lib.follows = "nixpkgs";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix.url = "github:nixos/nix";
@@ -154,7 +147,6 @@
         devenv.flakeModule
         # ez-configs.flakeModule
         nix-topology.flakeModule
-        std.flakeModule
         nixos-healthchecks.flakeModule
         nixos-healthchecks.nixosModules.default
       ];
