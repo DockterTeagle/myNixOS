@@ -3,6 +3,11 @@
   cdockterSettings,
   ...
 }: {
+  imports = [
+    # ./animations
+    ./decorations
+    ./general.nix
+  ];
   wayland.windowManager.hyprland = {
     # plugins = with inputs; [
     #   hy3.packages.x86_64-linux.hy3
@@ -13,10 +18,11 @@
     extraConfig =
       #hyprlang
       ''
-        bind = $mainMod,space,submap, prefix
+        bindl = $mainMod,space,submap, prefix
         submap = prefix
         bind = SHIFT,z,fullscreen,
         bind = ,z,fullscreen,1
+        bindl = $mainMod,l,exec,uwsm stop
         bind =$mainMod,comma,submap,special
         submap = special
         bind = ,F4,exec,[workspace special:bt silent] ghostty -e btop
@@ -43,68 +49,31 @@
       #     };
       #   };
       # }; # configure plugins here
-      general = {
-        # layout = "hy3";
-      };
-      #FIXME: make no_hardware_cursors false once hypr is updated
-      cursor = {
-        no_hardware_cursors = true;
-        min_refresh_rate = 60;
-      };
-      render = {
-        direct_scanout = true;
-      };
-      input = {
-        monitor = [
-          "eDP-1, 1920x1080@144 , 0x0, 1"
-          "HDMI-A-1, 3840x2160, 1920x0, 1.50"
-        ];
-        kb_layout = "us";
-        kb_variant = "";
-        kb_model = "";
-        kb_options = "";
-        kb_rules = "";
-        numlock_by_default = true;
-
-        follow_mouse = 1;
-
-        touchpad = {
-          disable_while_typing = true;
-          natural_scroll = "yes";
-        };
-        sensitivity = "0.25";
-      };
-      misc = {
-        disable_hyprland_logo = true; # sorry vaxry
-        disable_splash_rendering = true;
-      };
-      decoration = {
-        rounding = 0;
-        dim_inactive = true;
-        dim_strength = 0.1;
-        # drop_shadow = 1;
-        # shadow_range = 20;
-        # shadow_render_power = 2;
-        # shadow_offset = "0 0";
-        blur = {
-          enabled = true;
-          size = 4;
-          passes = 4;
-          ignore_opacity = 1;
-          xray = 1;
-          new_optimizations = 1;
-          noise = 3.0e-2;
-          contrast = 1.0;
-        };
-      };
       animations = {
         enabled = true;
+        bezier = [
+          "wind,0.05,0.9,0.1,1.05"
+          "winIn,0.1,1.1,0.1,1.1"
+          "winOut,0.3,-0.3,0,1"
+          "liner,1,1,1,1"
+        ];
+        animation = [
+          #animations-high.conf
+          "windows,1,6,wind,slide"
+          "windowsIn,1,6,winIn,slide"
+          "windowsOut,1,5,winOut,slide"
+          "windowsMove,1,5,wind,slide"
+          "border,1,1,liner"
+          "borderangle,1,30,liner,loop"
+          "fade,1,10,default"
+          "workspaces,1,5,wind"
+        ];
       };
 
-      # dwindle = {
-      #   pseudotile = "yes";
-      #   preserve_split = "yes";
-      # };
+      dwindle = {
+        pseudotile = "yes";
+        preserve_split = "yes";
+      };
       gestures = {
         workspace_swipe = "off";
       };
@@ -130,10 +99,6 @@
       ];
       bindr = [
         "SUPER_L,$mainMod,exec,rofi -show drun -show-icons run"
-        # "SUPER_L,$mainMod,exec,tofi-run "
-      ];
-      bindl = [
-        "$mainMod,l,exec,uwsm stop"
       ];
       bind = [
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
@@ -166,7 +131,6 @@
       windowrulev2 = [
         "idleinhibit focus, class:^steam_app_.*$"
         "idleinhibit fullscreen,class:^(firefox|chromium|chrome)$, title:^(.*YouTube.*)$"
-        "suppressevent maximize, class:.*"
       ];
     };
   };
