@@ -1,6 +1,6 @@
 {
   imports = [
-    ./foot.nix
+    # ./foot.nix
     ./ghostty.nix
     ./alacritty.nix
     ./kitty.nix
