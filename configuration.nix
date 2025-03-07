@@ -16,14 +16,15 @@
   ];
   # Nix settings
   nix = {
+    package = inputs.lix-module.packages.${pkgs.system}.default;
     settings = {
       # max-jobs = 5;
       experimental-features = [
         "nix-command"
         "flakes"
-        "pipe-operators"
+        # "pipe-operators"
         "recursive-nix"
-        "verified-fetches"
+        # "verified-fetches"
         "no-url-literals"
         "ca-derivations"
       ];
