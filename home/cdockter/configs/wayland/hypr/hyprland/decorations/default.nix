@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland = {
     settings = {
       decoration = {
-        rounding = 2;
+        rounding = 10;
         dim_inactive = true;
         dim_strength = 0.1;
         shadow = {

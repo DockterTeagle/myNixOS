@@ -1,9 +1,17 @@
 {
   wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    systemd.enable = false;
+    package = null;
+    portalPackage = null;
     settings = {
-      general = {
-        # layout = "hy3";
-        layout = "dwindle";
+      dwindle = {
+        pseudotile = "yes";
+        preserve_split = "yes";
+      };
+      gestures = {
+        workspace_swipe = "off";
       };
       cursor = {
         no_hardware_cursors = 1;
