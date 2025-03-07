@@ -2,6 +2,7 @@
   cdockterSettings,
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -10,7 +11,7 @@
     ./scripts.nix
   ];
   nix = {
-    package = pkgs.nix;
+    package = inputs.lix-module.packages.${pkgs.system}.default;
     extraOptions = ''
       !include ${config.sops.secrets.nixAccessTokens.path}
     '';
