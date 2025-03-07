@@ -31,7 +31,6 @@
 
       "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
       "$term" = "${cdockterSettings.term}"; # terminal
-      # "$color11" = "rgb({})"
     };
   };
 }
