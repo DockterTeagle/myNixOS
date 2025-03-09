@@ -1,7 +1,7 @@
 {
   imports = [
-    ./fast.nix
     ./dynamic.nix
+    ./fast.nix
     ./moving.nix
   ];
   wayland.windowManager.hyprland.settings .animations = {
