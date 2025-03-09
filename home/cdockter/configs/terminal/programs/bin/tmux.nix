@@ -10,7 +10,6 @@
     newSession = true;
     terminal = "screen-256color";
     mouse = true;
-    tmuxp.enable = true;
     focusEvents = true;
     shell = "${pkgs.fish}/bin/fish";
     tmuxinator.enable = true;
