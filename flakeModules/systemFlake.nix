@@ -52,7 +52,6 @@
       allowSubstitutes = false;
     };
     overlays = with inputs; [
-      nixgl.overlay
       ghostty.overlays.default
       nix.overlays.default
       neovim-nightly-overlay.overlays.default
