@@ -102,6 +102,7 @@
       HYPRCURSOR_SIZE = 24;
       MOZ_ENABLE_WAYLAND = 1;
       LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
+      AW_WAYLAND_WINDOW_WATCHER_HYPRLAND = 1;
       NVD_BACKEND = "direct";
       QT_QPA_PLATFORM = "wayland;xcb";
     };
