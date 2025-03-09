@@ -53,7 +53,6 @@
     };
     overlays = with inputs; [
       ghostty.overlays.default
-      nix.overlays.default
       neovim-nightly-overlay.overlays.default
       nixpkgs-wayland.overlay
       nh.overlays.default

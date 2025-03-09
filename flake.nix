@@ -13,6 +13,7 @@
     #     nixpkgs.follows = "nixpkgs";
     #   };
     # };
+    blink-cmp.url = "github:Saghen/blink.cmp";
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

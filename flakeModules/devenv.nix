@@ -19,6 +19,8 @@
         commitlint
         inputs'.alejandra.packages.default
         codespell
+        lua-language-server
+        stylua
       ];
       git-hooks = {
         enabledPackages = with pkgs; [
@@ -33,6 +35,7 @@
           commitizen
           convco
           treefmt.build.wrapper
+          statix
         ];
         hooks = {
           # markdown
