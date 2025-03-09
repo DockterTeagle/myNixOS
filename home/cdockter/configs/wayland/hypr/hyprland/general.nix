@@ -1,4 +1,4 @@
-{
+{cdockterSettings, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -6,6 +6,8 @@
     package = null;
     portalPackage = null;
     settings = {
+      "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
+      "$term" = "${cdockterSettings.term}"; # terminal
       dwindle = {
         pseudotile = "yes";
         preserve_split = "yes";
@@ -42,6 +44,8 @@
       misc = {
         disable_hyprland_logo = true; # sorry vaxry
         disable_splash_rendering = true;
+        animate_mouse_windowdragging = true;
+        animate_manual_resizes = true;
       };
     };
   };
