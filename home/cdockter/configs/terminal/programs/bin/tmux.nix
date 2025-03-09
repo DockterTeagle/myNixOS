@@ -13,6 +13,7 @@
     focusEvents = true;
     shell = "${pkgs.fish}/bin/fish";
     tmuxinator.enable = true;
+    disableConfirmationPrompt = true;
     plugins = with pkgs.tmuxPlugins; [
       {
         plugin = resurrect;
