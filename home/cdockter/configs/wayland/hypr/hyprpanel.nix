@@ -5,29 +5,20 @@
     enable = true;
     overlay.enable = true;
 
-    # Automatically restart HyprPanel with systemd.
-    # Useful when updating your config so that you
-    # don't need to manually restart it.
-    # Default: false
-    # systemd.enable = true;
-
     # Add '/nix/store/.../hyprpanel' to the
     # 'exec-once' in your Hyprland config.
     # Default: false
     hyprland.enable = true;
 
-    # Fix the overwrite issue with HyprPanel.
-    # See below for more information.
-    # Default: false
-    overwrite.enable = true;
     theme = "tokyo_night";
 
     layout = {
-      "bar.layouts" = {
+      bar.layouts = {
         "*" = {
           left = [
             "dashboard"
             "workspaces"
+            "ram"
           ];
           # middle = ["systray"];
           middle = [];
@@ -49,9 +40,6 @@
           monitorSpecific = false;
           showWsIcons = true;
           showApplicationIcons = true;
-          # icons = {
-          #   active = " ";
-          # };
         };
         media.show_active_only = true;
         customModules = {
@@ -75,9 +63,9 @@
         dashboard = {
           directories.enabled = false;
           stats.enable_gpu = true;
-          shortcuts = {
-            enabled = false;
-          };
+          # shortcuts = {
+          #   enabled = false;
+          # };
         };
         transition = "crossfade";
       };

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    git-absorb
     (
       writeShellScriptBin "protonhax"
       ''
@@ -18,8 +19,6 @@
             echo "protonhax exec <appid> <cmd>"
             printf "\tRuns <cmd> in the context of <appid>\n"
         }
-
-        # List of all variables in the script that could contain paths
 
         # Function to check if a variable points to a valid path
 
