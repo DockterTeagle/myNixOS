@@ -6,7 +6,6 @@
       vim_keys = true;
       update_ms = 100;
       shown_boxes = "proc cpu mem net gpu1";
-      proc_tree = true;
     };
   };
 }
