@@ -1,13 +1,8 @@
-{
-  inputs',
-  self',
-  ...
-}: {
+{self', ...}: {
   flakeFormatter = true;
   programs = {
     alejandra = {
       enable = true;
-      package = inputs'.alejandra.packages.default;
     };
     beautysh = {
       enable = true;

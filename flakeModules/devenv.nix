@@ -17,7 +17,7 @@
         #formatters
         #linters
         commitlint
-        inputs'.alejandra.packages.default
+        alejandra
         codespell
         lua-language-server
         stylua
