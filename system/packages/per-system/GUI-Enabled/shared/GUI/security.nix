@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   services = {
     printing.enable = false;
     # usbguard = {
@@ -8,8 +8,4 @@
     #   };
     # };
   };
-  environment.systemPackages = with pkgs; [
-    protonvpn-gui
-    element-desktop
-  ];
 }
