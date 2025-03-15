@@ -11,7 +11,7 @@
     terminal = "screen-256color";
     mouse = true;
     focusEvents = true;
-    shell = "${pkgs.fish}/bin/fish";
+    shell = "${pkgs.nushell}/bin/nu";
     tmuxinator.enable = true;
     disableConfirmationPrompt = true;
     plugins = with pkgs.tmuxPlugins; [
