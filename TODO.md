@@ -15,15 +15,17 @@
   - fixed by setting to null in home-manager
 - [ ] configure solaar(if needed)
 - [ ] move basically all of tools into their own separate flakes
-- [ ] make hyprland have tmux like leader key
+- [x] make hyprland have tmux like leader key
+  - fixed awhile ago
 - [ ] make fastfetch image work in tmux
 - [ ] make this system agnostic
 - [ ] use flake-parts more
 - [ ] clean MSI fans
 - [ ] fix issue where foot and ghostty return to box after opening neovim
-- [ ] wait for ghostty to fix cpu error
+- [x] wait for ghostty to fix cpu error
 - [ ] change the starship to go down rather than across
-- [ ] check if transient prompt is possible in starship and if it is enable it
+- [x] check if transient prompt is possible in starship and if it is enable it
+  - only possible with fish
 - [ ] get a YubiKey
 - [ ] configure this to set WSL auto
 - [ ] configure nh to detect as well
