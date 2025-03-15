@@ -6,6 +6,7 @@
     ./fd.nix
     ./fzf.nix
     ./gpg.nix
+    ./gh.nix
     ./lsd.nix
     ./neovim.nix
     ./thefuck.nix
