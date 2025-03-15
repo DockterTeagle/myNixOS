@@ -9,7 +9,7 @@
 }: {
   imports = [
     (
-      #this part should somehow be in home-manager
+      #TODO:this part should somehow be in home-manager
       if cdockterSettings.wm == "hyprland"
       then
         (import ./hyprland/default.nix {
