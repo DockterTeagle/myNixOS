@@ -17,7 +17,7 @@
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix.url = "github:nixos/nix";
+    # nix.url = "github:nixos/nix";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -114,13 +114,7 @@
     yazi = {
       url = "github:sxyazi/yazi"; #uses cache so dont override
     };
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        flake-compat.follows = "flake-compat";
-      };
-    };
+    ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay"; #uses cache so dont override
@@ -132,6 +126,7 @@
       url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
       flake = false;
     };
+    nufmt.url = "github:nushell/nufmt";
   };
   outputs = {
     home-manager,
