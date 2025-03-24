@@ -16,7 +16,8 @@
   ];
   # Nix settings
   nix = {
-    package = inputs.lix-module.packages.${pkgs.system}.default;
+    # package = inputs.lix-module.packages.${pkgs.system}.default;
+    channel.enable = false;
     settings = {
       # max-jobs = 5;
       experimental-features = [
@@ -34,6 +35,7 @@
         "https://nix-community.cachix.org"
         "https://yazi.cachix.org"
         "https://nix-gaming.cachix.org"
+        "https://ghostty.cachix.org"
       ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -41,6 +43,7 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+        "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
       ];
       auto-optimise-store = true;
     };
@@ -72,7 +75,6 @@
     fwupd.enable = true;
     gvfs.enable = true; # needed?
     libinput.enable = true;
-    printing.enable = false;
     tumbler.enable = true;
     pcscd.enable = true;
     # XServer and GNOME
