@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./lanzaboote]; # TODO: make this depend on system or something so its not hardcoded
   environment.systemPackages = with pkgs; [sbctl];
   boot = {
@@ -32,7 +28,7 @@
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
-    loader.timeout = lib.mkForce 0;
+    loader.systemd-boot.consoleMode = "max";
 
     blacklistedKernelModules = [
       "snd_pcsp"
