@@ -13,6 +13,7 @@
     # };
     targets = {
       neovim.enable = false;
+      firefox.enable = false;
       # tmux.enable = false;
     };
 
