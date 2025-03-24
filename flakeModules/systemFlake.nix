@@ -55,6 +55,7 @@
       ghostty.overlays.default
       neovim-nightly-overlay.overlays.default
       nixpkgs-wayland.overlay
+      nix.overlays.default
       nh.overlays.default
       hyprpanel.overlay
       hyprlock.overlays.default
@@ -72,7 +73,7 @@
     nix-gaming.nixosModules.pipewireLowLatency
     nix-gaming.nixosModules.platformOptimizations
     nixos-wsl.nixosModules.default
-    lix-module.nixosModules.default
+    # lix-module.nixosModules.default
   ];
 
   cdockterSettings = {
