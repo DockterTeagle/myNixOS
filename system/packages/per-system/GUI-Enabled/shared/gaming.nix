@@ -1,11 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    winetricks
-    jstest-gtk
-    samba
-    SDL2
-    sdl-jstest
-    umu-launcher
     (heroic.override {
       extraPkgs = pkgs: [
         pkgs.gamescope
