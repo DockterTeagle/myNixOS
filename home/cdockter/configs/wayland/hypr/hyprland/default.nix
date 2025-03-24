@@ -11,10 +11,6 @@
     ./general.nix
     ./autostart.nix
     ./windowrules.nix
+    ./workspaces.nix
   ];
-  # wayland.windowManager.hyprland = {
-  #   plugins = with inputs; [
-  #     hy3.packages.x86_64-linux.hy3
-  #   ];
-  # };
 }

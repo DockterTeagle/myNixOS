@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    systemd.enable = false;
+    systemd.enable = false; #using uwsm
     package = null;
     portalPackage = null;
     settings = {
@@ -22,6 +22,7 @@
         direct_scanout = 1;
       };
       input = {
+        accel_profile = "flat";
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
           "HDMI-A-1, 3840x2160, 1920x0, 1.50"
@@ -39,7 +40,7 @@
           disable_while_typing = true;
           natural_scroll = "yes";
         };
-        sensitivity = "0.25";
+        sensitivity = 0.0;
       };
       misc = {
         disable_hyprland_logo = true; # sorry vaxry
