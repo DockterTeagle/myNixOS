@@ -2,7 +2,6 @@
   cdockterSettings,
   pkgs,
   config,
-  inputs,
   ...
 }: {
   imports = [
@@ -11,7 +10,7 @@
     ./scripts.nix
   ];
   nix = {
-    package = inputs.lix-module.packages.${pkgs.system}.default;
+    package = pkgs.nix;
     extraOptions = ''
       !include ${config.sops.secrets.nixAccessTokens.path}
     '';
@@ -164,7 +163,7 @@
       userName = "Dr.Teagle";
       userEmail = cdockterSettings.email;
       signing = {
-        key = "89F9174BB101BBD0";
+        key = "CCE0487EE258BBAC";
         format = "openpgp";
         signByDefault = true;
       };
