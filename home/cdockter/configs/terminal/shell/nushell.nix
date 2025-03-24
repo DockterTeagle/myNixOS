@@ -1,8 +1,12 @@
 {pkgs, ...}: {
   programs.nushell = {
     shellAliases = {
-      ta = "tmux attach";
-      g = "git";
+      ta =
+        #nu
+        "tmux attach";
+      g =
+        #nu
+        "git";
       ga = "git add";
       gaa = "git add --all";
       gc = "git commit";
@@ -24,9 +28,9 @@
     settings = {
       buffer_editor = "nvim";
       show_banner = false;
+      edit_mode = "vi";
     };
     plugins = with pkgs.nushellPlugins; [
-      highlight
       # gstat
       # formats
       # polars
