@@ -5,6 +5,7 @@
     ./network
     ./security
     ./system
+    ./services
     ./gaming.nix
   ];
 }
