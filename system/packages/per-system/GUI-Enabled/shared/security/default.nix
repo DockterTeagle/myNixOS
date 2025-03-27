@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   imports = [./antivirus];
+  services = {
+    printing.enable = false;
+  };
   security = {
     doas = {
       enable = true;
