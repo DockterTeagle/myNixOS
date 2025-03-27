@@ -2,26 +2,19 @@
   description = "my main flake";
   inputs = {
     # Core Nix Packages and Flakes
-    # lix.url = "https://git.lix.systems/api/v1/repos/lix-project/lix";
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # nixos-unified = {
     #   url = "github:srid/nixos-unified";
     #   inputs={
     #     nixpkgs.follows = "nixpkgs";
     #   };
     # };
-    blink-cmp.url = "github:Saghen/blink.cmp";
-    nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
+    # nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix.url = "github:nixos/nix";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -66,7 +59,6 @@
       url = "github:svenum/solaar-flake/main";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
       };
     };
 
@@ -75,7 +67,6 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
       };
     };
     ##Hyprland
@@ -90,7 +81,6 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
       inputs = {
-        flake-compat.follows = "flake-compat";
         nixpkgs.follows = "nixpkgs";
         treefmt-nix.follows = "treefmt-nix";
       };
@@ -99,8 +89,6 @@
       url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
-        flake-utils.follows = "flake-utils";
         home-manager.follows = "home-manager";
       };
     };
@@ -118,20 +106,16 @@
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay"; #uses cache so dont override
+    nufmt.url = "github:nushell/nufmt";
     nix-gaming.url = "github:fufexan/nix-gaming"; #uses cachix, dont override
     nix-topology.url = "github:oddlama/nix-topology";
     #to minimize duplicated packages
-    flake-utils.url = "github:numtide/flake-utils";
-    flake-compat = {
-      url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
-      flake = false;
-    };
-    nufmt.url = "github:nushell/nufmt";
   };
   outputs = {
     home-manager,
     nixpkgs,
     flake-parts,
+    self,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -142,8 +126,7 @@
         devenv.flakeModule
         # ez-configs.flakeModule
         nix-topology.flakeModule
-        nixos-healthchecks.flakeModule
-        nixos-healthchecks.nixosModules.default
+        # nixos-healthchecks.flakeModule
       ];
       perSystem = {
         inputs',
@@ -155,7 +138,7 @@
         treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self' pkgs;};
         topology.modules = [
           ./flakeModules/topology.nix
-          {inherit (self') nixosConfigurations;}
+          {inherit (self) nixosConfigurations;}
         ];
         devenv = import ./flakeModules/devenv.nix {
           inherit self' inputs' pkgs;
