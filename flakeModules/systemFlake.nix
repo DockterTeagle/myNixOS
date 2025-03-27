@@ -73,7 +73,7 @@
     nix-gaming.nixosModules.pipewireLowLatency
     nix-gaming.nixosModules.platformOptimizations
     nixos-wsl.nixosModules.default
-    # lix-module.nixosModules.default
+    nix-topology.nixosModules.default
   ];
 
   cdockterSettings = {
