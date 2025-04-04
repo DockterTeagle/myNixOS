@@ -32,7 +32,7 @@
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
         search = {
-          default = "DuckDuckGo";
+          default = "ddg";
           force = true;
         };
         userChrome =
