@@ -16,7 +16,7 @@
         workspace_swipe = "off";
       };
       cursor = {
-        no_hardware_cursors = 1;
+        no_hardware_cursors = false;
       };
       render = {
         direct_scanout = 1;
