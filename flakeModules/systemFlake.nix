@@ -55,7 +55,7 @@
       ghostty.overlays.default
       neovim-nightly-overlay.overlays.default
       nixpkgs-wayland.overlay
-      nix.overlays.default
+      # nix.overlays.default
       nh.overlays.default
       hyprpanel.overlay
       hyprlock.overlays.default

@@ -16,7 +16,6 @@
         ltex-ls-plus
         #formatters
         #linters
-        commitlint
         alejandra
         codespell
         lua-language-server
