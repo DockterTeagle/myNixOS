@@ -3,48 +3,42 @@
     # Enable the module.
     # Default: false
     enable = true;
-    overlay.enable = true;
 
     # Add '/nix/store/.../hyprpanel' to the
     # 'exec-once' in your Hyprland config.
     # Default: false
     hyprland.enable = true;
-
-    theme = "tokyo_night";
-
-    layout = {
-      bar.layouts = {
-        "*" = {
-          left = [
-            "dashboard"
-            "workspaces"
-            "ram"
-          ];
-          # middle = ["systray"];
-          middle = [];
-          right = [
-            "volume"
-            "network"
-            "bluetooth"
-            "clock"
-            "notifications"
-          ];
-        };
-      };
-    };
+    overwrite.enable = true;
     settings = {
       scalingPriority = "both";
       tear = true;
+      layout = {
+        "bar.layouts" = {
+          "*" = {
+            left = [
+              "dashboard"
+              "workspaces"
+              "ram"
+            ];
+            middle = ["hypridle"];
+            right = [
+              "volume"
+              "network"
+              "bluetooth"
+              "clock"
+              "notifications"
+            ];
+          };
+        };
+      };
       bar = {
         workspaces = {
           monitorSpecific = false;
-          showWsIcons = true;
-          showApplicationIcons = true;
+          show_icons = true;
+          # showWsIcons = true;
+          # showApplicationIcons = true;
         };
         media.show_active_only = true;
-        customModules = {
-        };
-        workspaces.show_icons = true;
         launcher = {
           autoDetectIcon = true;
         };
@@ -70,6 +64,7 @@
         transition = "crossfade";
       };
       theme = {
+        name = "tokyo_night";
         bar = {
           transparent = true;
         };
