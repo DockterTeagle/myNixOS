@@ -70,6 +70,10 @@
     };
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprlock.url = "github:hyprwm/hyprlock";
     # hy3 = {
     #   url = "github:outfoxxed/hy3";
@@ -98,17 +102,13 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    yazi = {
-      url = "github:sxyazi/yazi"; #uses cache so dont override
-    };
+    yazi.url = "github:sxyazi/yazi"; #uses cache so dont override ;
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
     # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay"; #uses cache so dont override
-    nufmt.url = "github:nushell/nufmt";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-gaming.url = "github:fufexan/nix-gaming"; #uses cachix, dont override
     nix-topology.url = "github:oddlama/nix-topology";
-    #to minimize duplicated packages
   };
   outputs = {
     home-manager,
