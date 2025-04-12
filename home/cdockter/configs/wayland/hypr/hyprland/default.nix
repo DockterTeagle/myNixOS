@@ -1,7 +1,3 @@
-# {
-#   # inputs,
-#   # cdockterSettings,
-# }:
 {
   imports = [
     ./animations
