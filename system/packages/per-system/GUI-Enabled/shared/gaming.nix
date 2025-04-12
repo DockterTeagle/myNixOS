@@ -17,13 +17,20 @@
     keyboard.qmk = {
       enable = true;
     };
-    steam-hardware.enable = true;
     xpadneo.enable = true;
     xone.enable = true;
   };
   programs = {
     gamescope.enable = true;
-    gamemode.enable = true;
+    gamemode = {
+      enable = true;
+      settings = {
+        gpu = {
+          apply_gpu_optimizations = "accept-responsibility";
+          gpu_device = 0;
+        };
+      };
+    };
     java.enable = true;
     steam = {
       enable = true;
