@@ -17,7 +17,7 @@
     keyboard.qmk = {
       enable = true;
     };
-    xpadneo.enable = true;
+    # xpadneo.enable = true;
     xone.enable = true;
   };
   programs = {
