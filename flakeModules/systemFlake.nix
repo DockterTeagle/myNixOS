@@ -111,7 +111,6 @@ in {
         ../home/cdockter/home.nix
         stylix.homeManagerModules.stylix
         hyprpanel.homeManagerModules.hyprpanel
-        nixcord.homeManagerModules.nixcord
         sops-nix.homeManagerModules.sops
       ];
     };

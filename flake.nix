@@ -81,13 +81,6 @@
     # };
     # ez-configs.url = "github:ehllie/ez-configs";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
-      };
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs = {
