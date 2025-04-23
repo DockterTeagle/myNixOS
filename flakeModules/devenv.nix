@@ -20,11 +20,10 @@
         codespell
         lua-language-server
         stylua
+        dprint
       ];
       git-hooks = {
         enabledPackages = with pkgs; [
-          markdownlint-cli
-          markdownlint-cli2
           mdsh
           statix
           flake-checker
