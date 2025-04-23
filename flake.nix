@@ -23,10 +23,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    alejandra = {
-      url = "github:kamadorueda/alejandra";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     #Boot
     ##Secure boot
     lanzaboote = {
@@ -137,6 +133,6 @@
           inherit (config) treefmt;
         };
       };
-      flake = import ./flakeModules/systemFlake.nix {inherit inputs nixpkgs home-manager;};
+      flake = import ./flakeModules/systemFlake.nix {inherit inputs nixpkgs home-manager;}; # this is probably stupid
     };
 }
