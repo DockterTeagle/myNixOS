@@ -37,3 +37,9 @@
 - \[ \] try out nushell
 - \[ \] get the image for fastfetch from url to remove it from this repo
 - \[ \] fix hyprlock
+- \[ \] get all TODOs throughout this repo into this one file to centralize
+- \[ \] Home Manager:
+  - make a home-manager-rollback service on user login [46, 4]
+  - make an indicator to tell when in prefix/ special mode,
+    also make it execute only one command at a time unless told to. Also
+    make all binds have docs and a help key
