@@ -7,7 +7,6 @@
   environment.systemPackages = with pkgs; [
     woeusb
     libnotify
-    qmk
     nix-index
     github-cli
     # rar
