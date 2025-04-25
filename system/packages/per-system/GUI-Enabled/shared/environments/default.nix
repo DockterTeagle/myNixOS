@@ -69,13 +69,6 @@
     greetd = {
       enable = true;
       restart = true;
-      package = pkgs.greetd.regreet;
-      # settings = {
-      #   default_session = {
-      #     command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet ";
-      #     # user = "greeter";
-      #   };
-      # };
     };
   };
   environment = {
