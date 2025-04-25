@@ -54,7 +54,7 @@
     overlays = with inputs; [
       ghostty.overlays.default
       neovim-nightly-overlay.overlays.default
-      nixpkgs-wayland.overlay
+      # nixpkgs-wayland.overlay
       # nix.overlays.default
       nh.overlays.default
       hyprpanel.overlay

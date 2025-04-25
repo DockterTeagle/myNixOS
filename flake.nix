@@ -52,12 +52,12 @@
     };
 
     # Wayland and GUI Tools
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    # nixpkgs-wayland = {
+    #   url = "github:nix-community/nixpkgs-wayland";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #   };
+    # };
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
     hyprland-contrib = {

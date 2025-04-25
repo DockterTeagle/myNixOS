@@ -32,7 +32,6 @@
         enable = true;
         useImage = true;
       };
-      regreet.enable = true;
       plymouth = {
         enable = true;
         logoAnimated = true;
