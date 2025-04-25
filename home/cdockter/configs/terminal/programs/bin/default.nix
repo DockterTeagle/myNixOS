@@ -12,6 +12,7 @@
     ./thefuck.nix
     ./tmux.nix
     ./topgrade.nix
+    ./sesh.nix
     ./zoxide.nix
   ];
 }
