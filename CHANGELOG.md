@@ -15,5 +15,5 @@
 - \[x\] check if transient prompt is possible in starship and if it is enable it
   - only possible with fish
 - \[x\] move basically all of tools into their own separate flakes
-- \[ \] get all TODOs throughout this repo into this one file to centralize
 - \[ \] configure this to set WSL auto
+  - not exactly done yet, but is satisfactory for now
