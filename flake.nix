@@ -38,14 +38,8 @@
     # Development Tools and Utilities
     devenv.url = "github:cachix/devenv";
     ##lsp
-    nixd = {
-      url = "github:nix-community/nixd";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
-      };
-    };
+    nixd.url = "github:nix-community/nixd";
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
