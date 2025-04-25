@@ -5,14 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     brightnessctl
-    inotify-tools
-    powertop
   ];
-  powerManagement = {
-    powertop = {
-      enable = true;
-    };
-  };
   services = {
     power-profiles-daemon.enable = lib.mkForce false;
     tlp = {
