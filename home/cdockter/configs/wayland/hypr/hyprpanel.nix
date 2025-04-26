@@ -1,12 +1,6 @@
 {cdockterSettings, ...}: {
   programs.hyprpanel = {
-    # Enable the module.
-    # Default: false
     enable = true;
-
-    # Add '/nix/store/.../hyprpanel' to the
-    # 'exec-once' in your Hyprland config.
-    # Default: false
     hyprland.enable = true;
     overwrite.enable = true;
     settings = {
