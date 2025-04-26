@@ -12,14 +12,12 @@
     mouse = true;
     focusEvents = true;
     shell = "${pkgs.fish}/bin/fish";
-    tmuxinator.enable = true;
     disableConfirmationPrompt = true;
     plugins = with pkgs.tmuxPlugins; [
-      {
-        plugin = resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-      }
-      copycat
+      # {
+      #   plugin = resurrect;
+      #   extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      # }
       pain-control
       yank
       open
@@ -32,18 +30,18 @@
       #
       #     '';
       # }
-      extrakto
+      extrakto #needed?
       vim-tmux-navigator
-      tmux-fzf
+      tmux-fzf # I think this is replaced by sesh
       tmux-thumbs
-      {
-        plugin = continuum;
-        extraConfig =
-          #tmux
-          ''
-            set -g @continuum-restore 'on'
-          '';
-      }
+      # {
+      #   plugin = continuum;
+      #   extraConfig =
+      #     #tmux
+      #     ''
+      #       set -g @continuum-restore 'on'
+      #     '';
+      # }
     ];
     extraConfig =
       #tmux
