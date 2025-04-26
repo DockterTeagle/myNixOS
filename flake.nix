@@ -64,12 +64,15 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprlock.url = "github:hyprwm/hyprlock";
     # hy3 = {
     #   url = "github:outfoxxed/hy3";
     #   inputs.hyprland.follows = "hyprland";
     # };
     # ez-configs.url = "github:ehllie/ez-configs";
+    # hypr-dynamic-cursors = {
+    #   url = "github:VirtCode/hypr-dynamic-cursors";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix = {
       url = "github:danth/stylix";
