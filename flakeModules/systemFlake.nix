@@ -58,7 +58,6 @@
       # nix.overlays.default
       nh.overlays.default
       hyprpanel.overlay
-      hyprlock.overlays.default
       yazi.overlays.default
     ];
   };

@@ -6,8 +6,10 @@
 }: {
   shells = {
     default = {
-      cachix.enable = true;
-      cachix.pull = ["pre-commit-hooks"];
+      cachix = {
+        enable = true;
+        pull = ["pre-commit-hooks"];
+      };
       packages = with pkgs; [
         # lsps
         inputs'.nixd.packages.nixd
