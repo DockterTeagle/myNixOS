@@ -7,7 +7,7 @@
         inactive_opacity = 0.6;
         fullscreen_opacity = 1.0;
         dim_inactive = true;
-        dim_strength = 0.1;
+        dim_strength = 0.01;
         shadow = {
           enabled = true;
           range = 30;
