@@ -1,5 +1,5 @@
 {
-  description = "my main flake";
+  description = "My nixos flake";
   inputs = {
     # Core Nix Packages and Flakes
     # nixos-unified = {
@@ -11,6 +11,7 @@
     # nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,12 +53,6 @@
     };
 
     # Wayland and GUI Tools
-    # nixpkgs-wayland = {
-    #   url = "github:nix-community/nixpkgs-wayland";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #   };
-    # };
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
     hyprland-contrib = {
