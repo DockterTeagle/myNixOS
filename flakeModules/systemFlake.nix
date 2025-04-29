@@ -64,6 +64,7 @@
 
   SystemModules = with inputs; [
     ../configuration.nix
+    chaotic.nixosModules.default
     solaar.nixosModules.default
     lanzaboote.nixosModules.lanzaboote
     stylix.nixosModules.stylix
