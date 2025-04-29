@@ -5,7 +5,7 @@
       autosuggestion.enable = true;
       dotDir = ".config/zsh";
       syntaxHighlighting.enable = true;
-      initExtra =
+      initContent =
         #bash
         ''
             zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
