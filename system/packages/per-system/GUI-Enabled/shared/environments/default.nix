@@ -1,53 +1,11 @@
-{
-  pkgs,
-  inputs,
-  cdockterSettings,
-  conf,
-  lib,
-  # config,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    (
-      #TODO:this part should somehow be in home-manager
-      if cdockterSettings.wm == "hyprland"
-      then
-        (import ./hyprland/default.nix {
-          inherit
-            inputs
-            pkgs
-            conf
-            lib
-            ;
-        })
-      else if cdockterSettings.wm == "sway"
-      then
-        (import ./sway/default.nix {
-          inherit
-            inputs
-            pkgs
-            conf
-            lib
-            ;
-        })
-      else
-        (import ./sway/default.nix {
-          inherit
-            inputs
-            pkgs
-            conf
-            lib
-            ;
-        })
-    )
+    ./hyprland
   ];
+  #TODO: follow the docs, as it takes too long to start up
+
   programs.regreet = {
     enable = true;
-    cageArgs = [
-      "-s"
-      "-m"
-      "last"
-    ];
     settings = {
       commands = {
         reboot = [
@@ -65,7 +23,7 @@
     };
   };
   services = {
-    playerctld.enable = true;
+    # playerctld.enable = true; #TODO: THIS SHOULDN'T BE HERE
     greetd = {
       enable = true;
       restart = true;
@@ -73,12 +31,7 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      cliphist
-      polkit
-      libva-utils
-      fuseiso
-      lshw
-      pavucontrol
+      fuseiso # TODO: THIS SHOULD NOT BE HERE
     ];
   };
 }
