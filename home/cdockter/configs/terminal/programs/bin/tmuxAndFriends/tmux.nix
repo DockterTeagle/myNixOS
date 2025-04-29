@@ -3,7 +3,6 @@
     enable = true;
     escapeTime = 0;
     baseIndex = 1;
-    clock24 = true;
     sensibleOnTop = true;
     keyMode = "vi";
     shortcut = "space";
@@ -53,6 +52,7 @@
         bind -n M-Left select-pane -L
         bind -n M-Right select-pane -R
         set-option -g cursor-style 'blinking-bar'
+        set-option -g status-position top
         set-option -ag terminal-features 'xterm-256color:RGB'
         set-option -ag terminal-features 'cstyle'
         bind -n M-Up select-pane -U
