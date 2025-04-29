@@ -14,3 +14,4 @@
     make all binds have docs and a help key
   - fix hyprlock crashing
   - fix regreet
+  - restructure the configs(especially the catastrophic bin dir)
