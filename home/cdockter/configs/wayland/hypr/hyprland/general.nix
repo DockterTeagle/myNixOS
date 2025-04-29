@@ -1,5 +1,11 @@
-{cdockterSettings, ...}: {
+{
+  cdockterSettings,
+  # inputs,
+  # systemSettings,
+  ...
+}: {
   wayland.windowManager.hyprland = {
+    # plugins = [inputs.hypr-dynamic-cursors.packages.${systemSettings.system}.hypr-dynamic-cursors];
     enable = true;
     xwayland.enable = true;
     systemd.enable = false; #using uwsm
@@ -8,6 +14,9 @@
     settings = {
       "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
       "$term" = "${cdockterSettings.term}"; # terminal
+      ecosystem = {
+        # enforce_permissions = true;
+      };
       dwindle = {
         pseudotile = "yes";
         preserve_split = "yes";
