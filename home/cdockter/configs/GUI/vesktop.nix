@@ -1,7 +1,12 @@
 {
   programs.vesktop = {
     enable = true;
-    settings = {};
+    settings = {
+      appBadge = false;
+      hardwareAcceleration = true;
+      arRPC = true;
+      checkupdates = false;
+    };
     vencord = {
       settings = {
         autoUpdate = false;
@@ -10,10 +15,7 @@
         useQuickCss = true;
         disableMinSize = true;
         plugins = {
-          MessageLogger = {
-            enabled = true;
-            ignoreSelf = true;
-          };
+          AnonymiseFileNames = {enabled = true;};
           FakeNitro.enabled = true;
         };
       };
