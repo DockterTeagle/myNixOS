@@ -15,7 +15,7 @@
         popups = 11;
       };
       monospace = {
-        package = pkgs.nerd-fonts.${cdockterSettings.nerdfont};
+        package = cdockterSettings.nerdfont;
         name = "${cdockterSettings.font}";
       };
     };

@@ -29,7 +29,7 @@
         name = "Noto Monochrome Emoji";
       };
       monospace = {
-        package = pkgs.${cdockterSettings.nerdfont};
+        package = cdockterSettings.nerdfont;
         name = cdockterSettings.font;
       };
     };
