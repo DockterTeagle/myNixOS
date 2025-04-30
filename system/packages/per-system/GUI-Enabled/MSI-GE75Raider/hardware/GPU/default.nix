@@ -1,5 +1,5 @@
 {
-  pkgs,
+  # pkgs,
   config,
   ...
 }: {
@@ -13,24 +13,29 @@
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+      # AQ_DRM_DEVICES = "/dev/dri/card1";
     };
     sessionVariables = {
       NIXOS_OZONE_WL = 1;
     };
   };
+  # chaotic.mesa-git = {
+  # enable = true;
+  # extraPackages = with pkgs; [mesa_git.opencl intel-media-driver intel-ocl vaapiIntel];
+  # extraPackages32 = with pkgs.pkgsi686Linux; [pkgs.mesa32_git.opencl intel-media-driver vaapiIntel];
+  # };
   hardware = {
     enableAllFirmware = false;
     graphics = {
-      enable = true;
-      enable32Bit = true;
-      package32 = pkgs.pkgsi686Linux.mesa.drivers;
-      extraPackages = with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        intel-media-driver
-        egl-wayland
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [libva]; #why
+      # enable32Bit = true;
+      # package32 = pkgs.pkgsi686Linux.mesa;
+      # extraPackages = with pkgs; [
+      #   vaapiVdpau
+      #   libvdpau-va-gl
+      #   intel-media-driver
+      #   egl-wayland
+      # ];
+      # extraPackages32 = with pkgs.pkgsi686Linux; [libva]; #why
     };
     nvidia = {
       modesetting.enable = true;
