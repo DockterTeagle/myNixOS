@@ -2,11 +2,13 @@
 
 - \[ \] fix git crashing when on https
 - \[ \] configure solaar(if needed)
-- \[ \] make fastfetch image work in tmux
 - \[ \] clean MSI fans
 - \[ \] get a YubiKey
 - \[ \] make all includes work, but make them optional to turn on
 - \[ \] refactor into system/systems and system/packages
+- \[ \] System:
+  - fix regreet(in more ways than one) display is the main one
+  - fix cursor issue
 - \[ \] Home Manager:
   - make a home-manager-rollback service on user login
   - make an indicator to tell when in prefix/ special mode for Hyprland,
@@ -15,3 +17,4 @@
   - fix hyprlock crashing
   - fix regreet
   - restructure the configs(especially the catastrophic bin dir)
+  - make fastfetch image work in tmux
