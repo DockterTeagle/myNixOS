@@ -7,5 +7,6 @@
     ./system
     ./services
     ./gaming.nix
+    ./monitors.nix
   ];
 }
