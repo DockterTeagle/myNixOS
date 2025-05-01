@@ -29,8 +29,8 @@
         workspaces = {
           monitorSpecific = false;
           show_icons = true;
-          # showWsIcons = true;
-          # showApplicationIcons = true;
+          showWsIcons = true;
+          showApplicationIcons = true;
         };
         media.show_active_only = true;
         launcher = {
