@@ -5,7 +5,6 @@
     zip
     lazygit
     zathura
-    ventoy-full # for writing ISO images
     # vim-full
     feh
     man-db
