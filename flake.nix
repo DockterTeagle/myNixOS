@@ -183,19 +183,6 @@
           ];
         };
 
-        SystemModules = with inputs; [
-          ./configuration.nix
-          solaar.nixosModules.default
-          lanzaboote.nixosModules.lanzaboote
-          stylix.nixosModules.stylix
-          disko.nixosModules.disko
-          sops-nix.nixosModules.sops
-          nix-gaming.nixosModules.pipewireLowLatency
-          nix-gaming.nixosModules.platformOptimizations
-          nixos-wsl.nixosModules.default
-          nix-topology.nixosModules.default
-        ];
-
         cdockterSettings = {
           username = "cdockter";
           description = "Christopher Ryan Dockter";
@@ -219,7 +206,19 @@
           value = nixpkgs.lib.nixosSystem {
             inherit pkgs;
             inherit specialArgs;
-            modules = SystemModules;
+            modules = with inputs; [
+              ./configuration.nix
+              chaotic.nixosModules.default
+              solaar.nixosModules.default
+              lanzaboote.nixosModules.lanzaboote
+              stylix.nixosModules.stylix
+              disko.nixosModules.disko
+              sops-nix.nixosModules.sops
+              nix-gaming.nixosModules.pipewireLowLatency
+              nix-gaming.nixosModules.platformOptimizations
+              nixos-wsl.nixosModules.default
+              nix-topology.nixosModules.default
+            ];
           };
         }) ["wsl" "nixos"]);
 
