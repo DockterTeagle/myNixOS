@@ -1,4 +1,4 @@
-{self', ...}: {
+{
   flakeFormatter = true;
   programs = {
     dprint = {
@@ -17,8 +17,5 @@
       enable = true;
     };
     beautysh.enable = true;
-  };
-  build = {
-    check = self';
   };
 }
