@@ -1,10 +1,12 @@
 {
   inputs',
   pkgs,
-  treefmt,
+  config,
   ...
-}: {
-  shells.default = {
+}: let
+  inherit (config) treefmt;
+in {
+  devenv.shells.default = {
     cachix = {
       enable = true;
       pull = ["pre-commit-hooks"];
