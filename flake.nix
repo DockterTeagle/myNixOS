@@ -91,7 +91,7 @@
     home-manager,
     nixpkgs,
     flake-parts,
-    self,
+    # self,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -105,21 +105,16 @@
         # nixos-healthchecks.flakeModule
       ];
       perSystem = {
-        inputs',
-        pkgs,
-        config,
-        self',
-        ...
-      }: {
-        treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self' pkgs;};
-        topology.modules = [
-          ./flakeModules/topology.nix
-          {inherit (self) nixosConfigurations;}
-        ];
-        devenv = import ./flakeModules/devenv.nix {
-          inherit self' inputs' pkgs;
-          inherit (config) treefmt;
-        };
+        # topology.modules = [
+        #   ./flakeModules/topology.nix
+        #   {inherit (self) nixosConfigurations;}
+        # ];
+        imports = [./flakeModules];
+        # process-compose."myservices" = {
+        #   imports = [
+        #     inputs.services-flake.processComposeModules.default
+        #   ];
+        # };
       };
       flake = let
         nixosSettings = {
