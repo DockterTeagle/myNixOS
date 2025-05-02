@@ -198,7 +198,7 @@
             inherit pkgs;
             inherit specialArgs;
             modules = with inputs; [
-              ./configuration.nix
+              ./system
               chaotic.nixosModules.default
               solaar.nixosModules.default
               lanzaboote.nixosModules.lanzaboote
@@ -218,7 +218,8 @@
             inherit pkgs;
             extraSpecialArgs = specialArgs;
             modules = with inputs; [
-              ./home/cdockter/home.nix
+              ./home/cdockter
+              zen-browser.homeModules.twilight
               stylix.homeManagerModules.stylix
               hyprpanel.homeManagerModules.hyprpanel
               sops-nix.homeManagerModules.sops
