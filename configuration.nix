@@ -21,10 +21,7 @@
         "nix-command"
         "flakes"
         "pipe-operators"
-        "recursive-nix"
-        "verified-fetches"
         "no-url-literals"
-        "ca-derivations"
       ];
       substituters = [
         "https://hyprland.cachix.org"
