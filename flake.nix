@@ -103,6 +103,9 @@
         # ez-configs.flakeModule
         nix-topology.flakeModule
         # nixos-healthchecks.flakeModule
+        # nixos-healthchecks.nixosModules.default
+        # process-compose-flake.flakeModule
+        home-manager.flakeModules.home-manager
       ];
       perSystem = {
         # topology.modules = [
