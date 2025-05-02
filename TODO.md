@@ -15,6 +15,5 @@
     also make it execute only one command at a time unless told to. Also
     make all binds have docs and a help key
   - fix hyprlock crashing
-  - fix regreet
   - restructure the configs(especially the catastrophic bin dir)
   - make fastfetch image work in tmux
