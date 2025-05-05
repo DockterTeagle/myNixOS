@@ -6,7 +6,9 @@
     woeusb
     libnotify
     nix-index
+    visidata
     github-cli
+    vulnix
     # rar
     # unrar
   ];

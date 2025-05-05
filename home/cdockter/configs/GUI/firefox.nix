@@ -1,9 +1,12 @@
+# {
+#   inputs,
+#   systemSettings,
+#   ...
+# }:
 {
-  inputs,
-  systemSettings,
-  ...
-}: {
-  home.packages = with inputs; [zen-browser.packages.${systemSettings.system}.twilight];
+  programs.zen-browser = {
+    enable = true;
+  };
   # programs.firefox = {
   #   enable = true;
   #   profiles = {

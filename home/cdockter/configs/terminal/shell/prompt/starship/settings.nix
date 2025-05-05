@@ -69,7 +69,6 @@ in {
     "\n"
     "${corner_bottom}$status"
     " [ $shell](bold)"
-    "$shlvl"
     "$character"
     # "${corner_bottom}"
   ];

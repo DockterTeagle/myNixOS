@@ -116,7 +116,7 @@
         dates = "weekly";
         extraArgs = "--keep=3";
       };
-      flake = "/home/cdockter/myNixOS";
+      flake = "/home/cdockter/Documents/myNixOS";
     };
     fish.enable = true;
     zsh.enable = true;

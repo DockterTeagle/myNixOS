@@ -1,7 +1,13 @@
 {
   description = "My nixos flake";
   inputs = {
-    # Core Nix Packages and Flakes
+    # process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
+    # services-flake.url = "github:juspay/services-flake";
+    #what is the use of process-compose?
+    # nix-health.url = "github:juspay/nix-health?dir=module";
+    /**
+    Core Nix Packages and Flakes
+    */
     # nixos-unified = {
     #   url = "github:srid/nixos-unified";
     #   inputs={
@@ -9,8 +15,8 @@
     #   };
     # };
     # nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
@@ -19,6 +25,9 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    impermanence = {
+      url = "github:nix-community/impermanence";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -91,7 +100,6 @@
     home-manager,
     nixpkgs,
     flake-parts,
-    # self,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -108,10 +116,6 @@
         home-manager.flakeModules.home-manager
       ];
       perSystem = {
-        # topology.modules = [
-        #   ./flakeModules/topology.nix
-        #   {inherit (self) nixosConfigurations;}
-        # ];
         imports = [./flakeModules];
         # process-compose."myservices" = {
         #   imports = [

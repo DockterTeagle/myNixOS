@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.extraConfig =
     #hyprlang
     ''
-      bindl = $mainMod,space,exec, echo "PREFIX">/tmp/hypr-submap; hyprctl dispatch submap prefix
+      bindl = $mainMod,space,submap, prefix
       submap = prefix
       bind = SHIFT,z,fullscreen,
       bind = ,z,fullscreen,1
