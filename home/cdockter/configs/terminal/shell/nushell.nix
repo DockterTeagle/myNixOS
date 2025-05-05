@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nushell = {
     shellAliases = {
       ta =
@@ -30,12 +30,5 @@
       show_banner = false;
       edit_mode = "vi";
     };
-    plugins = with pkgs.nushellPlugins; [
-      # gstat
-      # formats
-      # polars
-      # query
-      # skim
-    ];
   };
 }
