@@ -1,83 +1,121 @@
-{
+_: {
   disko.devices = {
     disk = {
-      EHDD = {
+      main = {
+        device = "/dev/nvme0n1";
         type = "disk";
-        device = "/dev/sda";
         content = {
           type = "gpt";
           partitions = {
+            boot = {
+              name = "boot";
+              size = "1M";
+              type = "EF00";
+            };
+            ESP = {
+              name = "ESP";
+              size = "1G";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = ["umask=0077"];
+              };
+            };
+            swap = {
+              size = "24G";
+              content = {
+                type = "swap";
+                resumeDevice = true;
+              };
+            };
             luks = {
               size = "100%";
-              label = "luksEHDD";
               content = {
                 type = "luks";
-                name = "cryptHDD";
-                settings.allowDiscards = true;
-                extraOpenArgs = [
-                  "--allow-discards"
-                  "--perf-no_read_workqueue"
-                  "--perf-no_write_workqueue"
-                ];
+                name = "crypted-main";
+                extraOpenArgs = [];
+                passwordFile = "/tmp/secret.key";
                 settings = {
+                  allowDiscards = true;
                   crypttabExtraOpts = [
                     "fido2-device=auto"
                     "token-timeout=10"
                   ];
                 };
-                # passwordFile = "";
                 content = {
-                  type = "filesystem";
-                  format = "ext4";
-                  mountpoint = "/Drives/EHDD";
+                  type = "lvm_pv";
+                  vg = "root_vg";
                 };
               };
             };
           };
         };
       };
-      nvme0n1 = {
+
+      extra = {
+        device = "/dev/nvme1n1";
         type = "disk";
-        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
-              name = "ESP";
-              size = "500M";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [
-                  "umask=0077"
-                ];
-              };
-            };
             luks = {
               size = "100%";
-              label = "luksBase";
               content = {
                 type = "luks";
-                name = "cryptroot";
-                settings.allowDiscards = true;
-                extraOpenArgs = [
-                  "--allow-discards"
-                  "--perf-no_read_workqueue"
-                  "--perf-no_write_workqueue"
-                ];
+                name = "crypted-extra";
+                extraOpenArgs = [];
+                passwordFile = "/tmp/secret.key";
                 settings = {
+                  allowDiscards = true;
                   crypttabExtraOpts = [
                     "fido2-device=auto"
                     "token-timeout=10"
                   ];
                 };
-                # passwordFile = "";
                 content = {
-                  type = "filesystem";
-                  format = "ext4";
+                  type = "lvm_pv";
+                  vg = "root_vg";
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+
+    lvm_vg = {
+      root_vg = {
+        type = "lvm_vg";
+        lvs = {
+          root = {
+            size = "100%FREE";
+            content = {
+              type = "btrfs";
+              extraArgs = ["-f"];
+
+              subvolumes = {
+                "/root" = {
                   mountpoint = "/";
+                };
+
+                "/persist" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "subvol=persist"
+                    "noatime"
+                  ];
+                  mountpoint = "/persist";
+                };
+
+                "/nix" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "subvol=nix"
+                    "noatime"
+                  ];
+                  mountpoint = "/nix";
                 };
               };
             };
