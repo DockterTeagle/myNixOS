@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./lanzaboote]; # TODO: make this depend on system or something so its not hardcoded
+  imports = [./systemd-boot]; # TODO: make this depend on system or something so its not hardcoded
   environment.systemPackages = with pkgs; [sbctl];
   boot = {
     plymouth = {
@@ -33,6 +33,6 @@
     blacklistedKernelModules = [
       "snd_pcsp"
     ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
   };
 }

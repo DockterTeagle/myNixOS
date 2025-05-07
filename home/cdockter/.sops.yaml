@@ -1,5 +1,5 @@
 keys:
-  - &cdockter age18r0acalespqnu703j3585p0gw4s8mlwfpnsh8z54are5yw0jjugsjhh7zw
+  - &cdockter age1jpuytk9u84lvw269pceeq2qh9g9ayaurezc0ja7ffj4w333teqaqt2d7p7
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:

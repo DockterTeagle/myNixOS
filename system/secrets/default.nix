@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  services.yubikey-agent.enable = true;
   sops = {
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";

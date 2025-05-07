@@ -6,14 +6,10 @@
 }: {
   imports = [
     ./configs
-    ./secrets
     ./scripts.nix
   ];
   nix = {
     package = pkgs.nix;
-    extraOptions = ''
-      !include ${config.sops.secrets.nixAccessTokens.path}
-    '';
   };
   xdg = {
     userDirs = {
@@ -134,10 +130,6 @@
   };
 
   programs = {
-    ssh = {
-      enable = true;
-      hashKnownHosts = true;
-    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
