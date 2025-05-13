@@ -6,9 +6,6 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
   ];
-  powerManagement = {
-    cpuFreqGovernor = "performance";
-  };
   services = {
     power-profiles-daemon.enable = lib.mkForce false;
     tlp = {
