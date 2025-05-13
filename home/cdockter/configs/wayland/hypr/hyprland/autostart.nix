@@ -1,6 +1,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
+      "pyprland"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
       "systemctl --user enable --now hyprpolkitagent.service"
