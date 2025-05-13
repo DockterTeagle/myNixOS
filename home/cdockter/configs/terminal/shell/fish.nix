@@ -18,11 +18,6 @@
           ";
       };
     };
-    loginShellInit =
-      #fish
-      ''
-
-      '';
     shellAbbrs = {
       AlecaFrame =
         # fish
@@ -66,9 +61,6 @@
       man =
         # fish
         "batman";
-      cd =
-        # fish
-        "__zoxide_z";
     };
 
     interactiveShellInit =

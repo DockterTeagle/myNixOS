@@ -1,1 +1,6 @@
-{imports = [./gh.nix];}
+{
+  imports = [
+    ./gh.nix
+    ./gpg.nix
+  ];
+}

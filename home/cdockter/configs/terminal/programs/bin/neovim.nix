@@ -9,6 +9,9 @@
   #   source = ./nvim;
   # };
   #   ripgrep
+  home.packages = with pkgs; [
+    git-absorb
+  ];
   programs.neovim = {
     package = pkgs.neovim;
     enable = true;

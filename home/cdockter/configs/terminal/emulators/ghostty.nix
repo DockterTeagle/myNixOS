@@ -2,9 +2,6 @@
   programs.ghostty = {
     enable = true;
     clearDefaultKeybinds = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
-    enableZshIntegration = true;
     installVimSyntax = true;
     installBatSyntax = true;
     package = pkgs.ghostty;
