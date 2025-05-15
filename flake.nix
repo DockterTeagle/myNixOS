@@ -45,7 +45,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Development Tools and Utilities
-    devenv.url = "github:cachix/devenv";
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ##lsp
     nixd.url = "github:nix-community/nixd";
 
