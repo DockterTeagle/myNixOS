@@ -26,9 +26,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
+    nixcord.url = "github:KaylorBen/nixcord";
+    impermanence.url = "github:nix-community/impermanence";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -230,6 +229,7 @@
               stylix.homeManagerModules.stylix
               hyprpanel.homeManagerModules.hyprpanel
               sops-nix.homeManagerModules.sops
+              nixcord.homeModules.nixcord
             ];
           };
         };

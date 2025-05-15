@@ -1,7 +1,7 @@
 {
   imports = [
     ./firefox.nix
-    ./vesktop.nix
+    ./nixcord.nix
     ./spotify.nix
   ];
 }
