@@ -1,5 +1,5 @@
 {
-  # pkgs,
+  pkgs,
   config,
   ...
 }: {
@@ -18,23 +18,18 @@
       NIXOS_OZONE_WL = 1;
     };
   };
-  # chaotic.mesa-git = {
-  # enable = true;
-  # extraPackages = with pkgs; [mesa_git.opencl intel-media-driver intel-ocl vaapiIntel];
-  # extraPackages32 = with pkgs.pkgsi686Linux; [pkgs.mesa32_git.opencl intel-media-driver vaapiIntel];
-  # };
   hardware = {
     enableAllFirmware = false;
     graphics = {
-      # enable32Bit = true;
-      # package32 = pkgs.pkgsi686Linux.mesa;
-      # extraPackages = with pkgs; [
-      #   vaapiVdpau
-      #   libvdpau-va-gl
-      #   intel-media-driver
-      #   egl-wayland
-      # ];
-      # extraPackages32 = with pkgs.pkgsi686Linux; [libva]; #why
+      enable32Bit = true;
+      package32 = pkgs.pkgsi686Linux.mesa;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+        intel-media-driver
+        egl-wayland
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [libva]; #why
     };
     nvidia = {
       modesetting.enable = true;
