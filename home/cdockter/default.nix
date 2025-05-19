@@ -133,37 +133,7 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    # let home manager install and manage itself.
     home-manager.enable = true;
-    git = {
-      enable = true;
-      # delta = {
-      #   enable = true;
-      # };
-      # diff-highlight = {
-      #   enable = true;
-      # };
-      # diff-so-fancy = {
-      #   enable = true;
-      #   changeHunkIndicators = true;
-      # };
-      # difftastic = {
-      #   enable = true;
-      #   background = "dark";
-      # };
-      userName = "Dr.Teagle";
-      userEmail = cdockterSettings.email;
-      # signing = {
-      #   key = "CCE0487EE258BBAC";
-      #   format = "openpgp";
-      #   signByDefault = true;
-      # };
-      extraConfig = {
-        core.editor = "nvim";
-        init.defaultBranch = "main";
-      };
-      lfs.enable = true;
-    };
   };
   xsession = {
     enable = true;
