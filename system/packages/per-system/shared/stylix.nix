@@ -1,8 +1,4 @@
-{
-  pkgs,
-  cdockterSettings,
-  ...
-}: {
+{cdockterSettings, ...}: {
   stylix = {
     image = ../../../../assets/pictures/wallpaper-dread.png;
     enable = true;
@@ -20,13 +16,11 @@
       };
     };
     cursor = {
-      # package = pkgs.phinger-cursors;
-      # name = "phinger-cursors-light";
       package = cdockterSettings.cursorPackage;
       name = cdockterSettings.cursorName;
       size = cdockterSettings.cursorSize;
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
+    base16Scheme = cdockterSettings.theme;
     targets = {
       grub = {
         enable = true;

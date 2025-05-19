@@ -5,7 +5,7 @@
 }: {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
+    base16Scheme = cdockterSettings.theme;
     image = ../../../assets/pictures/wallpaper-dread.png;
     targets = {
       neovim.enable = false;
