@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./configs
-    ./scripts.nix
   ];
   nix = {
     package = pkgs.nix;
