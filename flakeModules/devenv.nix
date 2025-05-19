@@ -26,13 +26,9 @@ in {
     ];
     git-hooks = {
       enabledPackages = with pkgs; [
-        mdsh
         flake-checker
-        deadnix
         gitleaks
         trufflehog
-        commitizen
-        convco
         statix
       ];
       hooks = {
