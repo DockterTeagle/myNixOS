@@ -9,6 +9,8 @@
 - \[ \] System:
   - fix regreet(in more ways than one) display is the main one
   - fix cursor issue
+  - fix unable to login with uwsm
+  - organize flake more
 - \[ \] Home Manager:
   - for Starship prompt make it so that only 2 or 3 show per line
   - make a home-manager-rollback service on user login
