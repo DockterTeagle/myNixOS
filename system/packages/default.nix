@@ -5,7 +5,6 @@
   environment.systemPackages = with pkgs; [
     woeusb
     libnotify
-    nix-index
     visidata
     github-cli
     vulnix
