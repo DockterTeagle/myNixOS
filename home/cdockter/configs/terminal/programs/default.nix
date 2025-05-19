@@ -1,7 +1,13 @@
 {
+  programs.nix-index.enable = true;
   imports = [
-    ./filemanagers
     ./systemmonitors
-    ./bin
+    ./aesthetics
+    ./finders
+    ./filemanagers
+    ./gitShit
+    ./tmuxAndFriends
+    ./neovim.nix
+    ./topgrade.nix
   ];
 }
