@@ -1,20 +1,22 @@
 {
   description = "My nixos flake";
   inputs = {
-    # process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
-    # services-flake.url = "github:juspay/services-flake";
-    #what is the use of process-compose?
-    # nix-health.url = "github:juspay/nix-health?dir=module";
     /**
     Core Nix Packages and Flakes
     */
-    # nixos-unified = {
-    #   url = "github:srid/nixos-unified";
-    #   inputs={
-    #     nixpkgs.follows = "nixpkgs";
-    #   };
+    # lix = {
+    #   url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+    #   flake = false;
     # };
-    # nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
+    # lix-module = {
+    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #    inputs.lix.follows = "lix";
+    # };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -27,11 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:KaylorBen/nixcord";
-    # impermanence.url = "github:nix-community/impermanence";
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     #Boot
     ##Secure boot
     lanzaboote = {
@@ -45,6 +42,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Development Tools and Utilities
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     devenv = {
       url = "github:cachix/devenv";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -70,22 +71,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # ez-configs.url = "github:ehllie/ez-configs";
-    # hypr-dynamic-cursors = {
-    #   url = "github:VirtCode/hypr-dynamic-cursors";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
+    stylix.url = "github:nix-community/stylix";
     #Terminal
-    nh.url = "github:viperML/nh";
-    #Used exclusively for firefox
+    nh.url = "github:nix-community/nh";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -93,7 +82,6 @@
     yazi.url = "github:sxyazi/yazi"; #uses cache so dont override ;
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
-    # nvimconfig.url = "github:DockterTeagle/mynvimconfig";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-gaming.url = "github:fufexan/nix-gaming"; #uses cachix, dont override
     nix-topology.url = "github:oddlama/nix-topology";
@@ -110,20 +98,11 @@
       imports = with inputs; [
         treefmt-nix.flakeModule
         devenv.flakeModule
-        # ez-configs.flakeModule
         nix-topology.flakeModule
-        # nixos-healthchecks.flakeModule
-        # nixos-healthchecks.nixosModules.default
-        # process-compose-flake.flakeModule
         home-manager.flakeModules.home-manager
       ];
       perSystem = {
         imports = [./flakeModules];
-        # process-compose."myservices" = {
-        #   imports = [
-        #     inputs.services-flake.processComposeModules.default
-        #   ];
-        # };
       };
       flake = let
         nixosSettings = {
@@ -196,6 +175,7 @@
           cursorPackage = pkgs.bibata-cursors;
           cursorName = "Bibata-Modern-Ice";
           cursorSize = 24;
+          theme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
         };
 
         # Common arguments for nixosConfigurations
@@ -218,6 +198,7 @@
               nix-gaming.nixosModules.platformOptimizations
               nixos-wsl.nixosModules.default
               nix-topology.nixosModules.default
+              # lix-module.nixosModules.default
             ];
           };
         }) ["wsl" "nixos"]);
@@ -229,10 +210,11 @@
             modules = with inputs; [
               ./home/cdockter
               zen-browser.homeModules.twilight
-              stylix.homeManagerModules.stylix
+              stylix.homeModules.stylix
               hyprpanel.homeManagerModules.hyprpanel
               sops-nix.homeManagerModules.sops
               nixcord.homeModules.nixcord
+              nix-index-database.hmModules.nix-index
             ];
           };
         };
