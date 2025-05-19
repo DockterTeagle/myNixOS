@@ -23,7 +23,6 @@
     };
   };
   services = {
-    # playerctld.enable = true; #TODO: THIS SHOULDN'T BE HERE
     greetd = {
       enable = true;
       restart = true;
