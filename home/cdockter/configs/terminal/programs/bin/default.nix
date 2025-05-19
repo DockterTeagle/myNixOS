@@ -1,4 +1,5 @@
 {
+  programs.nix-index.enable = true;
   imports = [
     ./neovim.nix
     ./carapace.nix
