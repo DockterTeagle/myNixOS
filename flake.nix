@@ -67,10 +67,6 @@
     # Wayland and GUI Tools
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:nix-community/stylix";
     #Terminal
@@ -155,7 +151,6 @@
           overlays = with inputs; [
             ghostty.overlays.default
             neovim-nightly-overlay.overlays.default
-            # nix.overlays.default
             nh.overlays.default
             hyprpanel.overlay
             yazi.overlays.default
