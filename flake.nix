@@ -83,7 +83,6 @@
     nix-topology.url = "github:oddlama/nix-topology";
   };
   outputs = {
-    home-manager,
     nixpkgs,
     flake-parts,
     ...
@@ -199,7 +198,7 @@
         }) ["wsl" "nixos"]);
 
         homeConfigurations = {
-          cdockter = home-manager.lib.homeManagerConfiguration {
+          cdockter = inputs.home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             extraSpecialArgs =
               specialArgs
