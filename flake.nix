@@ -80,7 +80,6 @@
     ## Neovim Configurations and Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-gaming.url = "github:fufexan/nix-gaming"; #uses cachix, dont override
-    nix-topology.url = "github:oddlama/nix-topology";
   };
   outputs = {
     nixpkgs,
@@ -93,7 +92,6 @@
       imports = with inputs; [
         treefmt-nix.flakeModule
         devenv.flakeModule
-        nix-topology.flakeModule
         home-manager.flakeModules.home-manager
       ];
       perSystem = {
@@ -184,14 +182,12 @@
               ./system
               chaotic.nixosModules.default
               solaar.nixosModules.default
-              lanzaboote.nixosModules.lanzaboote
               stylix.nixosModules.stylix
               disko.nixosModules.disko
               sops-nix.nixosModules.sops
               nix-gaming.nixosModules.pipewireLowLatency
               nix-gaming.nixosModules.platformOptimizations
               nixos-wsl.nixosModules.default
-              nix-topology.nixosModules.default
               # lix-module.nixosModules.default
             ];
           };
