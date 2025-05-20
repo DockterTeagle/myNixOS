@@ -6,9 +6,13 @@
 }: {
   imports = [
     ./configs
+    ./secrets
   ];
   nix = {
-    package = pkgs.nix;
+    package = pkgs.lix;
+    extraOptions = ''
+      !include ${config.sops.secrets."nixAccessTokens".path}
+    '';
   };
   xdg = {
     userDirs = {
