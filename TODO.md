@@ -5,7 +5,6 @@
 - [ ] clean MSI fans
 - [ ] get a YubiKey
 - [ ] make all includes work, but make them optional to turn on
-- [ ] refactor into system/systems and system/packages
 - [ ] System:
   - fix regreet(in more ways than one) display is the main one
   - fix cursor issue

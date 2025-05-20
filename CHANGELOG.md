@@ -19,3 +19,4 @@
   - not exactly done yet, but is satisfactory for now
 - [x] fix hyprlock crashing
   - fixed by commenting out commands that dont work
+- [x] refactor into system/systems and system/packages
