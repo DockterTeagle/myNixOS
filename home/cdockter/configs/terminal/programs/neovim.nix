@@ -13,7 +13,7 @@
     git-absorb
   ];
   programs.neovim = {
-    package = pkgs.neovim;
+    # package = pkgs.neovim;
     enable = true;
     # plugins = with pkgs.vimPlugins; [
     #   lazy-nvim

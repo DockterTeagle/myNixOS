@@ -1,10 +1,9 @@
-{pkgs, ...}: {
+{
   programs.ghostty = {
     enable = true;
     clearDefaultKeybinds = true;
     installVimSyntax = true;
     installBatSyntax = true;
-    package = pkgs.ghostty;
     settings = {
       gtk-titlebar = false;
       window-decoration = false;

@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{
   programs.yazi = {
-    package = pkgs.yazi;
     enable = true;
+    shellWrapperName = "y";
     settings = {
       manager = {
         show_hidden = true;

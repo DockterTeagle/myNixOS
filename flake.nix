@@ -201,7 +201,11 @@
         homeConfigurations = {
           cdockter = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            extraSpecialArgs = specialArgs;
+            extraSpecialArgs =
+              specialArgs
+              // {
+                inherit pkgs;
+              };
             modules = with inputs; [
               ./home/cdockter
               zen-browser.homeModules.twilight
