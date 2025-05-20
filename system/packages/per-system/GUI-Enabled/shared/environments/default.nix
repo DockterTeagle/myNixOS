@@ -1,8 +1,7 @@
-{pkgs, ...}: {
+{
   imports = [
     ./hyprland
   ];
-  #TODO: follow the docs, as it takes too long to start up
 
   programs.regreet = {
     enable = true;
@@ -27,10 +26,5 @@
       enable = true;
       restart = true;
     };
-  };
-  environment = {
-    systemPackages = with pkgs; [
-      fuseiso # TODO: THIS SHOULD NOT BE HERE
-    ];
   };
 }
