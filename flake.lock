@@ -787,11 +787,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1747664001,
-        "narHash": "sha256-Lgp1GtjNff8JRjpcJntYUy+FWypKwfwwnXli0Ohu7Eo=",
+        "lastModified": 1747694245,
+        "narHash": "sha256-ud7iN+7Bkdp+ekTrh8Q7EePvTKBV/RJwA4hPFJHp5ag=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "af293830f35658ad5430bc09677d7e658ffdc1a7",
+        "rev": "dd5d2c5d0baf25f966c0d780930b952b3b16394d",
         "type": "github"
       },
       "original": {
@@ -1483,11 +1483,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1747649177,
-        "narHash": "sha256-j2cVoE6ptfm7Xt1XBXjx1jklU0IehfMoCZTciOrMVUE=",
+        "lastModified": 1747699547,
+        "narHash": "sha256-hmYehhzkE04WGkqfJ6dTMdIz99LFQzoZ3maQD2GHb5U=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "4563d61d52f7c1fefe874d4567a0f0ee820252c8",
+        "rev": "bf7aeca255059203738909aa24fed3e675a2e749",
         "type": "github"
       },
       "original": {
@@ -1499,11 +1499,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1747611853,
-        "narHash": "sha256-VgoGh5MQ1/+UGNdNOqfKHqH6a49S9MNi80GD7KprF5E=",
+        "lastModified": 1747676223,
+        "narHash": "sha256-WhwauKZwrMviNpPQs5FjAGS1cehMDEajOCw5W59K0HQ=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "3a35fdc3471e5f8fb6ad57b48abaa4e4db006de3",
+        "rev": "2045e9700c7324cbd3772bc40b3b30b10cf65cc9",
         "type": "github"
       },
       "original": {
@@ -2674,11 +2674,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747693122,
-        "narHash": "sha256-v5pggbhAHDIFl+zLFufxgX4K42AN1yd6q7nYlGG+ePQ=",
+        "lastModified": 1747696712,
+        "narHash": "sha256-4osrkMiOfqB/SQxni7mtuuRcYMs5HDhowROYNRQhLeM=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "8be2d752167b91c2d39d52e8bff4d14696ebe42a",
+        "rev": "f08eb325d74fa664595110e70cd7a2baa1bee7db",
         "type": "github"
       },
       "original": {
@@ -2736,8 +2736,8 @@
       },
       "original": {
         "owner": "jcollie",
-        "ref": "56c159be489cc6c0e73c3930bd908ddc6fe89613",
         "repo": "zon2nix",
+        "rev": "56c159be489cc6c0e73c3930bd908ddc6fe89613",
         "type": "github"
       }
     }
