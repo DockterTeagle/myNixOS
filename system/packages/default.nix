@@ -6,5 +6,6 @@
     libnotify
     visidata
     vulnix
+    obsidian
   ];
 }
