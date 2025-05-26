@@ -3,9 +3,7 @@
   pkgs,
   config,
   ...
-}: let
-  inherit (config) treefmt;
-in {
+}: {
   devenv.shells.default = {
     cachix = {
       enable = true;
@@ -14,13 +12,14 @@ in {
     packages = with pkgs; [
       # lsps
       inputs'.nixd.packages.nixd
-      marksman
+      markdown-oxide
       ltex-ls-plus
       #formatters
       alejandra
       #linters
       codespell
-      dprint
+      write-good
+      markdownlint-cli2
       #etc
       nix-melt
     ];
@@ -30,6 +29,7 @@ in {
         gitleaks
         trufflehog
         statix
+        config.treefmt.build.wrapper
       ];
       hooks = {
         # markdown
@@ -59,7 +59,7 @@ in {
         convco.enable = true;
         forbid-new-submodules.enable = true;
         treefmt = {
-          package = treefmt.build.wrapper;
+          package = config.treefmt.build.wrapper;
           enable = true;
         };
       };
