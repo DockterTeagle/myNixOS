@@ -4,15 +4,6 @@
     /**
     Core Nix Packages and Flakes
     */
-    # lix = {
-    #   url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-    #   flake = false;
-    # };
-    # lix-module = {
-    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #    inputs.lix.follows = "lix";
-    # };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,12 +21,6 @@
     };
     nixcord.url = "github:KaylorBen/nixcord";
     #Boot
-    ##Secure boot
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
     ##Disk allocation
     disko = {
       url = "github:nix-community/disko";
@@ -48,7 +33,6 @@
     };
     devenv = {
       url = "github:cachix/devenv";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     ##lsp
     nixd.url = "github:nix-community/nixd";
@@ -59,26 +43,25 @@
     };
     solaar = {
       url = "github:svenum/solaar-flake/main";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    #Terminal
+    nh.url = "github:nix-community/nh";
+    yazi.url = "github:sxyazi/yazi"; #uses cache so dont override ;
+    ghostty.url = "github:ghostty-org/ghostty";
+    ## Neovim Configurations and Overlays
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # Wayland and GUI Tools
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:nix-community/stylix";
-    #Terminal
-    nh.url = "github:nix-community/nh";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
+      inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    yazi.url = "github:sxyazi/yazi"; #uses cache so dont override ;
-    ghostty.url = "github:ghostty-org/ghostty";
-    ## Neovim Configurations and Overlays
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-gaming.url = "github:fufexan/nix-gaming"; #uses cachix, dont override
   };
   outputs = {
@@ -188,7 +171,6 @@
               nix-gaming.nixosModules.pipewireLowLatency
               nix-gaming.nixosModules.platformOptimizations
               nixos-wsl.nixosModules.default
-              # lix-module.nixosModules.default
             ];
           };
         }) ["wsl" "nixos"]);
