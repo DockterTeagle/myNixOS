@@ -1,12 +1,11 @@
 {pkgs, ...}: {
   nix = {
-    package = pkgs.lix;
+    package = pkgs.lixPackageSets.latest.lix;
     channel.enable = false;
     settings = {
       experimental-features = [
         "nix-command"
         "flakes"
-        "repl-flake"
         "no-url-literals"
       ];
       substituters = [
