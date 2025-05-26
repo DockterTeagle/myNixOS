@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./systemd-boot]; # TODO: make this depend on system or something so its not hardcoded
+  imports = [./systemd-boot];
   environment.systemPackages = with pkgs; [sbctl];
   boot = {
     plymouth = {
