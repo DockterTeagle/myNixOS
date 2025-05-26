@@ -1,1 +1,1 @@
-{imports = [./bat.nix ./fastfetch.nix ./lsd.nix];}
+{imports = [./bat.nix ./fastfetch.nix ./eza.nix];}
