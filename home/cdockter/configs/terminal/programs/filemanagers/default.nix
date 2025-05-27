@@ -1,6 +1,9 @@
-{
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    dua
+    dust
+  ];
   imports = [
-    # ./n3.nix
     ./yazi.nix
   ];
 }
