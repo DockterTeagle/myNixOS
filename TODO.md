@@ -10,6 +10,7 @@
   - fix cursor issue
   - fix unable to log in with uwsm
   - organize flake inputs more
+  - make CoolerControl load in GUI
 - [ ] Home Manager:
   - for Starship prompt make it so that only 2 or 3 show per line
   - make a home-manager-rollback service on user login
