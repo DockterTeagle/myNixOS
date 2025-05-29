@@ -15,6 +15,7 @@
         fakeNitro = {
           enable = true;
         };
+        customRPC.enable = true;
         anonymiseFileNames = {
           enable = true;
           anonymiseByDefault = true;

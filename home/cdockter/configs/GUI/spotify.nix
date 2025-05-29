@@ -4,7 +4,9 @@
       enable = true;
     };
   };
-  programs.spotify-player = {
-    enable = true;
+  programs = {
+    ncspot = {
+      enable = true;
+    };
   };
 }
