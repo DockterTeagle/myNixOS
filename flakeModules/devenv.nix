@@ -18,7 +18,7 @@
       alejandra
       #linters
       codespell
-      write-good
+      vale
       markdownlint-cli2
       #etc
       nix-melt
