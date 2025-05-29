@@ -2,6 +2,9 @@
   programs = {
     git = {
       enable = true;
+      delta = {
+        enable = true;
+      };
       userName = "Dr.Teagle";
       userEmail = cdockterSettings.email;
       # signing = {
