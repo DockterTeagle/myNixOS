@@ -1,11 +1,5 @@
-{
-  cdockterSettings,
-  # inputs,
-  # systemSettings,
-  ...
-}: {
+{cdockterSettings, ...}: {
   wayland.windowManager.hyprland = {
-    # plugins = [inputs.hypr-dynamic-cursors.packages.${systemSettings.system}.hypr-dynamic-cursors];
     enable = true;
     xwayland.enable = true;
     systemd.enable = false; #using uwsm
@@ -22,22 +16,23 @@
       };
       dwindle = {
         pseudotile = "yes";
-        preserve_split = "yes";
+        preserve_split = true;
+        # smart_split = true;
       };
       gestures = {
         workspace_swipe = "off";
       };
       cursor = {
-        no_hardware_cursors = true;
+        no_hardware_cursors = 1;
       };
       render = {
-        direct_scanout = 1;
+        direct_scanout = 2;
       };
       input = {
         accel_profile = "flat";
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
-          "HDMI-A-1, 3840x2160, 1920x0, 1.50"
+          "HDMI-A-1, 3840x2160@30, 1920x0, 1.50"
         ];
         kb_layout = "us";
         kb_variant = "";
