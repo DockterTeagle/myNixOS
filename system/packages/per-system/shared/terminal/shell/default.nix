@@ -7,6 +7,5 @@
     zathura
     # vim-full
     feh
-    man-db
   ];
 }
