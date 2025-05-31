@@ -13,7 +13,6 @@
             zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
             zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
             export PATH=$PATH:/home/cdockter/.local/bin
-            alias AlecaFrame='protonhax run 230410 "/home/cdockter/.local/share/Steam/steamapps/compatdata/230410/pfx/drive_c/users/steamuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Overwolf/AlecaFrame.lnk"'
             function sesh-sessions() {
             {
               exec </dev/tty
