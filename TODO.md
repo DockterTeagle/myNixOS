@@ -1,5 +1,6 @@
 # TODO
 
+- [ ] learn jujutsu(the CLI)
 - [ ] fix git crashing when on https
 - [ ] configure solaar(if needed)
 - [ ] clean MSI fans
