@@ -1,19 +1,18 @@
+# NOTE: Im good
 {pkgs, ...}: {
-  hardware = {
-    bluetooth = {
-      powerOnBoot = true;
-      input = {
-        General = {
-          UserspaceHID = false;
-          ClassicBondedOnly = false;
-        };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    input = {
+      General = {
+        UserspaceHID = false;
+        ClassicBondedOnly = false;
       };
-      settings = {
-        General = {
-          Experimental = true;
-        };
+    };
+    settings = {
+      General = {
+        Experimental = true;
       };
-      enable = true;
     };
   };
   services = {
@@ -55,9 +54,8 @@
       };
     };
   };
-  environment.systemPackages = with pkgs; [
-    bluez
-    bluez-alsa
-    bluez-tools
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   bluez-alsa
+  #   bluez-tools
+  # ];
 }

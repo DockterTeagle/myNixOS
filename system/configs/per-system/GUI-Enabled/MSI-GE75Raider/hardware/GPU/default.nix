@@ -1,3 +1,4 @@
+#TODO: consider the extraPackages config
 {
   pkgs,
   config,

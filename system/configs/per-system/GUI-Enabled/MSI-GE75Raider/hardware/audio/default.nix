@@ -1,3 +1,4 @@
+# NOTE: Im good
 {
   services = {
     pipewire = {

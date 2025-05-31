@@ -1,13 +1,9 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-  ];
+{lib, ...}: {
   services = {
     power-profiles-daemon.enable = lib.mkForce false;
+    illum = {
+      enable = true;
+    };
     tlp = {
       enable = true;
       settings = {
