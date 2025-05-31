@@ -2,7 +2,6 @@
 
 - [ ] learn jujutsu (the CLI)
 - [ ] fix git crashing when on https
-- [ ] configure solaar (if needed)
 - [ ] clean MSI fans
 - [ ] get a YubiKey
 - [ ] make all includes work, but make them optional to turn on
@@ -19,6 +18,4 @@
   - make an indicator to tell when in prefix/ special mode for Hyprland,
     also make it execute only one command at a time unless told to. Also
     make all binds have docs and a help key
-  - restructure the configs (especially the catastrophic bin dir)
-  - make fastfetch image work in tmux
   - make hyprpanel work correctly with hm

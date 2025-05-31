@@ -8,6 +8,7 @@
       signing = {
         behavior = "own";
         backend = "gpg";
+        backends.program = "gpg2";
       };
       user = {
         inherit (cdockterSettings) email;

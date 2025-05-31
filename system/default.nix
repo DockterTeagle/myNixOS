@@ -33,12 +33,6 @@
 
   # Programs
   programs = {
-    gnupg = {
-      # agent = {
-      #   enable = true;
-      #   enableSSHSupport = true;
-      # };
-    };
     nh = {
       enable = true;
       clean = {
