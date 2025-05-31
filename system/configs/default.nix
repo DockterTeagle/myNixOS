@@ -1,3 +1,3 @@
 {
-  imports = [./nix.nix ./per-system];
+  imports = [./per-system];
 }
