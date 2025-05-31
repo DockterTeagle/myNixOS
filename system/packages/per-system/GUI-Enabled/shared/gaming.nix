@@ -17,7 +17,7 @@
     keyboard.qmk = {
       enable = true;
     };
-    xone.enable = true;
+    # xone.enable = true;
   };
   programs = {
     gamemode = {
