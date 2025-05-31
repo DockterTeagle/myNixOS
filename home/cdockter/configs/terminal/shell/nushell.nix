@@ -13,7 +13,6 @@
       gl = "git pull";
       gp = "git push";
       gcl = "git clone";
-      update = "topgrade";
       grtr = "cd \"$(git rev-parse --show-toplevel || echo .)\"";
       cdi = "__zoxide_zi";
       man = "batman";

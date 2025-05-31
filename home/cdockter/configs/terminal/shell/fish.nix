@@ -49,9 +49,6 @@
       gcl =
         # fish
         "git clone";
-      update =
-        # fish
-        "topgrade";
       grtr =
         # fish
         "cd \"$(git rev-parse --show-toplevel || echo .)\"";

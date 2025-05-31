@@ -15,6 +15,7 @@
           "home_manager"
           "clam_av_db"
           "git_repos"
+          "vim"
         ];
         set_title = false;
         cleanup = true;
