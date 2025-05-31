@@ -21,3 +21,4 @@
     make all binds have docs and a help key
   - restructure the configs (especially the catastrophic bin dir)
   - make fastfetch image work in tmux
+  - make hyprpanel work correctly with hm

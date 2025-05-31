@@ -3,6 +3,7 @@
     git-absorb
     tree-sitter
     inotify-tools
+    xdotool
   ];
   programs.neovim = {
     enable = true;

@@ -8,15 +8,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lix = {
-      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-      flake = false;
-    };
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix.follows = "lix";
-    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -84,7 +75,6 @@
       imports = with inputs; [
         treefmt-nix.flakeModule
         devenv.flakeModule
-        home-manager.flakeModules.home-manager
       ];
       perSystem = {
         imports = [./flakeModules];
@@ -186,7 +176,6 @@
             inherit specialArgs;
             modules = with inputs; [
               ./system
-              lix-module.nixosModules.default
               chaotic.nixosModules.default
               solaar.nixosModules.default
               stylix.nixosModules.stylix

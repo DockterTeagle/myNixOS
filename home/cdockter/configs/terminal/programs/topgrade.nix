@@ -14,6 +14,7 @@
           "system"
           "home_manager"
           "clam_av_db"
+          "git_repos"
         ];
         set_title = false;
         cleanup = true;
