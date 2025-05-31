@@ -1,8 +1,8 @@
 # TODO
 
-- [ ] learn jujutsu(the CLI)
+- [ ] learn jujutsu (the CLI)
 - [ ] fix git crashing when on https
-- [ ] configure solaar(if needed)
+- [ ] configure solaar (if needed)
 - [ ] clean MSI fans
 - [ ] get a YubiKey
 - [ ] make all includes work, but make them optional to turn on
@@ -12,6 +12,7 @@
   - fix unable to log in with uwsm
   - organize flake inputs more
   - make CoolerControl load in GUI
+  - Everyone's favorite: refactor more specifically make the configs in configs
 - [ ] Home Manager:
   - for Starship prompt make it so that only 2 or 3 show per line
   - make a home-manager-rollback service on user login
