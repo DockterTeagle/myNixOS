@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    libnotify
+    # libnotify
     visidata
     vulnix
     obsidian
