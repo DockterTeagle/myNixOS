@@ -14,8 +14,5 @@
     sops
     age
     yubikey-manager
-    gpg-tui
-    gnupg
-    pinentry-all
   ];
 }
