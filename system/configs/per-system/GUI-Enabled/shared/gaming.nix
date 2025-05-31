@@ -22,7 +22,6 @@
         };
       };
     };
-    java.enable = true;
     steam = {
       enable = true;
       platformOptimizations.enable = true;
