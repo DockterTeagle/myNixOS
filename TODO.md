@@ -5,6 +5,7 @@
 - [ ] clean MSI fans
 - [ ] get a YubiKey
 - [ ] make all includes work, but make them optional to turn on
+- [ ] make the paths still relative but top down
 - [ ] System:
   - fix regreet(in more ways than one) display is the main one
   - fix cursor issue
