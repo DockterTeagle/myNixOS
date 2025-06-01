@@ -6,7 +6,7 @@
         sign-on-push = true;
       };
       signing = {
-        behavior = "own";
+        behavior = "drop";
         backend = "gpg";
         backends.program = "gpg2";
       };
