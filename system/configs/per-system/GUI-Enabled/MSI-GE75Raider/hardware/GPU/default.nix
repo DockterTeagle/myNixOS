@@ -1,16 +1,11 @@
-#TODO: consider the extraPackages config
-{
-  pkgs,
-  config,
-  ...
-}: {
+{config, ...}: {
   environment = {
     variables = {
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "1";
-      __GL_VRR_ALLOWED = "0";
+      # __GL_GSYNC_ALLOWED = "1";
+      # __GL_VRR_ALLOWED = "0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
@@ -20,18 +15,6 @@
     };
   };
   hardware = {
-    enableAllFirmware = false;
-    graphics = {
-      enable32Bit = true;
-      package32 = pkgs.pkgsi686Linux.mesa;
-      extraPackages = with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        intel-media-driver
-        egl-wayland
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [libva]; #why
-    };
     nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
