@@ -17,3 +17,5 @@
   - for Starship prompt make it so that only 2 or 3 show per line
   - make a home-manager-rollback service on user login
   - make hyprpanel work correctly with hm
+  - make hyprland exceptions for blur rule:
+    - steam,zen
