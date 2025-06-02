@@ -12,11 +12,12 @@
             left = [
               "dashboard"
               "workspaces"
-              "ram"
             ];
-            middle = ["hypridle"];
+            middle = [
+              "windowtitle"
+              "submap"
+            ];
             right = [
-              "volume"
               "network"
               "bluetooth"
               "clock"
@@ -26,11 +27,14 @@
         };
       };
       bar = {
+        windowtitle.label = false;
+        # customModules = {
+        #   submap = {
+        #   };
+        # };
         workspaces = {
           monitorSpecific = false;
           show_icons = true;
-          showWsIcons = true;
-          showApplicationIcons = true;
         };
         media.show_active_only = true;
         launcher = {
@@ -51,9 +55,7 @@
         dashboard = {
           directories.enabled = false;
           stats.enable_gpu = true;
-          # shortcuts = {
-          #   enabled = false;
-          # };
+          shortcuts.enabled = false;
         };
         transition = "crossfade";
       };

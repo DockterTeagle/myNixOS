@@ -20,3 +20,7 @@
 - [x] fix hyprlock crashing
   - fixed by commenting out commands that dont work
 - [x] refactor into system/systems and system/packages
+- [x] make an indicator to tell when in prefix/ special mode for Hyprland,
+  also make it execute only one command at a time unless told to. Also
+  make all binds have docs and a help key
+  - done through hyprpanel
