@@ -3,7 +3,7 @@
     enable = true;
     shellWrapperName = "y";
     settings = {
-      manager = {
+      mgr = {
         show_hidden = true;
         sort_by = "natural";
       };
