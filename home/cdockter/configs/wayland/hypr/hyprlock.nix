@@ -1,11 +1,6 @@
-{
-  # pkgs,
-  config,
-  ...
-}: {
+{config, ...}: {
   programs.hyprlock = {
     enable = true;
-    # package = pkgs.hyprlock;
     settings = {
       auth = {
         pam = {
