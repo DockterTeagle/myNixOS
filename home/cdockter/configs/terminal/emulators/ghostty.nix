@@ -10,6 +10,7 @@
       mouse-hide-while-typing = true;
       confirm-close-surface = false;
       async-backend = "epoll";
+      command = "tmux attach";
       keybind = [
         "ctrl+shift+v=paste_from_clipboard"
         "ctrl+shift+c=copy_to_clipboard"
