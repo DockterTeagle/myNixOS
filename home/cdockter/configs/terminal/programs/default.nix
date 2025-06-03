@@ -12,6 +12,7 @@
   ];
   programs.nix-index.enable = true;
   imports = [
+    ./thefuck.nix
     ./systemmonitors
     ./aesthetics
     ./finders

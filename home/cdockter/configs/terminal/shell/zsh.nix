@@ -17,7 +17,6 @@
         enable = true;
         plugins = [
           "git"
-          "thefuck"
           "colored-man-pages"
           "tmux"
           "alias-finder"

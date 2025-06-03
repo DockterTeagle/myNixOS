@@ -14,7 +14,6 @@
     plugins = with pkgs.tmuxPlugins; [
       pain-control
       yank
-      open
       tokyo-night-tmux
       vim-tmux-navigator
       tmux-fzf
