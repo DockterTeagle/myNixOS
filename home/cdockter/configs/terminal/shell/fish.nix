@@ -56,9 +56,6 @@
       grtr =
         # fish
         "cd \"$(git rev-parse --show-toplevel || echo .)\"";
-      cdi =
-        # fish
-        "__zoxide_zi";
       man =
         # fish
         "batman";
