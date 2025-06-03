@@ -11,8 +11,11 @@
     kanata-with-cmd
   ];
   programs.nix-index.enable = true;
+  programs.pay-respects = {
+    enable = true;
+    options = ["--alias" "tf"];
+  };
   imports = [
-    ./thefuck.nix
     ./systemmonitors
     ./aesthetics
     ./finders
