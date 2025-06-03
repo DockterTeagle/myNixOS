@@ -20,7 +20,7 @@
           passes = 4;
           ignore_opacity = true;
           xray = true;
-          new_optimizations = 1;
+          new_optimizations = true;
           noise = 3.0e-2;
           contrast = 1.0;
         };

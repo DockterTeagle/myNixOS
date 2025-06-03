@@ -15,6 +15,10 @@
       #shortcuts
       "$mainMod,c,killactive,"
       "$mainMod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      "$mainMod,h,movefocus,l"
+      "$mainMod,j,movefocus,d"
+      "$mainMod,k,movefocus,u"
+      "$mainMod,l,movefocus,r"
     ];
   };
 }
