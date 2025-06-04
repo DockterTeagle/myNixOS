@@ -4,5 +4,6 @@
     visidata
     vulnix
     obsidian
+    speedtest
   ];
 }

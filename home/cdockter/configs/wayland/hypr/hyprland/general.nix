@@ -1,7 +1,6 @@
 {cdockterSettings, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
     systemd.enable = false; #using uwsm
     package = null;
     portalPackage = null;
@@ -33,7 +32,7 @@
         accel_profile = "flat";
         monitor = [
           "eDP-1, 1920x1080@144 , 0x0, 1"
-          "HDMI-A-1, 3840x2160@30, 1920x0, 1.50"
+          "HDMI-A-1, 3840x2160@60, 1920x0, 1.50"
         ];
         kb_layout = "us";
         kb_variant = "";

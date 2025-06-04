@@ -14,7 +14,7 @@
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
       };
-      createDirectories = true;
+      createDirectories = false;
       pictures = "${config.home.homeDirectory}/Pictures";
     };
     portal = {
@@ -30,6 +30,7 @@
   qt.enable = true;
 
   home = {
+    preferXdgDirectories = true;
     shell.enableShellIntegration = true;
     stateVersion = "25.05";
     inherit (cdockterSettings) homeDirectory;
@@ -37,8 +38,6 @@
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       NIXOS_OZONE_WL = "1";
-      HYPRCURSOR_THEME = cdockterSettings.cursorName;
-      HYPRCURSOR_SIZE = 24;
       MOZ_ENABLE_WAYLAND = 1;
       NVD_BACKEND = "direct";
       QT_QPA_PLATFORM = "wayland;xcb";
@@ -51,9 +50,5 @@
       nix-direnv.enable = true;
     };
     home-manager.enable = true;
-  };
-  xsession = {
-    enable = true;
-    windowManager.command = cdockterSettings.wm;
   };
 }

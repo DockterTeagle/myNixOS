@@ -17,3 +17,5 @@
   - for Starship prompt make it so that only 2 or 3 show per line
   - make a home-manager-rollback service on user login
   - make hyprpanel work correctly with hm
+  - Make an outline of what key binds belong where that is:
+    1. know which level a key bind should be:i.e. Ctrl is what scope
