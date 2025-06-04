@@ -1,26 +1,13 @@
 {
   cdockterSettings,
-  pkgs,
   config,
   ...
 }: {
+  #TODO: move this whole file into configs
   imports = [
     ./configs
     ./secrets
   ];
-  nix = {
-    package = pkgs.lixPackageSets.latest.lix;
-    extraOptions = ''
-      !include ${config.sops.secrets."nixAccessTokens".path}
-    '';
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-        "no-url-literals"
-      ];
-    };
-  };
   xdg = {
     userDirs = {
       enable = true;
@@ -40,20 +27,10 @@
       };
     };
   };
-  qt = {
-    enable = true;
-  };
-  gtk = {
-    enable = true;
-    gtk4.extraConfig = {
-      gtk-decoration-layout = ":menu";
-    };
-  };
+  qt.enable = true;
 
   home = {
-    shell = {
-      enableShellIntegration = true;
-    };
+    shell.enableShellIntegration = true;
     stateVersion = "25.05";
     inherit (cdockterSettings) homeDirectory;
     inherit (cdockterSettings) username;
@@ -63,8 +40,6 @@
       HYPRCURSOR_THEME = cdockterSettings.cursorName;
       HYPRCURSOR_SIZE = 24;
       MOZ_ENABLE_WAYLAND = 1;
-      LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
-      AW_WAYLAND_WINDOW_WATCHER_HYPRLAND = 1;
       NVD_BACKEND = "direct";
       QT_QPA_PLATFORM = "wayland;xcb";
     };
