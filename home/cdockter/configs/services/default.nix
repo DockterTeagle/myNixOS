@@ -2,7 +2,6 @@
   imports = [
     ./cliphist.nix
     ./mangohud.nix
-    ./solaar.nix
     ./git-sync.nix
   ];
   services.playerctld.enable = true;

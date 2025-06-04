@@ -1,21 +1,9 @@
+#TODO: refactor me out
 {pkgs, ...}: {
+  imports = [./solaar.nix];
   services = {
-    solaar = {
-      enable = true;
-      batteryIcons = "solaar";
-      window = "hide";
-    };
-    hardware = {
-      openrgb = {
-        enable = true;
-      };
-    };
-    dbus = {
-      implementation = "broker";
-      apparmor = "enabled";
-    };
+    #TODO: WHY?????????
     fwupd.enable = true;
-    gvfs.enable = true; # needed?
     libinput.enable = true;
     tumbler.enable = true;
     pcscd.enable = true;
