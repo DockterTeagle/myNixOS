@@ -23,6 +23,7 @@
     ./gitShit
     ./tmuxAndFriends
     ./neovim.nix
+    ./nix.nix
     ./topgrade.nix
   ];
 }
