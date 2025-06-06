@@ -114,7 +114,6 @@
               ./home/cdockter
               zen-browser.homeModules.twilight
               stylix.homeModules.stylix
-              hyprpanel.homeManagerModules.hyprpanel
               sops-nix.homeManagerModules.sops
               nixcord.homeModules.nixcord
               nix-index-database.hmModules.nix-index
