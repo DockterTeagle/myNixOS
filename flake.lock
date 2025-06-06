@@ -1336,7 +1336,9 @@
         "flake-parts": "flake-parts_3",
         "git-hooks": "git-hooks_2",
         "hercules-ci-effects": "hercules-ci-effects",
-        "neovim-src": "neovim-src",
+        "neovim-src": [
+          "neovim-src"
+        ],
         "nixpkgs": "nixpkgs_8",
         "treefmt-nix": "treefmt-nix"
       },
@@ -1357,11 +1359,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1749167275,
-        "narHash": "sha256-nizLvoCalG1pT7teq9p9FGuYkms41y3RCb0WAbAmMzs=",
+        "lastModified": 1749221130,
+        "narHash": "sha256-SrZco5jq2R5LWvX5ccnTAksCC1e4SQ4CXbSXiuDa1SY=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "4e71d3bfab3d21059bb3492c447a383e91931541",
+        "rev": "bf1d4e9793fcad74085ff6c32a6da5c43fe891e3",
         "type": "github"
       },
       "original": {
@@ -1885,6 +1887,7 @@
         "hyprland": "hyprland",
         "hyprpanel": "hyprpanel",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
+        "neovim-src": "neovim-src",
         "nh": "nh",
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",

@@ -52,7 +52,14 @@
     yazi.url = "github:sxyazi/yazi"; #uses cache so dont override ;
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.neovim-src.follows = "neovim-src";
+    };
+    neovim-src = {
+      url = "github:neovim/neovim";
+      flake = false;
+    };
 
     # Wayland and GUI Tools
     ##Hyprland
