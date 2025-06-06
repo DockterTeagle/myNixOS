@@ -1,10 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    meld
     mprocs #run proccesses in parallel
     cargo-info
     rusty-man
-    tokei #code counter
     wiki-tui
     just
     presenterm
