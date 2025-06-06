@@ -54,8 +54,4 @@
       };
     };
   };
-  # environment.systemPackages = with pkgs; [
-  #   bluez-alsa
-  #   bluez-tools
-  # ];
 }
