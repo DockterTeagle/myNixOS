@@ -36,7 +36,6 @@
     };
     ##lsp
     nixd.url = "github:nix-community/nixd";
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +45,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #Terminal
-    nh.url = "github:nix-community/nh";
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     yazi.url = "github:sxyazi/yazi"; #uses cache so dont override ;
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
@@ -62,7 +64,7 @@
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-gaming.url = "github:fufexan/nix-gaming"; #uses cachix, dont override
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
   outputs = {
     nixpkgs,
