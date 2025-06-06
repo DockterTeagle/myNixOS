@@ -19,6 +19,8 @@
       "$mainMod,j,movefocus,d"
       "$mainMod,k,movefocus,u"
       "$mainMod,l,movefocus,r"
+      "$mainMod_SHIFT,h,movetoworkspace,-1"
+      "$mainMod_SHIFT,l,movetoworkspace,+1"
     ];
   };
 }

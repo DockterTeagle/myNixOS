@@ -2,6 +2,12 @@
   wayland.windowManager.hyprland.extraConfig =
     #hyprlang
     ''
+      bindl = $mainMod,z,submap,system
+      submap = system
+      bind = ,l,exec,hyprlock
+      bind = ,q,exec,loginctl terminate-session "$XDG_SESSION_ID"
+      bind = ,escape,submap,reset
+      submap = reset
       bindl = $mainMod,space,submap, prefix
       submap = prefix
       bind = SHIFT,z,fullscreen,
