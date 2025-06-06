@@ -33,7 +33,6 @@
       url = "github:cachix/devenv";
     };
     ##lsp
-    nixd.url = "github:nix-community/nixd";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
