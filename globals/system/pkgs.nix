@@ -29,7 +29,6 @@ import inputs.nixpkgs {
     ghostty.overlays.default
     neovim-nightly-overlay.overlays.default
     nh.overlays.default
-    hyprpanel.overlay
     yazi.overlays.default
   ];
 }
