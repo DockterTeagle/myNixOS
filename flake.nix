@@ -119,7 +119,7 @@
               zen-browser.homeModules.twilight
               stylix.homeModules.stylix
               sops-nix.homeManagerModules.sops
-              nix-index-database.hmModules.nix-index
+              nix-index-database.homeModules.nix-index
             ];
           };
         };
