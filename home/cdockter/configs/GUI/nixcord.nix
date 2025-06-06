@@ -1,26 +1,36 @@
-{lib, ...}: {
-  programs.vesktop.enable = lib.mkForce false;
-  programs.nixcord = {
-    enable = true;
-    vesktop.enable = true;
-    config = {
-      frameless = true;
-      plugins = {
-        blurNSFW.enable = true;
-        # alwaysAnimate.enable = true;
-        # betterFolders = {
-        #   enable = true;
-        #   closeOthers = true;
-        # };
-        fakeNitro = {
-          enable = true;
-        };
-        customRPC.enable = true;
-        anonymiseFileNames = {
-          enable = true;
-          anonymiseByDefault = true;
+{
+  programs.vesktop = {
+    vencord = {
+      settings = {
+        autoUpdate = false;
+        autoUpdateNotification = false;
+        notifyAboutUpdates = false;
+        useQuickCss = true;
+        disableMinSize = true;
+        plugins = {
+          MessageLogger = {
+            enabled = true;
+            ignoreSelf = true;
+          };
+          FakeNitro.enabled = true;
         };
       };
+    };
+    enable = true;
+    settings = {
+      appBadge = false;
+      arRPC = true;
+      checkUpdates = false;
+      customTitleBar = false;
+      disableMinSize = true;
+      minimizeToTray = false;
+      tray = false;
+      splashBackground = "#000000";
+      splashColor = "#ffffff";
+      splashTheming = true;
+      staticTitle = true;
+      hardwareAcceleration = true;
+      discordBranch = "beta";
     };
   };
 }
