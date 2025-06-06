@@ -3,16 +3,7 @@
     git-absorb
     tree-sitter
     inotify-tools
-    xdotool
+    xdotool # for vimtex
+    neovim
   ];
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    defaultEditor = true;
-    vimdiffAlias = true;
-    vimAlias = true;
-    withNodeJs = true;
-    withRuby = true;
-    withPython3 = true;
-  };
 }
