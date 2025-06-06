@@ -46,7 +46,6 @@
     zsh.enable = true;
   };
 
-  wsl.enable = systemSettings.WSL;
   # System Auto Upgrade
   system = {
     autoUpgrade.enable = false;
