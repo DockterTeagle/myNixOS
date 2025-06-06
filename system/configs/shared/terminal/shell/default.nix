@@ -5,7 +5,6 @@
     zip
     lazygit
     zathura
-    # vim-full
     feh
   ];
 }
