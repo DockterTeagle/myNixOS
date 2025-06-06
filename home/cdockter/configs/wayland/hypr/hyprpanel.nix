@@ -1,4 +1,9 @@
-{cdockterSettings, ...}: {
+{
+  cdockterSettings,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [python313Packages.gpustat];
   programs.hyprpanel = {
     enable = true;
     settings = {
@@ -45,8 +50,8 @@
           };
         };
         dashboard = {
-          directories.enabled = false;
           stats.enable_gpu = true;
+          directories.enabled = false;
           shortcuts.enabled = false;
         };
         transition = "crossfade";
