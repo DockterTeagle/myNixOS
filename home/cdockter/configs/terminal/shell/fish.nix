@@ -26,9 +26,6 @@
       };
     };
     shellAbbrs = {
-      cpv =
-        # fish
-        "rsync -pogbr -hhh --backup-dir=\"/tmp/rsync-$USERNAME\" --progress";
       tkss = "tmux kill-session ";
       tksv = "tmux kill-server";
       ta = "tmux attach ";
