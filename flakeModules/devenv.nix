@@ -11,13 +11,13 @@
     };
     packages = with pkgs; [
       # lsps
-      inputs'.nixd.packages.nixd
+      nixd
       markdown-oxide
       ltex-ls-plus
       #formatters
       #linters
       codespell
-      vale
+      vale-ls
       markdownlint-cli2
       #etc
       nix-melt
