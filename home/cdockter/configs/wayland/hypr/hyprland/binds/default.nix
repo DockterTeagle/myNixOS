@@ -9,12 +9,12 @@
   /**/
   wayland.windowManager.hyprland.settings = {
     bindr = [
-      "SUPER_L,$mainMod,exec,rofi -show drun -show-icons run"
+      "SUPER_L,$mainMod,exec,fuzzel"
     ];
     bind = [
       #shortcuts
       "$mainMod,c,killactive,"
-      "$mainMod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      "$mainMod, v, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
       "$mainMod,h,movefocus,l"
       "$mainMod,j,movefocus,d"
       "$mainMod,k,movefocus,u"
