@@ -1,13 +1,11 @@
 {cdockterSettings, ...}: {
   programs.hyprpanel = {
     enable = true;
-    hyprland.enable = true;
-    overwrite.enable = true;
     settings = {
       scalingPriority = "both";
       tear = true;
-      layout = {
-        "bar.layouts" = {
+      bar = {
+        layouts = {
           "*" = {
             left = [
               "dashboard"
@@ -25,8 +23,6 @@
             ];
           };
         };
-      };
-      bar = {
         windowtitle.label = false;
         workspaces = {
           monitorSpecific = false;
