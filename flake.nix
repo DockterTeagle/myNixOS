@@ -10,7 +10,6 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,11 +53,6 @@
     ## Neovim Configurations and Overlays
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.neovim-src.follows = "neovim-src";
-    };
-    neovim-src = {
-      url = "github:neovim/neovim";
-      flake = false;
     };
 
     # Wayland and GUI Tools
@@ -102,7 +96,6 @@
             inherit specialArgs;
             modules = with inputs; [
               ./system
-              # chaotic.nixosModules.default
               solaar.nixosModules.default
               stylix.nixosModules.stylix
               disko.nixosModules.disko
