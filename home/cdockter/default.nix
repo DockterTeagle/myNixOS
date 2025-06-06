@@ -1,6 +1,7 @@
 {
   cdockterSettings,
   config,
+  pkgs,
   ...
 }: {
   #TODO: move this whole file into configs
@@ -16,15 +17,6 @@
       };
       createDirectories = false;
       pictures = "${config.home.homeDirectory}/Pictures";
-    };
-    portal = {
-      xdgOpenUsePortal = true;
-      config = {
-        preferred = {
-          default = "hyprland;gtk";
-          org.freedestop.impl.portal.FileChooser = "kde";
-        };
-      };
     };
   };
   qt.enable = true;
@@ -47,7 +39,10 @@
   programs = {
     direnv = {
       enable = true;
-      nix-direnv.enable = true;
+      nix-direnv = {
+        enable = true;
+        package = pkgs.lixPackageSets.latest.nix-direnv;
+      };
     };
     home-manager.enable = true;
   };

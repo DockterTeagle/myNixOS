@@ -4,7 +4,7 @@
   ...
 }: {
   nix = {
-    package = pkgs.lixPackageSets.latest.lix;
+    package = pkgs.lixPackageSets.git.lix;
     extraOptions = ''
       !include ${config.sops.secrets."nixAccessTokens".path}
     '';
@@ -12,7 +12,6 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "no-url-literals"
       ];
     };
   };
