@@ -10,7 +10,8 @@
     keyboard.qmk = {
       enable = true;
     };
-    # xone.enable = true;
+    xone.enable = true;
+    # xpadneo.enable = true;
   };
   programs = {
     gamemode = {
