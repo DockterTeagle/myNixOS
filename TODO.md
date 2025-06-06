@@ -1,4 +1,4 @@
-# TODO
+# Task List
 
 - [ ] learn jujutsu (the CLI)
 - [ ] fix git crashing when on https
@@ -12,10 +12,7 @@
   - fix unable to log in with uwsm
   - organize flake inputs more
   - make CoolerControl load in GUI
-  - Everyone's favorite: refactor more specifically make the configs in configs
+  - Everyone's favorite: refactor more specifically make the Configurations in configs
 - [ ] Home Manager:
   - for Starship prompt make it so that only 2 or 3 show per line
   - make a home-manager-rollback service on user login
-  - make hyprpanel work correctly with hm
-  - Make an outline of what key binds belong where that is:
-    1. know which level a key bind should be:i.e. Ctrl is what scope
