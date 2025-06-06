@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./systemd-boot];
+  imports = [./lanzaboote];
   environment.systemPackages = with pkgs; [sbctl];
   boot = {
     plymouth = {
