@@ -14,7 +14,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixcord.url = "github:KaylorBen/nixcord";
     #Boot
     ##Disk allocation
     disko = {
@@ -115,7 +114,6 @@
               zen-browser.homeModules.twilight
               stylix.homeModules.stylix
               sops-nix.homeManagerModules.sops
-              nixcord.homeModules.nixcord
               nix-index-database.hmModules.nix-index
             ];
           };
