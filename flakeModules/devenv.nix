@@ -15,7 +15,6 @@
       markdown-oxide
       ltex-ls-plus
       #formatters
-      alejandra
       #linters
       codespell
       vale
