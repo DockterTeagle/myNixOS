@@ -8,6 +8,7 @@
   imports = [
     ./configs
     ./secrets
+    ./scripts.nix
   ];
   xdg = {
     userDirs = {
@@ -33,6 +34,7 @@
       MOZ_ENABLE_WAYLAND = 1;
       NVD_BACKEND = "direct";
       QT_QPA_PLATFORM = "wayland;xcb";
+      EDITOR = "nvim";
     };
   };
 
