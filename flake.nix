@@ -15,6 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #Boot
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ##Disk allocation
     disko = {
       url = "github:nix-community/disko";
@@ -97,6 +101,7 @@
               sops-nix.nixosModules.sops
               nix-gaming.nixosModules.pipewireLowLatency
               nix-gaming.nixosModules.platformOptimizations
+              lanzaboote.nixosModules.lanzaboote
             ];
           };
         }) ["wsl" "nixos"]);
