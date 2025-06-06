@@ -17,6 +17,5 @@
     grimblast
     hyprpicker
     hyprsunset
-    hyprsysteminfo
   ];
 }
