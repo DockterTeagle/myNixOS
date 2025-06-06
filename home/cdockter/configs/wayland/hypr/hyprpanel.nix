@@ -28,10 +28,6 @@
       };
       bar = {
         windowtitle.label = false;
-        # customModules = {
-        #   submap = {
-        #   };
-        # };
         workspaces = {
           monitorSpecific = false;
           show_icons = true;

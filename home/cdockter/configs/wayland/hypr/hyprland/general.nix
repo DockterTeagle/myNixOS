@@ -5,6 +5,13 @@
     package = null;
     portalPackage = null;
     settings = {
+      general = {
+        gaps_in = 10;
+        gaps_out = 14;
+        border_size = 3;
+        layout = "dwindle";
+        resize_on_border = true;
+      };
       "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
       "$secondMod" = "SUPER_R";
       "$term" = "${cdockterSettings.term}"; # terminal
@@ -15,7 +22,7 @@
         # enforce_permissions = true;
       };
       dwindle = {
-        pseudotile = "yes";
+        pseudotile = true;
         preserve_split = true;
         # smart_split = true;
       };

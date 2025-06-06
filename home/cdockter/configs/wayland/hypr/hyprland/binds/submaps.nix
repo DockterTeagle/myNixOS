@@ -17,6 +17,14 @@
       bind = ,catchall, submap, prefix
       submap = prefix
       # add more later
+      bind = ,r,submap,resize
+      submap = resize
+      binde = ,h,resizeactive,-10 0
+      binde = ,k,resizeactive,0 -10
+      binde = ,j,resizeactive,0 10
+      binde = ,l,resizeactive,10 0
+      bind = ,catchall,submap,prefix
+      submap = prefix
       bind = ,escape,submap,reset
       bind = ,catchall, submap, reset
       submap = reset
