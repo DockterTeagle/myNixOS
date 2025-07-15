@@ -1,6 +1,7 @@
 {
   imports = [
     ./animations
+    ./plugins
     ./binds
     ./decorations
     ./general.nix
