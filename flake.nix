@@ -42,7 +42,6 @@
       url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    yazi.url = "github:sxyazi/yazi"; # uses cache so dont override ;
     ghostty.url = "github:ghostty-org/ghostty";
     ## Neovim Configurations and Overlays
     neovim-nightly-overlay = {
@@ -51,6 +50,22 @@
 
     # Wayland and GUI Tools
     ##Hyprland
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs = {
+        hyprland.follows = "hyprland";
+      };
+    };
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs = {
+        hyprland.follows = "hyprland";
+      };
+    };
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
     stylix.url = "github:nix-community/stylix";
     zen-browser = {
@@ -61,72 +76,123 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
   };
   outputs =
-    {
-      nixpkgs,
-      flake-parts,
-      ...
-    }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = nixpkgs.lib.systems.flakeExposed;
-      debug = true;
-      imports = with inputs; [
-        treefmt-nix.flakeModule
-        devenv.flakeModule
-        home-manager.flakeModules.default
-      ];
-      perSystem.imports = [ ./flakeModules ];
-      flake =
-        let
-          config = import ./globals { inherit inputs; };
-          inherit (config) pkgs systemSettings cdockterSettings;
-
-          # Common arguments for nixosConfigurations
-          specialArgs = { inherit inputs systemSettings cdockterSettings; };
-        in
-        {
-          homeModules = {
-            imports = [ ./home/cdockter ];
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      { withSystem, ... }:
+      {
+        systems = [ "x86_64-linux" ];
+        debug = true;
+        imports = with inputs; [
+          treefmt-nix.flakeModule
+          devenv.flakeModule
+          home-manager.flakeModules.default
+        ];
+        perSystem =
+          { system, ... }:
+          {
+            _module.args.pkgs = import inputs.nixpkgs {
+              inherit system;
+              overlays = with inputs; [
+                ghostty.overlays.default
+                neovim-nightly-overlay.overlays.default
+                nh.overlays.default
+                nixpkgs-wayland.overlay
+              ];
+              config = {
+                nvidia.acceptLicense = true;
+                allowUnfree = true;
+                allowSubstitutes = false;
+              };
+            };
+            imports = [ ./flakeModules ];
           };
-          nixosConfigurations = builtins.listToAttrs (
-            map
-              (name: {
-                inherit name;
-                value = nixpkgs.lib.nixosSystem {
-                  inherit pkgs;
-                  inherit specialArgs;
-                  modules = with inputs; [
-                    ./system
-                    chaotic.nixosModules.default
-                    solaar.nixosModules.default
-                    stylix.nixosModules.stylix
-                    disko.nixosModules.disko
-                    sops-nix.nixosModules.sops
-                    nix-gaming.nixosModules.pipewireLowLatency
-                    nix-gaming.nixosModules.platformOptimizations
-                  ];
+        flake = {
+          nixosConfigurations = {
+            wsl = withSystem "x86_64-linux" (
+              { pkgs, inputs', ... }:
+              let
+                config = import ./globals { inherit inputs pkgs; };
+                inherit (config) systemSettings cdockterSettings;
+
+                # Common arguments for nixosConfigurations
+              in
+
+              inputs.nixpkgs.lib.nixosSystem {
+                inherit pkgs;
+                specialArgs = {
+                  inherit
+                    inputs
+                    inputs'
+                    systemSettings
+                    cdockterSettings
+                    ;
                 };
-              })
-              [
-                "wsl"
-                "nixos"
-              ]
-          );
+              }
+            );
+            nixos = withSystem "x86_64-linux" (
+              { pkgs, inputs', ... }:
+              let
+                config = import ./globals { inherit inputs pkgs; };
+                inherit (config) systemSettings cdockterSettings;
+
+                # Common arguments for nixosConfigurations
+              in
+              inputs.nixpkgs.lib.nixosSystem {
+                inherit pkgs;
+                specialArgs = {
+                  inherit
+                    inputs
+                    systemSettings
+                    cdockterSettings
+                    inputs'
+                    ;
+                };
+                modules = with inputs; [
+                  ./system
+                  chaotic.nixosModules.default
+                  solaar.nixosModules.default
+                  stylix.nixosModules.stylix
+                  disko.nixosModules.disko
+                  sops-nix.nixosModules.sops
+                  nix-gaming.nixosModules.pipewireLowLatency
+                  nix-gaming.nixosModules.platformOptimizations
+                ];
+              }
+            );
+          };
 
           homeConfigurations = {
-            cdockter = inputs.home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-              extraSpecialArgs = specialArgs // {
+            cdockter = withSystem "x86_64-linux" (
+              { pkgs, inputs', ... }:
+              let
+                config' = import ./globals { inherit inputs pkgs; };
+                inherit (config') systemSettings cdockterSettings;
+
+                # Common arguments for nixosConfigurations
+              in
+              inputs.home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
-              };
-              modules = with inputs; [
-                ./home/cdockter
-                zen-browser.homeModules.twilight
-                stylix.homeModules.stylix
-                sops-nix.homeManagerModules.sops
-                nix-index-database.homeModules.nix-index
-              ];
-            };
+                extraSpecialArgs = {
+                  inherit
+                    pkgs
+                    inputs
+                    inputs'
+                    systemSettings
+                    cdockterSettings
+                    ;
+                };
+                modules = with inputs; [
+                  ./home/cdockter
+                  zen-browser.homeModules.twilight
+                  stylix.homeModules.stylix
+                  sops-nix.homeManagerModules.sops
+                  nix-index-database.homeModules.nix-index
+                ];
+              }
+            );
           };
+
         };
-    };
+      }
+    );
 }
