@@ -1,9 +1,10 @@
 {
   description = "My nixos flake";
   inputs = {
-    /**
+    /*
     Core Nix Packages and Flakes
     */
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +33,6 @@
     devenv = {
       url = "github:cachix/devenv";
     };
-    ##lsp
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +56,6 @@
     # Wayland and GUI Tools
     ##Hyprland
     hyprland.url = "github:hyprwm/Hyprland"; #uses cachix so won't override
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     stylix.url = "github:nix-community/stylix";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -94,6 +93,7 @@
             inherit specialArgs;
             modules = with inputs; [
               ./system
+              chaotic.nixosModules.default
               solaar.nixosModules.default
               stylix.nixosModules.stylix
               disko.nixosModules.disko
