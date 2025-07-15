@@ -8,6 +8,8 @@
       limine = {
         enable = true;
         biosSupport = true;
+        efiSupport = true;
+        biosDevice = "/dev/nvme0n1";
         secureBoot = {
           enable = true;
         };
