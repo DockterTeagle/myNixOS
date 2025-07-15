@@ -5,7 +5,15 @@
     shellWrapperName = "y";
     initLua = ./yaziInit.lua;
     plugins = {
-      inherit (pkgs.yaziPlugins) git full-border;
+      inherit (pkgs.yaziPlugins) git full-border mount;
+    };
+    keymap = {
+      mgr.prepend_keymap = [
+        {
+          on = "M";
+          run = "plugin mount";
+        }
+      ];
     };
     settings = {
       plugin.prepend_fetchers = [

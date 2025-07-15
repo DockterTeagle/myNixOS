@@ -20,7 +20,6 @@
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       open = true;
-      nvidiaPersistenced = true;
       powerManagement = {
         enable = false;
         finegrained = false;

@@ -9,7 +9,6 @@
       enable = true;
       settings = {
         BluetoothPowerSave = 0;
-        CPU_SCALING_GOVERNONR_ON_AC = "schedutil";
         CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
         CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
         PLATFORM_PROFILE_ON_AC = "performance";
@@ -23,9 +22,13 @@
         CPU_HWP_DYN_BOOST_ON_BAT = 0;
         CPU_HWP_DYN_BOOST_ON_AC = 1;
         # optional: helps save long-term battery health
+        START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
+        STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
         START_CHARGE_THRESH_BAT1 = 40; # 40 and below it starts to charge
         STOP_CHARGE_THRESH_BAT1 = 80; # 80 and above it stops charging
         PCIE_ASPM_ON_AC = "performance";
+        SATA_LINKPWR_ON_AC = "max_performance";
+        SATA_LINKPWR_ON_BAT = "medium_power";
         #removed settings below as intel gpu shouldn't be that important
       };
     };

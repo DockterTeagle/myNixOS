@@ -1,22 +1,19 @@
 {
   pkgs,
-  inputs,
+  inputs',
   ...
 }:
 {
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    package = inputs'.hyprland.packages.hyprland;
+    portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
   };
   # TODO: move all of me
   environment.systemPackages = with pkgs; [
-    gpu-screen-recorder
-    wl-clipboard
-    wl-clipboard-x11
     grimblast
     hyprpicker
-    hyprsunset
+    wl-clipboard
   ];
 }

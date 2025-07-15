@@ -7,7 +7,7 @@
 
 ## System
 
-- fix regreet(in more ways than one) display is the main one
+- fix regreet(in more ways than one) display is the main one; that is, it tries to display as one desktop
 
 - organize flake inputs more
 
@@ -21,12 +21,14 @@
 
 - make the paths still relative but top down
 
-### Home-manager
+## Home-manager
 
 - for Starship prompt make it so that only 2 or 3 show per line
 - make a home-manager-rollback service on user login
+- make ghostty use sesh on activation
+- make hyprshell more decalritive
 
-#### Hyprland
+### Hyprland
 
 - Brainstorm bindings
 - get a fuzzel working for named workspace switching

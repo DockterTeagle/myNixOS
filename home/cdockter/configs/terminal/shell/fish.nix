@@ -9,22 +9,6 @@
       };
     };
 
-    functions = {
-      sesh_sessions = {
-        body =
-          # fish
-          "
-          set session (sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
-
-
-          if test -z \"$session\"
-              return
-          end
-
-          sesh connect $session
-          ";
-      };
-    };
     shellAbbrs = {
       tkss = "tmux kill-session ";
       tksv = "tmux kill-server";

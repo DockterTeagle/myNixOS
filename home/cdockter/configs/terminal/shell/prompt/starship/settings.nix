@@ -1,10 +1,7 @@
 let
   inherit (builtins)
     concatStringsSep
-    ;
-  vertical = "┃ ";
-  corner_top = "⎧ "; # Top corner
-  corner_bottom = "╰ "; # Bottom corner"
+    ; # Top corner # Bottom corner"
 in
 {
   add_newline = false;
@@ -64,8 +61,8 @@ in
     "$jobs)"
     "\n"
     "$directory"
-    "\n"
     "$status"
+    "\n"
     "[ $shell](bold)"
     "$character"
   ];

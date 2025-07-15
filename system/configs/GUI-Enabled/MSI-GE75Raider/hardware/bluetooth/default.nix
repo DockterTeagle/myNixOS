@@ -1,4 +1,3 @@
-# NOTE: Im good
 { pkgs, ... }:
 {
   hardware.bluetooth = {

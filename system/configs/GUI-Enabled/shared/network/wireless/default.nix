@@ -6,7 +6,6 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    networkmanagerapplet
     wirelesstools
     traceroute
     inetutils

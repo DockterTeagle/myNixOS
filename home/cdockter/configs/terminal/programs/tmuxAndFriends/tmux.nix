@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs.tmux = {
+    enable = true;
     escapeTime = 0;
     baseIndex = 1;
     sensibleOnTop = true;
@@ -9,6 +10,7 @@
     newSession = true;
     terminal = "screen-256color";
     mouse = true;
+    tmuxp.enable = true;
     focusEvents = true;
     disableConfirmationPrompt = true;
     plugins = with pkgs.tmuxPlugins; [
