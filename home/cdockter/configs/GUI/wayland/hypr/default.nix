@@ -4,6 +4,7 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./hyprpanel.nix
+    ./hyprshell.nix
     ./hyprland
   ];
 }
