@@ -1,7 +1,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     bindd = [
-      "$mainMod , 1,Switch to workspace 1, workspace, name:coding"
+      "$mainMod , 1,Switch to workspace 1, workspace, 1"
       "$mainMod_SHIFT , 1,switch to first workspace on monitor, workspace, r~1"
       "$mainMod , 2,Switch to workspace 2, workspace, name:gaming"
       "$mainMod_SHIFT , 2,switch to second workspace on monitor, workspace, r~2"

@@ -1,11 +1,13 @@
 {
   cdockterSettings,
   pkgs,
+  inputs',
   ...
 }:
 {
   home.packages = with pkgs; [ python313Packages.gpustat ];
   programs.hyprpanel = {
+    package = inputs'.hyprpanel.packages.default;
     enable = true;
     settings = {
       scalingPriority = "both";
@@ -15,7 +17,6 @@
           "*" = {
             left = [
               "dashboard"
-              "workspaces"
               "cputemp"
             ];
             middle = [

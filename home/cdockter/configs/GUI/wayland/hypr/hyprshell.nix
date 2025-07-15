@@ -1,3 +1,6 @@
 {
-  services.hyprshell.enable = true;
+  services.hyprshell = {
+    enable = true;
+    systemd.enable = true;
+  };
 }

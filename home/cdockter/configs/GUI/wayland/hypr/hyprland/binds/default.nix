@@ -7,9 +7,6 @@
     ./submaps.nix
   ];
   wayland.windowManager.hyprland.settings = {
-    bindr = [
-      "SUPER_L,$mainMod,exec,fuzzel"
-    ];
     bind = [
       #shortcuts
       "$mainMod,c,killactive,"
@@ -18,8 +15,6 @@
       "$mainMod,j,movefocus,d"
       "$mainMod,k,movefocus,u"
       "$mainMod,l,movefocus,r"
-      "$mainMod_SHIFT,h,movetoworkspace,-1"
-      "$mainMod_SHIFT,l,movetoworkspace,+1"
     ];
   };
 }

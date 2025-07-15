@@ -1,10 +1,15 @@
-{ cdockterSettings, ... }:
+{
+  cdockterSettings,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false; # using uwsm
-    package = null;
-    portalPackage = null;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     settings = {
       general = {
         gaps_in = 10;
