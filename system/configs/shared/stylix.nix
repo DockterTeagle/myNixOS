@@ -1,4 +1,5 @@
-{cdockterSettings, ...}: {
+{ cdockterSettings, ... }:
+{
   stylix = {
     image = ../../../assets/pictures/wallpaper-dread.png;
     enable = true;

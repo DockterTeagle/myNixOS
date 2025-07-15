@@ -1,8 +1,10 @@
-{inputs, ...}: let
-  systemConfig = import ./system {inherit inputs;};
+{ inputs, ... }:
+let
+  systemConfig = import ./system { inherit inputs; };
   inherit (systemConfig) pkgs systemSettings;
-  homeConfig = import ./home {inherit pkgs;};
+  homeConfig = import ./home { inherit pkgs; };
   inherit (homeConfig) cdockterSettings;
-in {
+in
+{
   inherit pkgs systemSettings cdockterSettings;
 }

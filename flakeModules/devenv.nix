@@ -3,11 +3,12 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   devenv.shells.default = {
     cachix = {
       enable = true;
-      pull = ["pre-commit-hooks"];
+      pull = [ "pre-commit-hooks" ];
     };
     packages = with pkgs; [
       # lsps

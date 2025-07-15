@@ -1,4 +1,5 @@
-{cdockterSettings, ...}: {
+{ cdockterSettings, ... }:
+{
   programs = {
     wayprompt = {
       enable = true;

@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.tmux = {
-    enable = true;
     escapeTime = 0;
     baseIndex = 1;
     sensibleOnTop = true;

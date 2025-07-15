@@ -2,7 +2,8 @@
   pkgs,
   cdockterSettings,
   ...
-}: {
+}:
+{
   stylix = {
     enable = true;
     base16Scheme = cdockterSettings.theme;

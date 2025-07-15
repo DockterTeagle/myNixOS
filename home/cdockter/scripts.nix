@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
-    (writeShellScriptBin
-      "randomizeWallpaper"
+    (writeShellScriptBin "randomizeWallpaper"
       #bash
       ''
         WALLPAPER_DIR="$HOME/wallpapers/"
@@ -12,6 +12,7 @@
 
         # Apply the selected wallpaper
         hyprctl hyprpaper reload ,"$WALLPAPER"
-      '')
+      ''
+    )
   ];
 }

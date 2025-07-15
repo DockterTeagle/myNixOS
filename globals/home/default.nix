@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   cdockterSettings = {
     username = "cdockter";
     description = "Christopher Ryan Dockter";

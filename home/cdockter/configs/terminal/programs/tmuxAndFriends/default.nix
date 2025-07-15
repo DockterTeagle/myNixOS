@@ -1,1 +1,6 @@
-{imports = [./sesh.nix ./tmux.nix];}
+{
+  imports = [
+    ./sesh.nix
+    ./tmux.nix
+  ];
+}

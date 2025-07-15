@@ -20,7 +20,7 @@
         set_title = false;
         cleanup = true;
       };
-      linux = {};
+      linux = { };
       commands = {
         # "Run garbage collection on Nix store" = "nh clean all";
         "Update All Nix Flakes" =

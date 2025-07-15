@@ -1,5 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}:
+{
   environment.systemPackages = with pkgs; [
+    # inputs
     (heroic.override {
       extraPkgs = pkgs: [
         pkgs.gamescope
@@ -11,9 +17,9 @@
       enable = true;
     };
     xone.enable = true;
-    # xpadneo.enable = true;
   };
   programs = {
+    gamescope.enable = true;
     gamemode = {
       enable = true;
       settings = {
@@ -32,7 +38,7 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
       extraCompatPackages = with pkgs; [
-        proton-ge-bin
+        proton-ge-custom
       ];
     };
   };

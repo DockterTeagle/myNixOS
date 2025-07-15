@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   nix = {
     package = pkgs.lixPackageSets.git.lix;
     channel.enable = false;

@@ -7,7 +7,6 @@
       "systemctl enable --user com.mitchell.ghostty.service"
       "systemctl --user enable --now hyprsunset.service"
       "uwsm app -- zen-twilight"
-      "uwsm app -- steam"
       "uwsm app -- vesktop"
     ];
   };

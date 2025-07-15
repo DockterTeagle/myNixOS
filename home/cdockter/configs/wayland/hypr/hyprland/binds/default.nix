@@ -6,7 +6,6 @@
     ./shortcuts.nix
     ./submaps.nix
   ];
-  /**/
   wayland.windowManager.hyprland.settings = {
     bindr = [
       "SUPER_L,$mainMod,exec,fuzzel"

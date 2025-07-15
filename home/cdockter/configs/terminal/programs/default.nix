@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
-    mprocs #run proccesses in parallel
+    mprocs # run proccesses in parallel
     cargo-info
     rusty-man
     wiki-tui
@@ -12,7 +13,10 @@
   programs.nix-index.enable = true;
   programs.pay-respects = {
     enable = true;
-    options = ["--alias" "tf"];
+    options = [
+      "--alias"
+      "tf"
+    ];
   };
   imports = [
     ./systemmonitors

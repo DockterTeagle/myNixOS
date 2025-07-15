@@ -1,1 +1,6 @@
-{imports = [./bat.nix ./eza.nix];}
+{
+  imports = [
+    ./bat.nix
+    ./eza.nix
+  ];
+}

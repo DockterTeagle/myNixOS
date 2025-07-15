@@ -4,7 +4,8 @@
   systemSettings,
   config,
   ...
-}: {
+}:
+{
   # Imports
   imports = [
     ./packages

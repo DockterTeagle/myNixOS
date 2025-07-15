@@ -1,7 +1,8 @@
-{cdockterSettings, ...}: {
+{ cdockterSettings, ... }:
+{
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = false; #using uwsm
+    systemd.enable = false; # using uwsm
     package = null;
     portalPackage = null;
     settings = {

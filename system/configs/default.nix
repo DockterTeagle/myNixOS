@@ -1,3 +1,6 @@
 {
-  imports = [./shared ./GUI-Enabled];
+  imports = [
+    ./shared
+    ./GUI-Enabled
+  ];
 }

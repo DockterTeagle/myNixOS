@@ -2,8 +2,9 @@
   cdockterSettings,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [python313Packages.gpustat];
+}:
+{
+  home.packages = with pkgs; [ python313Packages.gpustat ];
   programs.hyprpanel = {
     enable = true;
     settings = {
@@ -15,9 +16,9 @@
             left = [
               "dashboard"
               "workspaces"
+              "cputemp"
             ];
             middle = [
-              "windowtitle"
               "submap"
             ];
             right = [

@@ -1,3 +1,3 @@
 {
-  imports = [./WSL];
+  imports = [ ./WSL ];
 }

@@ -1,15 +1,15 @@
 let
-  inherit
-    (builtins)
+  inherit (builtins)
     concatStringsSep
     ;
   vertical = "┃ ";
   corner_top = "⎧ "; # Top corner
   corner_bottom = "╰ "; # Bottom corner"
-in {
+in
+{
   add_newline = false;
   format = concatStringsSep "" [
-    "${corner_top}$username"
+    "$username"
     "$hostname"
     "$kubernetes"
     "$vcsh"
@@ -21,8 +21,7 @@ in {
     "$hg_branch"
     "$docker_context"
     "(\n"
-    "${vertical}"
-    " $direnv"
+    "$direnv"
     "$package"
     "$cmake"
     "$dart"
@@ -64,16 +63,15 @@ in {
     "$lua"
     "$jobs)"
     "\n"
-    "${vertical}$directory"
+    "$directory"
     "\n"
-    "${corner_bottom}$status"
-    " [ $shell](bold)"
+    "$status"
+    "[ $shell](bold)"
     "$character"
-    # "${corner_bottom}"
   ];
   directory = {
     truncation_length = 0;
-    format = " [ : $path]($style)[$read_only]($read_only_style) ";
+    format = "[ : $path]($style)[$read_only]($read_only_style) ";
   };
   direnv.disabled = false;
   shell.disabled = false;
@@ -89,7 +87,7 @@ in {
   };
   username = {
     show_always = true;
-    format = " [  $user]($style) ";
+    format = "[  $user]($style) ";
   };
   git_state.disabled = true;
   git_commit.disabled = true;

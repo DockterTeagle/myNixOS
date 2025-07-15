@@ -1,7 +1,9 @@
 #TODO: refactor me out
-{pkgs, ...}: {
-  imports = [./solaar.nix];
+{ pkgs, ... }:
+{
+  imports = [ ./solaar.nix ];
   services = {
+    scx.enable = true;
     fwupd.enable = true;
     libinput.enable = true;
     tumbler.enable = true;
@@ -13,7 +15,7 @@
         layout = "us";
         variant = "";
       };
-      excludePackages = [pkgs.xterm];
+      excludePackages = [ pkgs.xterm ];
       videoDrivers = [
         "nvidia"
       ];

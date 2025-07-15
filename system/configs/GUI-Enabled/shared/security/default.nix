@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  imports = [./antivirus];
+{ pkgs, ... }:
+{
+  imports = [ ./antivirus ];
   services = {
     printing.enable = false;
   };
@@ -12,7 +13,7 @@
     };
     rtkit.enable = true;
     polkit.enable = true;
-    pam.services.hyprlock = {};
+    pam.services.hyprlock = { };
   };
   environment.systemPackages = with pkgs; [
     efivar

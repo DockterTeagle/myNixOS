@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   nix = {
     package = pkgs.lixPackageSets.git.lix;
     extraOptions = ''

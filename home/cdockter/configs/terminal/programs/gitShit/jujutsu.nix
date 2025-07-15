@@ -1,4 +1,5 @@
-{cdockterSettings, ...}: {
+{ cdockterSettings, ... }:
+{
   programs.jujutsu = {
     enable = true;
     settings = {

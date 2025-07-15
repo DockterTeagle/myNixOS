@@ -1,5 +1,6 @@
 # NOTE: Im good
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -18,7 +19,7 @@
   services = {
     pulseaudio.enable = false;
     blueman.enable = true;
-    udev.packages = [pkgs.evtest];
+    udev.packages = [ pkgs.evtest ];
     pipewire = {
       lowLatency = {
         enable = true;

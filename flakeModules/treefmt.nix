@@ -3,7 +3,7 @@
     flakeFormatter = true;
     programs = {
       mdformat.enable = true;
-      alejandra.enable = true;
+      nixfmt.enable = true;
     };
   };
 }

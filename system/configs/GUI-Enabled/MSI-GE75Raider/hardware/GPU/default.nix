@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   environment = {
     variables = {
       LIBVA_DRIVER_NAME = "nvidia";

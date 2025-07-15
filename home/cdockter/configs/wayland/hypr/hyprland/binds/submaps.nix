@@ -32,7 +32,6 @@
       bind = ,catchall,submap,prefix
       submap = prefix
       bind = ,escape,submap,reset
-      bind = ,catchall, submap, reset
       submap = reset
     '';
 }

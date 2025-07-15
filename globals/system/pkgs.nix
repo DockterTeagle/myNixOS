@@ -7,7 +7,8 @@ import inputs.nixpkgs {
   inherit (systemSettings) system;
   config = {
     nvidia.acceptLicense = true;
-    allowUnfreePredicate = pkg:
+    allowUnfreePredicate =
+      pkg:
       builtins.elem (inputs.nixpkgs.lib.getName pkg) [
         "nvidia-x11"
         "nvidia-persistenced"
