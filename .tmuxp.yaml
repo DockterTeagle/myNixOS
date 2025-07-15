@@ -1,0 +1,11 @@
+session_name: myNixOS
+start_directory: .
+shell_command_before:
+- direnv reload && clear
+windows:
+  - window_name: cdockter 
+    start_directory: ./home/cdockter
+  - window_name: system
+    start_directory: ./system
+  - window_name: flake
+    start_directory: .
