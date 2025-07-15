@@ -786,17 +786,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1753407422,
-        "narHash": "sha256-I19fBZkoLZSIAgiDQgpXGASr47+tSbBUoqOYT5STNKc=",
-        "ref": "refs/heads/master",
-        "rev": "7000eed6e6339321a133c11deac49f997aaee863",
-        "revCount": 5125,
-        "type": "git",
-        "url": "file:///home/cdockter/Documents/Projects/CodingProjects/home-manager"
+        "lastModified": 1753559420,
+        "narHash": "sha256-1p+h0WlFYB5mpmFxZXZAMRSN/s8fzfyQxYg/wF77F0U=",
+        "owner": "DockterTeagle",
+        "repo": "home-manager",
+        "rev": "9538d2bced616291841372b508a8d8ee00126cf4",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/cdockter/Documents/Projects/CodingProjects/home-manager"
+        "owner": "DockterTeagle",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "hyprcursor": {

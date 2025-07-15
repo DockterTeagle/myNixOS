@@ -12,7 +12,7 @@
     # Flake-parts and modules
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
-      url = "/home/cdockter/Documents/Projects/CodingProjects/home-manager";
+      url = "github:DockterTeagle/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #Boot
@@ -72,6 +72,7 @@
       imports = with inputs; [
         treefmt-nix.flakeModule
         devenv.flakeModule
+        home-manager.flakeModules.default
       ];
       perSystem.imports = [ ./flakeModules ];
       flake =
@@ -83,6 +84,9 @@
           specialArgs = { inherit inputs systemSettings cdockterSettings; };
         in
         {
+          homeModules = {
+            imports = [ ./home/cdockter ];
+          };
           nixosConfigurations = builtins.listToAttrs (
             map
               (name: {
