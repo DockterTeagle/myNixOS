@@ -22,6 +22,7 @@
               "submap"
             ];
             right = [
+              "volume"
               "network"
               "bluetooth"
               "clock"
