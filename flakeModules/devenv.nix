@@ -1,5 +1,4 @@
 {
-  inputs',
   pkgs,
   config,
   ...
@@ -14,7 +13,6 @@
       # lsps
       nixd
       markdown-oxide
-      ltex-ls-plus
       #formatters
       #linters
       codespell

@@ -1,9 +1,7 @@
 {
-  treefmt = {
-    flakeFormatter = true;
-    programs = {
-      mdformat.enable = true;
-      nixfmt.enable = true;
-    };
+  treefmt.programs = {
+    mdformat.enable = true;
+    deadnix.enable = true;
+    nixfmt.enable = true;
   };
 }
