@@ -3,7 +3,7 @@
     disk = {
       EHDD = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/sdb";
         content = {
           type = "gpt";
           partitions = {
@@ -73,7 +73,6 @@
                     "token-timeout=10"
                   ];
                 };
-                # passwordFile = "";
                 content = {
                   type = "filesystem";
                   format = "ext4";
