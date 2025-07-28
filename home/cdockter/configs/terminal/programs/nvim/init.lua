@@ -37,3 +37,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 	desc = "LSP: Disable hover capability from Ruff",
 })
+require("luasnip.loaders.from_lua").lazy_load({ paths = vim.g.lua_snippets_path })

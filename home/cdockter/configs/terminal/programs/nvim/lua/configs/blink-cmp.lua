@@ -91,12 +91,6 @@ local M = {
 			},
 		},
 		default = { "snippets", "lsp", "path" },
-		per_filetype = {
-			sql = { "snippets", "lsp", "path", "dadbod", "buffer" },
-			lua = { "snippets", "lsp", "path", "lazydev" },
-			gitcommit = { "snippets", "lsp", "path", "conventional_commits" },
-			-- markdown = { "git", "snippets", "lsp", "path", "obsidian" },
-		},
 		-- optionally disable cmdline completions
 	},
 	cmdline = { enabled = false },

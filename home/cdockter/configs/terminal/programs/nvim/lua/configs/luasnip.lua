@@ -5,7 +5,6 @@ local opts = {
 	enable_autosnippets = true,
 	store_selection_keys = "<Tab>",
 }
-require("luasnip.loaders.from_lua").lazy_load({ paths = vim.g.lua_snippets_path })
 vim.api.nvim_create_autocmd("InsertLeave", {
 	callback = function()
 		if
