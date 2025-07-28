@@ -9,7 +9,7 @@
         disableMinSize = true;
         plugins = {
           MessageLogger = {
-            enabled = true;
+            enabled = false;
             ignoreSelf = true;
           };
           FakeNitro.enabled = true;
