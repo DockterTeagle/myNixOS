@@ -12,7 +12,7 @@
     # Flake-parts and modules
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
-      url = "github:DockterTeagle/home-manager";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #Boot
