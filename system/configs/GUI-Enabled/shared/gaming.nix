@@ -12,9 +12,7 @@
     })
   ];
   hardware = {
-    keyboard.qmk = {
-      enable = true;
-    };
+    keyboard.qmk.enable = true;
     xone.enable = true;
   };
   programs = {
