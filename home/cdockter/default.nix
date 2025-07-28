@@ -9,7 +9,6 @@
   imports = [
     ./configs
     ./secrets
-    ./scripts.nix
   ];
   xdg = {
     userDirs = {
