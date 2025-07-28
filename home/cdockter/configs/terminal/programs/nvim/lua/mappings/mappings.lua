@@ -1,124 +1,17 @@
 local wk = require("which-key")
 local map = vim.keymap.set
 
-map("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "previous buffer" })
-map("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "previous buffer" })
-
-map("n", "<leader>x", function()
-	require("snacks").bufdelete.delete()
-end, { desc = "buffer close" })
-
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
-map("n", "<leader>fm", function()
-	Snacks.picker.marks()
-end, { desc = "find marks" })
-map("n", "<leader>ff", function()
-	Snacks.picker.smart()
-end, { desc = "find files using snacks" })
-map("n", "<leader>fw", function()
-	Snacks.picker.grep()
-end, { desc = "Snacks grep" })
-
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
-
--- whichkey
-
-local mappings = {
-	n = {
-		["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
-		["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
-		["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
-		["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
-		["<leader>dtb"] = {
-			function()
-				require("dap").toggle_breakpoint()
-			end,
-			"Add breakpoint at line",
-		},
-		["<leader>dsb"] = {
-			function()
-				require("dap").step_back()
-			end,
-			"Step back",
-		},
-		["<leader>dsi"] = {
-			function()
-				require("dap").step_into()
-			end,
-			"Step into function",
-		},
-		["<leader>dso"] = {
-			function()
-				require("dap").step_over()
-			end,
-			"Step over function",
-		},
-		["<leader>dsO"] = {
-			function()
-				require("dap").step_out()
-			end,
-			"Step out of function",
-		},
-		["<leader>dc"] = {
-			function()
-				require("dap").continue()
-			end,
-			"Start or continue the debugger",
-		},
-		["<leader>dus"] = {
-			function()
-				local widgets = require("dap.ui.widgets")
-				local sidebar = widgets.sidebar(widgets.scopes)
-				sidebar.open()
-			end,
-			"Open debugging sidebar",
-		},
-		["<leader>dC"] = {
-			function()
-				require("dap").run_to_cursor()
-			end,
-			"Run to cursor",
-		},
-		["<leader>dd"] = {
-			function()
-				require("dap").disconnect()
-			end,
-			"disconnect from the session",
-		},
-		["<leader>dss"] = {
-			function()
-				require("dap").session()
-			end,
-			"Get session",
-		},
-		["<leader>dpt"] = {
-			function()
-				require("dap").pause()
-			end,
-			"Pause",
-		},
-		["<leader>drt"] = {
-			function()
-				require("dap").repl.toggle()
-			end,
-			"toggle Repl",
-		},
-	},
-}
-for mode, maps in pairs(mappings) do
-	for key, val in pairs(maps) do
-		map(mode, key, val[1], { desc = val[2] })
-	end
-end
 
 wk.add({
 	{ "<leader>f", group = "find" },
 	{ "<leader>n", group = "Neo" },
-	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
+	-- { "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
 	{ "<leader>d", group = "debug" },
 	{ "<leader>gh", group = "(g)it (h)unk" },
 	{ "<leader>t", group = "trouble" },
