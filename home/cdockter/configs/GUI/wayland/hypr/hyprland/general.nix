@@ -1,10 +1,10 @@
-{ cdockterSettings, ... }:
+{ cdockterSettings, inputs', ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false; # using uwsm
-    package = null;
-    portalPackage = null;
+    package = inputs'.hyprland.packages.hyprland;
+    portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
     settings = {
       general = {
         gaps_in = 10;
@@ -39,7 +39,7 @@
       monitorv2 = [
         {
           output = "eDP-1";
-          mode = "1920x1080@60";
+          mode = "1920x1080@144";
           position = "0x0";
           scale = 1;
         }

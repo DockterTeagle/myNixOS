@@ -19,6 +19,7 @@ in
     "$docker_context"
     "(\n"
     "$direnv"
+    "$nix_shell"
     "$package"
     "$cmake"
     "$dart"
@@ -48,7 +49,6 @@ in
     "$vlang"
     "$vagrant"
     "$zig"
-    "$nix_shell"
     "$conda"
     "$memory_usage"
     "$aws"
@@ -72,12 +72,6 @@ in
   };
   direnv.disabled = false;
   shell.disabled = false;
-  shlvl = {
-    disabled = false;
-    threshold = 2;
-    style = "bold red";
-    symbol = "";
-  };
   status = {
     disabled = false;
     symbol = " ";
@@ -86,11 +80,11 @@ in
     show_always = true;
     format = "[  $user]($style) ";
   };
-  git_state.disabled = true;
-  git_commit.disabled = true;
-  git_metrics.disabled = true;
+  git_state.disabled = false;
+  git_commit.disabled = false;
+  git_metrics.disabled = false;
   git_branch = {
-    disabled = true;
+    disabled = false;
     format = "[$symbol$branch]($style) ";
   };
   nix_shell = {

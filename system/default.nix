@@ -44,7 +44,6 @@
       flake = "/home/cdockter/Documents/myNixOS";
     };
     fish.enable = true;
-    zsh.enable = true;
   };
 
   # System Auto Upgrade

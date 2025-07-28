@@ -2,20 +2,16 @@
 
 ## Hardware
 
-- clean MSI fans
 - get a YubiKey
 
 ## System
 
-- fix regreet(in more ways than one) display is the main one; that is, it tries to display as one desktop
+- fix regreet(in more ways than one) display is the main one; that is, it tries
+  to display as one desktop
 
 - organize flake inputs more
 
-- Everyone's favorite: refactor more specifically make the Configurations in configs
-
-- learn jujutsu (the CLI)
-
-- fix git crashing when on https
+- fix git crashing when on HTTPS
 
 - make all includes work, but make them optional to turn on
 
@@ -29,7 +25,9 @@
 
 - make ghostty use sesh on activation
 
-- make hyprshell more decalritive
+- make hyprshell more declarative
+
+### Neovim
 
 - make this incoherent mess of a config better (especially misc.lua)
 
@@ -43,8 +41,6 @@
 
 - also make nixd only look at root_dir for the above
 
-- consider a separate lock folder
-
 - make VimTex TOC use trouble somehow
 
 - ts-autotag and also ts-context/commentstring
@@ -52,17 +48,16 @@
 - make yazi.nvim use system yazi somehow; that is, make it so that the '-'
   bind doesnt open another yazi
 
-- [ ] make it so that snacks.image doesnt render inline image
+- make it so that snacks.image doesn't render inline image
 
-- [ ] make lualine more dynamic and smol
-
-- [ ] make treesitter more nix freindly(currently requires clang to be installed)
-
-- [ ] make markview load correctly
+- make treesitter more nix freindly(currently requires clang to be installed)
 
 - make everything use trouble
+
+- describe all mappings
 
 ### Hyprland
 
 - Brainstorm bindings
 - get a fuzzel working for named workspace switching
+- describe all mappings

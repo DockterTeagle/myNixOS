@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   hardware.bluetooth = {
     enable = true;
@@ -18,7 +17,6 @@
   services = {
     pulseaudio.enable = false;
     blueman.enable = true;
-    udev.packages = [ pkgs.evtest ];
     pipewire = {
       lowLatency = {
         enable = true;

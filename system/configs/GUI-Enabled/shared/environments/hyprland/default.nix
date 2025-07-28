@@ -13,7 +13,6 @@
   # TODO: move all of me
   environment.systemPackages = with pkgs; [
     grimblast
-    hyprpicker
     wl-clipboard
   ];
 }

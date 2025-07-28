@@ -10,6 +10,9 @@
     image = ../../../assets/pictures/wallpaper-dread.png;
     targets = {
       neovim.enable = false;
+      zen-browser = {
+        profileNames = [ "default" ];
+      };
       firefox.enable = false;
     };
 
