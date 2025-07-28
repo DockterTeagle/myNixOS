@@ -11,7 +11,6 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 wk.add({
 	{ "<leader>f", group = "find" },
 	{ "<leader>n", group = "Neo" },
-	-- { "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
 	{ "<leader>d", group = "debug" },
 	{ "<leader>gh", group = "(g)it (h)unk" },
 	{ "<leader>t", group = "trouble" },
