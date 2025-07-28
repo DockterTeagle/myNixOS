@@ -25,7 +25,7 @@
     ./filemanagers
     ./gitShit
     ./tmuxAndFriends
-    ./neovim.nix
+    ./nvim
     ./nix.nix
     ./topgrade.nix
   ];

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.file.".config/nvim".source = ../nvim;
+  home.file.".config/nvim".source = ./.;
   home.packages = with pkgs; [
     git-absorb
     tree-sitter
