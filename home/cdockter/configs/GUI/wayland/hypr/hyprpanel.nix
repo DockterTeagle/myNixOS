@@ -10,6 +10,10 @@
     package = inputs'.hyprpanel.packages.default;
     enable = true;
     settings = {
+      OSD = {
+        followCursor = false;
+        monitor = 1;
+      };
       scalingPriority = "both";
       tear = true;
       bar = {
@@ -18,13 +22,12 @@
             left = [
               "dashboard"
               "cputemp"
+              "volume"
             ];
             middle = [
               "submap"
             ];
             right = [
-              "volume"
-              "network"
               "bluetooth"
               "clock"
               "notifications"

@@ -1,15 +1,10 @@
-{
-  cdockterSettings,
-  inputs,
-  pkgs,
-  ...
-}:
+{ cdockterSettings, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false; # using uwsm
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    package = null;
+    portalPackage = null;
     settings = {
       general = {
         gaps_in = 10;
@@ -41,12 +36,22 @@
       render = {
         direct_scanout = 2;
       };
+      monitorv2 = [
+        {
+          output = "eDP-1";
+          mode = "1920x1080@60";
+          position = "0x0";
+          scale = 1;
+        }
+        {
+          output = "HDMI-A-1";
+          mode = "3840x2160@60";
+          position = "1920x0";
+          scale = 1.5;
+        }
+      ];
       input = {
         accel_profile = "flat";
-        monitor = [
-          "eDP-1, 1920x1080@144 , 0x0, 1"
-          "HDMI-A-1, 3840x2160@60, 1920x0, 1.50"
-        ];
         kb_layout = "us";
         kb_variant = "";
         kb_model = "";
