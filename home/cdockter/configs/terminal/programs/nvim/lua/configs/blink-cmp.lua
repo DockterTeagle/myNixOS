@@ -79,16 +79,6 @@ local M = {
 				---@type blink-cmp-conventional-commits.Options
 				opts = {}, -- none so far
 			},
-			git = {
-				module = "blink-cmp-git",
-				name = "Git",
-				enabled = function()
-					return vim.tbl_contains({ "octo", "gitcommit", "markdown" }, vim.bo.filetype)
-				end,
-				opts = {
-					-- options for the blink-cmp-git
-				},
-			},
 			lazydev = {
 				name = "LazyDev",
 				module = "lazydev.integrations.blink",
@@ -100,7 +90,7 @@ local M = {
 				},
 			},
 		},
-		default = { "git", "snippets", "lsp", "path" },
+		default = { "snippets", "lsp", "path" },
 		per_filetype = {
 			sql = { "snippets", "lsp", "path", "dadbod", "buffer" },
 			lua = { "snippets", "lsp", "path", "lazydev" },

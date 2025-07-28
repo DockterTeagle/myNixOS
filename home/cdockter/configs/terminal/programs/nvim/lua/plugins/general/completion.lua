@@ -27,10 +27,6 @@ return {
 				"xzbdmw/colorful-menu.nvim",
 			},
 			{
-				"Kaiser-Yang/blink-cmp-git",
-				dependencies = { "nvim-lua/plenary.nvim" },
-			},
-			{
 				"L3MON4D3/LuaSnip",
 				build = "make install_jsregexp",
 				config = function()
@@ -47,12 +43,5 @@ return {
 		-- allows extending the providers array elsewhere in your config
 		-- without having to redefine it
 		opts_extend = { "sources.default" },
-	},
-	{
-		"danymat/neogen",
-		cmd = "Neogen",
-		opts = {
-			snippet_engine = "luasnip",
-		},
 	},
 }

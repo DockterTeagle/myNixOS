@@ -3,5 +3,6 @@ vim.keymap.set("n", "<localleader>dpr", function()
 end, { desc = "toggle python test method" })
 vim.lsp.enable({
 	"ruff",
+	"basedpyright",
 	"ty",
 })

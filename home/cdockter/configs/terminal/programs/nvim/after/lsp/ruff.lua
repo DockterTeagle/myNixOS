@@ -1,6 +1,7 @@
 ---@type vim.lsp.ClientConfig
 return {
-	cmd = { "uv", "run", "ruff", "server" },
+	capabilities = { general = { positionEncodings = { "utf-16" } } },
+	cmd = { "ruff", "server" },
 	root_markers = {
 		"pyproject.toml",
 		"setup.py",

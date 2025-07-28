@@ -1,1 +1,3 @@
-vim.lsp.enable({ "markdown_oxide", "ltexplus", "vale_ls" })
+local map = vim.keymap.set
+vim.lsp.enable({ "markdown_oxide", "vale_ls" })
+map("n", "gO", "<cmd>Trouble loclist<CR>", { desc = "Symbols (Trouble)" })

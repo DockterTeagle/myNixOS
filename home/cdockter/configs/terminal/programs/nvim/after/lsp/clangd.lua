@@ -14,7 +14,6 @@ return {
 		textDocument = {
 			completion = { editsNearCursor = true },
 		},
-		offSetEncoding = { "utf-8", "utf-16" },
 	},
 	root_markers = {
 		".clangd",

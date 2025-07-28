@@ -56,16 +56,6 @@ function M.ai_whichkey(opts)
 	require("which-key").add(ret, { notify = false })
 end
 function M.pairs(opts)
-	Snacks.toggle({
-		name = "Mini Pairs",
-		get = function()
-			return not vim.g.minipairs_disable
-		end,
-		set = function(state)
-			vim.g.minipairs_disable = not state
-		end,
-	}):map("<leader>up")
-
 	local pairs = require("mini.pairs")
 	pairs.setup(opts)
 	local open = pairs.open

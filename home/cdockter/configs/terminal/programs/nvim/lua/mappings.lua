@@ -1,6 +1,4 @@
 local wk = require("which-key")
-local harpoon = require("harpoon")
-harpoon:setup()
 local map = vim.keymap.set
 
 map("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "previous buffer" })
@@ -28,11 +26,7 @@ end, { desc = "Snacks grep" })
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- whichkey
-map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
-map("n", "<leader>wk", function()
-	vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
-end, { desc = "whichkey query lookup" })
 local mappings = {
 	n = {
 		["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
@@ -121,22 +115,17 @@ for mode, maps in pairs(mappings) do
 	end
 end
 
-map("n", "<leader>rn", function()
-	return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true, desc = "rename the current thing" })
 wk.add({
 	{ "<leader>f", group = "find" },
 	{ "<leader>n", group = "Neo" },
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
 	{ "<leader>d", group = "debug" },
 	{ "<leader>gh", group = "(g)it (h)unk" },
-	{ "<leader>nG", group = "(n)eo(G)en" },
 	{ "<leader>t", group = "trouble" },
 	{ "\\", group = "Core" },
 	{ "<leader>l", group = "lsp" },
 	{ "<leader>ls", group = "signature" },
 	{ "<leader>lc", group = "code" },
-	{ "<leader>w", group = "which" },
 })
 -- Basic command macros
 map({ "n", "v" }, "\\y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
@@ -169,17 +158,6 @@ vim.keymap.set("n", "K", function()
 		vim.lsp.buf.hover()
 	end
 end, { desc = "super key for LSP and fold" })
-vim.keymap.set("n", "<leader>nGf", function()
-	require("neogen").generate()
-end, { noremap = true, silent = true, desc = "(N)eo(G)en(f)unction" })
-vim.keymap.set("n", "<leader>nGc", function()
-	require("neogen").generate({
-		type = "class",
-	})
-end, { noremap = true, silent = true, desc = "(n)eo(G)en (c)lass" })
-vim.keymap.set("n", "<leader>nGF", function()
-	require("neogen").generate({ type = "file" })
-end, { noremap = true, silent = true, desc = "(n)eo(G)en(F)ile" })
 vim.keymap.set("n", "<leader>tqt", "<cmd>Trouble qflist toggle<CR>", { desc = "Toggle qflist with trouble" })
 vim.keymap.set(
 	"n",
@@ -187,7 +165,6 @@ vim.keymap.set(
 	"<CMD>Trouble diagnostics toggle<CR>",
 	{ desc = "toggle diagnostics through trouble" }
 )
-map("n", "<leader>tll", "<CMD>Trouble loclist toggle<CR>", { desc = "toggle loc list with trouble" })
 
 -- vim.keymap.del("n", "<C-]>")
 -- vim.keymap.del("n", "<C-t>", { buffer = bufnr })
@@ -200,3 +177,32 @@ map("n", "<leader>tt", "<CMD>Trouble todo<CR>", { desc = "toggle trouble todo" }
 vim.keymap.set("n", '"', function()
 	Snacks.picker.registers()
 end)
+vim.api.nvim_create_autocmd("User", {
+	pattern = "ObsidianNoteEnter",
+	callback = function(ev)
+		vim.keymap.set(
+			"n",
+			"<localleader>ch",
+			"<CMD>Obsidian togle_checkbox<CR>",
+			{ buffer = ev.buf, desc = "Toggle Checkbox" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>ff",
+			"<CMD>Obsidian search<CR>",
+			{ buffer = ev.buf, desc = "search with obsidain", noremap = false }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>ft",
+			"<CMD>Obsidian tags<CR>",
+			{ buffer = ev.buf, desc = "Find Tags with Obsidian" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>fF",
+			"<CMD>Obsidian quick_switch<CR>",
+			{ buffer = ev.buf, desc = "Quickly find a note" }
+		)
+	end,
+})
