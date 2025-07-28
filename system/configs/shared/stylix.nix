@@ -23,10 +23,6 @@
     };
     base16Scheme = cdockterSettings.theme;
     targets = {
-      grub = {
-        enable = true;
-        useImage = true;
-      };
       plymouth = {
         enable = true;
         logoAnimated = true;
