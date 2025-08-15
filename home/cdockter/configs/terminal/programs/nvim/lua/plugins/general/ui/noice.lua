@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
@@ -19,7 +21,6 @@ return {
 		popupmenu = {
 			enabled = true,
 		},
-		-- notify = { view = "noice" },
 		routes = {
 			{
 				filter = {
@@ -68,7 +69,6 @@ return {
 			hover = {
 				enabled = true,
 				silent = false,
-				view = "hover",
 			},
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,

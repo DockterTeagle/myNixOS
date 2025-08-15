@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -13,6 +15,6 @@ return {
 			end
 		end,
 		opts = require("configs.lualine").lualine_opts(),
-		dependencies = { "echasnovski/mini.icons" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 }

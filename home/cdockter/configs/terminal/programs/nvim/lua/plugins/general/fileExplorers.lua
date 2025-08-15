@@ -4,7 +4,6 @@ return {
 	{
 		"mikavilpas/yazi.nvim",
 		lazy = false,
-		-- cmd = "Yazi",
 		dependencies = { "folke/snacks.nvim" },
 		---@module "yazi"
 		---@type YaziConfig | {}
@@ -19,5 +18,12 @@ return {
 		init = function()
 			vim.g.loaded_netrwPlugin = 1
 		end,
+	},
+	{
+		"dmtrKovalenko/fff.nvim",
+		build = "nix run .#release",
+		opts = {
+			-- pass here all the options
+		},
 	},
 }

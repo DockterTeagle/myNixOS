@@ -29,9 +29,7 @@ return {
 			"BufNewFile /home/cdockter/Documents/Obsidian/main/*.md",
 		},
 		dependencies = {
-			-- Required.
 			"folke/snacks.nvim",
-			-- see above for full list of optional dependencies ☝️
 			"nvim-treesitter/nvim-treesitter",
 			"OXY2DEV/markview.nvim",
 		},

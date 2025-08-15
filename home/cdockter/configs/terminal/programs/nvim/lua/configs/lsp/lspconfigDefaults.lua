@@ -48,6 +48,9 @@ M.on_attach = function(client, bufnr)
 	end, opts("next diagnostic"))
 	if client:supports_method("textDocument/inlayHint") then
 		vim.lsp.inlay_hint.enable(true)
+		map("n", "<leader>li", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+		end, { buffer = bufnr })
 	end
 end
 

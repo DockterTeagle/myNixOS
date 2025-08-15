@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	{
 		"theHamsta/nvim-dap-virtual-text",
@@ -50,14 +52,14 @@ return {
 			-- dap.adapters.nlua = function(callback, config)
 			-- 	callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }) --Tcausing dap to not load for nvim-lua
 			-- end
-			dap.adapters.codelldb = {
-				type = "server",
-				port = "${port}",
-				executable = {
-					command = os.getenv("CODELLDB_PATH"),
-					args = { "--port", "${port}" },
-				},
-			}
+			-- dap.adapters.codelldb = {
+			-- 	type = "server",
+			-- 	port = "${port}",
+			-- 	executable = {
+			-- 		command = os.getenv("CODELLDB_PATH"),
+			-- 		args = { "--port", "${port}" },
+			-- 	},
+			-- }
 			dap.configurations.sh = {
 				{
 					type = "bashdb",

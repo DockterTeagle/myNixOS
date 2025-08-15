@@ -1,5 +1,4 @@
 local opts = {
-
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = true,

@@ -1,7 +1,9 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	{
 		"folke/trouble.nvim",
-		dependencies = { "echasnovski/mini.icons" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			auto_close = true,
 			modes = {

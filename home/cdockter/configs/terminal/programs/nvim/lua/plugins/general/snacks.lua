@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	{
 		"folke/snacks.nvim",
@@ -41,10 +43,6 @@ return {
 			animate = { enabled = true },
 			bigfile = { enabled = true },
 			bufdelete = { enabled = true },
-			debug = { enabled = true },
-			dim = { enabled = true },
-			git = { enabled = true },
-			gitbrowse = { enabled = true },
 			indent = { enabled = true },
 			input = { enabled = true },
 			image = {

@@ -1,11 +1,13 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	"folke/which-key.nvim",
 	dependencies = {
 		{
-			"echasnovski/mini.icons",
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
-	cmd = "WhichKey",
+	event = "VeryLazy",
 	opts = { preset = "modern" },
 	keys = {
 		"<leader>",
