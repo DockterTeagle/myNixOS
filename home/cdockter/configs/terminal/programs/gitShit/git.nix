@@ -13,7 +13,6 @@
       userEmail = cdockterSettings.email;
       signing = {
         format = "openpgp";
-        signByDefault = true;
         key = "A8F847D060070466";
       };
       extraConfig = {
