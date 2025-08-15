@@ -4,40 +4,23 @@
     # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nix-index-database.url = "github:nix-community/nix-index-database";
     # Flake-parts and modules
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #Boot
-    ##Disk allocation
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #Disk allocation
+    disko.url = "github:nix-community/disko";
     # Development Tools and Utilities
     nixd.url = "github:nix-community/nixd";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     devenv.url = "github:cachix/devenv";
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    solaar = {
-      url = "github:svenum/solaar-flake/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    sops-nix.url = "github:Mic92/sops-nix";
+    solaar.url = "github:svenum/solaar-flake/main";
     #Terminal
-    nh = {
-      url = "github:nix-community/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nh.url = "github:nix-community/nh";
     ghostty.url = "github:ghostty-org/ghostty";
     yazi.url = "github:sxyazi/yazi";
     ## Neovim Configurations and Overlays
@@ -47,14 +30,6 @@
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
-    };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
     stylix.url = "github:nix-community/stylix";
@@ -87,7 +62,6 @@
                 neovim-nightly-overlay.overlays.default
                 yazi.overlays.default
                 nh.overlays.default
-                nixpkgs-wayland.overlay
               ];
               config = {
                 nvidia.acceptLicense = true;

@@ -1,4 +1,5 @@
 {
+  inputs',
   pkgs,
   config,
   ...
@@ -12,13 +13,14 @@
     packages = with pkgs; [
       # lsps
       lua-language-server
-      nixd
+      inputs'.nixd.packages.nixd
       markdown-oxide
       #formatters
       config.treefmt.build.wrapper
       #linters
       codespell
       vale-ls
+      vale
       markdownlint-cli2
       statix
     ];
