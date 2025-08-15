@@ -3,6 +3,7 @@
   inputs = {
     # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    jj.url = "github:jj-vcs/jj";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-index-database.url = "github:nix-community/nix-index-database";
     # Flake-parts and modules
@@ -69,7 +70,7 @@
                 allowSubstitutes = false;
               };
             };
-            imports = [ ./flakeModules ];
+            imports = [ ./flake ];
           };
         flake = {
           nixosConfigurations = {
