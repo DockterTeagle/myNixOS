@@ -1,9 +1,10 @@
 {
   wayland.windowManager.hyprland.settings = {
     bindd = [
-      "$mainMod , 1,Switch to workspace 1, workspace, 1"
+      "$mainMod , 1,Switch to workspace 1, focusmonitor, 0"
       "$mainMod_SHIFT , 1,switch to first workspace on monitor, workspace, r~1"
-      "$mainMod , 2,Switch to workspace 2, workspace, name:gaming"
+      # "$mainMod , 2,Switch to workspace 2, workspace, name:gaming"
+      "$mainMod , 2,Switch to workspace 2, focusmonitor, 1"
       "$mainMod_SHIFT , 2,switch to second workspace on monitor, workspace, r~2"
       "$mainMod , 3,Switch to workspace 3, workspace, 3"
       "$mainMod_SHIFT , 3,switch to third workspace on monitor, workspace, r~3"
@@ -21,6 +22,8 @@
       "$mainMod_SHIFT , 9,switch to ninth workspace on monitor, workspace, r~9"
       "$mainMod , 0,Switch to workspace 10, workspace, 10"
       "$mainMod_SHIFT , 0,switch to tenth workspace on monitor, workspace, r~10"
+      "$mainMod_SHIFT,h,move to the right one workspace,split-movetoworkspace,-1"
+      "$mainMod_SHIFT,l,move to the left one workspace,split-movetoworkspace,+1"
     ];
   };
 }

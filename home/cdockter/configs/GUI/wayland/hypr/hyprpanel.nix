@@ -1,13 +1,11 @@
 {
   cdockterSettings,
   pkgs,
-  inputs',
   ...
 }:
 {
   home.packages = with pkgs; [ python313Packages.gpustat ];
   programs.hyprpanel = {
-    package = inputs'.hyprpanel.packages.default;
     enable = true;
     settings = {
       OSD = {
@@ -23,9 +21,11 @@
               "dashboard"
               "cputemp"
               "volume"
+              "workspaces"
             ];
             middle = [
               "submap"
+              "network"
             ];
             right = [
               "bluetooth"
@@ -36,7 +36,6 @@
         };
         windowtitle.label = false;
         workspaces = {
-          monitorSpecific = false;
           show_icons = true;
         };
         media.show_active_only = true;

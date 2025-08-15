@@ -5,10 +5,10 @@
         rounding = 10;
         rounding_power = 10.0;
         active_opacity = 1.0;
-        inactive_opacity = 0.9;
+        inactive_opacity = 0.8;
         fullscreen_opacity = 1.0;
         dim_inactive = true;
-        dim_strength = 0.5;
+        dim_strength = 0.2;
         shadow = {
           enabled = true;
           range = 30;
@@ -17,7 +17,7 @@
         blur = {
           enabled = true;
           size = 12;
-          passes = 4;
+          passes = 40;
           ignore_opacity = true;
           xray = true;
           new_optimizations = true;
