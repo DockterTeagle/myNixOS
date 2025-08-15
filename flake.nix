@@ -2,12 +2,12 @@
   description = "My nixos flake";
   inputs = {
     # Core Nix Packages and Flakes
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     # Flake-parts and modules
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -22,13 +22,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Development Tools and Utilities
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    devenv = {
-      url = "github:cachix/devenv";
-    };
+    nixd.url = "github:nix-community/nixd";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    devenv.url = "github:cachix/devenv";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,24 +39,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ghostty.url = "github:ghostty-org/ghostty";
+    yazi.url = "github:sxyazi/yazi";
     ## Neovim Configurations and Overlays
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
-
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     # Wayland and GUI Tools
     ##Hyprland
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
-      inputs = {
-        hyprland.follows = "hyprland";
-      };
+      inputs.hyprland.follows = "hyprland";
     };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
-      inputs = {
-        hyprland.follows = "hyprland";
-      };
+      inputs.hyprland.follows = "hyprland";
     };
     hyprpanel = {
       url = "github:Jas-SinghFSU/HyprPanel";
@@ -95,6 +85,7 @@
               overlays = with inputs; [
                 ghostty.overlays.default
                 neovim-nightly-overlay.overlays.default
+                yazi.overlays.default
                 nh.overlays.default
                 nixpkgs-wayland.overlay
               ];
