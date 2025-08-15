@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    mprocs # run proccesses in parallel
+    mprocs # run processes in parallel
     cargo-info
     rusty-man
     wiki-tui

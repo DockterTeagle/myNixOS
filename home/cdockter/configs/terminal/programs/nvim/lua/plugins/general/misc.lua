@@ -76,11 +76,17 @@ return {
 		event = "VeryLazy",
 		config = function()
 			local lint = require("lint")
+			-- lint.linters.mado = {
+			-- 	cmd = "mado check",
+			-- 	name = "mado",
+			-- 	-- parser =
+			-- }
 			lint.linters_by_ft = {
 				cmake = { "cmakelint" },
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
 				markdown = { "markdownlint-cli2" },
+				-- markdown = { "mado" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()

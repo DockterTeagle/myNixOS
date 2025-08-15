@@ -3,7 +3,9 @@
     ./services
     ./GUI
     ./terminal
+    ./XDG
     ./stylix.nix
+    ./vars.nix
   ];
   home.pointerCursor = {
     hyprcursor = {

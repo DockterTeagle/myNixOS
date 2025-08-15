@@ -9,5 +9,6 @@ return {
 			"OXY2DEV/markview.nvim",
 		},
 		build = ":TSUpdate",
+		opts = require("configs.treesitter"),
 	},
 }

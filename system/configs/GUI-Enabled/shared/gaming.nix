@@ -4,7 +4,6 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    # inputs
     (heroic.override {
       extraPkgs = pkgs: [
         pkgs.gamescope

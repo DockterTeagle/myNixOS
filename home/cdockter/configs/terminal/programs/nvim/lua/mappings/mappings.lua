@@ -75,14 +75,14 @@ vim.api.nvim_create_autocmd("User", {
 		vim.keymap.set(
 			"n",
 			"<localleader>ch",
-			"<CMD>Obsidian togle_checkbox<CR>",
+			"<CMD>Obsidian toggle_checkbox<CR>",
 			{ buffer = ev.buf, desc = "Toggle Checkbox" }
 		)
 		vim.keymap.set(
 			"n",
 			"<leader>ff",
 			"<CMD>Obsidian search<CR>",
-			{ buffer = ev.buf, desc = "search with obsidain", noremap = false }
+			{ buffer = ev.buf, desc = "search with obsidian", noremap = false }
 		)
 		vim.keymap.set(
 			"n",
