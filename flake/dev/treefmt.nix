@@ -27,10 +27,10 @@
               sort_requires.enabled = true;
             };
           };
-          typos = {
-            enable = true;
-            threads = 2;
-          };
+          # typos = {
+          #   enable = true;
+          #   threads = 2;
+          # };
           # keep-sorted end
 
         };

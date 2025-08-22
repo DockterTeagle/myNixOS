@@ -19,7 +19,6 @@
         core.editor = "nvim";
         init.defaultBranch = "main";
       };
-      lfs.enable = true;
     };
   };
 }

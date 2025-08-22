@@ -1,5 +1,14 @@
 # Task List
 
+## Flake
+
+### Use Flake-parts modules
+
+- Hercules/ci-effects
+- std
+- nix-unit
+- nix-healthchecks
+
 ## Hardware
 
 - get a YubiKey
