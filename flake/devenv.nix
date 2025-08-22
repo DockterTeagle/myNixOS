@@ -6,10 +6,6 @@
 }:
 {
   devenv.shells.default = {
-    cachix = {
-      enable = true;
-      pull = [ "pre-commit-hooks" ];
-    };
     packages = with pkgs; [
       # lsps
       lua-language-server
@@ -24,5 +20,10 @@
       markdownlint-cli2
       statix
     ];
+    git-hooks = {
+      default_stages = [ "pre-push" ];
+      hooks = {
+      };
+    };
   };
 }

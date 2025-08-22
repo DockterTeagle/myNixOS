@@ -6,7 +6,7 @@ local M = {
 	-- your own keymap.
 
 	---@module 'blink.cmp'
-	---@type blink.cmp.Config
+	---@type blink.cmpblink.cmp.Config
 	completion = {
 		ghost_text = {
 			enabled = true,
@@ -73,7 +73,7 @@ local M = {
 				name = "Conventional Commits",
 				module = "blink-cmp-conventional-commits",
 				enabled = function()
-					return vim.bo.filetype == "gitcommit" or vim.bo.filetype == "jj"
+					return vim.bo.filetype == "gitcommit" or vim.bo.filetype == "jjdescription"
 				end,
 				---@module 'blink-cmp-conventional-commits'
 				---@type blink-cmp-conventional-commits.Options
@@ -90,7 +90,7 @@ local M = {
 				},
 			},
 		},
-		default = { "snippets", "lsp", "path" },
+		default = { "snippets", "lsp", "path", "conventional_commits" },
 		-- optionally disable cmdline completions
 	},
 	cmdline = { enabled = false },

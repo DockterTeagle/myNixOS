@@ -86,6 +86,7 @@ return {
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
 				markdown = { "markdownlint-cli2" },
+				gitcommit = { "commitlint" },
 				-- markdown = { "mado" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
