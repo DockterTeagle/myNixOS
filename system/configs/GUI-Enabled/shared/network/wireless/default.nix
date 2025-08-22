@@ -1,15 +1,9 @@
 {
   systemSettings,
-  pkgs,
   lib,
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [
-    wirelesstools
-    traceroute
-    inetutils
-  ];
   networking = {
     wireless.enable = lib.mkForce false;
     networkmanager.enable = true;

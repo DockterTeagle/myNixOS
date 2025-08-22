@@ -105,7 +105,6 @@ local todo_snippet_specs = {
 	{ { trig = "warn" }, { "WARN", "WARNING", "XXX" } },
 	{ { trig = "perf" }, { "PERF", "PERFORMANCE", "OPTIM", "OPTIMIZE" } },
 	{ { trig = "note" }, { "NOTE", "INFO" } },
-	-- NOTE: Block commented todo-comments <kunzaatko>
 	{ { trig = "todob" }, "TODO", { ctype = 2 } },
 	{ { trig = "fixb" }, { "FIX", "BUG", "ISSUE", "FIXIT" }, { ctype = 2 } },
 	{ { trig = "hackb" }, "HACK", { ctype = 2 } },

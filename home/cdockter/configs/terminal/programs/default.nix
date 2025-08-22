@@ -1,14 +1,9 @@
 { pkgs, ... }:
 {
+  #NOTE: NONE OF ME ARE MODULES --check date 08/22/25
   home.packages = with pkgs; [
     mprocs # run processes in parallel
-    cargo-info
-    rusty-man
-    wiki-tui
-    just
-    presenterm
     uutils-coreutils-noprefix
-    kanata-with-cmd
   ];
   programs.nix-index.enable = true;
   programs.pay-respects = {
@@ -28,5 +23,7 @@
     ./nvim
     ./nix.nix
     ./topgrade.nix
+    ./zathura.nix
+    ./feh.nix
   ];
 }

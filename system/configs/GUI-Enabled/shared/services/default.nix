@@ -9,6 +9,7 @@
     libinput.enable = true;
     tumbler.enable = true;
     pcscd.enable = true;
+    kanata.enable = true;
     # XServer and GNOME
     xserver = {
       enable = true;

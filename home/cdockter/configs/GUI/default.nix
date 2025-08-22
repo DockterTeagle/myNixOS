@@ -5,5 +5,6 @@
     ./element.nix
     ./nixcord.nix
     ./spotify.nix
+    ./obsidian.nix
   ];
 }
