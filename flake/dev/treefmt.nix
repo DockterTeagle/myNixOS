@@ -32,8 +32,8 @@
       settings = {
         global.excludes = [
           ".envrc"
-          "flake.lock"
           "*.png"
+          ".git/**"
         ];
       };
     };

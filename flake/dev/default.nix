@@ -1,6 +1,7 @@
 {
   imports = [
-    ./devenv.nix
+    ./devShell.nix
+    ./pre-commit.nix
     ./treefmt.nix
   ];
 }

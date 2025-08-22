@@ -1,45 +1,45 @@
 {
   description = "My nixos flake";
   inputs = {
-    # keep-sorted start block=true newline_separated=true
+    # keep-sorted start block=true newline_separated=false
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
-    #Disk allocation
     disko.url = "github:nix-community/disko";
-
-    # Flake-parts and modules
+    fff.url = "github:dmtrKovalenko/fff.nvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
-
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
-
     ghostty.url = "github:ghostty-org/ghostty";
-
+    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
-
     jj.url = "github:jj-vcs/jj";
-
+    lux.url = "github:nvim-neorocks/lux";
+    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
     neorocks.url = "github:nvim-neorocks/neorocks";
-
     nh.url = "github:nix-community/nh";
-
     nix-gaming.url = "github:fufexan/nix-gaming";
-
     nix-index-database.url = "github:nix-community/nix-index-database";
-
-    nix-unit.url = "github:nix-community/nix-unit";
-
+    nix2container.inputs = {
+      nixpkgs.follows = "nixpkgs";
+    };
+    nix2container.url = "github:nlewo/nix2container";
+    # nix-unit.url = "github:nix-community/nix-unit";
+    nixos-anywhere = {
+      url = "github:nix-community/nixos-anywhere";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        disko.follows = "disko";
+        treefmt-nix.follows = "treefmt-nix";
+        flake-parts.follows = "flake-parts";
+      };
+    };
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
-
     # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     rustaceanvim = {
       url = "github:mrcjkb/rustaceanvim";
       inputs = {
@@ -49,22 +49,16 @@
         gen-luarc.follows = "gen-luarc";
       };
     };
-
     solaar.url = "github:svenum/solaar-flake/main";
-
     sops-nix.url = "github:Mic92/sops-nix";
-
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
-
     std.url = "github:divnix/std";
-
     stylix.url = "github:nix-community/stylix";
-
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     yazi.url = "github:sxyazi/yazi";
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.home-manager.follows = "home-manager";
@@ -81,14 +75,23 @@
         debug = true;
         imports = with inputs; [
           ./flake
-          flake-parts.flakeModules.partitions
-          nix-unit.modules.flake.default
+          # nix-unit.modules.flake.default
           std.flakeModule
           nixos-healthchecks.flakeModule
           nixos-healthchecks.nixosModules.default
           hercules-ci-effects.flakeModule
           home-manager.flakeModules.default
         ];
+        # std = {
+        #   grow = {
+        #     inherit inputs;
+        #     cellsFrom = ./nix;
+        #     nixpkgsConfig = {
+        #       allowUnfree = true;
+        #
+        #     };
+        #   };
+        # };
         hercules-ci.flake-update = {
           enable = true;
           when = {
@@ -110,9 +113,6 @@
               overlays = with inputs; [
                 neorocks.overlays.default
                 gen-luarc.overlays.default
-                ghostty.overlays.default
-                yazi.overlays.default
-                nh.overlays.default
               ];
               config = {
                 nvidia.acceptLicense = true;
