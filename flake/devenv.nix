@@ -23,6 +23,11 @@
     git-hooks = {
       default_stages = [ "pre-push" ];
       hooks = {
+        treefmt = {
+          enable = true;
+          package = config.treefmt.build.wrapper;
+        };
+        convco.enable = true;
       };
     };
   };
