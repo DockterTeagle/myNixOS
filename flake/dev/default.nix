@@ -1,6 +1,6 @@
 {
   imports = [
     ./devenv.nix
-    ./fmt.nix
+    ./treefmt.nix
   ];
 }

@@ -23,6 +23,17 @@
     yazi.url = "github:sxyazi/yazi";
     ## Neovim Configurations and Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
+    neorocks.url = "github:nvim-neorocks/neorocks";
+    rustaceanvim = {
+      url = "github:mrcjkb/rustaceanvim";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        neorocks.follows = "neorocks";
+        gen-luarc.follows = "gen-luarc";
+      };
+    };
     # Wayland and GUI Tools
     ##Hyprland
     split-monitor-workspaces = {
@@ -46,16 +57,18 @@
         systems = [ "x86_64-linux" ];
         debug = true;
         imports = with inputs; [
-        ./flake
+          ./flake
           flake-parts.flakeModules.partitions
           home-manager.flakeModules.default
         ];
         perSystem =
-          { system,  ... }:
+          { system, ... }:
           {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
               overlays = with inputs; [
+                neorocks.overlays.default
+                gen-luarc.overlays.default
                 ghostty.overlays.default
                 neovim-nightly-overlay.overlays.default
                 yazi.overlays.default

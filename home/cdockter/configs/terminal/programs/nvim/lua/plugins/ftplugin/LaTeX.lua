@@ -8,6 +8,7 @@ return {
 			vim.g.vimtex_mappings_disable = { ["n"] = { "K" } }
 			vim.g.vimtex_quickfix_mode = 0
 			vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
+      vim.g.vimtex_parser_bib_backend = "lua"
 			vim.g.vimtex_fold_types = {
 				preamble = { enabled = 1 },
 				sections = {

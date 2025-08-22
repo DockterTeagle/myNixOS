@@ -1,7 +1,13 @@
 {
   partitions = {
-      dev = {module = ./dev; extraInputsFlake = ./dev;};
-
+    dev = {
+      module = ./dev;
+      extraInputsFlake = ./dev;
     };
-    partitionedAttrs = {formatter = "dev";devShells= "dev";};
+  };
+  partitionedAttrs = {
+    formatter = "dev";
+    devShells = "dev";
+  };
+  # perSystem = {system,...}:{};
 }
