@@ -26,7 +26,12 @@ return {
         mode = { "n", "x" },
         desc = "open Yank History",
       },
-      { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank Text" },
+      {
+        "y",
+        "<Plug>(YankyYank)",
+        mode = { "n", "x" },
+        desc = "Yank Text",
+      },
       {
         "p",
         "<Plug>(YankyPutAfter)",
@@ -153,6 +158,7 @@ return {
         cmake = { "cmakelint" },
         nix = { "statix", "nix" },
         cpp = { "cppcheck", "cpplint" },
+        lua = { "luacheck" },
         markdown = { "markdownlint-cli2" },
         gitcommit = { "commitlint" },
         -- markdown = { "mado" },

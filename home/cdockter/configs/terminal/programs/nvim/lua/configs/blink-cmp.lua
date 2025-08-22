@@ -80,11 +80,6 @@ local M = {
         ---@type blink-cmp-conventional-commits.Options
         opts = {}, -- none so far
       },
-      lazydev = {
-        name = "LazyDev",
-        module = "lazydev.integrations.blink",
-        score_offset = 100,
-      },
       snippets = {
         opts = {
           show_autosnippets = false,

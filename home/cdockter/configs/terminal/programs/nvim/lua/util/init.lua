@@ -40,14 +40,14 @@ function M.load_all(directory, module_prefix)
 
   -- Recursive function to scan directories
   local function scan(dir, prefix)
-    local scandir = vim.loop.fs_scandir(dir)
+    local scandir = vim.uv.fs_stat(dir)
     if not scandir then
       return
     end
 
     for name, entry_type in
       function()
-        return vim.loop.fs_scandir_next(scandir)
+        return vim.uv.fs_opendir(scandir)
       end
     do
       local full_path = dir .. "/" .. name
