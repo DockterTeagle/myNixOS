@@ -31,7 +31,7 @@ o.numberwidth = 2
 o.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append("sI")
+opt.shortmess:append "sI"
 
 o.signcolumn = "yes"
 o.splitbelow = true
@@ -44,7 +44,7 @@ o.updatetime = 50
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append("<>[]hl")
+opt.whichwrap:append "<>[]hl"
 
 opt.laststatus = 3
 opt.splitkeep = "screen"
@@ -57,6 +57,13 @@ opt.statuscolumn = [[!v:lua.require'snacks.statuscolumn'.get()]]
 opt.completeopt = "menu,menuone,noselect"
 opt.smoothscroll = true
 opt.linebreak = true
-opt.fillchars = { foldopen = "", foldclose = "", fold = " ", foldsep = " ", diff = "╱", eob = " " }
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"

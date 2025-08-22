@@ -1,47 +1,51 @@
 ---@module "lazy"
 ---@type LazySpec
 return {
-	{
-		"kristijanhusak/vim-dadbod-ui",
-		dependencies = {
-			"tpope/vim-dadbod",
-			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
-		},
-		cmd = {
-			"DBUI",
-			"DBUIToggle",
-			"DBUIAddConnection",
-			"DBUIFindBuffer",
-		},
-		init = function()
-			-- Your DBUI configuration
-			vim.g.db_ui_use_nerd_fonts = 1
-		end,
-	},
-	{
-		"saghen/blink.cmp",
-		event = "InsertEnter",
-		dependencies = {
-			{ "disrupted/blink-cmp-conventional-commits" },
-			{
-				"xzbdmw/colorful-menu.nvim",
-			},
-			{
-				"L3MON4D3/LuaSnip",
-				build = "make install_jsregexp",
-				config = function()
-					local ls = require("luasnip")
-					local opts = require("configs.luasnip")
-					ls.config.set_config(opts)
-				end,
-			},
-		},
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      "tpope/vim-dadbod",
+      {
+        "kristijanhusak/vim-dadbod-completion",
+        ft = { "sql", "mysql", "plsql" },
+        lazy = true,
+      },
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
+  {
+    "saghen/blink.cmp",
+    event = "InsertEnter",
+    dependencies = {
+      { "disrupted/blink-cmp-conventional-commits" },
+      {
+        "xzbdmw/colorful-menu.nvim",
+      },
+      {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp",
+        config = function()
+          local ls = require "luasnip"
+          local opts = require "configs.luasnip"
+          ls.config.set_config(opts)
+        end,
+      },
+    },
 
-		build = "nix run .#build-plugin",
+    build = "nix run .#build-plugin",
 
-		opts = require("configs.blink-cmp"),
-		-- allows extending the providers array elsewhere in your config
-		-- without having to redefine it
-		opts_extend = { "sources.default" },
-	},
+    opts = require "configs.blink-cmp",
+    -- allows extending the providers array elsewhere in your config
+    -- without having to redefine it
+    opts_extend = { "sources.default" },
+  },
 }

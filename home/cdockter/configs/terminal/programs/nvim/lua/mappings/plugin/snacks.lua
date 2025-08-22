@@ -1,11 +1,11 @@
 local map = vim.keymap.set
 -- Snacks Picker
 map("n", "<leader>fm", function()
-	Snacks.picker.marks()
+  Snacks.picker.marks()
 end, { desc = "find marks" })
 map("n", "<leader>ff", function()
-	require("fff").find_files()
+  require("fff").find_files()
 end, { desc = "find files using snacks" })
 map("n", "<leader>fw", function()
-	Snacks.picker.grep()
+  Snacks.picker.grep()
 end, { desc = "Snacks grep" })

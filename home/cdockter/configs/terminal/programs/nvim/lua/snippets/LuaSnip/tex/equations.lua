@@ -1,4 +1,4 @@
-local ls = require("luasnip")
+local ls = require "luasnip"
 local s = ls.snippet
 local sn = ls.snippet_node
 local t = ls.text_node
@@ -79,24 +79,24 @@ local tex_utils = require("snippets.LuaSnip.helper-functions").tex_utils
 -- `vq  ->  '\vartheta'                    vimtex#imaps#wrap_math
 -- `vr  ->  '\varrho'                      vimtex#imaps#wrap_math
 return {
-	s({ trig = ";a", snippetType = "autosnippet" }, {
-		t("\\alpha"),
-	}, { condition = tex_utils.in_mathzone }),
-	s({ trig = ";b", snippetType = "autosnippet" }, {
-		t("\\beta"),
-	}, { condition = tex_utils.in_mathzone }),
-	s({ trig = ";g", snippetType = "autosnippet" }, {
-		t("\\gamma"),
-	}, { condition = tex_utils.in_mathzone }),
-	s({ trig = ";m", snippetType = "autosnippet" }, {
-		t("\\mu"),
-	}, { condition = tex_utils.in_mathzone }),
-	s(
-		{ trig = "ff", snippetType = "autosnippet", dscr = "fraction" },
-		fmta("\\frac{<>}{<>}", {
-			i(1),
-			i(2),
-		}),
-		{ condition = tex_utils.in_mathzone } -- `condition` option passed in the snippet `opts` table
-	),
+  s({ trig = ";a", snippetType = "autosnippet" }, {
+    t "\\alpha",
+  }, { condition = tex_utils.in_mathzone }),
+  s({ trig = ";b", snippetType = "autosnippet" }, {
+    t "\\beta",
+  }, { condition = tex_utils.in_mathzone }),
+  s({ trig = ";g", snippetType = "autosnippet" }, {
+    t "\\gamma",
+  }, { condition = tex_utils.in_mathzone }),
+  s({ trig = ";m", snippetType = "autosnippet" }, {
+    t "\\mu",
+  }, { condition = tex_utils.in_mathzone }),
+  s(
+    { trig = "ff", snippetType = "autosnippet", dscr = "fraction" },
+    fmta("\\frac{<>}{<>}", {
+      i(1),
+      i(2),
+    }),
+    { condition = tex_utils.in_mathzone } -- `condition` option passed in the snippet `opts` table
+  ),
 }

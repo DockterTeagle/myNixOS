@@ -1,1 +1,1 @@
-vim.lsp.enable("tinymist")
+vim.lsp.enable "tinymist"

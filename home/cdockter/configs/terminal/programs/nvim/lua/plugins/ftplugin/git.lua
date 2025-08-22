@@ -1,23 +1,23 @@
 ---@module "lazy"
 ---@type LazySpec
 return {
-	{
-		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-		opts = function()
-			return require("configs.gitsigns")
-		end,
-	},
-	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim",
+  {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    opts = function()
+      return require "configs.gitsigns"
+    end,
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim",
 
-			-- Only one of these is needed, not both.
-			"folke/snacks.nvim",
-		},
-		cmd = "Neogit",
-		config = true,
-	},
+      -- Only one of these is needed, not both.
+      "folke/snacks.nvim",
+    },
+    cmd = "Neogit",
+    config = true,
+  },
 }

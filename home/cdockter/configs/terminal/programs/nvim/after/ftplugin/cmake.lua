@@ -1,3 +1,3 @@
-vim.lsp.enable({
-	"neocmake",
-})
+vim.lsp.enable {
+  "neocmake",
+}
