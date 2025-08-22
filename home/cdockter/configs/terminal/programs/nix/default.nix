@@ -4,8 +4,13 @@
   ...
 }:
 {
+  imports = [
+    ./direnv.nix
+    ./home-manager.nix
+    ./nh.nix
+  ];
   nix = {
-    package = pkgs.lixPackageSets.git.lix;
+    package = pkgs.nixVersions.latest;
     extraOptions = ''
       !include ${config.sops.secrets."nixAccessTokens".path}
     '';
