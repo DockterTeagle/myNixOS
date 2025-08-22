@@ -46,6 +46,10 @@
 
 - describe all mappings
 
+### Obsidian
+
+- find a way to make it work?
+
 ### Hyprland
 
 - Brainstorm bindings

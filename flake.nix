@@ -15,9 +15,6 @@
     #Disk allocation
     disko.url = "github:nix-community/disko";
     # Development Tools and Utilities
-    nixd.url = "github:nix-community/nixd";
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-    devenv.url = "github:cachix/devenv";
     sops-nix.url = "github:Mic92/sops-nix";
     solaar.url = "github:svenum/solaar-flake/main";
     #Terminal
@@ -49,12 +46,12 @@
         systems = [ "x86_64-linux" ];
         debug = true;
         imports = with inputs; [
-          treefmt-nix.flakeModule
-          devenv.flakeModule
+        ./flake
+          flake-parts.flakeModules.partitions
           home-manager.flakeModules.default
         ];
         perSystem =
-          { system, ... }:
+          { system,  ... }:
           {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
@@ -70,7 +67,6 @@
                 allowSubstitutes = false;
               };
             };
-            imports = [ ./flake ];
           };
         flake = {
           nixosConfigurations = {
