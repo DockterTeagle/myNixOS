@@ -1,8 +1,9 @@
 {
   description = "My nixos flake";
   inputs = {
-    # keep-sorted start block=true newline_separated=false
-
+    nixago-exts.url = "github:nix-community/nixago-extensions";
+    terranix.url = "github:terranix/terranix";
+    devshell.url = "github:numtide/devshell";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     disko.url = "github:nix-community/disko";
     fff.url = "github:dmtrKovalenko/fff.nvim";
@@ -17,28 +18,34 @@
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
     jj.url = "github:jj-vcs/jj";
-    lux.url = "github:nvim-neorocks/lux";
-    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
-    neorocks.url = "github:nvim-neorocks/neorocks";
+    neorocks = {
+      url = "github:nvim-neorocks/neorocks";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        git-hooks.follows = "git-hooks-nix";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nix2container.inputs = {
-      nixpkgs.follows = "nixpkgs";
-    };
-    nix2container.url = "github:nlewo/nix2container";
     # nix-unit.url = "github:nix-community/nix-unit";
-    nixos-anywhere = {
-      url = "github:nix-community/nixos-anywhere";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        disko.follows = "disko";
-        treefmt-nix.follows = "treefmt-nix";
-        flake-parts.follows = "flake-parts";
-      };
+    # nixos-anywhere = {
+    #   url = "github:nix-community/nixos-anywhere";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     disko.follows = "disko";
+    #     treefmt-nix.follows = "treefmt-nix";
+    #     flake-parts.follows = "flake-parts";
+    #   };
+    # };
+    nixago = {
+       url = "github:nix-community/nixago";
+    inputs = {nixpkgs.follows = "nixpkgs";
+    nixago-exts.follows = "nixago-exts";
+    };
     };
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
-    # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     rustaceanvim = {
       url = "github:mrcjkb/rustaceanvim";
@@ -55,7 +62,13 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
-    std.url = "github:divnix/std";
+    std={url = "github:divnix/std";
+      inputs = {
+          nixpkgs.follows = "nixpkgs";
+          devshell.follows = "devshell";
+          nixago.follows = "nixago";
+        };
+    };
     stylix.url = "github:nix-community/stylix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     yazi.url = "github:sxyazi/yazi";
@@ -64,17 +77,16 @@
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # keep-sorted end
   };
   outputs =
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
-      { withSystem, ... }:
+      { ... }:
       {
         systems = [ "x86_64-linux" ];
         debug = true;
         imports = with inputs; [
-          ./flake
+          # ./flake
           # nix-unit.modules.flake.default
           std.flakeModule
           nixos-healthchecks.flakeModule
@@ -82,16 +94,58 @@
           hercules-ci-effects.flakeModule
           home-manager.flakeModules.default
         ];
-        # std = {
-        #   grow = {
-        #     inherit inputs;
-        #     cellsFrom = ./nix;
-        #     nixpkgsConfig = {
-        #       allowUnfree = true;
-        #
-        #     };
-        #   };
-        # };
+        std = {
+          grow = {
+            cellsFrom = ./nix;
+            cellBlocks = with inputs.std.blockTypes; [
+              # modules implement
+              (functions "homeModules")
+              (functions "devshellModules")
+
+              # profiles activate
+              (functions "hardwareProfiles")
+              (functions "nixosProfiles")
+              (functions "homeProfiles")
+              (functions "devshellProfiles")
+
+              # configurations can be deployed
+              (data "nixosConfigurations")
+              (data "colmenaConfigurations")
+              (data "homeConfigurations")
+              (data "diskoConfigurations")
+              #
+              # devshells can be entered
+              (devshells "devshells")
+
+              # jobs can be run
+              (runnables "jobs")
+              (runnables "apps")
+              (nixago "configs")
+              # (inputs.std.lib.dev.treefmt "treefmt")
+              # (cfg "conform")
+            ];
+            nixpkgsConfig = {
+              overlays = [ ];
+              allowUnfree = true;
+            };
+          };
+          # winnow
+          # pick = {
+          #   lib = [ ];
+          # };
+          harvest = {
+            # nixosConfigs = [
+            #   "configs"
+            #   "system"
+            #   "nixosConfigurations"
+            # ];
+            devShells = [
+              "repo"
+              "devshells"
+            ];
+
+          };
+        };
         hercules-ci.flake-update = {
           enable = true;
           when = {
@@ -121,72 +175,6 @@
               };
             };
           };
-        flake = {
-          nixosConfigurations = {
-            nixos = withSystem "x86_64-linux" (
-              { pkgs, inputs', ... }:
-              let
-                config = import ./globals { inherit inputs pkgs; };
-                inherit (config) systemSettings cdockterSettings;
-
-                # Common arguments for nixosConfigurations
-              in
-              inputs.nixpkgs.lib.nixosSystem {
-                inherit pkgs;
-                specialArgs = {
-                  inherit
-                    inputs
-                    systemSettings
-                    cdockterSettings
-                    inputs'
-                    ;
-                };
-                modules = with inputs; [
-                  ./system
-                  chaotic.nixosModules.default
-                  solaar.nixosModules.default
-                  stylix.nixosModules.stylix
-                  disko.nixosModules.disko
-                  sops-nix.nixosModules.sops
-                  nix-gaming.nixosModules.pipewireLowLatency
-                  nix-gaming.nixosModules.platformOptimizations
-                ];
-              }
-            );
-          };
-
-          homeConfigurations = {
-            cdockter = withSystem "x86_64-linux" (
-              { pkgs, inputs', ... }:
-              let
-                config' = import ./globals { inherit inputs pkgs; };
-                inherit (config') systemSettings cdockterSettings;
-
-                # Common arguments for nixosConfigurations
-              in
-              inputs.home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                extraSpecialArgs = {
-                  inherit
-                    pkgs
-                    inputs
-                    inputs'
-                    systemSettings
-                    cdockterSettings
-                    ;
-                };
-                modules = with inputs; [
-                  ./home/cdockter
-                  zen-browser.homeModules.twilight
-                  stylix.homeModules.stylix
-                  sops-nix.homeManagerModules.sops
-                  nix-index-database.homeModules.nix-index
-                ];
-              }
-            );
-          };
-
-        };
       }
     );
 }

@@ -53,6 +53,8 @@
 
 - make everything use trouble
 
+- add all harper to ftplugin
+
 - describe all mappings
 
 ### Obsidian
