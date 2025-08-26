@@ -2,7 +2,7 @@
 # development shells in a `devshells.nix` cell block.
 #
 # This cell block is used to define the development shells that are available to
-# consumers of our repository. If you're not familiar with the idea of a
+# consumers of our repository. If you're not familiar with the idea of );
 # development shell, it's essentially a self-contained environment that can be
 # configured to provide all the tools and dependencies needed to work on our
 # project. It solves the vital problem of, "works on my machine."
@@ -13,6 +13,7 @@
 let
   inherit (inputs) nixpkgs std;
   l = nixpkgs.lib // builtins;
+  pkgs = nixpkgs;
 in
 # Here we map an attribute set to the `std.std.lib.mkShell` function.
 # This is a small wrapper around the numtide/devshell `mkShell` function and
@@ -42,6 +43,11 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
 
     nixago =[   cell.configs.treefmt];
     # nixago = [cell.configs.conform cell.configs.lefthook cell.configs.prettier cell.configs.treefmt];
+    nixago = [
+      cell.configs.lefthook
+      cell.configs.luarc
+      # cell.configs.vale
+    ];
     # This is a list of packages that will be available in our development
     # environment. In this case, we're pulling in the rust toolchain from our
     # `toolchains` cell block.
@@ -53,6 +59,24 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     #   cell.toolchain.rust.stable.latest.default
     # ];
 
+    packages = with pkgs; [
+      # cell.toolchain.neovim.neovim-nightly
+      cell.toolchain.treefmt-nix
+      emmylua-ls
+      nixd
+      markdown-oxide
+      vale-ls
+      colmena
+      #formatters
+      #linters
+      vale
+      git-cliff
+      markdownlint-cli2
+      bash-language-server
+      statix
+      luajitPackages.luacheck
+      # neovim-nightly
+    ];
     # This is a list of "commands" that will be available inside our development
     # environment. One of the features of numtide/devshell is that it provides
     # a `menu` command that will list all of the commands we define below. This
@@ -67,5 +91,12 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     #     category = "Testing";
     #   }
     # ];
+    commands = [
+      {
+        package = cell.toolchain.treefmt-nix;
+        help = "run the unit tests";
+        category = "formatting";
+      }
+    ];
   };
 }

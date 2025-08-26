@@ -1,7 +1,12 @@
-/.pre-commit-config.yaml
-/.luarc.json
-/.direnv
-/.devenv
+.bin/
 .cache/
+.direnv/
+.devenv/
 .data/
-.lefthook.yml
+<<<<<<< Conflict 1 of 1
+.run/
+.pre-commit-config.yaml
+
+# nixago: ignore-linked-files
+/.luarc.json
+/lefthook.yml

@@ -2,12 +2,21 @@
   description = "My nixos flake";
   inputs = {
     nixago-exts.url = "github:nix-community/nixago-extensions";
+    haumea.follows = "hive/std/haumea";
+    paisano = {
+      url = "github:paisano-nix/core";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     terranix.url = "github:terranix/terranix";
     devshell.url = "github:numtide/devshell";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     disko.url = "github:nix-community/disko";
     fff.url = "github:dmtrKovalenko/fff.nvim";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     ghostty.url = "github:ghostty-org/ghostty";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
@@ -18,14 +27,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
     jj.url = "github:jj-vcs/jj";
-    neorocks = {
-      url = "github:nvim-neorocks/neorocks";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        git-hooks.follows = "git-hooks-nix";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    neorocks.url = "github:nvim-neorocks/neorocks";
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -39,6 +41,7 @@
     #     flake-parts.follows = "flake-parts";
     #   };
     # };
+    # nix-gaming.url = "github:fufexan/nix-gaming";
     nixago = {
        url = "github:nix-community/nixago";
     inputs = {nixpkgs.follows = "nixpkgs";
@@ -47,16 +50,19 @@
     };
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rustaceanvim = {
-      url = "github:mrcjkb/rustaceanvim";
+    rustaceanvim.url = "github:mrcjkb/rustaceanvim";
+    solaar.url = "github:svenum/solaar-flake/main";
+    hive = {
+      url = "github:divnix/hive";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        neorocks.follows = "neorocks";
-        gen-luarc.follows = "gen-luarc";
+        colmena.follows = "colmena";
+        devshell.follows = "devshell";
+        std.follows = "std";
+        paisano.follows = "paisano";
+        nixago.follows = "nixago";
       };
     };
-    solaar.url = "github:svenum/solaar-flake/main";
     sops-nix.url = "github:Mic92/sops-nix";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
@@ -71,6 +77,19 @@
     };
     stylix.url = "github:nix-community/stylix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
+        nixpkgs.follows = "nixpkgs";
+        devshell.follows = "devshell";
+        nixago.follows = "nixago";
+        terranix.follows = "terranix";
+        paisano.follows = "paisano";
+      };
+    };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     yazi.url = "github:sxyazi/yazi";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -177,4 +196,74 @@
           };
       }
     );
+    {
+      hive,
+      std,
+      self,
+      ...
+    }@inputs:
+    hive.growOn
+      {
+        inherit inputs;
+
+        systems = [
+          "aarch64-linux"
+          "x86_64-linux"
+        ];
+        cellsFrom = ./nix;
+        nixpkgsConfig = {
+          allowUnfree = true;
+        };
+
+        cellBlocks =
+          with std.blockTypes;
+          with hive.blockTypes;
+          [
+
+            # Modules
+            (functions "homeModules")
+
+            # Profiles
+            # (functions "commonProfiles")
+            #nixOS
+            (functions "nixosProfiles")
+            (functions "nixosModules")
+            (functions "nixosSuites")
+            (functions "bee")
+            (functions "hardwareProfiles")
+            (functions "homeProfiles")
+            # (functions "userProfiles")
+            # (functions "users")
+            # Suites
+            # (functions "homeSuites")
+
+            (devshells "devshells")
+            (nixago "configs")
+            (functions "lib")
+
+            (functions "toolchain")
+
+            # homeConfigurations
+            nixosConfigurations
+            diskoConfigurations
+
+          ];
+      }
+      /**
+        pick "gib me just what I specifiy"
+        collect "gmme everything by key"
+        harvest "merge"
+      */
+      {
+        nixosConfigurations = hive.collect self "nixosConfigurations";
+        diskoConfigurations = hive.collect self "diskoConfigurations";
+        devShells = hive.harvest self [
+          "repo"
+          "devshells"
+        ];
+
+        homeModules = hive.collect self [
+          "home"
+        ];
+      };
 }

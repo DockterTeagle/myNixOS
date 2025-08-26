@@ -7,6 +7,70 @@ let
   inherit (inputs.std.data) configs;
   inherit (inputs.std.lib.dev) mkNixago;
   l = nixpkgs.lib // builtins;
+  pkgs = inputs.nixpkgs;
+  luarc-nightly = cell.toolchain.gen-luarc.mk-luarc {
+    nvim = cell.toolchain.neovim.neovim-nightly;
+    plugins = luarcPlugins;
+  };
+  luarcPlugins = with pkgs.vimPlugins; [
+    # keep-sorted start
+    FixCursorHold-nvim
+    blink-cmp
+    blink-cmp-conventional-commits
+    bufferline-nvim
+    clangd_extensions-nvim
+    cmake-tools-nvim
+    colorful-menu-nvim
+    comment-nvim
+    conform-nvim
+    cord-nvim
+    diffview-nvim
+    flash-nvim
+    gitsigns-nvim
+    grug-far-nvim
+    hardtime-nvim
+    inputs.rustaceanvim.packages.default
+    lazy-nvim
+    lazydev-nvim
+    lualine-nvim
+    luasnip
+    markview-nvim
+    mini-ai
+    mini-pairs
+    mini-surround
+    neogit
+    neotest
+    neotest-python
+    neotest-zig
+    noice-nvim
+    nui-nvim
+    nvim-dap
+    nvim-dap-python
+    nvim-dap-ui
+    nvim-dap-virtual-text
+    nvim-lint
+    nvim-nio
+    nvim-notify
+    nvim-treesitter
+    nvim-ufo
+    nvim-web-devicons
+    obsidian-nvim
+    plenary-nvim
+    promise-async
+    snacks-nvim
+    todo-comments-nvim
+    toggleterm-nvim
+    tokyonight-nvim
+    trouble-nvim
+    vim-jjdescription
+    vim-tmux-navigator
+    vim-wakatime
+    vimtex
+    which-key-nvim
+    yanky-nvim
+    yazi-nvim
+    # keep-sorted end
+  ];
   /*
     While these are strictly specializations of the available
     Nixago Pebbles at `lib.cfg.*`, it would be entirely
@@ -95,6 +159,20 @@ in
               includes = ["*.nix"];
             };
         };
+  lefthook = (mkNixago configs.lefthook) {
+    data = {
+      # commit-msg.commands.conform.run ="${nixpkgs.conform}/bin/conform enforce ==commit-msg-file {1}";
+      pre-commit.commands = {
+        treefmt.run = "${pkgs.treefmt}/bin/treefmt {staged_files}";
+        #       pre-commit-hook-ensure-sops.enable = true;
+        #       trufflehog.enable = true;
+        #       convco.enable = true;
+        # trufflehog.run = ''
+        #   set -e
+        #   ${nixpkgs.trufflehog}/bin/trufflehog git git " "file://$" (
+        #     git rev-parse - -show-toplevel
+        #   ) " --since-commit HEAD --only-verified --fail"'';
+      };
     };
 
 # lefthook = lib.cfg.lefthook{};
@@ -105,3 +183,9 @@ in
   #   };
   # };
 };}
+  luarc = mkNixago {
+    output = ".luarc.json";
+    format = "json";
+    data = luarc-nightly;
+  };
+}

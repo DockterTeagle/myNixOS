@@ -9,6 +9,10 @@
 - nix-unit
 - nix-healthchecks
 
+#### std
+
+- get the configs working and document more
+
 ## Hardware
 
 - get a YubiKey
