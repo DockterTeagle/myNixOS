@@ -16,9 +16,6 @@
       "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
       "$secondMod" = "SUPER_R";
       "$term" = "${cdockterSettings.term}"; # terminal
-      env = [
-        "AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
-      ];
       ecosystem = {
         # enforce_permissions = true;
       };

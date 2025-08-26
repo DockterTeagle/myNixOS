@@ -10,13 +10,11 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     ghostty.url = "github:ghostty-org/ghostty";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
-    hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
-    jj.url = "github:jj-vcs/jj";
     lux.url = "github:nvim-neorocks/lux";
     mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
     neorocks.url = "github:nvim-neorocks/neorocks";
@@ -55,7 +53,6 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
-    std.url = "github:divnix/std";
     stylix.url = "github:nix-community/stylix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     yazi.url = "github:sxyazi/yazi";
@@ -76,35 +73,10 @@
         imports = with inputs; [
           ./flake
           # nix-unit.modules.flake.default
-          std.flakeModule
           nixos-healthchecks.flakeModule
           nixos-healthchecks.nixosModules.default
-          hercules-ci-effects.flakeModule
           home-manager.flakeModules.default
         ];
-        # std = {
-        #   grow = {
-        #     inherit inputs;
-        #     cellsFrom = ./nix;
-        #     nixpkgsConfig = {
-        #       allowUnfree = true;
-        #
-        #     };
-        #   };
-        # };
-        hercules-ci.flake-update = {
-          enable = true;
-          when = {
-            hour = [ 0 ];
-            dayOfWeek = [
-              "Mon"
-              "Tues"
-              "Wed"
-              "Thu"
-              "Fri"
-            ];
-          };
-        };
         perSystem =
           { system, ... }:
           {

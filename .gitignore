@@ -1,4 +1,6 @@
 /.pre-commit-config.yaml
 /.luarc.json
-/.direnv
-/.devenv
+.direnv/
+.devenv/
+.cache/
+.data/

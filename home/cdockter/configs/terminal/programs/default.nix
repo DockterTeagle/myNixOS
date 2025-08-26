@@ -21,7 +21,7 @@
     ./gitShit
     ./tmuxAndFriends
     ./nvim
-    ./nix.nix
+    ./nix
     ./topgrade.nix
     ./zathura.nix
     ./feh.nix
