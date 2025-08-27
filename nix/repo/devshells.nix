@@ -41,7 +41,6 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     # `std` TUI in our environment.
     imports = [ std.std.devshellProfiles.default ];
 
-    nixago =[   cell.configs.treefmt];
     # nixago = [cell.configs.conform cell.configs.lefthook cell.configs.prettier cell.configs.treefmt];
     nixago = [
       cell.configs.lefthook

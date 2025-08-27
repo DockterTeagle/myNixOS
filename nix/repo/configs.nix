@@ -182,7 +182,7 @@ in
   #     book.title = "The Standard Book";
   #   };
   # };
-};}
+};};
   luarc = mkNixago {
     output = ".luarc.json";
     format = "json";

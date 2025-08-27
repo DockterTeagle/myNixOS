@@ -1,10 +1,9 @@
-
 {
   inputs,
-  pkgs
+  pkgs,
 }:
 {
-    imports = [ inputs.stylix.homeModules.stylix ];
+  imports = [ inputs.stylix.homeModules.stylix ];
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
@@ -37,6 +36,12 @@
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono NF";
       };
+    };
+  };
+  home.pointerCursor = {
+    hyprcursor = {
+      enable = true;
+      size = 24;
     };
   };
 }

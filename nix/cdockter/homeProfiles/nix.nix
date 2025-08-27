@@ -4,11 +4,6 @@
   ...
 }:
 {
-  imports = [
-    ./direnv.nix
-    ./home-manager.nix
-    ./nh.nix
-  ];
   nix = {
     package = pkgs.nixVersions.latest;
     extraOptions = ''

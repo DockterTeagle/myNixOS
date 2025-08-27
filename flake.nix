@@ -1,7 +1,6 @@
 {
   description = "My nixos flake";
   inputs = {
-    nixago-exts.url = "github:nix-community/nixago-extensions";
     haumea.follows = "hive/std/haumea";
     paisano = {
       url = "github:paisano-nix/core";
@@ -45,7 +44,6 @@
     nixago = {
        url = "github:nix-community/nixago";
     inputs = {nixpkgs.follows = "nixpkgs";
-    nixago-exts.follows = "nixago-exts";
     };
     };
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
@@ -75,15 +73,6 @@
           nixago.follows = "nixago";
         };
     };
-    stylix.url = "github:nix-community/stylix";
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-        nixpkgs.follows = "nixpkgs";
-        devshell.follows = "devshell";
-        nixago.follows = "nixago";
-        terranix.follows = "terranix";
-        paisano.follows = "paisano";
-      };
-    };
     stylix = {
       url = "github:nix-community/stylix";
       inputs = {
@@ -98,104 +87,6 @@
     };
   };
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
-      { ... }:
-      {
-        systems = [ "x86_64-linux" ];
-        debug = true;
-        imports = with inputs; [
-          # ./flake
-          # nix-unit.modules.flake.default
-          std.flakeModule
-          nixos-healthchecks.flakeModule
-          nixos-healthchecks.nixosModules.default
-          hercules-ci-effects.flakeModule
-          home-manager.flakeModules.default
-        ];
-        std = {
-          grow = {
-            cellsFrom = ./nix;
-            cellBlocks = with inputs.std.blockTypes; [
-              # modules implement
-              (functions "homeModules")
-              (functions "devshellModules")
-
-              # profiles activate
-              (functions "hardwareProfiles")
-              (functions "nixosProfiles")
-              (functions "homeProfiles")
-              (functions "devshellProfiles")
-
-              # configurations can be deployed
-              (data "nixosConfigurations")
-              (data "colmenaConfigurations")
-              (data "homeConfigurations")
-              (data "diskoConfigurations")
-              #
-              # devshells can be entered
-              (devshells "devshells")
-
-              # jobs can be run
-              (runnables "jobs")
-              (runnables "apps")
-              (nixago "configs")
-              # (inputs.std.lib.dev.treefmt "treefmt")
-              # (cfg "conform")
-            ];
-            nixpkgsConfig = {
-              overlays = [ ];
-              allowUnfree = true;
-            };
-          };
-          # winnow
-          # pick = {
-          #   lib = [ ];
-          # };
-          harvest = {
-            # nixosConfigs = [
-            #   "configs"
-            #   "system"
-            #   "nixosConfigurations"
-            # ];
-            devShells = [
-              "repo"
-              "devshells"
-            ];
-
-          };
-        };
-        hercules-ci.flake-update = {
-          enable = true;
-          when = {
-            hour = [ 0 ];
-            dayOfWeek = [
-              "Mon"
-              "Tues"
-              "Wed"
-              "Thu"
-              "Fri"
-            ];
-          };
-        };
-        perSystem =
-          { system, ... }:
-          {
-            _module.args.pkgs = import inputs.nixpkgs {
-              inherit system;
-              overlays = with inputs; [
-                neorocks.overlays.default
-                gen-luarc.overlays.default
-              ];
-              config = {
-                nvidia.acceptLicense = true;
-                allowUnfree = true;
-                allowSubstitutes = false;
-              };
-            };
-          };
-      }
-    );
     {
       hive,
       std,
@@ -211,9 +102,6 @@
           "x86_64-linux"
         ];
         cellsFrom = ./nix;
-        nixpkgsConfig = {
-          allowUnfree = true;
-        };
 
         cellBlocks =
           with std.blockTypes;
@@ -235,15 +123,15 @@
             # (functions "userProfiles")
             # (functions "users")
             # Suites
-            # (functions "homeSuites")
+            (functions "homeSuites")
 
             (devshells "devshells")
             (nixago "configs")
             (functions "lib")
-
             (functions "toolchain")
+            (functions "nixpkgsConfig")
 
-            # homeConfigurations
+            homeConfigurations
             nixosConfigurations
             diskoConfigurations
 
@@ -261,9 +149,6 @@
           "repo"
           "devshells"
         ];
-
-        homeModules = hive.collect self [
-          "home"
-        ];
+        homeConfigurations = hive.collect self "homeConfigurations";
       };
-}
+    }
