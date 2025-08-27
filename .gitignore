@@ -7,5 +7,9 @@
 .run/
 
 # nixago: ignore-linked-files
+/book.toml
+/.conform.yaml
 /.luarc.json
 /lefthook.yml
+# nixago-auto-created: mdbook-build-folder
+book/**

@@ -16,7 +16,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
   # This is our only development shell, so we name it "default". The
   # numtide/devshell `mkShell` function uses modules, so the `{ ... }` here is
   # simply boilerplate.
-  default =  {
+  default = {
     # The structure of this attribute set is defined here:
     # https://github.com/numtide/devshell/tree/master/modules
     #
@@ -37,7 +37,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     nixago = [
       cell.configs.lefthook
       cell.configs.luarc-nightly
-      # cell.configs.vale
+      cell.configs.conform
     ];
     # This is a list of packages that will be available in our development
     # environment. In this case, we're pulling in the rust toolchain from our
@@ -83,44 +83,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     commands = [
       {
         name = "treefmt";
-        package = inputs.nixpkgs.treefmt.withConfig {
-          runtimeInputs = with pkgs; [
-            nixfmt
-            stylua
-            deadnix
-            nixf-diagnose
-          ];
-
-          settings = {
-            on-unmatched = "info";
-            tree-root-file = "flake.nix";
-            formatter = {
-              # nixf-diagnose = {
-              #   command = "nixf-diagnose";
-              #   includes = [ "**.nix" ];
-              # };
-              # statix = {
-              #   command = cell.pkgs.writeShellScriptBin "statix-fix" ''
-              #       for file in "$@"; do
-              #       ${lib.getExe cfg.package} fix --config '${toString settingsDir}/statix.toml' "$file"
-              #     done'';
-              #   includes = [ "*.nix" ];
-              # };
-              stylua = {
-                command = "stylua";
-                includes = [ "*.lua" ];
-              };
-              deadnix = {
-                command = "deadnix";
-                includes = [ "*.nix" ];
-              };
-              nixfmt = {
-                command = "nixfmt";
-                includes = [ "*.nix" ];
-              };
-            };
-          };
-        };
+        package = cell.treefmtConfigs.default;
         help = "format entire tree";
         category = "formatting";
       }

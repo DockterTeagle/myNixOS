@@ -3,7 +3,6 @@
   cell,
 }:
 let
-  inherit (inputs) nixpkgs ;
   inherit (inputs.std.data) configs;
   inherit (inputs.std.lib.dev) mkNixago;
   pkgs = inputs.nixpkgs;
@@ -25,33 +24,11 @@ let
 in
 {
   #
-  treefmt =(mkNixago configs.treefmt){
-      data = {
-          formatter = {
-          nixf-diagnose = {command = "nixf-diagnose";
-          includes = ["*.nix"];};
-          statix = {
-              command = "statix-fix";
-              includes = ["*.nix"];
-            };
-          stylua = {command = "stylua"; includes = ["*.lua"];};
-          deadnix = {
-              command = "deadnix";
-              includes = ["*.nix"];
-              options = ["--edit"];
-            };
-          nixfmt = {
-              command = "nixfmt";
-              includes = ["*.nix"];
-            };
-        };
-      };
-  };
   lefthook = (mkNixago configs.lefthook) {
     data = {
-      # commit-msg.commands.conform.run ="${nixpkgs.conform}/bin/conform enforce ==commit-msg-file {1}";
+      commit-msg.commands.conform.run = "${inputs.nixpkgs.conform}/bin/conform enforce ";
       pre-commit.commands = {
-        treefmt.run = "${pkgs.treefmt}/bin/treefmt {staged_files}";
+        treefmt.run = "${cell.treefmtConfigs.default}/bin/treefmt {staged_files}";
         # trufflehog.run = ''
         #   set -e
         #   ${nixpkgs.trufflehog}/bin/trufflehog git git " "file://$" (
@@ -61,6 +38,34 @@ in
     };
   };
 
+  conform = (mkNixago inputs.std.lib.cfg.conform) {
+    # The configuration of Conform is a bit different than the expected file
+    # format. This is to prevent excessive nested attribute sets. In this case,
+    # we only need to specify either a `commit` or `license` parent attribute
+    # and then the child contents match what is specified in the Conform README.
+    data = {
+      commit = {
+        header = {
+          length = 89;
+        };
+        conventional = {
+          # Only allow these types of conventional commits (inspired by Angular)
+          types = [
+            "build"
+            "chore"
+            "ci"
+            "docs"
+            "feat"
+            "fix"
+            "perf"
+            "refactor"
+            "style"
+            "test"
+          ];
+        };
+      };
+    };
+  };
   luarc-nightly = mkNixago {
     output = ".luarc.json";
     format = "json";

@@ -1,23 +1,5 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-
-}:
-{
-  # Imports
-  imports = [
-    ./shared
-    ./GUI-Enabled
-  ];
-  # imports = [
-  #   # cell.nixosProfiles
-  #   ./packages
-  #   ./secrets
-  #   ./configs
-  # ];
-
-  # Time and Locale
   time.timeZone = "America/Chicago";
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -70,5 +52,9 @@
 
     # NixOS Release Version
     stateVersion = "25.05"; # Did you read the comment?
+  };
+  zramSwap = {
+    enable = true;
+    memoryPercent = 75;
   };
 }

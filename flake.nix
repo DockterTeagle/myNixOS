@@ -32,9 +32,10 @@
     # };
     # nix-gaming.url = "github:fufexan/nix-gaming";
     nixago = {
-       url = "github:nix-community/nixago";
-    inputs = {nixpkgs.follows = "nixpkgs";
-    };
+      url = "github:nix-community/nixago";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -54,13 +55,14 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
-    std={url = "github:divnix/std";
+    std = {
+      url = "github:divnix/std";
       inputs = {
-         nixpkgs.follows = "nixpkgs";
-         devshell.follows = "devshell";
-         nixago.follows = "nixago";
-         terranix.follows = "terranix";
-       };
+        nixpkgs.follows = "nixpkgs";
+        devshell.follows = "devshell";
+        nixago.follows = "nixago";
+        terranix.follows = "terranix";
+      };
     };
     stylix = {
       url = "github:nix-community/stylix";
@@ -116,6 +118,7 @@
             (devshells "devshells")
             (nixago "configs")
             (functions "lib")
+            (functions "treefmtConfigs")
             (functions "nvimPlugins")
             (functions "toolchain")
             (functions "nixpkgsConfig")
@@ -136,4 +139,4 @@
         homeConfigurations = hive.collect self "homeConfigurations";
         colmenaHive = hive.collect self "colmenaConfigurations";
       };
-    }
+}
