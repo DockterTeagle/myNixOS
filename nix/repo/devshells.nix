@@ -1,11 +1,3 @@
-# Just like we place buildables in `apps.nix`, it's standard to place our
-# development shells in a `devshells.nix` cell block.
-#
-# This cell block is used to define the development shells that are available to
-# consumers of our repository. If you're not familiar with the idea of );
-# development shell, it's essentially a self-contained environment that can be
-# configured to provide all the tools and dependencies needed to work on our
-# project. It solves the vital problem of, "works on my machine."
 {
   inputs,
   cell,
@@ -44,7 +36,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     # nixago = [cell.configs.conform cell.configs.lefthook cell.configs.prettier cell.configs.treefmt];
     nixago = [
       cell.configs.lefthook
-      cell.configs.luarc
+      cell.configs.luarc-nightly
       # cell.configs.vale
     ];
     # This is a list of packages that will be available in our development
@@ -60,12 +52,10 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
 
     packages = with pkgs; [
       # cell.toolchain.neovim.neovim-nightly
-      cell.toolchain.treefmt-nix
       emmylua-ls
       nixd
       markdown-oxide
       vale-ls
-      colmena
       #formatters
       #linters
       vale
@@ -92,8 +82,46 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     # ];
     commands = [
       {
-        package = cell.toolchain.treefmt-nix;
-        help = "run the unit tests";
+        name = "treefmt";
+        package = inputs.nixpkgs.treefmt.withConfig {
+          runtimeInputs = with pkgs; [
+            nixfmt
+            stylua
+            deadnix
+            nixf-diagnose
+          ];
+
+          settings = {
+            on-unmatched = "info";
+            tree-root-file = "flake.nix";
+            formatter = {
+              # nixf-diagnose = {
+              #   command = "nixf-diagnose";
+              #   includes = [ "**.nix" ];
+              # };
+              # statix = {
+              #   command = cell.pkgs.writeShellScriptBin "statix-fix" ''
+              #       for file in "$@"; do
+              #       ${lib.getExe cfg.package} fix --config '${toString settingsDir}/statix.toml' "$file"
+              #     done'';
+              #   includes = [ "*.nix" ];
+              # };
+              stylua = {
+                command = "stylua";
+                includes = [ "*.lua" ];
+              };
+              deadnix = {
+                command = "deadnix";
+                includes = [ "*.nix" ];
+              };
+              nixfmt = {
+                command = "nixfmt";
+                includes = [ "*.nix" ];
+              };
+            };
+          };
+        };
+        help = "format entire tree";
         category = "formatting";
       }
     ];

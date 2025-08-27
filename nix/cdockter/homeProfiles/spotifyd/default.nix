@@ -1,0 +1,7 @@
+{
+  services = {
+    spotifyd = {
+      enable = true;
+    };
+  };
+}

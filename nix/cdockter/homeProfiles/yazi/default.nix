@@ -1,12 +1,12 @@
 {
   pkgs,
-  inputs',
+  inputs,
   ...
 }:
 {
   programs.yazi = {
     enable = true;
-    package = inputs'.yazi.packages.yazi;
+    package = inputs.yazi.${pkgs.system}.packages.yazi;
     shellWrapperName = "y";
     initLua = ./yaziInit.lua;
     plugins = {

@@ -1,17 +1,7 @@
 {
   description = "My nixos flake";
   inputs = {
-    haumea.follows = "hive/std/haumea";
-    paisano = {
-      url = "github:paisano-nix/core";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    colmena = {
-      url = "github:zhaofengli/colmena";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     terranix.url = "github:terranix/terranix";
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko";
@@ -54,10 +44,8 @@
       url = "github:divnix/hive";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        colmena.follows = "colmena";
         devshell.follows = "devshell";
         std.follows = "std";
-        paisano.follows = "paisano";
         nixago.follows = "nixago";
       };
     };
@@ -68,10 +56,11 @@
     };
     std={url = "github:divnix/std";
       inputs = {
-          nixpkgs.follows = "nixpkgs";
-          devshell.follows = "devshell";
-          nixago.follows = "nixago";
-        };
+         nixpkgs.follows = "nixpkgs";
+         devshell.follows = "devshell";
+         nixago.follows = "nixago";
+         terranix.follows = "terranix";
+       };
     };
     stylix = {
       url = "github:nix-community/stylix";
@@ -98,7 +87,6 @@
         inherit inputs;
 
         systems = [
-          "aarch64-linux"
           "x86_64-linux"
         ];
         cellsFrom = ./nix;
@@ -109,6 +97,7 @@
           [
 
             # Modules
+            (functions "common")
             (functions "homeModules")
 
             # Profiles
@@ -120,17 +109,16 @@
             (functions "bee")
             (functions "hardwareProfiles")
             (functions "homeProfiles")
-            # (functions "userProfiles")
-            # (functions "users")
             # Suites
             (functions "homeSuites")
-
+            (functions "luarc")
+            (functions "devshellSuites")
             (devshells "devshells")
             (nixago "configs")
             (functions "lib")
+            (functions "nvimPlugins")
             (functions "toolchain")
             (functions "nixpkgsConfig")
-
             homeConfigurations
             nixosConfigurations
             diskoConfigurations
@@ -145,10 +133,7 @@
       {
         nixosConfigurations = hive.collect self "nixosConfigurations";
         diskoConfigurations = hive.collect self "diskoConfigurations";
-        devShells = hive.harvest self [
-          "repo"
-          "devshells"
-        ];
         homeConfigurations = hive.collect self "homeConfigurations";
+        colmenaHive = hive.collect self "colmenaConfigurations";
       };
     }

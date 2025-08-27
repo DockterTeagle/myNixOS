@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 
 }:
@@ -52,7 +53,7 @@
   programs = {
     nh = {
       enable = true;
-      # package = inputs.nh.packages.${pkgs.system}.default;
+      package = inputs.nh.packages.${pkgs.system}.default;
       clean = {
         enable = true;
         dates = "weekly";

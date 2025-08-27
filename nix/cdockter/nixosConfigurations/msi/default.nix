@@ -4,7 +4,12 @@
   lib,
 }:
 let
-  inherit (cell) bee hardwareProfiles nixosProfiles;
+  inherit (cell)
+    bee
+    hardwareProfiles
+    nixosProfiles
+    nixosSuites
+    ;
   inherit (inputs) nixpkgs;
   hostname = "msi";
 in
@@ -13,9 +18,15 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
-        # ./common
-        # hardwareProfiles
       ];
+      suites = with nixosSuites; laptop;
     in
-    lib.concatLists [ [ ] ];
+    lib.concatLists [
+      [
+        cell.bee
+        hardwareProfiles."${hostname}"
+      ]
+      profiles
+      suites
+    ];
 }

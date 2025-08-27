@@ -1,0 +1,62 @@
+{ inputs, cell }:
+let
+  pkgs = inputs.nixpkgs;
+  plugins = with pkgs.vimPlugins; [
+    FixCursorHold-nvim
+    blink-cmp
+    blink-cmp-conventional-commits
+    bufferline-nvim
+    clangd_extensions-nvim
+    cmake-tools-nvim
+    colorful-menu-nvim
+    comment-nvim
+    conform-nvim
+    cord-nvim
+    diffview-nvim
+    flash-nvim
+    gitsigns-nvim
+    grug-far-nvim
+    hardtime-nvim
+    # inputs.rustaceanvim.packages.default
+    lazy-nvim
+    lazydev-nvim
+    lualine-nvim
+    luasnip
+    markview-nvim
+    mini-ai
+    mini-pairs
+    mini-surround
+    neogit
+    neotest
+    neotest-python
+    neotest-zig
+    noice-nvim
+    nui-nvim
+    nvim-dap
+    nvim-dap-python
+    nvim-dap-ui
+    nvim-dap-virtual-text
+    nvim-lint
+    nvim-nio
+    nvim-notify
+    nvim-treesitter
+    nvim-ufo
+    nvim-web-devicons
+    obsidian-nvim
+    plenary-nvim
+    promise-async
+    snacks-nvim
+    todo-comments-nvim
+    toggleterm-nvim
+    tokyonight-nvim
+    trouble-nvim
+    vim-jjdescription
+    vim-tmux-navigator
+    vim-wakatime
+    vimtex
+    which-key-nvim
+    yanky-nvim
+    yazi-nvim
+  ];
+in
+plugins

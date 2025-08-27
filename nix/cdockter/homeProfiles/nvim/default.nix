@@ -1,9 +1,9 @@
-{ pkgs, inputs', ... }:
+{ pkgs, inputs, ... }:
 {
   home.file.".config/nvim".source = ./.;
   programs.neovim = {
     enable = true;
-    package = inputs'.neorocks.packages.neovim-nightly;
+    package = inputs.${pkgs.system}.neorocks.packages.neovim-nightly;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;

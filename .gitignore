@@ -3,9 +3,8 @@
 .direnv/
 .devenv/
 .data/
-<<<<<<< Conflict 1 of 1
+
 .run/
-.pre-commit-config.yaml
 
 # nixago: ignore-linked-files
 /.luarc.json
