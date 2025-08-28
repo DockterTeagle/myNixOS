@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  home.file.".config/nvim".source = ./.;
+  home.file.".config/nvim".source = ./_conf;
   programs.neovim = {
     enable = true;
     package = inputs.${pkgs.system}.neorocks.packages.neovim-nightly;

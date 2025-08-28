@@ -28,7 +28,7 @@ in
     data = {
       commit-msg.commands.conform.run = "${inputs.nixpkgs.conform}/bin/conform enforce ";
       pre-commit.commands = {
-        treefmt.run = "${cell.treefmtConfigs.default}/bin/treefmt {staged_files}";
+        # treefmt.run = "${cell.treefmtConfigs.default}/bin/treefmt {staged_files}";
         # trufflehog.run = ''
         #   set -e
         #   ${nixpkgs.trufflehog}/bin/trufflehog git git " "file://$" (

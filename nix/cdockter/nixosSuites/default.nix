@@ -7,7 +7,7 @@ in
 {
 
   default = [
-    nixosProfiles.boot
+    # nixosProfiles.boot
     nixosProfiles.gaming
     nixosProfiles.nix
     nixosProfiles.network

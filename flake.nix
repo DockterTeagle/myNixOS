@@ -20,6 +20,7 @@
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     # nix-unit.url = "github:nix-community/nix-unit";
     # nixos-anywhere = {
     #   url = "github:nix-community/nixos-anywhere";
@@ -50,6 +51,7 @@
         nixago.follows = "nixago";
       };
     };
+    flake-parts.url = "github:hercules-ci/flake-parts";
     sops-nix.url = "github:Mic92/sops-nix";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
@@ -79,6 +81,7 @@
   };
   outputs =
     {
+      treefmt-nix,
       hive,
       std,
       self,
@@ -134,6 +137,7 @@
             (functions "toolchain")
             (functions "treefmtConfigs")
             (nixago "configs")
+            (functions "flakeModules")
             (devshells "devshells")
 
             # packages

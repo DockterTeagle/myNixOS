@@ -1,27 +1,51 @@
-## [unreleased]
+# Changelog
 
-### 🚀 Features
+All notable changes to this project will be documented in this file.
 
-- *(dev)* Add more flake-parts modules I will never use
-- *(dev)* Purge the unclean
+## Unreleased
+
+### Features
+
+- Add more flake-parts modules I will never use
+- Purge the unclean
 - Got luarc working with this framework and remove symlink
+- Got nixos working, stylix is inf rec
 
-### 🚜 Refactor
-
-- Add nix subdir, also add home-manager expire
-
-### ⚙️ Miscellaneous Tasks
+### Miscellaneous Tasks
 
 - Updated CHANGELOG
 - Apply treefmt
 - Stashing lazy.nvim
 
-### ◀️ Revert
+### Other (unconventional)
 
 - Remove partitions
-## [2.7] - 2025-08-22
+- Start work on using std
 
-### 🚀 Features
+### Refactor
+
+- Add nix subdir, also add home-manager expire
+- Refactor!(BIG(part1)): use std
+- Make devshell work fully
+- Start working on nixosConfig
+
+### Commit Statistics
+
+- 13 commit(s) contributed to the release.
+- 6 day(s) passed between the first and last commit.
+- 11 commit(s) parsed as conventional.
+- 0 linked issue(s) detected in commits.
+- 7 day(s) passed between releases.
+
+## 2.7 - 2025-08-22
+
+### Bug Fixes
+
+- This shouldve been in an earlier commit
+- Reference correct device
+- Update stylix to be correct
+
+### Features
 
 - Add submap indicator
 - Simplify submaps
@@ -35,15 +59,15 @@
 - Add shuffle to spotify
 - Yazi plugins
 - Readd scripts
-- [**breaking**] Go back to lanzaboote
-- [**breaking**] Go to lanzaboote
+- Go back to lanzaboote
+- Go to lanzaboote
 - Hyprshell
-- *(dev)* Add tmuxp.yaml
-- [**breaking**] Use limine instead of lanzaboote, also flake updates
-- [**breaking**] Add hyprspace and other plugins
+- Add tmuxp.yaml
+- Use limine instead of lanzaboote, also flake updates
+- Add hyprspace and other plugins
 - Add biosdevice
-- *(hypr)* Various improvements and removals
-- *(idk)* Various non-breaking changes
+- Various improvements and removals
+- Various non-breaking changes
 - Nixify hyprshell(?)
 - Move nvim config here
 - Nvim config
@@ -51,49 +75,18 @@
 - Use cachyos
 - Split up mappings
 - Add neogit mappings
-- *(discord)* Remove preview as it is annoying
-- *(nvim)* Add markdown snippets and move around luasnip loading
-- *(nvim)* Start TS
-- *(nvim)* With treefmt now in conform removed custom cmd
+- Remove preview as it is annoying
+- Add markdown snippets and move around luasnip loading
+- Start TS
+- With treefmt now in conform removed custom cmd
 - Hyprland
 - Add jj to flake
 - Added convco to jj, and also added pre-push
 - Trying to get pre-commit hooks to read the commit
-- *(dev)* Added flakePartions, might revert
-- *(dev)* Added cliff,and removed unused
+- Added flakePartions, might revert
+- Added cliff,and removed unused
 
-### 🐛 Bug Fixes
-
-- This shouldve been in an earlier commit
-- *(disko)* Reference correct device
-- Update stylix to be correct
-
-### 💼 Other
-
-- Add more yazPlugins
-
-### 🚜 Refactor
-
-- [**breaking**] Remove unused files
-- Figured out why things looked like shite
-- Make flake smaller
-- Nix
-- Solaar
-- [**breaking**] Remove nixcord
-- [**breaking**] Go back to home-manager module
-- Make default.nix nothing more than imports
-- Switch to nixfmt
-- [**breaking**] Move wayland to GUI
-- Make the flake refernece my github repo, instead of abs path
-- *(dev)* Remove unused pacakges(ltex-ls-plus) and format
-- *(dev)* Use flake-parts with system
-- Move nvim correctly
-- Compress lines
-- Move out to mappings
-- Reorganize flake and update
-- Switched back to lix git, and updated neovim
-
-### ⚙️ Miscellaneous Tasks
+### Miscellaneous Tasks
 
 - Remove deprecated
 - Flake
@@ -107,27 +100,47 @@
 - Flake(not hyprpanel)
 - Update flake.lock
 - Flake.lock
-- [**breaking**] Remove unused packages and configs
+- Remove unused packages and configs
 - Remove unused pakcages
+- Chore: update flake.lock:
 - Remove duplicate packages
 - Flake
+- Chore: flake:
 - Update todo, as well as other shite
 - Compress flake
+- Chore: remove unused packages:
+- Chore: flake.lock:
 - Update TODO
 - Update todos
 - Update all bindings
+- Chore: flake.lock:
 - Remove unused inputs
 - Flake.lock: ghostty
+- Chore: flake.lock:
 - Remove duplicate inputs, also update
 - Update secrets
 - Update hyprland
+- Chore: flake:
+- Chore: flake:
+- Chore: flake:
+- Chore: flake.lock:
+- Chore: flake.lock:
+- Chore: flake.lock:
 - Flake
+- Chore: flake:
+- Chore: flake.lock:
+- Chore: flake.lock:
+- Chore: flake.lock:
+- Chore: flake.lock:
 - Fix hyprlock
 - Fix hyprpanel(the file this time)
 - Remove unused options
 - Remove unused pacakges
 - Switch from home-manager to just using a package
 - Remove unused abbrs
+- Chore: flake.lock:
+- Chore: flake.lock:
+- Chore: flake.lock:
 - Flake.lock
 - Remove useless comment
 - Remove breaking overlay
@@ -135,16 +148,24 @@
 - Remove unused packages
 - Remove comment
 - Vale.ini
+- Chore: flake.lock:
 - Change name to not break
-- [**breaking**] Remove unused flake inputs
+- Chore: flake.lock:
+- Remove unused flake inputs
 - Remove unused packages
-- *(docs)* Update and make TODO more readable
-- [**breaking**] Go to latest hyprpanel
-- [**breaking**] Remove unused packages
+- Update and make TODO more readable
+- Go to latest hyprpanel
+- Remove unused packages
 - Remove unused packages
 - Remove unused devenv pacakges
 - Update hyprland bindings
-- [**breaking**] Remove unused packages
+- Remove unused packages
+- Chore: flake.lock:
+- Chore: flake.lock:
+- Chore: flake.lock(also forgot to add chaotic but shhhhh):
+- Chore: flake.lock:
+- Chore: flake.lock:
+- Chore: clean:
 - Remove duplicate todo
 - Move todo to root
 - Update to actual home-manager
@@ -153,21 +174,107 @@
 - Remove lfs, also renamed flakeModules
 - Remove unused packages and convert to modules
 
-### ◀️ Revert
+### Other (unconventional)
 
+- Added the fuck
 - Remove thefuck, unmaintained
 - Now using linux6_15
 - Remove jj starship
 - Use nixpkgs wayland again, also formatting
-## [2.6] - 2025-06-02
+- Stashin
+- Add more yazPlugins
+- Removed signByDefault to get obsidian working
 
-### 🚀 Features
+### Refactor
 
-- [**breaking**] Remove yq as sops is wacky
+- Remove unused files
+- Figured out why things looked like shite
+- Make flake smaller
+- Nix
+- Solaar
+- Remove nixcord
+- Go back to home-manager module
+- Make default.nix nothing more than imports
+- Switch to nixfmt
+- Move wayland to GUI
+- Make the flake refernece my github repo, instead of abs path
+- Remove unused pacakges(ltex-ls-plus) and format
+- Use flake-parts with system
+- Move nvim correctly
+- Compress lines
+- Move out to mappings
+- Reorganize flake and update
+- Switched back to lix git, and updated neovim
+
+### Commit Statistics
+
+- 152 commit(s) contributed to the release.
+- 81 day(s) passed between the first and last commit.
+- 121 commit(s) parsed as conventional.
+- 0 linked issue(s) detected in commits.
+- 81 day(s) passed between releases.
+
+## 2.6 - 2025-06-02
+
+### Bug Fixes
+
+- Revert hyprland update
+- Fix protonhax
+- Remove truffle hog for now
+- Update all non-broken flakes
+- Change from self to self' also update flake.lock
+- Turns out that self doesnt work how I thought
+- Remove TMUX_SESSION_NAME
+- GPU SHOULD work now
+- Use correct path
+- Alejandra input is broken
+- Revert tlp changes
+- No longer use neovim in nix
+- Remove gpg nonstandard homedir
+- Make stylix work with my firefox
+- Nixcord deprecate,using home-manager
+- Remove nixpkgs-wayland, caused problems
+- Remove unused powertop management
+- Typo causing hyprlock to crash
+- Reduced MIN_POWER_ON_AC
+- Use latest insteado f cachyos for now
+- Remove unneeded options
+- Hypr, make it work
+- Go back to nixcord
+- Start trying to fix unable to use greetd
+- Remove chaotic-mesa dont use it as sync
+- Add trusted-substituters to make them actually used
+- Remove unused overlay now that nixpkgs unshit itself
+- Include secrets
+- Update secrets
+- Lix now works with nh and removed unused
+- JJ funny
+- Cachyos broken
+- Remove abbreviations/aliases that would fail
+- Remove solaar and also add signing
+
+### Documentation
+
+- Update TODO
+- Update TODO
+- Start moving finished TODOs out
+- Update markdown files
+- Update TODO
+- Update todo
+- Remove duplicate TODO
+- Update TODO
+- Update TODO
+- Update markdown and TODO
+- Update changelog and todo
+- Update todo and add vale
+
+### Features
+
+- Remove yq as sops is wacky
 - FUCK YOU MARKDOWNLINT
 - I am euphoric, had two versions of markdownlint
-- [**breaking**] Ditto of last one
-- *(docs)* Add note open prs
+- Ditto of last one
+- Add note open prs
 - Add and use prettier
 - Added treefmt
 - Added hyprsunset and hyprpolkit
@@ -215,7 +322,7 @@
 - Disable confirmation prompt
 - Update home, remove tmuxinator, and other enchancments
 - Added neovim config here, though it isn't working rn
-- [**breaking**] Remove nvim for now
+- Remove nvim for now
 - Add github cli
 - Add shell aliases to nushell
 - Make tmux use nushell and added gh.nix
@@ -237,9 +344,9 @@
 - Fiexd cpu
 - Start using chaotic-nix, broken tho
 - Use chaotic and cachy_os
-- *(package)* Add coolercontrol
-- *(hyprpanel)* Reintroudce the wsicons as it is no longer broken
-- [**breaking**] Remove ventoy apparently insecure
+- Add coolercontrol
+- Reintroudce the wsicons as it is no longer broken
+- Remove ventoy apparently insecure
 - Smart borders
 - Use default.nix and imports = [];
 - Add home-manager flakemodule
@@ -263,122 +370,13 @@
 - Stuff
 - Ditto
 - Ditto
-- [**breaking**] Switch to wayprompt
+- Switch to wayprompt
 - Test
-- [**breaking**] Removed funni,was a tesdt for siginig
+- Removed funni,was a tesdt for siginig
 - Moved around browsers
 - Add jj support
 
-### 🐛 Bug Fixes
-
-- Revert hyprland update
-- Fix protonhax
-- Remove truffle hog for now
-- Update all non-broken flakes
-- Change from self to self' also update flake.lock
-- Turns out that self doesnt work how I thought
-- Remove TMUX_SESSION_NAME
-- GPU SHOULD work now
-- Use correct path
-- Alejandra input is broken
-- Revert tlp changes
-- No longer use neovim in nix
-- Remove gpg nonstandard homedir
-- Make stylix work with my firefox
-- Nixcord deprecate,using home-manager
-- Remove nixpkgs-wayland, caused problems
-- Remove unused powertop management
-- Typo causing hyprlock to crash
-- *(power)* Reduced MIN_POWER_ON_AC
-- Use latest insteado f cachyos for now
-- Remove unneeded options
-- Hypr, make it work
-- Go back to nixcord
-- Start trying to fix unable to use greetd
-- Remove chaotic-mesa dont use it as sync
-- Add trusted-substituters to make them actually used
-- Remove unused overlay now that nixpkgs unshit itself
-- Include secrets
-- Update secrets
-- Lix now works with nh and removed unused
-- JJ funny
-- Cachyos broken
-- [**breaking**] Remove abbreviations/aliases that would fail
-- Remove solaar and also add signing
-
-### 🚜 Refactor
-
-- [**breaking**] Remove black-hole as it is not used
-- [**breaking**] Remove gitlint and add cursorSize variable
-- Make it more clear what each section is
-- Using prettier proper now
-- Use treefmt instead of alejandra as fmt
-- Remove nix-gaming packages
-- Factor out flakeModules
-- Move nix accesstokens to home
-- Tmux changes
-- Remove file-search bin
-- [**breaking**] Remove zramSawp file as it is unnecessary
-- Zram was too small to justify its own file
-- Fix todo and make systemFlake
-- Start the hyprland config rewrite
-- Continue working on the hyprland rewrite
-- Remove std flake
-- Binds now has its own dir and removed redundant dir
-- Remove unused packages
-- Things are now where they should be
-- Remove nix overlay and inputs
-- No more useless overrides
-- Remove duplicate qmk package
-- Since home-manager has a sesh module, remove pkg
-- Removing tmux options that are now moot with hmmodule
-- Remove hyprlock flake, not source of issue(also formatted)
-- Attempt to reorganize and bring sanity
-- SystemFlake is now in top-level
-- Move programs.hyprland to correct location
-- Devenv.nix  now uses les redundant packages
-- Remove unused and unusable options
-- Move configuration.nix to system/default.nix
-- Move home to have a default.nix, also update flake
-- Override devenv inputs
-- Move playerctld to home-manager
-- Move git to its own file
-- Move carapace to shells
-- Remove bin directory
-- Remove unused topology module
-- Remove unused package
-- Remove unused modules
-- Add more packages and remove let
-- [**breaking**] Replace lsd with eza
-- Move nix config to configs dir
-- Move from system clipboard to hm
-- Make more concise
-- [**breaking**] Remove fastfetch
-- *(docs)* Update readme
-- Moved all to systems/config
-- Moving systemsettings to systemSetttings in flake
-- Moving service config around
-- Move nix.nix into configs
-- Move xdotool to home, also remove neovim.nix
-- Move persystem/shared up, also flake.lock
-- Remove redundant dir
-
-### 📚 Documentation
-
-- Update TODO
-- Update TODO
-- Start moving finished TODOs out
-- Update markdown files
-- Update TODO
-- *(TODO)* Update todo
-- *(TODO)* Remove duplicate TODO
-- Update TODO
-- *(md)* Update TODO
-- Update markdown and TODO
-- Update changelog and todo
-- *(md)* Update todo and add vale
-
-### ⚙️ Miscellaneous Tasks
+### Miscellaneous Tasks
 
 - Remove unnecessary settings
 - Style
@@ -465,11 +463,11 @@
 - Remove unplanned comments
 - Remove unused features from conf.nix
 - Stashing
-- *(dev)* Use lfs for pngs
+- Use lfs for pngs
 - Update flake.lock
 - Make statix happy
 - Update flake.lock and remove impermanence
-- *(flake)* Update inputs and refactor
+- Update inputs and refactor
 - Remove unused packages from devenv
 - Update flake.lock
 - Removed protonhax script, doesnt work anyway
@@ -486,25 +484,109 @@
 - Update flake.lock
 - Update flake.lock
 - Remove unused
-- [**breaking**] Make rofi work
+- Make rofi work
 - Remove unused arguemnts and options
 - Update home
-- *(WHOOPS)* Forgot to add this to earlier
+- Forgot to add this to earlier
 - Update nixcord
 - Update non-broken(nixpks) inputs
 - Update flake.lock
 - Update flake.lock
 - Update flake.lock
-- *(docs)* Update TODO
-- *(docs)* Update TODO
+- Update TODO
+- Update TODO
 - Update TODO
 - Removed libnotify package
 - Remove unused packages
+- Chore: update flake.lock
 - Flake
 - Update TODO
-## [2.5] - 2025-02-25
 
-### 🚀 Features
+### Other (unconventional)
+
+- Merge pull request #3 from DockterTeagle/chaotic
+- Ok, thats enough testing the gpg. it works
+- Remove unused packages and options
+
+### Refactor
+
+- Remove black-hole as it is not used
+- Remove gitlint and add cursorSize variable
+- Make it more clear what each section is
+- Using prettier proper now
+- Use treefmt instead of alejandra as fmt
+- Remove nix-gaming packages
+- Factor out flakeModules
+- Move nix accesstokens to home
+- Tmux changes
+- Remove file-search bin
+- Remove zramSawp file as it is unnecessary
+- Zram was too small to justify its own file
+- Fix todo and make systemFlake
+- Start the hyprland config rewrite
+- Continue working on the hyprland rewrite
+- Remove std flake
+- Binds now has its own dir and removed redundant dir
+- Remove unused packages
+- Things are now where they should be
+- Remove nix overlay and inputs
+- No more useless overrides
+- Remove duplicate qmk package
+- Since home-manager has a sesh module, remove pkg
+- Removing tmux options that are now moot with hmmodule
+- Remove hyprlock flake, not source of issue(also formatted)
+- Attempt to reorganize and bring sanity
+- SystemFlake is now in top-level
+- Move programs.hyprland to correct location
+- Devenv.nix  now uses les redundant packages
+- Remove unused and unusable options
+- Move configuration.nix to system/default.nix
+- Move home to have a default.nix, also update flake
+- Override devenv inputs
+- Move playerctld to home-manager
+- Move git to its own file
+- Move carapace to shells
+- Remove bin directory
+- Remove unused topology module
+- Remove unused package
+- Remove unused modules
+- Add more packages and remove let
+- Replace lsd with eza
+- Move nix config to configs dir
+- Move from system clipboard to hm
+- Make more concise
+- Remove fastfetch
+- Update readme
+- Moved all to systems/config
+- Moving systemsettings to systemSetttings in flake
+- Moving service config around
+- Move nix.nix into configs
+- Move xdotool to home, also remove neovim.nix
+- Move persystem/shared up, also flake.lock
+- Remove redundant dir
+
+### Testing
+
+- Test2
+
+### Commit Statistics
+
+- 332 commit(s) contributed to the release.
+- 97 day(s) passed between the first and last commit.
+- 327 commit(s) parsed as conventional.
+- 0 linked issue(s) detected in commits.
+- 97 day(s) passed between releases.
+
+## 2.5 - 2025-02-25
+
+### Bug Fixes
+
+- Fixed lanzaboote
+- Fix xbox controller issue
+- Fix(?) ghostty build failure
+- Make os switch actually build
+
+### Features
 
 - Fix issue #3 as lanzaboote newest version builds
 - Remove grub
@@ -518,21 +600,9 @@
 - Get libSQLITE to work
 - Remove nur and firefox addons
 - Added sqlite
-- [**breaking**] Removed nur
+- Removed nur
 
-### 🐛 Bug Fixes
-
-- Make os switch actually build
-
-### 💼 Other
-
-- Flake.lock
-
-### 🚜 Refactor
-
-- Remove python3
-
-### ⚙️ Miscellaneous Tasks
+### Miscellaneous Tasks
 
 - Update flake.lock
 - Remove unused comment, and also make code hints work better
@@ -548,6 +618,7 @@
 - Update flake.lock
 - Update inputs
 - Update flake inputs
+- Chore: update flake.lock, waited a bit as stylix was broken for a
 - Update flake.lock
 - Update flake inputs
 - Update flake inputs
@@ -559,14 +630,179 @@
 - Update README
 - Update flake.lock
 - Update secrets.yaml also removed yaml checkers
-- [**breaking**] Removed language tool, was unnecessary
+- Removed language tool, was unnecessary
 - Removed gnumake and java, better suited for flakes
 - Remove unplanned comments
 - Update flake inputs
 - Update flake inputs
-## [2.0] - 2025-01-14
 
-### 🚀 Features
+### Other (unconventional)
+
+- Removed code comments
+- Update flake.lock
+- Removed tex-lab
+- Update bluetooth
+- Moved WSL to this
+- Updated flake.nix
+- Updated TODO
+- Added more packages and also gcl
+- Added a wsl option
+- Update flake.lock
+- Update flake.lock
+- Rearranged flake.nix
+- Updated starship to work better with read only
+- Added onlyOffice
+- Updated flake.lock
+- Added TOC and also added capitlization
+- Flake.lock
+- Update ghostty configs
+- Updated flake.lock
+- Change nerdfont name
+- Make a wildcard rule and also change icons
+- Update inputs
+- Remove unused options
+- Update TODO
+- Remove unused options
+- Add spotify
+- Added ncdu
+- Updated hyprlock
+- Removed nested options that are no longer needed
+- Update inputs and added issues area
+- Update all md files
+- Added spotify stuff
+- Updated flake.lock, look at README for details on possible errors in
+- Went back to stable lanzaboote
+- Update flake inputs
+- Update flake.lock
+- Using master for now, as it builds, will cahnge back later
+- Update TODO
+- Move kernel packages to be hardware.enable, as it actually works lmao
+- Actually use yazi input lol
+- Remove unused packages and also start work on uniting this config
+- Removed just
+- Replicated current solaar config
+- Made the home-manager work for non-wsl
+- Spotify
+- Remove nnn
+- Updated readme
+- Remove unused packages
+- Made it a package
+- Made cursor bibata as stylix doesnt like catppuccin apparently
+- No hardware cursors is back to being disabled
+- Removed and finished zsh and plugins
+- Set hyprcursor name and size instead of using hyprctl
+- Added better organization
+- Remove TODO comment as it was implied with file name
+- Went back to nixos unstable as it builds now
+- Moved around enable and dates
+- Commented out clamavd as it is very memory intensive and removed
+- Added weekly
+- Changed shell/default.nix
+- Updated todo
+- Restructure flake
+- Add hyprland plugins
+- Update home-manager
+- Update nixpkgs
+- Remove unused, and should be replaced packages
+- Rename to per-system
+- Rename ot per-system
+- Move system packages around
+- Updated readme
+- Updated flake.lock
+- Readded ripgrep
+- Comment out unused terminals
+- Use more features of nixcord
+- Commented out xterm-256 color as I think it has less color?
+- Added rofi-wayland
+- Added formatter for yaml
+- Update flake.lock
+- Removal of useless lines
+- Remove m control center, unable to load it
+- Ditto as last commit msg
+- Started reorganizing flake
+- Add nushell
+- Move thefuck from zsh to its own file, also update yazi config
+- Move around and refactor
+- Add correct paths
+- Remove unused plugins
+- Added to TODO
+- Removed NodeJS as I dont use it and it was causing issues
+- Added systray
+- Readded inherit pkgs, as it inherited settings
+- ?
+- Various changes
+- Added alacritty
+- Updated to latest poortalPackage
+- Update flake inputs
+- Added carapace
+- Remove n3
+- Remove tofi
+- Commented out useless settings, also made the prompt dynamic
+- Removed old.prebuild as its no longer neccessary
+- Continued work on starship
+- Moved around nur and added zen
+- Added zen to firefox
+- Format using alejandra
+- Added more pre-checks
+- Updated flake.nix and added more
+- Get sops working
+- Removed unused and unusable things
+- Start using sops for home-manager
+- Update flake.lock and secrets
+- Moved sops-nix to secrets
+- Added comments, also removed unused code
+- Added more pre-commit-hooks
+
+### Refactor
+
+- Refactor: move around pipewire config and also(probably) fixed audio
+- Refactor
+- Refactor
+- Refactor and remove trufflehog excludes
+- Remove python3
+
+### Commit Statistics
+
+- 167 commit(s) contributed to the release.
+- 41 day(s) passed between the first and last commit.
+- 46 commit(s) parsed as conventional.
+- 0 linked issue(s) detected in commits.
+- 42 day(s) passed between releases.
+
+## 2.0 - 2025-01-14
+
+### Bug Fixes
+
+- Fixed gnome boot issue
+- Fixed tmux enviroment
+- Fixed issue with packages
+- Fixed indentation with on-the-go config
+- Fixed issue with firefox
+- Fixed error on rebuild of nixos- it was scan
+- Fixed neovim nightly error with flake.nix
+- Fixed waybar flake also added the entire nixpkgs-wayland flake
+- Fixed color problem in tmux
+- Fixed fonts error
+- Fixed merge conflicts with git stash
+- Fixed issue with cursor
+- Fixed merge issue
+- Fixed cursor issue and also changing hyprland looks
+- Fixed booting issues, still have issue with cpu fans, also added more GUI applications
+- Fixed the overheating and added shell init
+- Fixed regreet issue'
+- Fixed dolphin looking like shit(there werent icons)
+- Fixed issue with base16.nix by disabling stylix
+- Fixed the issue?
+- Fixed unable to start hyprland issue
+- Fixed hyprpanel issue and added to exec-once
+- Fixed errors
+- Remove call to ghostty
+- Topgrade now updates neovim and also updates flakes in parallel
+- Actually use the yazi overlay and added n3, though might not use it
+- Hyprland now has a reasonable mouse cursor refresh rate
+- Typo correction
+
+### Features
 
 - Added tmux-clinet to gitignroe
 - Update zsh and tmux
@@ -586,25 +822,9 @@
 - Topgrade now updates lazy.nvim as well
 - Made a default.nix for system
 - Add gitlint
-- [**breaking**] Prepare for merge with wsl
+- Prepare for merge with wsl
 
-### 🐛 Bug Fixes
-
-- Remove call to ghostty
-- Topgrade now updates neovim and also updates flakes in parallel
-- Actually use the yazi overlay and added n3, though might not use it
-- Hyprland now has a reasonable mouse cursor refresh rate
-- Typo correction
-
-### 💼 Other
-
-- Update
-- Update
-- Hyprland
-- Hyrpland now uses vesktop
-- WLR_NO_HARDWARE_CURSORS as it is no longer supported by hyprland
-
-### ⚙️ Miscellaneous Tasks
+### Miscellaneous Tasks
 
 - Update flake.lock and also removed useless comments
 - Removed packages that are now in flakes elsewhere
@@ -613,4 +833,603 @@
 - Remove unused overlays
 - Remove unused overlays
 - Remove unused inputs
-## [1.0] - 2024-04-23
+
+### Other (unconventional)
+
+- Changed bootloader to systemd
+- Added flake.nix to get colors for configs and added other programs
+- Commeted out gnome disabling as I will be switching to hyprland
+- Started moving towards flake
+- Changed option to no longer be deprecated
+- Added thinkpad p1 support
+- Removed nixpkgs as it was no longer needed due to flakes
+- Added the p10k.zsh that I will be using from here on out
+- Added libre office, kitty config, and spotify
+- Added nix-output-monitor
+- Commented out waybar lets see if it breaks
+- Lets see if this sources the p10k
+- Changed p100k.zsh to truncate_to_last
+- Added start of doas config and removed sudo
+- Added tmux.nix and also changed from features to config
+- Added tmux.nix
+- Changed default editor name
+- Changed default editor again
+- Changed back to nvchad to see if it works
+- Trying things out
+- Diving into hyprland
+- Squashed some bugs and began modularizing
+- Maybe this will fix it?
+- Added media keys
+- Added varius utilites to get screenshots working and also got alt-tab working
+- Added more suggested hyprland settings
+- Added commments to better document what is happening and modularized the system config
+- Tracking down hardware issue
+- Removed alacritty for realises this time
+- Added waybar config
+- Removed antiquated flake.lock file
+- Started to add firefox nightly filake
+- Addded various inputs to flake.nix and added firefox hotkey
+- Added firefox nightly..again
+- Changed the location of flake.nix to be in the main directory
+- Removed useless directories
+- Made users directory, even though I will probably never use it
+- Made users directory, even though I will probably never use it
+- Updated hostName and also updated flakes
+- Added custom user shell for python, though it still needs some work, also refactored to have a better outline
+- Changed .p10k.zsh to lfs
+- Removed unnecessary nested directory and also added protonvpn
+- Removed conflicts
+- Possibly fixed error with crashing?
+- Removed unnecessary packages and also added more battery support
+- Adding this so other can see the error
+- Final commit before probably switching to windows for my laptops health
+- Moved to a new machine so the hardware-configuration.nix is different
+- Removed git lfs as it wasnt needed, also added various improvements
+- Removed useless comments and also switched back to neovim-nightly
+- Adapted to latest updates on unstable
+- Saving progress before I (temporarily) switch to windows for more software support
+- Started debugging issues with new computer, also changed to oh-my-posh
+- Made hardware-configuration.nix ignored as it changes based on system
+- Removed duplicates and commented out packages that are causing errors and gave the cause of the error
+- Applied formatting and found a bug, possibly fixed with the ID specifications
+- Added nvims functionality for the future
+- Added encrypting stuff will have to reinstall to make it work
+- Changed hardware configuration.nix
+- Started work on secure boot
+- Updated for troubleshooting
+- Added nh as suggested
+- Removed unused packages and auto mounted ssd
+- Added the zoxide image and added many tmux plugins
+- Moved packages to the configuration.nix
+- Made hardwre-configuration ignored??
+- Really made harware-coonfiguration ignored this time
+- Lmao needed hardware-configuration in git for flakes to work
+- Removed sound.enable as directed to in os switch
+- Removed uneeded packages and also changed to thefuck
+- Added alias finder
+- Removed alacritty for multiple reasons, toxicity and lack of support for ligatures
+- Started making the config more readable
+- Started splitting up packages into seperate files
+- Popped stash and fixed errors
+- Made sound.nix not empty
+- Changed fonts.fonts to fonts.packages
+- Added fish, and configured waybar as well as removing unused varibles from flake.nix
+- Continued work on waybar ricing, added htop, and formatted fonts config
+- Changed to htop, added GPU usage, though it is a bit off
+- Started using default.nix and also started importing NvChad config here
+- Continued work on neovim migration and also started work on windows key functionality
+- Added varius packages
+- Encrypted HDD and added it to hardware
+- Switched print screen back to its default value from the hyprland wiki, I tried to get the cursor to work, doesnt
+- Made hardware specific hardware-configuration,nixes so this can have multiple computers in the future
+- Commit before major changes on fzf attempt
+- Continued work on making the repo more readable and modular, more configurable too
+- Started copying unix pariah config, though didnt do the ssh stuff as that is scary
+- Continued work on making more modular, also finally fixed one of the hyprland issues, that being the monitor detection
+- Started long ardous process of migrating neovim to nix
+- Started work on making my own overlays for the packages, as they seem to be out of date
+- Started adding the inputs I need for productivity
+- Added the plugins I use, might also update the ones I use that are in the repo
+- Added nixd support
+- Added nixd and also added missing packages to flake.nix
+- Started making the config get the GPU BUS IDs
+- Gave up on making neovim work in nix... for now, onto waybar and that battery issue
+- Added more gpu config, attempted to break up nix flake inputs and also removed NvChad as I gave up on doing that in nix
+- Moved inputs to parts and also added README fopr TODOs
+- Improved README
+- Made it a list for markdown(man I need to get markdown preview working in nvim so there are less commits)
+- Made it a list for realsies this time
+- Trying something to fix the audio issue gonna nuke my computers config then readd it
+- Revert "trying something to fix the audio issue gonna nuke my computers config then readd it"
+- Removed inputs.nix as even if I can split up the flake inputs it wont be neccessaty, also moved hardware config to the appropriate module
+- Removed neovim plugins from flake and also moved hardware to hardware
+- Removed c and rust as those dont work correctly with nix w/o shell.nix, also moved cachix to main config.nix
+- Added the hyprland plugins, turns out I wasnt calling hyprland correctly
+- I think I fixed the issue with the cursor?
+- Commented out naughty hyprland plugins
+- Added the hyprland plugins, turns out I wasnt calling hyprland correctly
+- Started implementing redyf suggestions
+- Readded cLang and also added steam, hyprland plugins are still in the works however
+- Added bluetooth to waybar and also added proton and gamescope
+- Moved obs studio to its proper place, also added ewww and changed proton version
+- Started making all the hypr programs up to date, somehow broke mouse cursor again
+- THIS IS A BUG COMMIT,(at least accroding to my research) do not roll back to me
+- Modified and fixed hyprland issues
+- Added configs for hypr:paper,lock,and idle(or at least the begginings of them anyway) changed location of the WLR_NO_HARDWARE_CURSORS env variable, and readded tlp
+- Merge branch 'main' into debugging
+- Merge pull request #1 from DockterTeagle/debugging
+- Readded rust, also moved hyprland to hypr as that seems to make more sense to me
+- Updated README with more todos, also changed tlp stop charge percent to see if it really is fixed
+- Added config files for the entire hypr ecosystem
+- Update
+- Changed all Meta keybindings to mainMod, made hyprplugins their own directory, and made zsh.nix comment no longer multiline
+- Moved things around , also added cachix
+- Update
+- Readded xdg-gtk as it is needed for steam to see files, also did other things
+- Removed wofi, tried to see if I could make hyrland an overlay but failed
+- Addd solaar flake and element
+- Made wifi module more useful on waybar
+- Removed hyprcursor file as it is not its own seperate config
+- Removed hyprpicker config file as it does not exist in home
+- Removed unsupported config files and started work on hypridle and hyprlock
+- Updated hyprlock and hypridle
+- Started emulating flafy dev
+- Added mako timeout
+- Added possibility of webcord
+- Added hy3
+- Made sure mako was loaded
+- Commented out problem line, switched to latest xdg-portal-hyprland
+- Removed uneeded changes
+- Addd rofi and also added protonextension for getting alecaframe to work
+- Added agenix
+- Trying to get protontricks working
+- Got protonscripts to work
+- Made the different fullscreen modes actually work in hyprland
+- Removed parts as that kind of feature will never occur it seems
+- Troubleshooting
+- Changed solaar to services cchanged hyprland
+- Removed varius unused options, should probably have made this multiple commits lmao
+- Removed wlr desktop from waybar, added woeusb and troubleshooting battery chargin issues
+- Changed systems... again probably have an issue with wrong fs system on
+- Changed to sops and also removed hypr inputs
+- Moved hy3 around and removed unused aliases, winfzf is dumb as there is rofi
+- Continuing to work on hypr plugins, added a TODO.md for hyprland
+- Removed unneeded hypr plugins
+- Removed unused packages, trying out webcord
+- Added fastfetch config
+- Changed hyprland stuff, commented out eww as it was causing issues with building and changed tlp
+- Added a todo.md
+- Various renamings: removed hyprlands todo, as I felt like it wasnt the best idea, trying to debug hyprpaper causing a failure to do a rebuild switch so it is commented out for now, and renamed msi-hardware configuration.nix to the appropriate model number
+- Removed various packages, I need to commit more often so I know what is happening more
+- This time did the same as before
+- Changed hyprlands xdg-portal as that is not how you install it, also changed some things for steam
+- Changed keybindings and also added things to gaming I think
+- Started getting to the bottom of the bluetooth issue
+- Updated flake also changed bluetooth settings(still getting the same error tho) also changed theme for kitty to be in line with the new standard
+- Changed to ags and started copying fufexans work though it isnt working just yet, this does get rid of waybar tho
+- Started to add swap devices
+- Removed mako ags should replace it
+- Added inotify
+- Readded mako
+- Flake.lock is broken due to stash
+- Flake.lock is broken due to stash
+- Updating flake.lock
+- Removed someone elses ags config, gonna have to write it from scratch
+- Started adding DOC's config to ags
+- Continued adding DreamsOfCode config
+- Added DOC's ags
+- Moved ags around
+- 'finished' eliott config, added dependencies and also cleaned up abit
+- Changed home-manager abit sving this
+- Added ranger and also commented out neovim nightly for now as it seems to break on certain filetypes
+- Added hyprbar
+- Removed waybar as i am using hyprbar now
+- Switched machines, as I accidentally removed the actual storage causing me to jave to reinstall
+- Removed DOC config
+- Removed CUPS
+- Moved hyprpanel around, removed ags as I no longer technically use it directly, and moved other things around
+- Gonna change to https keys instead of ssh
+- Added agenix
+- Added network security and changed hyprland exec-once
+- Added secret-managment directory
+- Updated todo, and solaar
+- Need to fix the packages not being added upon nixos modules
+- Aded agenix propoerly
+- Added agenix-rekey
+- Removed unused config files in home-manager
+- Added firefox to home-manager
+- Moved more bluetooth from conf.nix to blueooth
+- Made nh a flake
+- Changed firefox some more to fix issues, also removed an unused program from hyprlandds exec-once
+- Removed auto upgrade
+- Added wmk
+- Moved files around, added starship
+- Removed oh-my-posh.json
+- Moved around swap devices in conf.nix,added zoom. removed nixhardware
+- Started working on geting mx master 3 to work
+- Added logiops, also updated todo
+- Added logid service, got thumb wheel scroll to work, though it is a bit finnicky
+- Added nix matlab, also moved languages away to their own seperate flake.nix'es
+- Removed fish.nix, and removed unused packages
+- Removed unused packages, added hyprbars
+- Switching to stylix
+- Continuing to switch to stylix
+- Turned off stylix for kitty and tmux as I cant find the right theme, also commented out cliphist as it seems to cause failures
+- Latest updates
+- Readded logiops
+- Changed to solaar
+- Added regreet
+- Continuing to rice images
+- Switched pictures
+- Updated flake and continued work on stylix
+- Switched back to waybar
+- Switched back to latest linux as hyprland seems to no longer shit itself in dmesg
+- Added README
+- Added sops-nix
+- Trying to add the msi package to the kernel and failing miserabally
+- Formatted with alejandra
+- Formatted more
+- Alejandra again, trying markdown checklists
+- Updated TODO.md
+- Figureing out checklists lol
+- Moved the hardware config to its own direcotry in case I have more systems in the future(likely I know)
+- Made stylix use the mainUserSettings attribute set, also emptied gitignore as none of those are in this dir anymore lol
+- Removed unused fastfetch options
+- Various changes, probably formatting(?)
+- Removed agenix as I use sops-nix
+- Moved around things that didnt need their own folders
+- Applied nix fmt, going back and forth but nix fmt is more maintained(could be a bias though and its possible that it is a completed product)
+- Added envrc and makeing direnv work
+- Added envrc
+- Moved git-hooks to flake-parts
+- MainUserSettings->cdockterSettings
+- Removed uneeded imports, and variables
+- Gonna troubleshoot the fan and temp problem see if I can repro on windows
+- Moved around sbctl so it is available globally, and formatted
+- Implementing a suggestion that I push everytime flake.lock is updated so I can help debug more
+- Readded hyprland as it got fixed and added various programs in GUI
+- Updated flake
+- Updated flake and other packages
+- Updated flake
+- Added todo comments
+- Added firefox nightly to fix canvas
+- Updated flake
+- Updated flake
+- Updated to firefox nightly
+- Updated flake.lock
+- Updated flake.lock
+- Changed hyprland name
+- Should have fixed flake.lock issue
+- Updated flake.lock
+- Removed flake.lock for now
+- Updated flake.lock
+- Added comment to make syntax highlighting work better
+- Updated flake.lock
+- Rolling back debugging changes to cage
+- Switched from ranger to yazi
+- Added yazi flake
+- Started customizing yazi
+- Removed onedrive service for now
+- Updated flake.lock
+- Updating yazi.nix
+- Debugging for now, diabled some things
+- Updated flake.lock
+- Followed statix suggestions
+- Applied more of statix suggestions
+- Applied more of statix suggestions
+- Applied statix changes
+- Debuggin stylix for now, disabled more things
+- Removed deadnix as it is just adding duplicate lints that nixd already has
+- Added more changes, also updated flake.lock
+- Reverted stylix debugging and updated flake.lock
+- Updated flake.lock and also removed unused variables in flake.nix
+- Updated flake.lock
+- Removed unused tokyo-dark config for starship
+- Updated flake.lock, no problems on rebuild
+- Updated flake.lock, no problems on rebuild
+- Flake.lock updated hy3 fails to build
+- Updated
+- Updated flake.lock
+- Updated flake.lock, no longer using hyprbars
+- Updated flake.lock
+- Removed steam as grades are low
+- Updated todo, added just
+- Updated flake.lock
+- Readded gaming.nix
+- Updated todo
+- Removed thunderbird, as it took 40+ mins to compile and then I stopped it, updated linux kernel version and switched back to TLP
+- Flake.lock updated
+- Updated flake.lock, and flake.nix
+- Removed uneeded code n flake.nix
+- Updated flake.lock
+- Switched back to linux 6.11 as 6.12 doesnt detect external monitor
+- Update flake.lock
+- Updated flak.lock
+- Removed duplicate packages
+- Updated nerdfonts to comply with newest change
+- Moved around packages
+- Updated flake
+- Moved back to nixos undtable
+- Went back to nixos unstable
+- Updated flake.lock
+- Added ags
+- Removed duplicate directory
+- Updated shell, and continued starting work on ags
+- Added devshell and more plugins to ags
+- Readded tlp, updated flake,as well as todo
+- Modified flake.lock
+- Updated flake.lock
+- Updated flake.lock
+- :
+- Updated flake.lock, no issues on rebuild
+- Added uwsm, and changed clean frequency
+- Updated flake.lock, no issues on rebuild
+- Updated flake.lock, no issues on rebuild
+- Changed to latest linux kernel
+- Updated flake.lock, no issues on rebuild
+- Updated flake.lock, no issues on rebuild, nh fixed their issue
+- Updated flake.lock, no issues on rebuild, nh fixed their issue
+- Updated flake.lock, no issues on rebuild, nh fixed their issue
+- Added rar for monster hunter mods
+- Removed wine for possible issues with conflicts
+- Changed cursors as bibata is slightly broken
+- Added sesh, updated flake.lock,and other improvements(I forgot what honestly but its only one file)
+- Updated flake
+- Add more pre-commit
+- Added gcc for blink.nvim
+- Added nicer lsp support with zsh
+- Pretty sure this is part of fixing the neogit errors
+- Added more checks for javascript and organized
+- Compressed
+- Changed to nixpkgs unstable
+- Added player ctl
+- Made the yaml have syntax highlighting
+- Added submaps
+- Commented out problematic keybinding for now
+- Should maybe remove types
+- Didn't have ssh key in time so the secrets.nix file is kinda useless now
+- Maybe fixed the issues with deadnix? also made ther ebe less folders at root of repo
+- Updated flake.lock
+- Debugging
+- Removed duplicated p[acakgesm also removed gcc
+- Adding cb, see if it works?
+- Updated flake.lock
+- Removed idle inhibitor
+- Updated flake.lock
+- Updated flake and added impermance
+- Added more extensions that i use to this file
+- Added tmux.conf comment so treesitter works
+- Added more compatibility to kernel
+- Removed unused modules from fastfetch
+- Updated gaming.nix byu adding more features
+- Removed unused rofi plugin
+- Removed unused waybar bar things also added submap to hyprland
+- Added hyprpanel module, though it is currnely broken due to nerd-fonts
+- Added hyprpanel and hyprpanel module, updated flake inputs
+- Commented out hyprpanel as it has an error with 25.05, commented out
+- Tried getting alecaframe to work by adding aliases and also by changing
+- Changed element desktop name
+- Changed structure of mako, readded clock to waybar
+- Added more hyprland ecosystem and added dolphin
+- Removed unneeded arguments
+- Updated flake and added hyprpanel module
+- Updated flake.lock
+- Added hyprpanel config
+- Updated flake.lock
+- Removed enableAllFirmware, was advised against doing this
+- Updated flake.lock
+- Continued work on hyprbar and removed waybar startup in hyprland
+- Removed unused options
+- Removed unused options and duplicate packages
+- Revised flak.lock
+- Updated todo and added ghostty
+- Added passthrough for tmux
+- Updated SOME inputs and removed disko for now
+- Added Ghostty
+- Continued work on hyprpanel
+- Tried debugging blueooth
+- Hypland broke
+- Added steam env variable for rich prescence
+- Updated sensitivity
+- Remove all exec-once other than strictly necessary make rofi prefix all
+- Removed duplicate home-manager
+- Updated many inputs but the ones that break
+- Removed mozilla overlay
+- Started integraiting redfs config
+- Started integraiting redfs config
+- Moved clipboard to its own file and placed more conf.nix into security
+- Removed unused variable
+- Added bat
+- Removed unnecessary starting arguments
+- Added bat
+- Removed unused pkgs
+- Added more to the shell
+- Moved fd to home-manager
+- Kinda fixed stylix and changed to foot
+- Removed girs
+- Commented out ghostty for now
+- Removed what i thought was ugly bars
+- Added ghostty and made it default terminal
+- Made cursor a bar
+- Made neovim the proper version(that is nightly)
+- Removed completed items
+- Removed duplicate packages as well as packages that are managed by
+- Added scripts
+- Updated ghostty
+- Added fzf config
+- Made it into lfs
+- Moved cosmic
+- Added otehr wallpaper and added credit
+- Removed galaxy slowed down system too much
+- Helping debug nixd
+- Removed ags
+- Updated term in rofi and also updated todo
+- Turns out that indenting makes it not work
+- Removed duplicate mappings in lfs
+- Updated todo
+- Restructured
+- Removed unused option in flake.nix and also updated TODO
+- Changed to variable name
+- Readded ghostty
+- Added nix alien
+- Added nix-ld
+- Addedd nix alien
+- Removed unused inputs
+- Removed unused packages
+- Added nix-ld
+- Started adding overlay for ghostty to fix it
+- Commented out logitech as it apparently causes nixpkgs to break
+- Removed more exec-once
+- Started work on making my own tokyo-night-tmux
+- Remopved overlay,updated home-manager input
+- Updated stylix
+- Updated all non breaking inputs
+- Overrode ghostty and now it works
+- Updated todo and moved zsh
+- Updating starship
+- Debggin
+- Added fish
+- Added fish and removed zsh
+- Added nixd to flake instead so that it might work lmao
+- Added git and tmux "aliases"
+- Rempved unneeded packages
+- Removed unused packages and inputs
+- Added nixpkgs-wayland again
+- Updated hyprpanel input finally
+- Updated hyprpanel and enabled overlay to allow it to build
+- Reenable zsh in home-manager
+- Change zoxide and made it work better with fish, added sesh_sessions
+- Added gc
+- Continued work on fish
+- Finished topgrade script
+- Rempve unusd plugins and added sheelAbrs for AlecaFrame
+- Added btop config
+- Updated btop
+- Updated flakes
+- Update flake
+- Removed useless home-manager module
+- Removed unused import
+- Removed unused packages
+- Updated flake inputs
+- Removed unused option and parameter
+- Moved around pulse audio to be compliant
+- Many updates
+- Formatted
+- Updated flake and commented inputs' as I plan to eventaully use nixd
+- Too lazy to make these all individual commits
+- Removed xserver
+- Removed proton pass
+- Update cursor, and change the way pks is inherited
+- Reenable xserver for xcursor to work properly(?)
+- Update flake
+- Added extra dirs for per hardware config
+- Update cursor
+- Stashing and pushing in case I brick system
+- Stashing
+- Updates
+- Whoops
+- Updated flake inputs
+- Updated various things
+- Fuck it we ball there are alot of updates
+- Updated flake inputs other than hyprland
+- Hyprland
+- Added ghostty
+- Changed MSI-hardware
+- Removed ghostty
+- Add pam config and refactor
+- Remove unuesed session variable
+- Moved discord to home
+- Readded hyprctl just in case stylix doesnt call it also removed hypridle
+- Added nixcord to the default
+- "
+- Readded flake.lock
+- Remove unused variable
+- Hyrpland now uses vesktop
+- Update flakes
+- Remove unused comment
+- Update nixcord
+- Readded nixd as it seems to cache now
+- Readded comments that might be implemented
+- Started sorting out terminal
+- Continued working on configs organization
+- Change to predicate
+- Update inputs
+- Continued working on fans
+- Set allowSubstitutes to false dont know what it does
+- Removed gif felt like stealiing
+- Change image
+- Updated inputs
+- Comment out rar
+- Allow kitty 256 colors
+- Added steam-hardware and also commented out seemingly unnecessary
+- Tryin
+- Security updates
+- WLR_NO_HARDWARE_CURSORS as it is no longer supported by hyprland
+- Actually remove hardware_cursors env variable
+- Move around things in flake.nix
+- Update hyprland
+- Updated flake.lock
+- Stashing, will rebase this commit later(If I dont forget) trying to get
+- Added wsl
+- Updated flake
+- Update flake.lock
+- Remove clamav updater as it doesnt really work on nixos
+- Prepare for daemon config
+- Remove obsolete option
+- Updated flake.lock
+- Moved gaming around
+
+### Refactor
+
+- Refactor zsh plugins
+- Refactor
+
+### Styling
+
+- Style changes
+- Style changes
+- Style changes
+
+### Testing
+
+- Testing pre-commit hooks
+- Testing
+
+### Commit Statistics
+
+- 603 commit(s) contributed to the release.
+- 265 day(s) passed between the first and last commit.
+- 36 commit(s) parsed as conventional.
+- 0 linked issue(s) detected in commits.
+- 266 day(s) passed between releases.
+
+## 1.0 - 2024-04-23
+
+### Other (unconventional)
+
+- First commit
+- Added more packages
+- Added virtualisation for vmware
+- Removed packages for debugging purposes
+- Removed hardware-configuration.nix as it was causing issues
+- Made sure that hardware-configuration.nix cant show up again with a gitignore
+- Started working on transferring to wayland
+- Changed to unstable home-manager
+- Readded home-manager
+- Accidentally added hardware.nix
+-  added home.nix
+- Added hom.nix for realsies this time as it was a link before
+- Removed useless variables and added hom.nix to its own user folder
+- Added neovim nightly overlay
+- Added more structure and changed neovim base
+- Removed python pacakges as conda will take care of that and also removed alot of gnome applications
+- Added flakes nad neovim LSPS
+
+### Commit Statistics
+
+- 17 commit(s) contributed to the release.
+- 56 day(s) passed between the first and last commit.
+- 0 commit(s) parsed as conventional.
+- 0 linked issue(s) detected in commits.
+
+<!-- generated by git-cliff -->

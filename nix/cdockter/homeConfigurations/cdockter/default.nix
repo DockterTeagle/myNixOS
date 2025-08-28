@@ -13,9 +13,10 @@ in
       suites =
         with homeSuites;
         lib.concatLists [
-          VCS
-          homeSet
-          randomBullshit
+          all
+          # VCS
+          # homeSet
+          # packages
         ];
     in
     lib.concatLists [

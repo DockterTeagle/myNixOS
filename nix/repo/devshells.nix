@@ -3,9 +3,10 @@
   cell,
 }:
 let
-  inherit (inputs) nixpkgs std;
+  inherit (inputs) nixpkgs std treefmt-nix;
   l = nixpkgs.lib // builtins;
   pkgs = nixpkgs;
+  # treefmtPackage =  treefmt-nix.lib.evalModule cell.flakeModules.treefmt-nix;
 in
 # Here we map an attribute set to the `std.std.lib.mkShell` function.
 # This is a small wrapper around the numtide/devshell `mkShell` function and
@@ -55,14 +56,13 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
       emmylua-ls
       nixd
       markdown-oxide
-      vale-ls
       #formatters
       #linters
-      vale
       git-cliff
       markdownlint-cli2
       bash-language-server
       statix
+      lshw
       luajitPackages.luacheck
       # neovim-nightly
     ];
@@ -83,6 +83,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     commands = [
       {
         name = "treefmt";
+        # package = treefmtPackage.${pkgs.system}.config.build.wrapper;
         package = cell.treefmtConfigs.default;
         help = "format entire tree";
         category = "formatting";
