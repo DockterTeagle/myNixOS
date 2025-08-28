@@ -1,6 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
-
   environment.systemPackages = with pkgs; [
     (heroic.override {
       extraPkgs = pkgs: [

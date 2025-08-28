@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [ ./antivirus ];
   services = {
     printing.enable = false;
   };
@@ -24,4 +23,10 @@
     sbsigntool
     openresolv
   ];
+  services.openssh.enable = false;
+  services.fail2ban = {
+    enable = true;
+    maxretry = 5;
+    bantime = "24h";
+  };
 }

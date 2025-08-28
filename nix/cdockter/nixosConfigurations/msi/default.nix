@@ -1,31 +1,27 @@
 {
-  inputs,
   cell,
   lib,
 }:
 let
   inherit (cell)
-    bee
+    # nixosProfiles
     hardwareProfiles
-    nixosProfiles
     nixosSuites
+    userProfiles
     ;
-  inherit (inputs) nixpkgs;
   hostname = "msi";
 in
 {
-  inherit bee;
+  inherit (cell) bee;
   imports =
     let
-      profiles = with nixosProfiles; [
+      profiles = [
+        userProfiles.cdockter
+        hardwareProfiles."${hostname}"
       ];
-      suites = with nixosSuites; laptop;
+      suites = lib.concatLists [ nixosSuites.default ];
     in
     lib.concatLists [
-      [
-        cell.bee
-        hardwareProfiles."${hostname}"
-      ]
       profiles
       suites
     ];

@@ -5,7 +5,7 @@ in
 {
   home = {
     file.".config/uwsm/env-hyprland".text = ''
-      export AQ_DRM_DEVICES="/dev/dri/card1:/dev/dri/card2"
+      export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
     '';
     preferXdgDirectories = true;
     shell.enableShellIntegration = true;

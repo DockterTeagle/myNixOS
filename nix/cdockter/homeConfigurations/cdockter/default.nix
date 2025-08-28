@@ -18,5 +18,8 @@ in
           randomBullshit
         ];
     in
-    lib.concatLists [ suites ];
+    lib.concatLists [
+      suites
+    ];
+
 }

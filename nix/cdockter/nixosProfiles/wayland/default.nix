@@ -1,7 +1,4 @@
-_: {
-  imports = [
-    ./hyprland
-  ];
+{
 
   programs.regreet = {
     enable = true;

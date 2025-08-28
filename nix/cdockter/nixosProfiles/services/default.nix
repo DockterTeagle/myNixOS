@@ -1,7 +1,11 @@
 #TODO: refactor me out
 { pkgs, ... }:
 {
-  imports = [ ./solaar.nix ];
+  services.solaar = {
+    enable = true;
+    batteryIcons = "solaar";
+    window = "hide";
+  };
   services = {
     hardware.openrgb.enable = true;
     scx.enable = true;

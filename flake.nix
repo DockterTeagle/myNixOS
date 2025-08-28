@@ -88,45 +88,66 @@
       {
         inherit inputs;
 
+        nixpkgsConfig = {
+          allowUnfree = true;
+        };
         systems = [
           "x86_64-linux"
         ];
         cellsFrom = ./nix;
 
         cellBlocks =
-          with std.blockTypes;
-          with hive.blockTypes;
-          [
-
-            # Modules
+          with (inputs.nixpkgs.lib.mergeAttrsList [
+            std.blockTypes
+            hive.blockTypes
+          ]); [
+            (functions "bee")
+            (functions "bee-rocm")
             (functions "common")
+
+            # colmena profile
+            (functions "deployment")
+
+            # modules
+            (functions "nixosModules")
             (functions "homeModules")
 
-            # Profiles
-            # (functions "commonProfiles")
-            #nixOS
-            (functions "nixosProfiles")
-            (functions "nixosModules")
-            (functions "nixosSuites")
-            (functions "bee")
+            # profiles
             (functions "hardwareProfiles")
+            (functions "nixosProfiles")
+            (functions "userProfiles")
+            (functions "arionProfiles")
             (functions "homeProfiles")
-            # Suites
+
+            # suites
+            (functions "nixosSuites")
             (functions "homeSuites")
-            (functions "luarc")
-            (functions "devshellSuites")
-            (devshells "devshells")
-            (nixago "configs")
-            (functions "lib")
-            (functions "treefmtConfigs")
-            (functions "nvimPlugins")
-            (functions "toolchain")
-            (functions "nixpkgsConfig")
-            homeConfigurations
+
+            # configurations
             nixosConfigurations
             diskoConfigurations
+            colmenaConfigurations
+            homeConfigurations
 
+            # devshells
+            (functions "nvimPlugins")
+            (functions "toolchain")
+            (functions "treefmtConfigs")
+            (nixago "configs")
+            (devshells "devshells")
+
+            # packages
+            (installables "packages")
+
+            # nixpkgs
+            (functions "overlays")
+            (pkgs "pkgs")
+            (pkgs "pkgs-stable")
+            (pkgs "pkgs-stable-rocm")
+            (pkgs "pkgs-unstable")
+            (pkgs "pkgs-unstable-rocm")
           ];
+
       }
       /**
         pick "gib me just what I specifiy"
@@ -137,6 +158,5 @@
         nixosConfigurations = hive.collect self "nixosConfigurations";
         diskoConfigurations = hive.collect self "diskoConfigurations";
         homeConfigurations = hive.collect self "homeConfigurations";
-        colmenaHive = hive.collect self "colmenaConfigurations";
       };
 }

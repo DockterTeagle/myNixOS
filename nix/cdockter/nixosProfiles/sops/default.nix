@@ -1,8 +1,8 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
 
   sops = {
-    defaultSopsFile = ./system/secrets.yaml;
+    defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/cdockter/.config/sops/age/keys.txt";
     secrets = {
