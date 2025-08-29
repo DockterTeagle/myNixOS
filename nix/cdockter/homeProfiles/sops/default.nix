@@ -1,7 +1,10 @@
 { inputs, cell }:
 {
+  imports = with inputs; [
+    sops-nix.homeManagerModule
+  ];
   sops = {
-    defaultSopsFile = ./home/secrets.yaml;
+    defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/cdockter/.config/sops/age/keys.txt";
     secrets = {

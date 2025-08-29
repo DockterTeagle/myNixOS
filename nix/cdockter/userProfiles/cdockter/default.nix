@@ -1,4 +1,8 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  config,
+}:
 let
   pkgs = inputs.nixpkgs;
 in
@@ -8,7 +12,7 @@ in
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Dockter";
-    # hashedPasswordFile = config.sops.secrets.cdockter_password.path;
+    hashedPasswordFile = config.sops.secrets.cdockter_password.path;
     extraGroups = [
       "networkmanager"
       "wheel"

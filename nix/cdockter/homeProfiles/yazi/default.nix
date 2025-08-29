@@ -6,9 +6,9 @@
 {
   programs.yazi = {
     enable = true;
-    package = inputs.yazi.${pkgs.system}.packages.yazi;
+    package = inputs.yazi.packages.${pkgs.system}.yazi;
     shellWrapperName = "y";
-    initLua = ./yaziInit.lua;
+    initLua = ./_yaziInit.lua;
     plugins = {
       inherit (pkgs.yaziPlugins)
         git

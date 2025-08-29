@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Purge the unclean
 - Got luarc working with this framework and remove symlink
 - Got nixos working, stylix is inf rec
+- Add more configs
 
 ### Miscellaneous Tasks
 
@@ -21,6 +22,7 @@ All notable changes to this project will be documented in this file.
 
 - Remove partitions
 - Start work on using std
+- Continue work
 
 ### Refactor
 
@@ -31,11 +33,11 @@ All notable changes to this project will be documented in this file.
 
 ### Commit Statistics
 
-- 13 commit(s) contributed to the release.
-- 6 day(s) passed between the first and last commit.
-- 11 commit(s) parsed as conventional.
+- 15 commit(s) contributed to the release.
+- 11 day(s) passed between the first and last commit.
+- 12 commit(s) parsed as conventional.
 - 0 linked issue(s) detected in commits.
-- 7 day(s) passed between releases.
+- 14 day(s) passed between releases.
 
 ## 2.7 - 2025-08-22
 

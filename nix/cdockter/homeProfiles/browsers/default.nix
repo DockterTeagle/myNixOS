@@ -1,6 +1,8 @@
 { inputs, cell }:
 {
-  imports = [ cell.homeModules.modules ];
+  imports = [
+    inputs.zen-browser.homeModules.twilight
+  ];
   programs.zen-browser = {
     enable = true;
   };

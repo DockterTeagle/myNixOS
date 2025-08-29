@@ -3,7 +3,7 @@
   home.file.".config/nvim".source = ./_conf;
   programs.neovim = {
     enable = true;
-    package = inputs.${pkgs.system}.neorocks.packages.neovim-nightly;
+    package = inputs.neorocks.packages.${pkgs.system}.neovim-nightly;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;

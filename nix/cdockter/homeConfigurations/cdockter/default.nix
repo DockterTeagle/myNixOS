@@ -13,7 +13,7 @@ in
       suites =
         with homeSuites;
         lib.concatLists [
-          all
+          All
           # VCS
           # homeSet
           # packages
@@ -21,6 +21,7 @@ in
     in
     lib.concatLists [
       suites
+      # [ inputs.stylix.homeModules.stylix ]
     ];
 
 }

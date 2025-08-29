@@ -13,7 +13,7 @@ let
       "$git_commit"
       "$git_state"
       "$git_metrics"
-      "$git_status"
+      # "$git_status"
       "$hg_branch"
       "$docker_context"
       "(\n"

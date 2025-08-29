@@ -8,20 +8,16 @@
     fff.url = "github:dmtrKovalenko/fff.nvim";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     ghostty.url = "github:ghostty-org/ghostty";
-    git-hooks-nix.url = "github:cachix/git-hooks.nix";
-    hercules-ci-effects.url = "github:hercules-ci/hercules-ci-effects";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
-    jj.url = "github:jj-vcs/jj";
     neorocks.url = "github:nvim-neorocks/neorocks";
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-index-database.url = "github:nix-community/nix-index-database";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    # nix-unit.url = "github:nix-community/nix-unit";
     # nixos-anywhere = {
     #   url = "github:nix-community/nixos-anywhere";
     #   inputs = {
@@ -31,14 +27,12 @@
     #     flake-parts.follows = "flake-parts";
     #   };
     # };
-    # nix-gaming.url = "github:fufexan/nix-gaming";
     nixago = {
       url = "github:nix-community/nixago";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
     };
-    nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     rustaceanvim.url = "github:mrcjkb/rustaceanvim";
     solaar.url = "github:svenum/solaar-flake/main";
@@ -51,7 +45,6 @@
         nixago.follows = "nixago";
       };
     };
-    flake-parts.url = "github:hercules-ci/flake-parts";
     sops-nix.url = "github:Mic92/sops-nix";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
@@ -81,7 +74,6 @@
   };
   outputs =
     {
-      treefmt-nix,
       hive,
       std,
       self,
@@ -91,25 +83,39 @@
       {
         inherit inputs;
 
-        nixpkgsConfig = {
-          allowUnfree = true;
-        };
         systems = [
           "x86_64-linux"
         ];
         cellsFrom = ./nix;
+        nixpkgsConfig = {
 
+          allowUnfreePredicate =
+            let
+              inherit (inputs.nixpkgs) lib;
+            in
+            pkg:
+            lib.elem (lib.getName pkg) [
+              "steam"
+              "steam-run"
+              "steam-original"
+              "nvida"
+              "nvidia-x11"
+              "obsidian"
+            ];
+          allowUnfree = true;
+          overlays = [
+            inputs.chaotic.nixosModules.default
+          ];
+        };
         cellBlocks =
           with (inputs.nixpkgs.lib.mergeAttrsList [
             std.blockTypes
             hive.blockTypes
           ]); [
             (functions "bee")
-            (functions "bee-rocm")
             (functions "common")
 
             # colmena profile
-            (functions "deployment")
 
             # modules
             (functions "nixosModules")
@@ -119,7 +125,6 @@
             (functions "hardwareProfiles")
             (functions "nixosProfiles")
             (functions "userProfiles")
-            (functions "arionProfiles")
             (functions "homeProfiles")
 
             # suites
@@ -146,10 +151,7 @@
             # nixpkgs
             (functions "overlays")
             (pkgs "pkgs")
-            (pkgs "pkgs-stable")
-            (pkgs "pkgs-stable-rocm")
-            (pkgs "pkgs-unstable")
-            (pkgs "pkgs-unstable-rocm")
+            (functions "nixpkgsConfig")
           ];
 
       }
@@ -162,5 +164,6 @@
         nixosConfigurations = hive.collect self "nixosConfigurations";
         diskoConfigurations = hive.collect self "diskoConfigurations";
         homeConfigurations = hive.collect self "homeConfigurations";
+        homeModules = hive.collect self "homeModules";
       };
 }

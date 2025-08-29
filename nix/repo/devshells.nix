@@ -64,6 +64,10 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
       statix
       lshw
       luajitPackages.luacheck
+      clang
+      harper
+      vale
+      vale-ls
       # neovim-nightly
     ];
     # This is a list of "commands" that will be available inside our development

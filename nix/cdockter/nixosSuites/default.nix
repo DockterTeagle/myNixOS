@@ -1,16 +1,15 @@
 { inputs, cell }:
 
 let
-  inherit (inputs.nixpkgs) lib;
   inherit (cell) nixosProfiles;
 in
 {
 
   default = [
-    # nixosProfiles.boot
     nixosProfiles.gaming
     nixosProfiles.nix
     nixosProfiles.network
+    nixosProfiles.systemMonitors
     nixosProfiles.hyprland
     nixosProfiles.security
     nixosProfiles.services

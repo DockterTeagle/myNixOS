@@ -1,5 +1,8 @@
 { pkgs, inputs, ... }:
 {
+  imports = with inputs; [
+    nix-gaming.nixosModules.platformOptimizations
+  ];
   environment.systemPackages = with pkgs; [
     (heroic.override {
       extraPkgs = pkgs: [

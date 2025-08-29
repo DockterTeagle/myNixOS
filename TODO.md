@@ -13,6 +13,12 @@
 
 - get the configs working and document more
 
+- the following needs to be implemented:
+  - zathura
+  - hyprsunset
+  - hyprpolkit agent
+  - hyprpaper(part of stylix which is problematic rn)
+
 ## Hardware
 
 - get a YubiKey
@@ -63,7 +69,7 @@
 
 ### Obsidian
 
-- find a way to make it work?
+- find a way to make it work with home-manager?
 
 ### Hyprland
 

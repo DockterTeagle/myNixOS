@@ -3,7 +3,6 @@
     enable = true;
     options = [
       "--alias"
-      "tf"
     ];
   };
 }
