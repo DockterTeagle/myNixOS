@@ -37,7 +37,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     # nixago = [cell.configs.conform cell.configs.lefthook cell.configs.prettier cell.configs.treefmt];
     nixago = [
       cell.configs.lefthook
-      cell.configs.luarc-nightly
+      # cell.configs.luarc-nightly
       cell.configs.conform
     ];
     # This is a list of packages that will be available in our development

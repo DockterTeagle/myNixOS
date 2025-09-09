@@ -1,12 +1,12 @@
 #TODO: refactor me out
 { pkgs, ... }:
 {
-  services.solaar = {
-    enable = true;
-    batteryIcons = "solaar";
-    window = "hide";
-  };
   services = {
+    solaar = {
+      enable = true;
+      batteryIcons = "solaar";
+      window = "hide";
+    };
     hardware.openrgb.enable = true;
     scx.enable = true;
     fwupd.enable = true;

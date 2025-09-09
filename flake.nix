@@ -2,17 +2,14 @@
   description = "My nixos flake";
   inputs = {
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    terranix.url = "github:terranix/terranix";
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko";
-    fff.url = "github:dmtrKovalenko/fff.nvim";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     ghostty.url = "github:ghostty-org/ghostty";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
     neorocks.url = "github:nvim-neorocks/neorocks";
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -29,9 +26,7 @@
     # };
     nixago = {
       url = "github:nix-community/nixago";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     rustaceanvim.url = "github:mrcjkb/rustaceanvim";
@@ -46,6 +41,8 @@
       };
     };
     sops-nix.url = "github:Mic92/sops-nix";
+    hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
+    hyprshell.url = "github:H3rmt/hyprshell";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
@@ -56,7 +53,6 @@
         nixpkgs.follows = "nixpkgs";
         devshell.follows = "devshell";
         nixago.follows = "nixago";
-        terranix.follows = "terranix";
       };
     };
     stylix = {

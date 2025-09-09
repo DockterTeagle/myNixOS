@@ -16,7 +16,7 @@ rec {
     git-sync
     lazygit
     jujutsu
-    gh
+    gh-cli
   ];
   music = with homeProfiles; [
     ncspot
@@ -50,7 +50,6 @@ rec {
   ];
   shell = with homeProfiles; [
     fish
-    nushell
     starship
     carapace
     nix # TODO: SORT ME BETTER
@@ -72,8 +71,7 @@ rec {
     nvim
   ];
   visuals = [
-
-    cell.homeProfiles.stylix-conf
+    cell.homeProfiles.stylix
   ];
   GUI = with homeProfiles; [
     browsers
@@ -102,6 +100,6 @@ rec {
     hyprExtensions
     editor
     services
-    # visuals
+    visuals
   ];
 }

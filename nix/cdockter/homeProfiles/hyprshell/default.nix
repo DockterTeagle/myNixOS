@@ -1,29 +1,22 @@
+{ inputs, pkgs, ... }:
 {
-  services.hyprshell = {
+  imports = [ inputs.hyprshell.homeModules.hyprshell ];
+  programs.hyprshell = {
     enable = true;
-    style = ./styles.css;
+    hyprland = inputs.hyprland.packages.${pkgs.system}.default;
     settings = {
-      layerrules = true;
-      kill_bind = "ctrl+shift+alt,h";
-      version = 1;
       windows = {
-        scale = 8.5;
-        items_per_row = 5;
+        enable = true; # please dont forget to enable windows if you want to use overview or switch
         overview = {
-          strip_html_from_workspace_title = true;
+          enable = true;
           key = "super_l";
           modifier = "super";
-          hide_filtered = false;
           launcher = {
-            launch_modifier = "ctrl";
-            width = 650;
-            max_items = 5;
-            show_when_empty = true;
-            animate_launch_ms = 250;
+            max_items = 6;
           };
         };
+        switch.enable = true;
       };
     };
-    systemd.enable = true;
   };
 }
