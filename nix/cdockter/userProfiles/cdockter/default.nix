@@ -1,11 +1,8 @@
 {
-  inputs,
+  pkgs,
   cell,
   config,
 }:
-let
-  pkgs = inputs.nixpkgs;
-in
 {
   imports = [ cell.nixosProfiles.sops ];
   users.users.cdockter = {

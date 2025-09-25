@@ -2,6 +2,7 @@
   description = "My nixos flake";
   inputs = {
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    jj.url = "github:jj-vcs/jj";
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
@@ -79,30 +80,7 @@
       {
         inherit inputs;
 
-        systems = [
-          "x86_64-linux"
-        ];
         cellsFrom = ./nix;
-        nixpkgsConfig = {
-
-          allowUnfreePredicate =
-            let
-              inherit (inputs.nixpkgs) lib;
-            in
-            pkg:
-            lib.elem (lib.getName pkg) [
-              "steam"
-              "steam-run"
-              "steam-original"
-              "nvida"
-              "nvidia-x11"
-              "obsidian"
-            ];
-          allowUnfree = true;
-          overlays = [
-            inputs.chaotic.nixosModules.default
-          ];
-        };
         cellBlocks =
           with (inputs.nixpkgs.lib.mergeAttrsList [
             std.blockTypes
@@ -111,11 +89,8 @@
             (functions "bee")
             (functions "common")
 
-            # colmena profile
-
             # modules
             (functions "nixosModules")
-            (functions "homeModules")
 
             # profiles
             (functions "hardwareProfiles")
@@ -130,7 +105,6 @@
             # configurations
             nixosConfigurations
             diskoConfigurations
-            colmenaConfigurations
             homeConfigurations
 
             # devshells
@@ -141,13 +115,10 @@
             (functions "flakeModules")
             (devshells "devshells")
 
-            # packages
-            (installables "packages")
-
             # nixpkgs
+            (functions "nixpkgsConfig")
             (functions "overlays")
             (pkgs "pkgs")
-            (functions "nixpkgsConfig")
           ];
 
       }
@@ -160,6 +131,5 @@
         nixosConfigurations = hive.collect self "nixosConfigurations";
         diskoConfigurations = hive.collect self "diskoConfigurations";
         homeConfigurations = hive.collect self "homeConfigurations";
-        homeModules = hive.collect self "homeModules";
       };
 }

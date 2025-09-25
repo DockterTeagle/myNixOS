@@ -1,7 +1,4 @@
-{ inputs, cell }:
-let
-  pkgs = inputs.nixpkgs;
-in
+{ pkgs }:
 {
   plymouth = {
     enable = true;

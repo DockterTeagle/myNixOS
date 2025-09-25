@@ -12,15 +12,6 @@ in
       git = {
         sign-on-push = true;
       };
-      aliases = {
-        "push" = [
-          "util"
-          "exec"
-          "--"
-          "bash"
-          "-c"
-        ];
-      };
       signing = {
         behavior = "drop";
         backend = "gpg";

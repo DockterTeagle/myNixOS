@@ -13,12 +13,12 @@ let
   hostname = "msi";
 in
 {
-  inherit (cell) bee;
   imports =
     let
       profiles = [
         userProfiles.cdockter
         hardwareProfiles."${hostname}"
+        cell.bee
       ];
       suites = lib.concatLists [ nixosSuites.default ];
     in

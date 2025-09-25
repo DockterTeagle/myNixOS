@@ -14,9 +14,6 @@
 - get the configs working and document more
 
 - the following needs to be implemented:
-  - zathura
-  - hyprsunset
-  - hyprpolkit agent
   - hyprpaper(part of stylix which is problematic rn)
 
 ## Hardware
