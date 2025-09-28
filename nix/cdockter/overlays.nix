@@ -1,4 +1,6 @@
-{ inputs, cell }:
+{
+  inputs,
+}:
 {
   overlays = [
     inputs.chaotic.overlays.default

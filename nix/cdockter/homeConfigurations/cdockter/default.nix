@@ -10,5 +10,4 @@ in
 {
   inherit bee;
   imports = suites ++ [ inputs.stylix.homeModules.stylix ];
-
 }

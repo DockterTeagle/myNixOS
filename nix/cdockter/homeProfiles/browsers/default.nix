@@ -1,4 +1,6 @@
-{ inputs, cell }:
+{
+  inputs,
+}:
 {
   imports = [
     inputs.zen-browser.homeModules.twilight

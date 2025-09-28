@@ -1,4 +1,7 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+}:
 let
   load = file: import file { inherit inputs cell; };
   plugins = builtins.concatLists (

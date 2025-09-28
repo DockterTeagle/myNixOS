@@ -1,6 +1,8 @@
-{ inputs, cell }:
+{
+  cell,
+}:
 let
-  pkgs = inputs.nixpkgs;
+  inherit (cell) pkgs;
   cdockterSettings = {
     username = "cdockter";
     description = "Christopher Ryan Dockter";

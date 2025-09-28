@@ -1,8 +1,11 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     plugins = with inputs; [
-
       split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
     ];
     settings = {

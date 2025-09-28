@@ -4,7 +4,6 @@
   cell,
 }:
 {
-
   imports = [
     cell.hardwareProfiles.base
     cell.nixosModules.modules

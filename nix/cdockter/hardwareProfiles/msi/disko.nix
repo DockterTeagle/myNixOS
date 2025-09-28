@@ -1,4 +1,6 @@
-{ inputs, cell, ... }:
+{
+  ...
+}:
 {
   devices = {
     disk = {

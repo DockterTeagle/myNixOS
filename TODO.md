@@ -4,7 +4,7 @@
 
 ### Use Flake-parts modules
 
-- Hercules/ci-effects
+- [ ] Hercules/ci-effects
 - std
 - nix-unit
 - nix-healthchecks
@@ -14,6 +14,7 @@
 - get the configs working and document more
 
 - the following needs to be implemented:
+
   - hyprpaper(part of stylix which is problematic rn)
 
 ## Hardware

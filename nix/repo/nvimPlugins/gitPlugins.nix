@@ -1,4 +1,7 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+}:
 let
   pkgs = inputs.nixpkgs;
   plugins = with pkgs.vimPlugins; [
@@ -11,7 +14,7 @@ let
     colorful-menu-nvim
     comment-nvim
     conform-nvim
-    cord-nvim
+    # cord-nvim
     diffview-nvim
     flash-nvim
     gitsigns-nvim

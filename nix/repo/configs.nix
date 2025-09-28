@@ -5,17 +5,8 @@
 let
   inherit (inputs.std.data) configs;
   inherit (inputs.std.lib.dev) mkNixago;
-  pkgs = inputs.nixpkgs;
-  # luarc-nightly = cell.toolchain.gen-luarc.mk-luarc {
-  #   nvim = cell.toolchain.neovim.neovim-nightly;
-  #   plugins = luarcPlugins;
-  # };
-
   inherit (cell.nvimPlugins) plugins;
-  luarc-nightly = cell.toolchain.gen-luarc.mk-luarc {
-    nvim = cell.toolchain.neovim.neovim-nightly;
-    inherit plugins;
-  };
+  pkgs = inputs.nixpkgs;
   /*
     While these are strictly specializations of the available
     Nixago Pebbles at `lib.cfg.*`, it would be entirely
@@ -26,12 +17,12 @@ in
   #
   lefthook = (mkNixago configs.lefthook) {
     data = {
-      commit-msg.commands.conform.run = "${inputs.nixpkgs.conform}/bin/conform enforce ";
+      commit-msg.commands.conform.run = "${pkgs.conform}/bin/conform enforce ";
       pre-commit.commands = {
-        # treefmt.run = "${cell.treefmtConfigs.default}/bin/treefmt {staged_files}";
+        # treefmt.run = "${cell.treefmtConfigs.default}";
         # trufflehog.run = ''
         #   set -e
-        #   ${nixpkgs.trufflehog}/bin/trufflehog git git " "file://$" (
+        #   ${pkgs.trufflehog}/bin/trufflehog git git " "file://$" (
         #     git rev-parse - -show-toplevel
         #   ) " --since-commit HEAD --only-verified --fail"'';
       };
@@ -67,8 +58,58 @@ in
     };
   };
   luarc-nightly = mkNixago {
-    output = ".luarc.json";
+    output = ".emmyrc.json";
     format = "json";
-    data = luarc-nightly;
+    data = {
+      runtime = {
+        version = "LuaJIT";
+        library = plugins ++ [
+          "${cell.toolchain.neovim.neovim-nightly}/share/nvim/runtime/lua"
+        ];
+      };
+    };
+  };
+  treefmt = (mkNixago inputs.std.lib.cfg.treefmt) {
+    data = {
+      tree-root-file = "flake.nix";
+      formatter = {
+        taplo = {
+          command = "taplo";
+          options = [ "format" ];
+          includes = [ "*.toml" ];
+        };
+        nixf-diagnose = {
+          command = "nixf-diagnose";
+          includes = [ "*.nix" ];
+        };
+        mdformat = {
+          command = "mdformat";
+          includes = [ "*.md" ];
+        };
+        stylua = {
+          command = "stylua";
+          includes = [ "*.lua" ];
+        };
+        deadnix = {
+          command = "deadnix";
+          # options = [ "--edit" ];
+          includes = [ "*.nix" ];
+        };
+        nixfmt = {
+          command = "nixfmt";
+          includes = [ "*.nix" ];
+        };
+      };
+    };
+
+    packages = with pkgs; [
+      nixfmt
+      stylua
+      deadnix
+      statix
+      nixf-diagnose
+      taplo
+      mdformat
+    ];
   };
 }

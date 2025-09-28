@@ -1,4 +1,6 @@
-{ inputs, cell }:
+{
+  inputs,
+}:
 {
   imports = with inputs; [
     sops-nix.homeManagerModule

@@ -1,4 +1,6 @@
-{ inputs, cell }:
+{
+  inputs,
+}:
 let
   inherit (inputs.nixpkgs) lib;
 in
@@ -13,6 +15,7 @@ in
       "nvida"
       "nvidia-settings"
       "nvidia-x11"
-   "xow_dongle-firmware"   "obsidian"
+      "xow_dongle-firmware"
+      "obsidian"
     ];
 }

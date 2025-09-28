@@ -5,7 +5,6 @@
     jj.url = "github:jj-vcs/jj";
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko";
-    gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     ghostty.url = "github:ghostty-org/ghostty";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,7 +14,7 @@
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    # treefmt-nix.url = "github:numtide/treefmt-nix";
     # nixos-anywhere = {
     #   url = "github:nix-community/nixos-anywhere";
     #   inputs = {
@@ -49,7 +48,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     std = {
-      url = "github:divnix/std";
+      url = "github:DockterTeagle/std/fix-prettier";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         devshell.follows = "devshell";
@@ -63,6 +62,7 @@
       };
     };
     yazi.url = "github:sxyazi/yazi";
+    gitignore.url = "github:hercules-ci/gitignore.nix";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.home-manager.follows = "home-manager";
@@ -120,7 +120,6 @@
             (functions "overlays")
             (pkgs "pkgs")
           ];
-
       }
       /**
         pick "gib me just what I specifiy"

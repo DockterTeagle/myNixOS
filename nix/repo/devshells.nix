@@ -3,7 +3,7 @@
   cell,
 }:
 let
-  inherit (inputs) nixpkgs std treefmt-nix;
+  inherit (inputs) nixpkgs std;
   l = nixpkgs.lib // builtins;
   pkgs = nixpkgs;
   # treefmtPackage =  treefmt-nix.lib.evalModule cell.flakeModules.treefmt-nix;
@@ -32,13 +32,14 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     # final configuration. In this case, we import the `std` default development
     # shell profile which will, among other things, automatically include the
     # `std` TUI in our environment.
-    imports = [ std.std.devshellProfiles.default ];
-
-    # nixago = [cell.configs.conform cell.configs.lefthook cell.configs.prettier cell.configs.treefmt];
+    imports = [
+      std.std.devshellProfiles.default
+    ];
     nixago = [
       cell.configs.lefthook
-      # cell.configs.luarc-nightly
+      cell.configs.luarc-nightly
       cell.configs.conform
+      cell.configs.treefmt
     ];
     # This is a list of packages that will be available in our development
     # environment. In this case, we're pulling in the rust toolchain from our
@@ -62,9 +63,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
       markdownlint-cli2
       bash-language-server
       statix
-      lshw
       luajitPackages.luacheck
-      clang
       harper
       vale
       vale-ls
@@ -85,13 +84,13 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     #   }
     # ];
     commands = [
-      {
-        name = "treefmt";
-        # package = treefmtPackage.${pkgs.system}.config.build.wrapper;
-        package = cell.treefmtConfigs.default;
-        help = "format entire tree";
-        category = "formatting";
-      }
+      # {
+      #   name = "treefmt";
+      #   # package = treefmtPackage.${pkgs.system}.config.build.wrapper;
+      #   package = cell.treefmtConfigs.default;
+      #   help = "format entire tree";
+      #   category = "formatting";
+      # }
     ];
   };
 }

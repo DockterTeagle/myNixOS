@@ -1,10 +1,7 @@
 {
-  inputs,
+  pkgs,
   ...
 }:
-let
-  pkgs = inputs.nixpkgs;
-in
 {
   home.packages = with pkgs; [ python313Packages.gpustat ];
   programs.hyprpanel = {

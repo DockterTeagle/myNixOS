@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Bug Fixes
+
+- Bee
+
 ### Features
 
 - Add more flake-parts modules I will never use
@@ -11,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Got luarc working with this framework and remove symlink
 - Got nixos working, stylix is inf rec
 - Add more configs
+- Feat: get almost all homeConfigs working:
 
 ### Miscellaneous Tasks
 
@@ -22,7 +27,6 @@ All notable changes to this project will be documented in this file.
 
 - Remove partitions
 - Start work on using std
-- Continue work
 
 ### Refactor
 
@@ -30,14 +34,15 @@ All notable changes to this project will be documented in this file.
 - Refactor!(BIG(part1)): use std
 - Make devshell work fully
 - Start working on nixosConfig
+- Continue work on this framework
 
 ### Commit Statistics
 
-- 15 commit(s) contributed to the release.
-- 11 day(s) passed between the first and last commit.
-- 12 commit(s) parsed as conventional.
+- 17 commit(s) contributed to the release.
+- 37 day(s) passed between the first and last commit.
+- 14 commit(s) parsed as conventional.
 - 0 linked issue(s) detected in commits.
-- 14 day(s) passed between releases.
+- 41 day(s) passed between releases.
 
 ## 2.7 - 2025-08-22
 
@@ -292,7 +297,7 @@ All notable changes to this project will be documented in this file.
 - Remove middle
 - Switched to all flake parts for devenv
 - Start breaking up this massive flake
-- Fixed  gpu
+- Fixed gpu
 - Fix gpu again and updated all non-broken flakes
 - Add powertop
 - Add doas
@@ -339,7 +344,7 @@ All notable changes to this project will be documented in this file.
 - Add services location
 - Remove lix module and add nix-topoology
 - No_hardware_cursors no longer needed
-- Make .envrc  actually check the correct files
+- Make .envrc actually check the correct files
 - Add cliphist as a service
 - Add sesh
 - Get the correct settings set in vesktop
@@ -540,7 +545,7 @@ All notable changes to this project will be documented in this file.
 - Attempt to reorganize and bring sanity
 - SystemFlake is now in top-level
 - Move programs.hyprland to correct location
-- Devenv.nix  now uses les redundant packages
+- Devenv.nix now uses les redundant packages
 - Remove unused and unusable options
 - Move configuration.nix to system/default.nix
 - Move home to have a default.nix, also update flake
@@ -1193,7 +1198,7 @@ All notable changes to this project will be documented in this file.
 - Maybe fixed the issues with deadnix? also made ther ebe less folders at root of repo
 - Updated flake.lock
 - Debugging
-- Removed duplicated p[acakgesm also removed gcc
+- Removed duplicated p\[acakgesm also removed gcc
 - Adding cb, see if it works?
 - Updated flake.lock
 - Removed idle inhibitor
@@ -1419,7 +1424,7 @@ All notable changes to this project will be documented in this file.
 - Changed to unstable home-manager
 - Readded home-manager
 - Accidentally added hardware.nix
--  added home.nix
+- added home.nix
 - Added hom.nix for realsies this time as it was a link before
 - Removed useless variables and added hom.nix to its own user folder
 - Added neovim nightly overlay

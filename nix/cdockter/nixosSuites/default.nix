@@ -1,10 +1,10 @@
-{ inputs, cell }:
-
+{
+  cell,
+}:
 let
   inherit (cell) nixosProfiles;
 in
 {
-
   default = [
     nixosProfiles.gaming
     nixosProfiles.nix

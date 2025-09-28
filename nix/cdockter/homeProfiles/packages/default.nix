@@ -1,7 +1,5 @@
 {
-  inputs,
   pkgs,
-  cell,
 }:
 {
   home.packages = with pkgs; [

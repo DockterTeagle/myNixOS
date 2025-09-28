@@ -1,4 +1,7 @@
-{ inputs, cell, ... }:
+{
+  cell,
+  ...
+}:
 let
   inherit (cell.common) cdockterSettings;
 in

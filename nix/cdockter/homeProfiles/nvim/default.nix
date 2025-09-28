@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   home.file.".config/nvim".source = ./_conf;
   programs.neovim = {

@@ -1,4 +1,6 @@
-{ inputs, cell }:
+{
+  inputs,
+}:
 {
   imports = with inputs; [
     solaar.nixosModules.default
