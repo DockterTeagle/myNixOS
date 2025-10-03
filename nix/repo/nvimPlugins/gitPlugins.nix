@@ -5,7 +5,6 @@
 let
   pkgs = inputs.nixpkgs;
   plugins = with pkgs.vimPlugins; [
-    FixCursorHold-nvim
     blink-cmp
     blink-cmp-conventional-commits
     bufferline-nvim
@@ -30,9 +29,6 @@ let
     mini-pairs
     mini-surround
     neogit
-    neotest
-    neotest-python
-    neotest-zig
     noice-nvim
     nui-nvim
     nvim-dap

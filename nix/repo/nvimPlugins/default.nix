@@ -7,6 +7,7 @@ let
   plugins = builtins.concatLists (
     map load [
       ./gitPlugins.nix
+      ./neotestPlugins.nix
     ]
   );
 in

@@ -37,7 +37,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     ];
     nixago = [
       cell.configs.lefthook
-      cell.configs.luarc-nightly
+      # cell.configs.luarc-nightly
       cell.configs.conform
       cell.configs.treefmt
     ];

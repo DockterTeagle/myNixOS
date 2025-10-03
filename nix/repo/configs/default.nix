@@ -57,18 +57,6 @@ in
       };
     };
   };
-  luarc-nightly = mkNixago {
-    output = ".emmyrc.json";
-    format = "json";
-    data = {
-      runtime = {
-        version = "LuaJIT";
-        library = plugins ++ [
-          "${cell.toolchain.neovim.neovim-nightly}/share/nvim/runtime/lua"
-        ];
-      };
-    };
-  };
   treefmt = (mkNixago inputs.std.lib.cfg.treefmt) {
     data = {
       tree-root-file = "flake.nix";
