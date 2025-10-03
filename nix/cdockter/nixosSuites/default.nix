@@ -1,5 +1,6 @@
 {
   cell,
+  inputs,
 }:
 let
   inherit (cell) nixosProfiles;

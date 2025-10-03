@@ -1,22 +1,20 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 {
   imports = [ inputs.hyprshell.homeModules.hyprshell ];
   programs.hyprshell = {
     enable = true;
     hyprland = inputs.hyprland.packages.${pkgs.system}.default;
+    systemd.args = "-vv";
     settings = {
       windows = {
-        enable = true; # please dont forget to enable windows if you want to use overview or switch
+        enable = true;
         overview = {
           enable = true;
           key = "super_l";
-          modifier = "super";
+          modifier = "alt";
           launcher = {
             max_items = 6;
+            default_terminal = "ghostty";
           };
         };
         switch.enable = true;

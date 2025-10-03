@@ -71,7 +71,7 @@ rec {
     nvim
   ];
   visuals = [
-    cell.homeProfiles.stylix
+    # cell.homeProfiles.stylix
   ];
   GUI = with homeProfiles; [
     browsers

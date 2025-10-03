@@ -8,6 +8,5 @@ let
   suites = with homeSuites; lib.concatLists [ All ];
 in
 {
-  inherit bee;
-  imports = suites ++ [ inputs.stylix.homeModules.stylix ];
+  imports = suites++[cell.bee] ;
 }

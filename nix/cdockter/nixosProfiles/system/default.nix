@@ -62,4 +62,5 @@
     enable = true;
     memoryPercent = 75;
   };
+  environment.systemPackages = with pkgs; [ brightnessctl ];
 }

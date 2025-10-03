@@ -1,8 +1,6 @@
-.bin/
-.cache/
 .direnv/
-.devenv/
 .data/
+.cache/
 
 .run/
 
