@@ -14,7 +14,7 @@
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    # treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     # nixos-anywhere = {
     #   url = "github:nix-community/nixos-anywhere";
     #   inputs = {
@@ -41,7 +41,13 @@
       };
     };
     sops-nix.url = "github:Mic92/sops-nix";
-    hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs = {
+        hyprland.follows = "hyprland";
+      };
+    };
     hyprshell.url = "github:H3rmt/hyprshell";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
@@ -110,9 +116,7 @@
             # devshells
             (functions "nvimPlugins")
             (functions "toolchain")
-            (functions "treefmtConfigs")
             (nixago "configs")
-            (functions "flakeModules")
             (devshells "devshells")
 
             # nixpkgs
