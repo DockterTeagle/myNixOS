@@ -62,7 +62,6 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
       git-cliff
       markdownlint-cli2
       bash-language-server
-      statix
       luajitPackages.luacheck
       commitizen
       commitlint

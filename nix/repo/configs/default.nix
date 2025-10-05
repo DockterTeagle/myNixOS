@@ -5,7 +5,6 @@
 let
   inherit (inputs.std.data) configs;
   inherit (inputs.std.lib.dev) mkNixago;
-  inherit (cell.nvimPlugins) plugins;
   pkgs = inputs.nixpkgs;
   /*
     While these are strictly specializations of the available
@@ -33,15 +32,20 @@ in
       };
       commit-msg = {
         commands = {
-          conform.run = "${pkgs.conform}/bin/conform enforce ";
+          conform.run = "${pkgs.conform}/bin/conform enforce --commit-msg-file {1}";
+          "lint commit message" = {
+            run = "${pkgs.commitlint}/bin/commitlint --edit {1}";
+          };
         };
       };
       pre-commit = {
         parallel = true;
-        # commands = {
-        #   # treefmt.run = "${cell.treefmtConfigs.default}";
-        #
-        # };
+        commands = {
+          treefmt = {
+            run = "${pkgs.treefmt}/bin/treefmt {staged_files}";
+          };
+
+        };
       };
     };
   };
