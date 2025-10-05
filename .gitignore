@@ -5,6 +5,7 @@
 .run/
 
 # nixago: ignore-linked-files
+/.cz.toml
 /treefmt.toml
 /.emmyrc.json
 /book.toml

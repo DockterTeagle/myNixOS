@@ -17,14 +17,31 @@ in
   #
   lefthook = (mkNixago configs.lefthook) {
     data = {
-      commit-msg.commands.conform.run = "${pkgs.conform}/bin/conform enforce ";
-      pre-commit.commands = {
-        # treefmt.run = "${cell.treefmtConfigs.default}";
-        # trufflehog.run = ''
-        #   set -e
-        #   ${pkgs.trufflehog}/bin/trufflehog git git " "file://$" (
-        #     git rev-parse - -show-toplevel
-        #   ) " --since-commit HEAD --only-verified --fail"'';
+      lint = {
+        parallel = true;
+      };
+      prepare-commit-msg = {
+        commands = {
+          commitizen = {
+            interactive = true;
+            run = "cz c ";
+            env = {
+              LEFTHOOK = 0;
+            };
+          };
+        };
+      };
+      commit-msg = {
+        commands = {
+          conform.run = "${pkgs.conform}/bin/conform enforce ";
+        };
+      };
+      pre-commit = {
+        parallel = true;
+        # commands = {
+        #   # treefmt.run = "${cell.treefmtConfigs.default}";
+        #
+        # };
       };
     };
   };
@@ -57,6 +74,16 @@ in
       };
     };
   };
+  commitizen = mkNixago {
+    output = ".cz.toml";
+    format = "toml";
+    data = {
+      tool.commitizen = {
+        version = "2.7.0";
+        update_changelog_on_bump = true;
+      };
+    };
+  };
   treefmt = (mkNixago inputs.std.lib.cfg.treefmt) {
     data = {
       tree-root-file = "flake.nix";
@@ -66,10 +93,10 @@ in
           options = [ "format" ];
           includes = [ "*.toml" ];
         };
-        nixf-diagnose = {
-          command = "nixf-diagnose";
-          includes = [ "*.nix" ];
-        };
+        # nixf-diagnose = {
+        #   command = "nixf-diagnose";
+        #   includes = [ "*.nix" ];
+        # };
         mdformat = {
           command = "mdformat";
           includes = [ "*.md" ];

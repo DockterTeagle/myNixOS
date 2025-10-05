@@ -37,7 +37,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
     ];
     nixago = [
       cell.configs.lefthook
-      # cell.configs.luarc-nightly
+      cell.configs.commitizen
       cell.configs.conform
       cell.configs.treefmt
     ];
@@ -64,6 +64,8 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
       bash-language-server
       statix
       luajitPackages.luacheck
+      commitizen
+      commitlint
       harper
       vale
       vale-ls

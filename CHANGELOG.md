@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 - Bee
+- Continue trying to get home-manager to work
 
 ### Features
 
@@ -16,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - Got nixos working, stylix is inf rec
 - Add more configs
 - Feat: get almost all homeConfigs working:
+- Add more flake inputs
 
 ### Miscellaneous Tasks
 
@@ -27,6 +29,7 @@ All notable changes to this project will be documented in this file.
 
 - Remove partitions
 - Start work on using std
+- Alot of changes and also formatting, tried treefmt
 
 ### Refactor
 
@@ -35,14 +38,15 @@ All notable changes to this project will be documented in this file.
 - Make devshell work fully
 - Start working on nixosConfig
 - Continue work on this framework
+- Many modularizations, updating repo part
 
 ### Commit Statistics
 
-- 17 commit(s) contributed to the release.
-- 37 day(s) passed between the first and last commit.
-- 14 commit(s) parsed as conventional.
+- 21 commit(s) contributed to the release.
+- 43 day(s) passed between the first and last commit.
+- 18 commit(s) parsed as conventional.
 - 0 linked issue(s) detected in commits.
-- 41 day(s) passed between releases.
+- 44 day(s) passed between releases.
 
 ## 2.7 - 2025-08-22
 

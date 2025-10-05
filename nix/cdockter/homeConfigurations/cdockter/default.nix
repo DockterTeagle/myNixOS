@@ -8,5 +8,5 @@ let
   suites = with homeSuites; lib.concatLists [ All ];
 in
 {
-  imports = suites++[cell.bee] ;
+  imports = suites ++ [ cell.bee ];
 }
