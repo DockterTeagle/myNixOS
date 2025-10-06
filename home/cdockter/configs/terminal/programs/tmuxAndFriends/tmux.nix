@@ -18,7 +18,6 @@
       yank
       tokyo-night-tmux
       vim-tmux-navigator
-      tmux-fzf
       tmux-thumbs
     ];
     extraConfig =

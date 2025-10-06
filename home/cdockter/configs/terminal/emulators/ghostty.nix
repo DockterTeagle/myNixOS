@@ -2,7 +2,7 @@
 {
   programs.ghostty = {
     enable = true;
-    # package = inputs'.ghostty.packages.default;
+    package = inputs'.ghostty.packages.default;
     clearDefaultKeybinds = true;
     installVimSyntax = true; # needed?
     installBatSyntax = true; # needed?

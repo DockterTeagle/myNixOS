@@ -9,6 +9,7 @@ M.on_attach = function(client, bufnr)
       desc = "LSP " .. desc,
     }
   end
+  vim.keymap.set("n","K",require("LspUI").api.hover )
   map("n", "gD", function()
     Snacks.picker.lsp_declarations()
   end, opts "Go to declaration")

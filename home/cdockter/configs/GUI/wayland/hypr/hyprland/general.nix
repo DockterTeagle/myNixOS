@@ -1,10 +1,10 @@
-{ cdockterSettings, inputs', ... }:
+{ cdockterSettings,pkgs,... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false; # using uwsm
-    package = inputs'.hyprland.packages.hyprland;
-    portalPackage = inputs'.hyprland.packages.xdg-desktop-portal-hyprland;
+    package = null;
+    portalPackage = null;
     settings = {
       general = {
         gaps_in = 10;
@@ -23,9 +23,6 @@
         pseudotile = true;
         preserve_split = true;
         # smart_split = true;
-      };
-      gestures = {
-        workspace_swipe = "off";
       };
       cursor = {
         no_hardware_cursors = 1;

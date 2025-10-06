@@ -54,12 +54,12 @@ end, { desc = "open Folds Except Kinds" })
 vim.keymap.set("n", "zm", function()
   require("ufo").closeFoldsWith()
 end, { desc = "closed all folds with simlair properties " })
-vim.keymap.set("n", "K", function()
-  local winid = require("ufo").peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
-  end
-end, { desc = "super key for LSP and fold" })
+-- vim.keymap.set("n", "K", function()
+--   local winid = require("ufo").peekFoldedLinesUnderCursor()
+--   if not winid then
+--     require("LspUI").api.hover
+--   end
+-- end, { desc = "super key for LSP and fold" })
 vim.keymap.set(
   "n",
   "<leader>tqt",

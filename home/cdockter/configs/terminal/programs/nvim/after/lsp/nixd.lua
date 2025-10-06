@@ -8,6 +8,9 @@ return {
   settings = {
     nixd = {
       inlay_hints = true,
+      formatting = {
+        command = {"treefmt"},
+      },
       nixpkgs = {
         expr = "(builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs {}",
       },

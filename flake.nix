@@ -1,7 +1,9 @@
 {
   description = "My nixos flake";
   inputs = {
-    # keep-sorted start block=true newline_separated=false
+     hyprshell.url = "github:H3rmt/hyprshell";
+     jj.url = "github:jj-vcs/jj";
+  # keep-sorted start block=true newline_separated=false
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     disko.url = "github:nix-community/disko";

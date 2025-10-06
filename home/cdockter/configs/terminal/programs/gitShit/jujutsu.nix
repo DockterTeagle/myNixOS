@@ -2,6 +2,7 @@
 {
   programs.jujutsu = {
     enable = true;
+    package = inputs'.jj.packages.default;
     settings = {
       git = {
         sign-on-push = true;

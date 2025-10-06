@@ -8,7 +8,7 @@
       bindl = ,escape,submap,reset
       submap = reset
       bindl = $mainMod,space,submap, prefix
-      submap = prefix
+      submap = prefix,reset
       bind = SHIFT,z,fullscreen,
       bind = ,z,fullscreen,1
       bindd = ,q,launch the terminal,exec,uwsm app -- $term
