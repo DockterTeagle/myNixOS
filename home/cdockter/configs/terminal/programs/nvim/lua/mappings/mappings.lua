@@ -138,3 +138,4 @@ vim.api.nvim_create_autocmd("User", {
     )
   end,
 })
+vim.keymap.set("n", "K", "<CMD>LspUI hover<CR>")

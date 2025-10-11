@@ -24,7 +24,7 @@ return {
     build = "nix run .#release",
     lazy = false,
     opts = {
-      debug = {enabled = true,show_Scores = true,},
+      debug = { enabled = true, show_Scores = true },
     },
   },
 }

@@ -67,7 +67,7 @@ local M = {
   -- elsewhere in your config, without redefining it, via `opts_extend`
   sources = {
     providers = {
-      dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+      -- dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 
       conventional_commits = {
         name = "Conventional Commits",

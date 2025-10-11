@@ -9,7 +9,6 @@ M.on_attach = function(client, bufnr)
       desc = "LSP " .. desc,
     }
   end
-  vim.keymap.set("n","K",require("LspUI").api.hover )
   map("n", "gD", function()
     Snacks.picker.lsp_declarations()
   end, opts "Go to declaration")
@@ -20,7 +19,7 @@ M.on_attach = function(client, bufnr)
     opts "Show signature help"
   )
   map({ "n", "v" }, "<leader>lc", function()
-    vim.lsp.buf.code_action()
+    require("LspUI").api.code_action()
   end, opts "Code action")
   map("n", "gd", function()
     Snacks.picker.lsp_definitions()
@@ -37,7 +36,8 @@ M.on_attach = function(client, bufnr)
     Snacks.picker.lsp_type_definitions()
   end, opts "Go to type definition")
   map("n", "[d", function()
-    vim.diagnostic.goto_prev {
+    vim.diagnostic.jump {
+      count = -1,
       severity = {
         min = vim.diagnostic.severity.WARN,
         max = vim.diagnostic.severity.ERROR,
@@ -45,7 +45,8 @@ M.on_attach = function(client, bufnr)
     }
   end, opts "prev diagnostic")
   map("n", "]d", function()
-    vim.diagnostic.goto_next {
+    vim.diagnostic.jump {
+      count = 1,
       severity = {
         min = vim.diagnostic.severity.WARN,
         max = vim.diagnostic.severity.ERROR,
