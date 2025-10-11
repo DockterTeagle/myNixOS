@@ -19,7 +19,6 @@ in
     "$docker_context"
     "(\n"
     "$direnv"
-    "$nix_shell"
     "$package"
     "$cmake"
     "$dart"
@@ -87,9 +86,6 @@ in
     disabled = false;
     format = "[$symbol$branch]($style) ";
   };
-  nix_shell = {
-    format = "via [$symbol$state]($style) ";
-  };
   aws.symbol = " ";
   conda.symbol = " ";
   dart.symbol = " ";
@@ -104,13 +100,16 @@ in
   julia.symbol = " ";
   memory_usage.symbol = "󰍛 ";
   nim.symbol = " ";
-  nix_shell.symbol = " ";
   package.symbol = "󰏗 ";
   perl.symbol = " ";
   php.symbol = " ";
   python.symbol = " ";
   ruby.symbol = " ";
-  rust.symbol = " ";
+  rust = {
+    symbol = " ";
+    format = "[$symbol($version )]($style)";
+    version_format = "v\${major}";
+  };
   scala.symbol = " ";
   swift.symbol = "ﯣ ";
 }
