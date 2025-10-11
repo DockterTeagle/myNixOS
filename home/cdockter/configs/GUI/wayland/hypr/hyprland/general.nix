@@ -1,4 +1,4 @@
-{ cdockterSettings,pkgs,... }:
+{ cdockterSettings, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;

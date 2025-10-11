@@ -4,6 +4,6 @@
     "wl-paste --type image --watch cliphist store"
     "systemctl enable --user com.mitchell.ghostty.service"
     "uwsm app -- zen-twilight"
-    "uwsm app -- vesktop"
+    "uwsm app -- ghostty"
   ];
 }
