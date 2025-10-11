@@ -28,6 +28,8 @@
 
 - for Starship prompt make it so that only 2 or 3 show per line
 
+- for starship make rus tmore compact as well as py
+
 - make a home-manager-rollback service on user login
 
 - make ghostty use sesh on activation
@@ -64,3 +66,4 @@
 - Brainstorm bindings
 - get a fuzzy finder working for named workspace switching
 - describe all mappings
+- copy end-4/dots

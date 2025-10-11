@@ -1,15 +1,12 @@
 {
   description = "My nixos flake";
   inputs = {
-     hyprshell.url = "github:H3rmt/hyprshell";
-     jj.url = "github:jj-vcs/jj";
-  # keep-sorted start block=true newline_separated=false
+    hyprshell.url = "github:H3rmt/hyprshell";
+    # keep-sorted start block=true newline_separated=false
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     disko.url = "github:nix-community/disko";
-    fff.url = "github:dmtrKovalenko/fff.nvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     ghostty.url = "github:ghostty-org/ghostty";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
     home-manager = {
@@ -17,16 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
-    lux.url = "github:nvim-neorocks/lux";
     mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
     neorocks.url = "github:nvim-neorocks/neorocks";
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nix2container.inputs = {
-      nixpkgs.follows = "nixpkgs";
-    };
-    nix2container.url = "github:nlewo/nix2container";
     # nix-unit.url = "github:nix-community/nix-unit";
     nixos-anywhere = {
       url = "github:nix-community/nixos-anywhere";
@@ -37,18 +29,8 @@
         flake-parts.follows = "flake-parts";
       };
     };
-    nixos-healthchecks.url = "github:mrVanDalo/nixos-healthchecks";
     # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rustaceanvim = {
-      url = "github:mrcjkb/rustaceanvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        neorocks.follows = "neorocks";
-        gen-luarc.follows = "gen-luarc";
-      };
-    };
     solaar.url = "github:svenum/solaar-flake/main";
     sops-nix.url = "github:Mic92/sops-nix";
     split-monitor-workspaces = {
@@ -75,8 +57,8 @@
         imports = with inputs; [
           ./flake
           # nix-unit.modules.flake.default
-          nixos-healthchecks.flakeModule
-          nixos-healthchecks.nixosModules.default
+          # nixos-healthchecks.flakeModule
+          # nixos-healthchecks.nixosModules.default
           home-manager.flakeModules.default
         ];
         perSystem =
@@ -86,7 +68,7 @@
               inherit system;
               overlays = with inputs; [
                 neorocks.overlays.default
-                gen-luarc.overlays.default
+                # gen-luarc.overlays.default
               ];
               config = {
                 nvidia.acceptLicense = true;
