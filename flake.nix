@@ -2,6 +2,7 @@
   description = "My nixos flake";
   inputs = {
     hyprshell.url = "github:H3rmt/hyprshell";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     # keep-sorted start block=true newline_separated=false
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -14,7 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
-    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
     neorocks.url = "github:nvim-neorocks/neorocks";
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -39,7 +39,6 @@
     };
     stylix.url = "github:nix-community/stylix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    yazi.url = "github:sxyazi/yazi";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.home-manager.follows = "home-manager";
@@ -59,7 +58,8 @@
           # nix-unit.modules.flake.default
           # nixos-healthchecks.flakeModule
           # nixos-healthchecks.nixosModules.default
-          home-manager.flakeModules.default
+          # home-manager.flakeModules.default
+          disko.flakeModules.default
         ];
         perSystem =
           { system, ... }:
@@ -78,6 +78,9 @@
             };
           };
         flake = {
+          diskoConfigurations = {
+            msi = import ./msi-disko.nix;
+          };
           nixosConfigurations = {
             nixos = withSystem "x86_64-linux" (
               { pkgs, inputs', ... }:
@@ -106,6 +109,12 @@
                   sops-nix.nixosModules.sops
                   nix-gaming.nixosModules.pipewireLowLatency
                   nix-gaming.nixosModules.platformOptimizations
+                  inputs.nixos-hardware.nixosModules.common-pc-laptop
+                  inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
+                  inputs.nixos-hardware.nixosModules.common-pc-laptop-hdd
+                  inputs.nixos-hardware.nixosModules.common-cpu-intel
+                  inputs.nixos-hardware.nixosModules.common-gpu-nvidia-sync
+
                 ];
               }
             );

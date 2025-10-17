@@ -1,16 +1,5 @@
 {
   imports = [
-    ./dev
-    # ./ezConfigs.nix
+    ./devShell.nix ./treefmt.nix
   ];
-  # partitions = {
-  #   dev = {
-  #     module = ./dev;
-  #     extraInputsFlake = ./dev;
-  #   };
-  # };
-  # partitionedAttrs = {
-  #   formatter = "dev";
-  #   devShells = "dev";
-  # };
 }

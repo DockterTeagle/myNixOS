@@ -1,8 +1,8 @@
-{ inputs', ... }:
+{ inputs, pkgs, ... }:
 {
   programs.ghostty = {
     enable = true;
-    package = inputs'.ghostty.packages.default;
+    package = inputs.ghostty.packages.${pkgs.system}.default;
     clearDefaultKeybinds = true;
     installVimSyntax = true; # needed?
     installBatSyntax = true; # needed?

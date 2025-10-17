@@ -62,7 +62,6 @@
         transition = "crossfade";
       };
       theme = {
-        name = "tokyo_night";
         bar = {
           transparent = true;
         };

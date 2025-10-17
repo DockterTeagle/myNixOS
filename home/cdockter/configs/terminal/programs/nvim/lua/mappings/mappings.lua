@@ -139,3 +139,9 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 vim.keymap.set("n", "K", "<CMD>LspUI hover<CR>")
+vim.keymap.set(
+  "n",
+  "<leader>ou",
+  "<CMD>Outline<CR>",
+  { desc = "toggle outline" }
+)

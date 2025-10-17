@@ -6,19 +6,19 @@
     };
     git = {
       enable = true;
-      delta = {
-        enable = true;
+      settings = {
+        user = {
+          name = "Dr.Teagle";
+          inherit (cdockterSettings) email;
+        };
+        core.editor = "nvim";
+        init.defaultBranch = "main";
       };
-      userName = "Dr.Teagle";
-      userEmail = cdockterSettings.email;
       signing = {
         format = "openpgp";
         key = "A8F847D060070466";
       };
-      extraConfig = {
-        core.editor = "nvim";
-        init.defaultBranch = "main";
-      };
     };
+
   };
 }

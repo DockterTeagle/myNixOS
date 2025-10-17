@@ -1,0 +1,17 @@
+-- local ls = require("luasnip")
+-- local s = ls.snippet
+-- local t = ls.text_node
+-- local i = ls.insert_node
+-- local f = ls.function_node
+-- local d = ls.dynamic_node
+-- local c = ls.choice_node
+--
+-- local function in_mathzone()
+--   local line = vim.api.nvim_get_current_line()
+--   local col = vim.fn.col(".")
+--   local before_cursor = line:sub(1, col)
+--
+--   -- count unescaped dollar signs
+--   local _, count = before_cursor:gsub("([^\\])%$", "%1$")
+--   return count % 2 == 1  -- odd number of $ means we’re inside math mode
+-- end

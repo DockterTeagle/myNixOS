@@ -74,7 +74,6 @@ return {
         end,
       },
       notifier = { enabled = true },
-      notify = { enabled = true },
       profiler = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },

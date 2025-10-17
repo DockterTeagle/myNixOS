@@ -54,7 +54,7 @@ return {
             { find = "; before #%d+" },
           },
         },
-        view = "mini",
+        -- view = "mini",
       },
     },
     views = {

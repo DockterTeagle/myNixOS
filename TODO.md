@@ -5,7 +5,6 @@
 ### Use Flake-parts modules
 
 - Hercules/ci-effects
-- std
 - nix-unit
 - nix-healthchecks
 
@@ -23,6 +22,8 @@
 - make all includes work, but make them optional to turn on
 
 - make the paths still relative but top down
+
+- compress this God-forsaken repo
 
 ## Home-manager
 
@@ -67,3 +68,4 @@
 - get a fuzzy finder working for named workspace switching
 - describe all mappings
 - copy end-4/dots
+- for KB's consider \<prefix> \<Num> for eitehr monitor or workspaces?

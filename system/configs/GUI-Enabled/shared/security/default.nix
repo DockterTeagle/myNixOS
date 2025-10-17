@@ -5,9 +5,6 @@
     printing.enable = false;
   };
   security = {
-    doas = {
-      enable = true;
-    };
     sudo = {
       execWheelOnly = true;
     };

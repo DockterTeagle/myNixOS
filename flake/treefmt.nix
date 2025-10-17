@@ -8,9 +8,7 @@
       projectRootFile = "flake.nix";
 
       programs = {
-        # keep-sorted start block=yes
         deadnix.enable = true;
-        keep-sorted.enable = true;
         mdformat.enable = true;
         nixf-diagnose.enable = true;
         nixfmt.enable = true;
@@ -26,7 +24,6 @@
           };
           enable = true;
         };
-        # keep-sorted end
 
       };
       settings = {

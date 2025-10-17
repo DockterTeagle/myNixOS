@@ -2,6 +2,7 @@
 {
   #NOTE: NONE OF ME ARE MODULES --check date 08/22/25
   home.packages = with pkgs; [
+    zotero
     mprocs # run processes in parallel
     uutils-coreutils-noprefix
   ];

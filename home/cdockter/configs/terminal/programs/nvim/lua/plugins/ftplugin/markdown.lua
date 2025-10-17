@@ -24,10 +24,10 @@ return {
   },
   {
     "obsidian-nvim/obsidian.nvim",
-    event = {
-      "BufReadPre /home/cdockter/Documents/Obsidian/main/*.md",
-      "BufNewFile /home/cdockter/Documents/Obsidian/main/*.md",
-    },
+    -- event = {
+    --   "BufReadPre /home/cdockter/Documents/Obsidian/main/*.md",
+    --   "BufNewFile /home/cdockter/Documents/Obsidian/main/*.md",
+    -- },
     dependencies = {
       "folke/snacks.nvim",
       "nvim-treesitter/nvim-treesitter",

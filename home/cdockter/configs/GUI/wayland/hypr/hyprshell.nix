@@ -3,8 +3,7 @@
   imports = [ inputs.hyprshell.homeModules.hyprshell ];
   programs.hyprshell = {
     enable = true;
-    hyprland = inputs.hyprland.packages.${pkgs.system}.default;
-    systemd.args = "-vv";
+    hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
       windows = {
         enable = true;

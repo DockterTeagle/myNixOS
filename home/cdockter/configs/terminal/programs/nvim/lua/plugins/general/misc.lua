@@ -2,6 +2,18 @@
 ---@type LazySpec
 return {
   {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline", "OutlineOpen" },
+    dependencies = {
+      "onsails/lspkind.nvim",
+    },
+    opts = {
+      symbols = {
+        icon_source = "lspkind",
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = "ConformInfo",
