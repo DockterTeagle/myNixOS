@@ -1,5 +1,5 @@
 #TODO: refactor me out
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [ ./solaar.nix ];
   services = {
@@ -21,19 +21,6 @@
               )
         '';
       };
-    };
-
-    # XServer and GNOME
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      excludePackages = [ pkgs.xterm ];
-      videoDrivers = [
-        "nvidia"
-      ];
     };
   };
 }

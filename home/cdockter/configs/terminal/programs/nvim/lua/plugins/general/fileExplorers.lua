@@ -23,6 +23,7 @@ return {
     "dmtrKovalenko/fff.nvim",
     build = "nix run .#release",
     lazy = false,
+    version = false,
     opts = {
       debug = { enabled = true, show_Scores = true },
     },

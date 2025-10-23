@@ -1,17 +1,12 @@
 local wk = require "which-key"
 local map = vim.keymap.set
 
--- Comment
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
-
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 wk.add {
   { "<leader>f", group = "find" },
   { "<leader>n", group = "Neo" },
-  { "<leader>d", group = "debug" },
   { "<leader>gh", group = "(g)it (h)unk" },
   { "<leader>t", group = "trouble" },
   { "\\", group = "Core" },

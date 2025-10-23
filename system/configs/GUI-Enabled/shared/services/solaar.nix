@@ -1,7 +1,6 @@
 {
-  services.solaar = {
+  hardware.logitech.wireless = {
     enable = true;
-    batteryIcons = "solaar";
-    window = "hide";
+    enableGraphical = true;
   };
 }

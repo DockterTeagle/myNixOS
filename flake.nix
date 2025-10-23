@@ -1,7 +1,14 @@
 {
   description = "My nixos flake";
   inputs = {
-    hyprshell.url = "github:H3rmt/hyprshell";
+    hyprshell = {
+      url = "github:H3rmt/hyprshell";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        flake-parts.follows = "flake-parts";
+      };
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     # keep-sorted start block=true newline_separated=false
 
@@ -16,6 +23,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
     neorocks.url = "github:nvim-neorocks/neorocks";
+    flint.url = "github:NotAShelf/flint";
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -31,7 +39,6 @@
     };
     # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    solaar.url = "github:svenum/solaar-flake/main";
     sops-nix.url = "github:Mic92/sops-nix";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
@@ -103,7 +110,6 @@
                 modules = with inputs; [
                   ./system
                   chaotic.nixosModules.default
-                  solaar.nixosModules.default
                   stylix.nixosModules.stylix
                   disko.nixosModules.disko
                   sops-nix.nixosModules.sops

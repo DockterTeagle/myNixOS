@@ -9,7 +9,7 @@ return {
     nixd = {
       inlay_hints = true,
       formatting = {
-        command = { "treefmt" },
+        command = { "nixfmt" },
       },
       nixpkgs = {
         expr = "(builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs {}",

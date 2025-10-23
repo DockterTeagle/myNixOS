@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   boot = {
+    # kernelModules = [ "msi-ec" ];
+    extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
     plymouth = {
       enable = true;
     };
@@ -13,7 +15,6 @@
         };
       };
     };
-
     initrd.luks.reusePassphrases = false;
     kernelPackages = pkgs.linuxPackages_cachyos;
   };

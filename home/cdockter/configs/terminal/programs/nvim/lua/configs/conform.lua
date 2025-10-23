@@ -2,6 +2,9 @@
 ---@type conform.setupOpts
 local options = {
   formatters = {
+    treefmt = {
+      require_cwd = false,
+    },
     injected = {
       options = {
         ignore_errors = true,

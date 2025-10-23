@@ -1,5 +1,6 @@
 {
   imports = [
-    ./devShell.nix ./treefmt.nix
+    ./devShells.nix
+    ./treefmt.nix
   ];
 }

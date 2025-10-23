@@ -4,7 +4,6 @@ let
     username = "cdockter";
     description = "Christopher Ryan Dockter";
     email = "65212972+DockterTeagle@users.noreply.github.com";
-    wm = "hyprland";
     term = "ghostty";
     editor = "nvim";
     font = "JetBrainsMono NF";

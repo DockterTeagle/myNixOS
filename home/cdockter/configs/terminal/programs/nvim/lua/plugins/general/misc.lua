@@ -170,8 +170,7 @@ return {
         cmake = { "cmakelint" },
         nix = { "statix", "nix" },
         cpp = { "cppcheck", "cpplint" },
-        lua = { "luacheck" },
-        markdown = { "markdownlint-cli2" },
+        -- lua = { "luacheck" },
         gitcommit = { "commitlint" },
         -- markdown = { "mado" },
       }

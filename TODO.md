@@ -14,6 +14,11 @@
 
 ## System
 
+- For cachyos consider x86-64-v3
+
+  - pros:
+    1. fast
+
 - fix regreet(in more ways than one) display is the main one; that is, it tries
   to display as one desktop
 
