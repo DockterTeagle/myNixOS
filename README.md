@@ -5,4 +5,4 @@ it is public is so others can help me troubleshoot.
 
 ## Contributing
 
-please don't open a PR or an issue
+Please don't open a PR or an issue.

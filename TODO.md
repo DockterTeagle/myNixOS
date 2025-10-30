@@ -1,13 +1,5 @@
 # Task List
 
-## Flake
-
-### Use Flake-parts modules
-
-- Hercules/ci-effects
-- nix-unit
-- nix-healthchecks
-
 ## Hardware
 
 - get a YubiKey
@@ -17,10 +9,17 @@
 - For cachyos consider x86-64-v3
 
   - pros:
+
     1. fast
+
+  - cons
+
+    1. slow compliation and no cache
 
 - fix regreet(in more ways than one) display is the main one; that is, it tries
   to display as one desktop
+
+- constant monitor shennaginans
 
 - fix git crashing when on HTTPS
 
@@ -28,36 +27,25 @@
 
 - make the paths still relative but top down
 
-- compress this God-forsaken repo
-
 ## Home-manager
 
 - for Starship prompt make it so that only 2 or 3 show per line
 
-- for starship make rus tmore compact as well as py
+- for Starship make rust more compact as well as python
 
 - make a home-manager-rollback service on user login
 
 - make ghostty use sesh on activation
 
+- use (hyprnix)[github.com/hyprland-community/hyprnix/]
+
 ### Neovim
-
-- make this incoherent mess of a config better (especially misc.lua)
-
-- improve performance
 
 - finish todo-comments luasnip
 
 - for nixd make it not break whenever not provided home-manager options
 
-- also make nixd only look at root_dir for the above
-
 - make VimTex TOC use trouble somehow
-
-- make yazi.nvim use system yazi somehow; that is, make it so that the '-'
-  bind doesnt open another yazi
-
-- make it so that snacks.image doesn't render inline image
 
 - make everything use trouble
 
@@ -73,4 +61,6 @@
 - get a fuzzy finder working for named workspace switching
 - describe all mappings
 - copy end-4/dots
-- for KB's consider \<prefix> \<Num> for eitehr monitor or workspaces?
+- look at omarchy but do not use(cant anyway lol)
+- fcitx5??
+- for KB's consider \<prefix> \<Num> for either monitor or workspaces?

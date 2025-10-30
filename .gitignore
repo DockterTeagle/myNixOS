@@ -4,3 +4,7 @@
 .devenv/
 .cache/
 .data/
+/lefthook.yml
+/.cz.toml
+/treefmt.toml
+/.conform.yaml
