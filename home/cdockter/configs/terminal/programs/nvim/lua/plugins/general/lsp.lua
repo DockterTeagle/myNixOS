@@ -2,6 +2,7 @@ return {
   {
     "jinzhongjia/LspUI.nvim",
     branch = "main",
+    event = "LspAttach",
     dependencies = {
 
       "OXY2DEV/markview.nvim",

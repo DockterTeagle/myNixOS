@@ -6,7 +6,7 @@ local M = {
   -- your own keymap.
 
   ---@module 'blink.cmp'
-  ---@type blink.cmpblink.cmp.Config
+  ---@type blink.cmp.Config
   completion = {
     ghost_text = {
       enabled = true,
@@ -30,9 +30,9 @@ local M = {
       },
     },
     accept = {
-      -- auto_brackets = {
-      -- 	enabled = true,
-      -- },
+      auto_brackets = {
+        enabled = true,
+      },
     },
   },
   keymap = {

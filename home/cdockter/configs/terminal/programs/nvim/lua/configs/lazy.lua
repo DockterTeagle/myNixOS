@@ -1,4 +1,7 @@
-return {
+return
+---@module "lazy"
+---@type "LazyConfig"
+{
   defaults = { lazy = true },
   rocks = {
     enabled = false,
