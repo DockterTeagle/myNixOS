@@ -1,10 +1,17 @@
+{ pkgs, ... }:
 {
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv = {
+  programs = {
+    nix-your-shell = {
       enable = true;
-      # package = pkgs.lixPackageSets.git.nix-direnv;
+      nix-output-monitor.enable = true;
+    };
+    direnv = {
+      enable = true;
+      nix-direnv = {
+        enable = true;
+        package = pkgs.lixPackageSets.git.nix-direnv;
+      };
     };
   };
 }

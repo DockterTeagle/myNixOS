@@ -10,7 +10,7 @@
     ./nh.nix
   ];
   nix = {
-    package = pkgs.nixVersions.latest;
+    package = pkgs.lixPackageSets.git.lix;
     extraOptions = ''
       !include ${config.sops.secrets."nixAccessTokens".path}
     '';
