@@ -1,22 +1,13 @@
 {
   description = "My nixos flake";
   inputs = {
-    hyprshell = {
-      url = "github:H3rmt/hyprshell";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        flake-parts.follows = "flake-parts";
-      };
-    };
+    hyprshell.url = "github:H3rmt/hyprshell";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    # keep-sorted start block=true newline_separated=false
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     disko.url = "github:nix-community/disko";
     flake-parts.url = "github:hercules-ci/flake-parts";
     ghostty.url = "github:ghostty-org/ghostty";
-    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,17 +19,17 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
     # nix-unit.url = "github:nix-community/nix-unit";
-    nixos-anywhere = {
-      url = "github:nix-community/nixos-anywhere";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        disko.follows = "disko";
-        treefmt-nix.follows = "treefmt-nix";
-        flake-parts.follows = "flake-parts";
-      };
-    };
+    # nixos-anywhere = {
+    #   url = "github:nix-community/nixos-anywhere";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     disko.follows = "disko";
+    #     treefmt-nix.follows = "treefmt-nix";
+    #     flake-parts.follows = "flake-parts";
+    #   };
+    # };
     # Core Nix Packages and Flakes
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
@@ -51,113 +42,86 @@
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # keep-sorted end
   };
   outputs =
     inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
-      { withSystem, ... }:
-      {
-        systems = [ "x86_64-linux" ];
-        debug = true;
-        imports = with inputs; [
-          ./flake
-          # nix-unit.modules.flake.default
-          # nixos-healthchecks.flakeModule
-          # nixos-healthchecks.nixosModules.default
-          # home-manager.flakeModules.default
-          disko.flakeModules.default
-        ];
-        perSystem =
-          { system, ... }:
-          {
-            _module.args.pkgs = import inputs.nixpkgs {
-              inherit system;
-              overlays = with inputs; [
-                neorocks.overlays.default
-                # gen-luarc.overlays.default
-              ];
-              config = {
-                nvidia.acceptLicense = true;
-                allowUnfree = true;
-                allowSubstitutes = false;
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+      debug = true;
+      imports = with inputs; [
+        ./flake
+        home-manager.flakeModules.default
+        disko.flakeModules.default
+        # nix-unit.modules.flake.default
+        # nixos-healthchecks.flakeModule
+        # nixos-healthchecks.nixosModules.default
+      ];
+      flake =
+        let
+          pkgs = import inputs.nixpkgs {
+            system = "x86_64-linux";
+            config = {
+              nvidia.acceptLicense = true;
+              allowUnfree = true;
+              allowSubstitutes = false;
+            };
+            overlays = with inputs; [ neorocks.overlays.default ];
+          };
+          config = import ./globals { inherit inputs pkgs; };
+          inherit (config) cdockterSettings;
+
+          # Common arguments for nixosConfigurations
+        in
+        {
+          # diskoConfigurations = {
+          #   msi = import ./msi-disko.nix;
+          # };
+          nixosConfigurations = {
+            nixos = inputs.nixpkgs.lib.nixosSystem {
+              inherit pkgs;
+              specialArgs = {
+                inherit
+                  inputs
+                  cdockterSettings
+                  ;
               };
+              modules = with inputs; [
+                ./system
+                chaotic.nixosModules.default
+                stylix.nixosModules.stylix
+                disko.nixosModules.disko
+                sops-nix.nixosModules.sops
+                nix-gaming.nixosModules.pipewireLowLatency
+                nix-gaming.nixosModules.platformOptimizations
+                nixos-hardware.nixosModules.common-pc-laptop
+                nixos-hardware.nixosModules.common-pc-laptop-ssd
+                nixos-hardware.nixosModules.common-pc-laptop-hdd
+                nixos-hardware.nixosModules.common-cpu-intel
+                nixos-hardware.nixosModules.common-gpu-nvidia-sync
+              ];
+            };
+
+          };
+          homeConfigurations = {
+            cdockter = inputs.home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              extraSpecialArgs = {
+                inherit
+                  # pkgs
+                  inputs
+
+                  cdockterSettings
+                  ;
+              };
+              modules = with inputs; [
+                ./home/cdockter
+                zen-browser.homeModules.twilight
+                stylix.homeModules.stylix
+                sops-nix.homeManagerModules.sops
+                nix-index-database.homeModules.nix-index
+              ];
             };
           };
-        flake = {
-          diskoConfigurations = {
-            msi = import ./msi-disko.nix;
-          };
-          nixosConfigurations = {
-            nixos = withSystem "x86_64-linux" (
-              { pkgs, inputs', ... }:
-              let
-                config = import ./globals { inherit inputs pkgs; };
-                inherit (config) systemSettings cdockterSettings;
-
-                # Common arguments for nixosConfigurations
-              in
-              inputs.nixpkgs.lib.nixosSystem {
-                inherit pkgs;
-                specialArgs = {
-                  inherit
-                    inputs
-                    systemSettings
-                    cdockterSettings
-                    inputs'
-                    ;
-                };
-                modules = with inputs; [
-                  ./system
-                  chaotic.nixosModules.default
-                  stylix.nixosModules.stylix
-                  disko.nixosModules.disko
-                  sops-nix.nixosModules.sops
-                  nix-gaming.nixosModules.pipewireLowLatency
-                  nix-gaming.nixosModules.platformOptimizations
-                  inputs.nixos-hardware.nixosModules.common-pc-laptop
-                  inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
-                  inputs.nixos-hardware.nixosModules.common-pc-laptop-hdd
-                  inputs.nixos-hardware.nixosModules.common-cpu-intel
-                  inputs.nixos-hardware.nixosModules.common-gpu-nvidia-sync
-
-                ];
-              }
-            );
-          };
-
-          homeConfigurations = {
-            cdockter = withSystem "x86_64-linux" (
-              { pkgs, inputs', ... }:
-              let
-                config' = import ./globals { inherit inputs pkgs; };
-                inherit (config') systemSettings cdockterSettings;
-
-                # Common arguments for nixosConfigurations
-              in
-              inputs.home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                extraSpecialArgs = {
-                  inherit
-                    pkgs
-                    inputs
-                    inputs'
-                    systemSettings
-                    cdockterSettings
-                    ;
-                };
-                modules = with inputs; [
-                  ./home/cdockter
-                  zen-browser.homeModules.twilight
-                  stylix.homeModules.stylix
-                  sops-nix.homeManagerModules.sops
-                  nix-index-database.homeModules.nix-index
-                ];
-              }
-            );
-          };
-
         };
-      }
-    );
+    };
 }
