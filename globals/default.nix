@@ -2,7 +2,6 @@
 let
   cdockterSettings = {
     username = "cdockter";
-    description = "Christopher Ryan Dockter";
     email = "65212972+DockterTeagle@users.noreply.github.com";
     term = "ghostty";
     editor = "nvim";
