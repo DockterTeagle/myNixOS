@@ -57,9 +57,11 @@
     fish.enable = true;
   };
 
-  # System Auto Upgrade
   system = {
-    autoUpgrade.enable = false;
+    autoUpgrade = {
+      enable = true;
+      flake = "/home/cdockter/Documents/myNixOS";
+    };
 
     # NixOS Release Version
     stateVersion = "25.05"; # Did you read the comment?

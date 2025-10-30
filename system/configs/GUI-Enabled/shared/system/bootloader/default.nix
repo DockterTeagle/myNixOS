@@ -1,8 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   boot = {
-    # kernelModules = [ "msi-ec" ];
-    extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
     plymouth = {
       enable = true;
     };

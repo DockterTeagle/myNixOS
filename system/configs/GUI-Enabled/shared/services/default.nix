@@ -3,7 +3,10 @@
 {
   imports = [ ./solaar.nix ];
   services = {
-    hardware.openrgb.enable = true;
+    hardware = {
+      openrgb.enable = true;
+      bolt.enable = true;
+    };
     scx.enable = true;
     fwupd.enable = true;
     libinput.enable = true;
