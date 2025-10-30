@@ -3,7 +3,7 @@
   imports = [ inputs.hyprshell.homeModules.hyprshell ];
   programs.hyprshell = {
     enable = true;
-    inherit (inputs.hyprland.packages.${pkgs.system}) hyprland;
+    inherit (inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}) hyprland;
     settings = {
       windows = {
         enable = true;

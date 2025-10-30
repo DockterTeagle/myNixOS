@@ -7,22 +7,27 @@
     portalPackage = null;
     settings = {
       general = {
-        gaps_in = 10;
-        gaps_out = 14;
-        border_size = 3;
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 2;
         layout = "dwindle";
-        resize_on_border = true;
+        resize_on_border = false;
+        allow_tearing = true;
       };
       "$mainMod" = "SUPER_L"; # Mod key(or windows key if you are a heathen)
-      "$secondMod" = "SUPER_R";
+      # "$secondMod" = "SUPER_R";
       "$term" = "${cdockterSettings.term}"; # terminal
       ecosystem = {
         # enforce_permissions = true;
+        #TODO: enforce permission
       };
       dwindle = {
         pseudotile = true;
         preserve_split = true;
-        # smart_split = true;
+        force_split = 2;
+      };
+      master = {
+        new_status = "master";
       };
       cursor = {
         no_hardware_cursors = 1;
