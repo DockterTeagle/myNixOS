@@ -1,12 +1,14 @@
 { lib, ... }:
 {
   services = {
-    power-profiles-daemon.enable = lib.mkForce false;
     illum = {
       enable = true;
     };
-    tlp = {
+    tuned = {
       enable = true;
+    };
+    tlp = {
+      enable = lib.mkForce false;
       settings = {
         BluetoothPowerSave = 0;
         CPU_ENERGY_PERF_POLICY_ON_BAT = "power";

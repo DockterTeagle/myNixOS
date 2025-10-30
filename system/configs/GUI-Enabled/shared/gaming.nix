@@ -1,11 +1,12 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
   #NOTE: NONE OF ME ARE MODULES --check date 08/22/25
   environment.systemPackages = with pkgs; [
-    mcontrolcenter
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-discord-ipc-bridge
     (heroic.override {
       extraPkgs = pkgs: [
         pkgs.gamescope
