@@ -13,7 +13,6 @@
     neorocks.url = "github:nvim-neorocks/neorocks";
     flint.url = "github:NotAShelf/flint";
     nh.url = "github:nix-community/nh";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
     # Core Nix Packages and Flakes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -78,8 +77,6 @@
                 stylix.nixosModules.stylix
                 disko.nixosModules.disko
                 sops-nix.nixosModules.sops
-                nix-gaming.nixosModules.pipewireLowLatency
-                nix-gaming.nixosModules.platformOptimizations
                 nixos-hardware.nixosModules.common-pc-laptop
                 nixos-hardware.nixosModules.common-pc-laptop-ssd
                 nixos-hardware.nixosModules.common-pc-laptop-hdd
