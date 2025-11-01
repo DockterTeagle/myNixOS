@@ -16,8 +16,15 @@
     '';
     settings = {
       experimental-features = [
+        "auto-allocate-uids"
+        "lix-custom-sub-commands"
+        # "parse-toml-timestamps"
         "nix-command"
         "flakes"
+        "fetch-closure"
+        "cgroups"
+        # "ca-derivations"
+        "pipe-operator"
       ];
     };
   };
