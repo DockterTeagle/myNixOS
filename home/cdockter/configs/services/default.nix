@@ -1,6 +1,9 @@
 {
   imports = [
     ./cliphist.nix
+    ./amberol.nix
+    ./recoll.nix
+    ./easyeffects.nix
   ];
   services = {
     playerctld.enable = true;
