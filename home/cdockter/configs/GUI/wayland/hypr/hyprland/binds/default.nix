@@ -7,6 +7,7 @@
     ./submaps.nix
   ];
   wayland.windowManager.hyprland.settings = {
+    bindr = [ "SUPER_L,SUPER_L,exec,hyprlauncher" ];
     bind = [
       #shortcuts
       "$mainMod,c,killactive,"

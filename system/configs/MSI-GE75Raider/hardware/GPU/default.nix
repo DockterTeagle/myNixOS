@@ -6,8 +6,8 @@
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       open = true;
       powerManagement = {
-        enable = false;
-        finegrained = false;
+        enable = true;
+        # finegrained = true;
       };
       nvidiaSettings = true;
       prime = {

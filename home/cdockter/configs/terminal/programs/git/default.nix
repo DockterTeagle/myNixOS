@@ -4,5 +4,6 @@
     ./gh.nix
     ./gpg.nix
     ./jujutsu.nix
+    ./jjui.nix
   ];
 }

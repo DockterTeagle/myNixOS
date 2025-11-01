@@ -107,22 +107,4 @@ return {
       },
     },
   },
-  -- {
-  -- 	"echasnovski/mini.icons",
-  -- 	opts = {
-  -- 		file = {
-  -- 			[".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
-  -- 			["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
-  -- 		},
-  -- 		directory = {
-  -- 			pictures = {
-  -- 				glyph = "󰉏",
-  -- 				hl = "MiniIconsOrange",
-  -- 			},
-  -- 		},
-  -- 		filetype = {
-  -- 			dotenv = { glyph = "", hl = "MiniIconsYellow" },
-  -- 		},
-  -- 	},
-  -- },
 }

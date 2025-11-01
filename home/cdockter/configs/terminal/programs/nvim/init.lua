@@ -28,6 +28,7 @@ vim.schedule(function()
 end)
 vim.lsp.config("*", {
   on_attach = require("configs.lsp.lspconfigDefaults").on_attach,
+  -- capabilities = {}
 })
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup(
@@ -48,3 +49,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP: Disable hover capability from Ruff",
 })
 require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path }
+vim.cmd [[colorscheme tokyonight]]

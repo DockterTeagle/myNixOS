@@ -6,8 +6,8 @@
       "$mainMod, mouse:273, resizewindow"
     ];
     bind = [
-      # "$mainMod,mouse_left, split-workspace,-1"
-      # "$mainMod,mouse_right, split-workspace,+1"
+      "$mainMod,mouse_left, split-workspace,-1"
+      "$mainMod,mouse_right, split-workspace,+1"
     ];
   };
 }

@@ -1,7 +1,4 @@
-{
-  cdockterSettings,
-  ...
-}:
+{ cdockterSettings, ... }:
 {
   programs.hyprpanel = {
     enable = true;
@@ -38,7 +35,7 @@
         };
       };
       menus = {
-        power.logout = "uwsm stop";
+        # power.logout = "uwsm stop";
         clock = {
           weather = {
             enabled = false;

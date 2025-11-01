@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./hardware
-  ];
-}
+{ imports = [ ./hardware ]; }

@@ -2,9 +2,6 @@
 {
 
   home = {
-    file.".config/uwsm/env-hyprland".text = ''
-      export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
-    '';
     preferXdgDirectories = true;
     shell.enableShellIntegration = true;
     stateVersion = "25.05";
@@ -24,6 +21,7 @@
       QT_QPA_PLATFORM = "wayland;xcb";
       LIBVA_DRIVE_NAME = "nvidia";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      OBSIDIAN_USE_WAYLAND = 1;
     };
   };
 }

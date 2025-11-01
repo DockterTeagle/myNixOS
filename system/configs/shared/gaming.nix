@@ -1,17 +1,5 @@
+{ pkgs, ... }:
 {
-  pkgs,
-  ...
-}:
-{
-  #NOTE: NONE OF ME ARE MODULES --check date 08/22/25
-
-  # environment.systemPackages = with pkgs; [
-  #   (heroic.override {
-  #     extraPkgs = pkgs: [
-  #       pkgs.gamescope
-  #     ];
-  #   })
-  # ];
   hardware = {
     keyboard.qmk.enable = true;
     xone.enable = true;
@@ -29,14 +17,13 @@
     };
     steam = {
       enable = true;
-      protontricks.enable = true;
       extest.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
       extraCompatPackages = with pkgs; [
-        proton-ge-custom
-        proton-cachyos_x86_64_v3
+        proton-ge-bin
+        # proton-cachyos_x86_64_v3
       ];
     };
   };

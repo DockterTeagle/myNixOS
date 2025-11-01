@@ -1,4 +1,6 @@
+{ inputs, ... }:
 {
+  imports = with inputs; [ sops-nix.nixosModules.sops ];
   sops = {
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";

@@ -22,8 +22,8 @@
       "$mainMod_SHIFT , 9,switch to ninth workspace on monitor, workspace, r~9"
       "$mainMod , 0,Switch to workspace 10, workspace, 10"
       "$mainMod_SHIFT , 0,switch to tenth workspace on monitor, workspace, r~10"
-      # "$mainMod_SHIFT,h,move to the right one workspace,split-movetoworkspace,-1"
-      # "$mainMod_SHIFT,l,move to the left one workspace,split-movetoworkspace,+1"
+      "$mainMod_SHIFT,h,move to the right one workspace,split-movetoworkspace,-1"
+      "$mainMod_SHIFT,l,move to the left one workspace,split-movetoworkspace,+1"
     ];
   };
 }

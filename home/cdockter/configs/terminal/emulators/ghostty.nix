@@ -4,7 +4,7 @@
     enable = true;
     package = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
     clearDefaultKeybinds = true;
-    systemd.enable = true;
+    # systemd.enable = true;
     settings = {
       gtk-titlebar = false;
       window-decoration = false;

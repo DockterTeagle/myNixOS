@@ -1,15 +1,10 @@
 { pkgs, ... }:
 {
-  #TODO: check if any of me are modules
+  # NOTE: None are modules last check date 11/22/2025
   home.packages = with pkgs; [
     axel
     rsync
     ddcutil
-    kdePackages.plasma-nm
-    kdePackages.bluedevil
-    kdePackages.dolphin
-    kdePackages.systemsettings
-    nwg-displays
     imagemagick
     songrec
   ];

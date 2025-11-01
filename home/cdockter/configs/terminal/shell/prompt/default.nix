@@ -1,3 +1,1 @@
-{
-  imports = [ ./starship ];
-}
+{ imports = [ ./starship ]; }

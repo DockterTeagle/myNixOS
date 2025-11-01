@@ -36,56 +36,31 @@ return {
     ---@module 'obsidian'
     ---@type obsidian.config.ClientOpts
     opts = {
-      frontmatter = {
-        enabled = true,
-        func = function(note)
-          if note.title then
-            note:add_alias(note.title)
-          end
-          local out = { id = note.id, aliases = note.aliases, tags = note.tags }
-          -- `note.metadata` contains any manually added fields in the frontmatter.
-          -- So here we just make sure those fields are kept in the frontmatter.
-          if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-            for k, v in pairs(note.metadata) do
-              out[k] = v
-            end
-          end
-          if not out["created"] then
-            out["created"] = os.date "%Y-%m-%dT%H:%M"
-          end
-
-          out["updated"] = os.date "%Y-%m-%dT%H:%M"
-          return out
-        end,
-      },
       legacy_commands = false,
-      notes_subdir = "notes",
-      open = {
-        use_advanced_uri = true,
-      },
+      notes_subdir = "Notes",
       daily_notes = {
-        folder = "notes/Periodic/Daily",
+        folder = "Notes/DailyTasks",
       },
       templates = {
-        folder = "templates",
-        date_format = "%Y-%m-%dT%H:%M",
+        folder = "Templates",
+        -- date_format = "%Y-%m-%dT%H:%M",
         -- A map for custom variables, the key should be the variable and the value a function
-        substitutions = {
-          created = function()
-            return os.date "%Y-%m-%dT%H:%M"
-          end,
-          updated = function()
-            return os.date "%Y-%m-%dT%H:%M"
-          end,
-          id = function()
-            -- get full path of current buffer
-            local filename = vim.api.nvim_buf_get_name(0)
-            -- extract file name without path
-            filename = filename:match "^.+/(.+)$" or filename
-            -- remove the .md extension
-            return filename:gsub("%.md$", "")
-          end,
-        },
+        -- substitutions = {
+        --   created = function()
+        --     return os.date "%Y-%m-%dT%H:%M"
+        --   end,
+        --   updated = function()
+        --     return os.date "%Y-%m-%dT%H:%M"
+        --   end,
+        --   id = function()
+        --     -- get full path of current buffer
+        --     local filename = vim.api.nvim_buf_get_name(0)
+        --     -- extract file name without path
+        --     filename = filename:match "^.+/(.+)$" or filename
+        --     -- remove the .md extension
+        --     return filename:gsub("%.md$", "")
+        --   end,
+        -- },
       },
 
       picker = {

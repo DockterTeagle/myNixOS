@@ -59,12 +59,20 @@ return {
           },
         },
       },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        db = {
+          sqlite3_path = vim.g.sqlite_clib_path,
+        },
+      },
       animate = { enabled = true },
       bigfile = { enabled = true },
       bufdelete = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
+      gh = {
+        enabled = true,
+      },
       image = {
         enabled = false,
         resolve = function(path, src)

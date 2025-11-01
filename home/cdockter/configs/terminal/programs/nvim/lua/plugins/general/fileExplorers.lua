@@ -25,7 +25,7 @@ return {
     lazy = false,
     version = false,
     opts = {
-      debug = { enabled = true, show_Scores = true },
+      debug = { enabled = true, show_scores = true },
     },
   },
 }

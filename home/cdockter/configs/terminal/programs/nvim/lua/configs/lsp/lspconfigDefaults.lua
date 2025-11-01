@@ -35,22 +35,26 @@ M.on_attach = function(client, bufnr)
   map("n", "gy", function()
     Snacks.picker.lsp_type_definitions()
   end, opts "Go to type definition")
+  if client:supports_method "textDocument/foldingRange" then
+    local win = vim.api.nvim_get_current_win()
+    vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+  end
   map("n", "[d", function()
     vim.diagnostic.jump {
       count = -1,
-      severity = {
-        min = vim.diagnostic.severity.WARN,
-        max = vim.diagnostic.severity.ERROR,
-      },
+      -- severity = {
+      --   min = vim.diagnostic.severity.WARN,
+      --   max = vim.diagnostic.severity.ERROR,
+      -- },
     }
   end, opts "prev diagnostic")
   map("n", "]d", function()
     vim.diagnostic.jump {
       count = 1,
-      severity = {
-        min = vim.diagnostic.severity.WARN,
-        max = vim.diagnostic.severity.ERROR,
-      },
+      -- severity = {
+      --   min = vim.diagnostic.severity.WARN,
+      --   max = vim.diagnostic.severity.ERROR,
+      -- },
     }
   end, opts "next diagnostic")
   if client:supports_method "textDocument/inlayHint" then

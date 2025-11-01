@@ -1,7 +1,5 @@
 let
-  inherit (builtins)
-    concatStringsSep
-    ; # Top corner # Bottom corner"
+  inherit (builtins) concatStringsSep; # Top corner # Bottom corner"
 in
 {
   add_newline = false;

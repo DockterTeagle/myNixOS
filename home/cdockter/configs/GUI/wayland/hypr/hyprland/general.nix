@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = false; # using uwsm
+    systemd.enable = true;
     package = null;
     portalPackage = null;
     settings = {
@@ -44,11 +44,12 @@
         }
         {
           output = "HDMI-A-1";
-          mode = "3840x2160@60";
+          mode = "2560x1440@60";
           position = "1920x0";
-          scale = 1.5;
+          scale = 1.25;
         }
       ];
+      env = [ "AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1" ];
       input = {
         accel_profile = "flat";
         kb_layout = "us";

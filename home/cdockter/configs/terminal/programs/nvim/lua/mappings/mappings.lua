@@ -7,7 +7,7 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 wk.add {
   { "<leader>f", group = "find" },
   { "<leader>n", group = "Neo" },
-  { "<leader>gh", group = "(g)it (h)unk" },
+  -- { "<leader>gh", group = "(g)it (h)unk" },
   { "<leader>t", group = "trouble" },
   { "\\", group = "Core" },
   { "<leader>l", group = "lsp" },
@@ -37,24 +37,6 @@ end, { desc = "next Todo Comment" })
 map("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous Todo Comment" })
-vim.keymap.set("n", "zR", function()
-  require("ufo").openAllFolds()
-end, { desc = "open All Folds(ufo)" })
-map("n", "zM", function()
-  require("ufo").closeAllFolds()
-end, { desc = "close all Folds(UFO)" })
-vim.keymap.set("n", "zr", function()
-  require("ufo").openFoldsExceptKinds()
-end, { desc = "open Folds Except Kinds" })
-vim.keymap.set("n", "zm", function()
-  require("ufo").closeFoldsWith()
-end, { desc = "closed all folds with simlair properties " })
--- vim.keymap.set("n", "K", function()
---   local winid = require("ufo").peekFoldedLinesUnderCursor()
---   if not winid then
---     require("LspUI").api.hover
---   end
--- end, { desc = "super key for LSP and fold" })
 vim.keymap.set(
   "n",
   "<leader>tqt",
@@ -115,9 +97,9 @@ vim.api.nvim_create_autocmd("User", {
     )
     vim.keymap.set(
       "n",
-      "<leader>ff",
+      "<leader>fw",
       "<CMD>Obsidian search<CR>",
-      { buffer = ev.buf, desc = "search with obsidian", noremap = false }
+      { buffer = ev.buf, desc = "search with obsidian", noremap = true }
     )
     vim.keymap.set(
       "n",
@@ -127,13 +109,13 @@ vim.api.nvim_create_autocmd("User", {
     )
     vim.keymap.set(
       "n",
-      "<leader>fF",
+      "<leader>ff",
       "<CMD>Obsidian quick_switch<CR>",
       { buffer = ev.buf, desc = "Quickly find a note" }
     )
   end,
 })
-vim.keymap.set("n", "K", "<CMD>LspUI hover<CR>")
+-- vim.keymap.set("n", "K", "<CMD>LspUI hover<CR>")
 vim.keymap.set(
   "n",
   "<leader>ou",

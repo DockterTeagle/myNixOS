@@ -41,15 +41,19 @@ return {
     "folke/tokyonight.nvim",
     priority = 1000,
     lazy = false,
-    init = function()
-      vim.cmd [[colorscheme tokyonight]]
-    end,
     opts = {
       style = "night",
-      terminal_colors = true,
+      styles = {
+        comments = {
+          italic = true,
+        },
+      },
       plugins = {
         blink = true,
         neogit = true,
+        flash = true,
+        lazy = true,
+        noice = true,
       },
     },
   },

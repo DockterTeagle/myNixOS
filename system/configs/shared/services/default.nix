@@ -3,6 +3,7 @@
 {
   imports = [ ./solaar.nix ];
   services = {
+    gnome.gnome-keyring.enable = true;
     hardware = {
       openrgb.enable = true;
       bolt.enable = true;

@@ -5,14 +5,12 @@
     mprocs # run processes in parallel
     uutils-coreutils-noprefix
   ];
-  programs.nix-index.enable = true;
-  programs.bluetuith.enable = true;
-  programs.pay-respects = {
-    enable = true;
-    options = [
-      "--alias"
-      "tf"
-    ];
+  programs = {
+    nix-index.enable = true;
+    bluetuith.enable = true;
+    pay-respects = {
+      enable = true;
+    };
   };
   imports = [
     ./systemmonitors

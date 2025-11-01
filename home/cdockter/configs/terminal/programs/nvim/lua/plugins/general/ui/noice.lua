@@ -4,9 +4,9 @@ return {
   "folke/noice.nvim",
   event = "VeryLazy",
   dependencies = {
-    -- {
-    --   "jinzhongjia/LspUI.nvim",
-    -- },
+    {
+      "jinzhongjia/LspUI.nvim",
+    },
     {
       "MunifTanjim/nui.nvim",
     },

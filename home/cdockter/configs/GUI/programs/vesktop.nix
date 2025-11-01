@@ -1,22 +1,5 @@
 {
   programs.vesktop = {
-    vencord = {
-      # useSystem = true;
-      settings = {
-        autoUpdate = false;
-        autoUpdateNotification = false;
-        notifyAboutUpdates = false;
-        useQuickCss = true;
-        disableMinSize = true;
-        plugins = {
-          MessageLogger = {
-            enabled = false;
-            ignoreSelf = true;
-          };
-          FakeNitro.enabled = true;
-        };
-      };
-    };
     enable = true;
     settings = {
       appBadge = false;
@@ -32,6 +15,23 @@
       staticTitle = true;
       hardwareAcceleration = true;
       discordBranch = "beta";
+    };
+    vencord = {
+      # useSystem = true;
+      settings = {
+        autoUpdate = false;
+        autoUpdateNotification = false;
+        notifyAboutUpdates = false;
+        useQuickCss = true;
+        disableMinSize = true;
+        plugins = {
+          # MessageLogger = {
+          #   enabled = false;
+          #   ignoreSelf = true;
+          # };
+          FakeNitro.enabled = true;
+        };
+      };
     };
   };
 }
