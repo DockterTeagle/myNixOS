@@ -1,7 +1,7 @@
 { cdockterSettings, ... }:
 {
   stylix = {
-    image = ../../assets/pictures/wallpaper-dread.png;
+    image = ../../assets/wallpaper-dread.png;
     enable = true;
     polarity = "dark";
     fonts = {

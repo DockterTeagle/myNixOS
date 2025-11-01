@@ -7,7 +7,7 @@
   stylix = {
     enable = true;
     base16Scheme = cdockterSettings.theme;
-    image = ../../../assets/pictures/wallpaper-dread.png;
+    image = ../../../assets/wallpaper-dread.png;
     targets = {
       neovim.enable = false;
       zen-browser = {
