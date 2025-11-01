@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  inputs,
   ...
 }:
 {
@@ -46,7 +45,6 @@
   # Programs
   programs = {
     nh = {
-      package = inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.default;
       enable = true;
       clean = {
         enable = true;
@@ -67,4 +65,12 @@
     # NixOS Release Version
     stateVersion = "25.05"; # Did you read the comment?
   };
+  environment.systemPackages = with pkgs; [
+    kdePackages.plasma-nm
+    # kdePackages.bluedevil
+    kdePackages.dolphin
+    kdePackages.systemsettings
+    nwg-displays
+
+  ];
 }
