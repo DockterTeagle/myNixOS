@@ -7,5 +7,6 @@
     ./obsidian.nix
     ./spotify.nix
     ./vesktop.nix
+    ./cava.nix
   ];
 }

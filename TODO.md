@@ -57,6 +57,7 @@
 - get a fuzzy finder working for named workspace switching
 - describe all mappings
 - copy end-4/dots
+- switch to quickshell
 - look at omarchy but do not use(cant anyway lol)
 - fcitx5??
 - for KB's consider \<prefix> \<Num> for either monitor or workspaces?

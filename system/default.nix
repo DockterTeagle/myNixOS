@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
@@ -45,6 +46,7 @@
   # Programs
   programs = {
     nh = {
+      package = inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.default;
       enable = true;
       clean = {
         enable = true;

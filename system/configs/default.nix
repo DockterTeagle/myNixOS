@@ -5,9 +5,10 @@
     age
   ];
   imports = [
-    ./terminal
     ./stylix.nix
     ./nix.nix
-    ./GUI-Enabled
+    ./shared
+    ./MSI-GE75Raider
   ];
+  fonts.fontconfig.enable = true;
 }

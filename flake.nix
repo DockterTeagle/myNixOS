@@ -1,9 +1,7 @@
 {
   description = "My nixos flake";
   inputs = {
-    hyprshell.url = "github:H3rmt/hyprshell";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     disko.url = "github:nix-community/disko";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -12,30 +10,26 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
     neorocks.url = "github:nvim-neorocks/neorocks";
     flint.url = "github:NotAShelf/flint";
     nh.url = "github:nix-community/nh";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.url = "github:nix-community/nix-index-database";
-    # nix-unit.url = "github:nix-community/nix-unit";
-    # nixos-anywhere = {
-    #   url = "github:nix-community/nixos-anywhere";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     disko.follows = "disko";
-    #     treefmt-nix.follows = "treefmt-nix";
-    #     flake-parts.follows = "flake-parts";
-    #   };
-    # };
     # Core Nix Packages and Flakes
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
+    ## Hyprland
+    hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
+    hyprshell.url = "github:H3rmt/hyprshell";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
-    stylix.url = "github:nix-community/stylix";
+    stylix.url = "github:nix-community/stylix"; # I want to replace
     treefmt-nix.url = "github:numtide/treefmt-nix";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -52,9 +46,6 @@
         ./flake
         home-manager.flakeModules.default
         disko.flakeModules.default
-        # nix-unit.modules.flake.default
-        # nixos-healthchecks.flakeModule
-        # nixos-healthchecks.nixosModules.default
       ];
       flake =
         let
@@ -70,12 +61,8 @@
           config = import ./globals { inherit inputs pkgs; };
           inherit (config) cdockterSettings;
 
-          # Common arguments for nixosConfigurations
         in
         {
-          # diskoConfigurations = {
-          #   msi = import ./msi-disko.nix;
-          # };
           nixosConfigurations = {
             nixos = inputs.nixpkgs.lib.nixosSystem {
               inherit pkgs;
@@ -107,9 +94,7 @@
               inherit pkgs;
               extraSpecialArgs = {
                 inherit
-                  # pkgs
                   inputs
-
                   cdockterSettings
                   ;
               };

@@ -1,4 +1,8 @@
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    lxqt.pavucontrol-qt
+  ];
   services = {
     pipewire = {
       enable = true;

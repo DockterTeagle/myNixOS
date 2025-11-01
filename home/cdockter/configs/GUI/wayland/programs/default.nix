@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./wlogout
-    ./quickshell
-  ];
-}
