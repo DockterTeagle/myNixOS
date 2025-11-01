@@ -7,5 +7,6 @@
     ",XF86MonBrightnessDown,lower brightness,exec,brightnessctl s 5%-"
     ",XF86MonBrightnessUp,raise brightness,exec,brightnessctl s +5%"
     ",XF86AudioPlay, toggle media, exec, playerctl play-pause"
+    "Super+Shift,N,next song,exec, playerctl next|| playerctl position `bc <<< \"100 * $(playerctl metadata mpris:length) / 1000000 / 100\"`"
   ];
 }

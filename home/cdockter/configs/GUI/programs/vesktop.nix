@@ -1,6 +1,7 @@
 {
   programs.vesktop = {
     vencord = {
+      # useSystem = true;
       settings = {
         autoUpdate = false;
         autoUpdateNotification = false;

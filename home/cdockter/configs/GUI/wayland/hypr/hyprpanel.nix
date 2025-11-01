@@ -1,10 +1,8 @@
 {
   cdockterSettings,
-  pkgs,
   ...
 }:
 {
-  home.packages = with pkgs; [ python313Packages.gpustat ];
   programs.hyprpanel = {
     enable = true;
     settings = {
@@ -55,7 +53,6 @@
           };
         };
         dashboard = {
-          stats.enable_gpu = true;
           directories.enabled = false;
           shortcuts.enabled = false;
         };

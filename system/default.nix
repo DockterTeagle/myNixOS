@@ -1,6 +1,5 @@
 {
   pkgs,
-  cdockterSettings,
   config,
   ...
 }:
@@ -34,7 +33,7 @@
       shell = pkgs.fish;
       isNormalUser = true;
       hashedPasswordFile = config.sops.secrets.cdockter_password.path;
-      inherit (cdockterSettings) description;
+      description = "mainUser";
       extraGroups = [
         "networkmanager"
         "wheel"

@@ -1,12 +1,12 @@
 {
   imports = [
     ./cliphist.nix
-    ./mangohud.nix
   ];
   services = {
     playerctld.enable = true;
     hyprpolkitagent.enable = true;
     hyprsunset.enable = true;
+    yubikey-agent.enable = true;
     wl-clip-persist = {
       enable = true;
     };

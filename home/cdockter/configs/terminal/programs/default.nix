@@ -19,12 +19,9 @@
     ./aesthetics
     ./finders
     ./filemanagers
-    ./gitShit
+    ./git
     ./tmuxAndFriends
     ./nvim
     ./nix
-    ./topgrade.nix
-    ./zathura.nix
-    ./feh.nix
   ];
 }

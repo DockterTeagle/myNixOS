@@ -4,7 +4,46 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[166fc72](166fc72794ba5c1940c635ecabf99c42e78fe824)...[371a9de](371a9de597544e2af600c8ef54dcc329e3df5455)
+[166fc72](166fc72794ba5c1940c635ecabf99c42e78fe824)...[120b24a](120b24ade7a657edb1b79931ace9533c209d0c5b)
+
+### Features
+
+- Add more flake-parts modules I will never use ([33ef059](33ef059e6dbc95081669a3889e7a9e7b641c57d6))
+- Purge the unclean ([9738c54](9738c54fbf54943adfce8dd92bff39836ececa2d))
+- Add more flakes and also update lsp ([96a9160](96a9160d6c1f12a9fe79f4288b63ced58f5e70eb))
+- Make starship more concise ([e53dbde](e53dbded958e9eaed5e9d92d0015a743f2eb690b))
+- Add hyprshell and update keymappings ([60d867e](60d867e8b03b5f378c8727470d273dd1bc1cecd9))
+- Nvim add and remove plugins ([5a10027](5a10027bb77d9b070cd138aee529b2c0a4660389))
+- Switching back to non STD ([7c8eaaf](7c8eaaf016af3a7b2411ff4acbaa570a49020d5e))
+- Remove vale, update todo, removed inputs ([5037172](503717219c9fcde88cb7bfd0b2ebdfe345d53c4c))
+- Remove tlp I dont use it ([6f3b96b](6f3b96b141908b0f3f85064063438aacf438ae6f))
+- Hyprland updated ([23a07b7](23a07b7b001308763f63d608661a5d586fb6fcb8))
+- Nvim ([348a73e](348a73e859b2e4340412581a721395b37b420006))
+
+### Miscellaneous Tasks
+
+- Updated CHANGELOG ([df1854e](df1854ec9a209ca97b5e94454da9884ed254eb25))
+- Apply treefmt ([a2675b8](a2675b8474c277a54b739a5ddd5fca17db152c78))
+- Stashing lazy.nvim ([ed0b282](ed0b282e935737970401dac77383fbaf565aff05))
+- Update flake and *finally* fix issues with card ([b3ccc30](b3ccc3000e8f36d6d4f8aa3d41f2a1985efe9f99))
+- TODO, and flake cleanup ([ae77c39](ae77c39efb224a5b0f811d6d4c2bff52d6a7858c))
+- Formatting ([f9720b0](f9720b0852ac197ba98375bde8ccf4c489bbed56))
+- Remove unused options ([05905e4](05905e4ec2556c0806ae1b3005cddee1a4088ce6))
+- Update TODO and all dotfiles ([c1655f0](c1655f012584d5f8a565cd5d77f41feb6f4feafe))
+- Remove unused modules ([9928b4c](9928b4cb377730c1950801c11e11f6baf7de7114))
+- Remove unused flake-module ([cb7ec1f](cb7ec1f285d798a78fac32310a5d41927d9dc246))
+- Chore(flake): update and remove unused inputs: ([9d05ae4](9d05ae46bc027c5f068d193f77c282a93c485ee6))
+- Remove unused options ([03486f0](03486f0679574712e79bd793ddc2fdfddbc09964))
+- Remove duplicated options and updates ([47b3a84](47b3a846fe34b39f359c32ab51f9d76c183d40c8))
+- Update to latest nixpkgs reqs ([120b24a](120b24ade7a657edb1b79931ace9533c209d0c5b))
+
+### Refactor
+
+- Add nix subdir, also add home-manager expire ([80dd38b](80dd38bfb028d7e0c614ad2c1276138df19c95e5))
+
+### Revert
+
+- Remove partitions ([3d38101](3d38101c96bb41f4fdbed5cfe066fcf9f4a111d2))
 
 ## 2.7 - 2025-08-22
 
@@ -72,7 +111,7 @@ All notable changes to this project will be documented in this file.
 - Update flake.lock ([ad85fde](ad85fde4a1c32b7bd0c2b1f4ec13ec75f300a243))
 - Flake.lock ([9f7ba0e](9f7ba0e03ee0e4e0f3050187800223c550663d53))
 - Remove unused packages and configs ([4444da8](4444da8cb62f77c19d233d94a8350afa48902622))
-- Remove unused packages ([f2604c6](f2604c6c62a40aed0e9f740f6b20ff11655c0e28))
+- Remove unused pakcages ([f2604c6](f2604c6c62a40aed0e9f740f6b20ff11655c0e28))
 - Chore: update flake.lock: ([be54541](be545410055558e0526cae68d6b0f1a1428ee9b1))
 - Remove duplicate packages ([7d1ca98](7d1ca98882d392ae0fd1ff07048d76f9fe4d48a1))
 - Flake ([87bf2bc](87bf2bc66176cda20f25541d0c9b46312c6a2c9b))
@@ -106,7 +145,7 @@ All notable changes to this project will be documented in this file.
 - Fix hyprlock ([100f285](100f2855c7a95aa06aceec258270ea6388c9ce2f))
 - Fix hyprpanel(the file this time) ([fc6ef23](fc6ef235fd1de025a3984e4f2f8f60efe0b79b68))
 - Remove unused options ([8a2f89d](8a2f89d03ef2b4503400410615d12973160540e6))
-- Remove unused packages ([4453c0a](4453c0a17a5aeff8b43edd40c1bad08a0f68545d))
+- Remove unused pacakges ([4453c0a](4453c0a17a5aeff8b43edd40c1bad08a0f68545d))
 - Switch from home-manager to just using a package ([937063e](937063e530904210ffff3c6e5a28e9659a8f9b02))
 - Remove unused abbrs ([5e13e22](5e13e22a28f9d74f1cf6fb511f187a900c8558f9))
 - Chore: flake.lock: ([0076fb8](0076fb8639711d1137a81f75f44c4aad0f780cbb))
@@ -128,7 +167,7 @@ All notable changes to this project will be documented in this file.
 - Go to latest hyprpanel ([9580eb2](9580eb276475733eabcdcb6c3f6729e1d503e28b))
 - Remove unused packages ([c192071](c1920715fa7fdedf08e130e66de4ff4a12582d44))
 - Remove unused packages ([419634f](419634f85732c921d7b816ea7893969cd5199fa5))
-- Remove unused devenv packages ([f9b5683](f9b5683c3905efc96c791cd181f52509d475adbf))
+- Remove unused devenv pacakges ([f9b5683](f9b5683c3905efc96c791cd181f52509d475adbf))
 - Update hyprland bindings ([88453c1](88453c1459cff8dd994afd9310e863f0fd17408c))
 - Remove unused packages ([cfe83e4](cfe83e47028294d8337e746db8666f7c9daf51fc))
 - Chore: flake.lock: ([130f290](130f2905a767b9435a0004e2b781a92136ce5245))
@@ -157,8 +196,8 @@ All notable changes to this project will be documented in this file.
 - Make default.nix nothing more than imports ([4c010c5](4c010c59af7262575ccf2f9c1ab4f2d54d0b0930))
 - Switch to nixfmt ([4370e23](4370e2331eb7cb6b5a8eb7f8869b07bced21732d))
 - Move wayland to GUI ([03a4358](03a4358a4b822be025bd44274ebec105a8a77d8e))
-- Make the flake reference my github repo, instead of abs path ([091cac0](091cac0c35fff00d74846a9f7d43f6fbd25767f1))
-- Remove unused packages(ltex-ls-plus) and format ([91b904b](91b904b62521a50e52c64be7486a91d39102117a))
+- Make the flake refernece my github repo, instead of abs path ([091cac0](091cac0c35fff00d74846a9f7d43f6fbd25767f1))
+- Remove unused pacakges(ltex-ls-plus) and format ([91b904b](91b904b62521a50e52c64be7486a91d39102117a))
 - Use flake-parts with system ([fb57714](fb5771413c572cfa3e102fd1cfbf44cd559a17b5))
 - Move nvim correctly ([db2be5a](db2be5a724dbcf466e612d22f789448102f883de))
 - Compress lines ([f0f0c34](f0f0c349f7bc050b265fe06a152408f0a3e3025e))
@@ -182,10 +221,42 @@ All notable changes to this project will be documented in this file.
 
 ## 2.6 - 2025-06-02
 
-[121a648](121a6487032fdd3f1a75fe9416b551a651272af3)...[8afab68](8afab68756b8f4d15bbebf62a11a6a2b7bc7ca8d)
+[24b01de](24b01de4d929d64ddb7c06fc37ea8dfa0ca295da)...[8afab68](8afab68756b8f4d15bbebf62a11a6a2b7bc7ca8d)
 
 ### Bug Fixes
 
+- Fixed gnome boot issue ([6cf5117](6cf511765f60a0f55fc2d6abc3190bdb3979b42e))
+- Fixed tmux enviroment ([b1e3b0b](b1e3b0be4f8d03150f979a9ba0874af3b122fcfa))
+- Fixed issue with packages ([fed72da](fed72da43775ef90cedabf7e5b7fe14d05110854))
+- Fixed indentation with on-the-go config ([f621081](f62108103b3895a8976be9798687f710a8301208))
+- Fixed issue with firefox ([f251594](f251594b620871c56f547cb09b40cefe2fe29020))
+- Fixed error on rebuild of nixos- it was scan ([e1768c5](e1768c562e078d1e89696a459096c22e262bac52))
+- Fixed neovim nightly error with flake.nix ([f874f02](f874f02e206bc5d0bf8efd0fb7871b6c0c48d3c3))
+- Fixed waybar flake also added the entire nixpkgs-wayland flake ([4c9fc21](4c9fc21dcec88714baec5625ae6dda195df536f3))
+- Fixed color problem in tmux ([6cddd73](6cddd73a2fb10648ec029f6eee01637070e70950))
+- Fixed fonts error ([ea68b74](ea68b7491f5f254371b4ef3a000918007e022264))
+- Fixed merge conflicts with git stash ([af4f66d](af4f66dfa0c941ad097b210cce1d9338c4942799))
+- Fixed issue with cursor ([1d80acc](1d80acc47351456f119eda0fb889422060fd78b0))
+- Fixed merge issue ([15b0d44](15b0d449347fbf2ac72c5d2c0159bf307100bf39))
+- Fixed cursor issue and also changing hyprland looks ([d4d4a69](d4d4a6972115a0cfc237e1a7718c87e54a52396f))
+- Fixed booting issues, still have issue with cpu fans, also added more GUI applications ([ec549f5](ec549f5467f929ca6820f8b0a9acb52f6a1b9d6e))
+- Fixed the overheating and added shell init ([03b1323](03b13232cef5fd91a8b93b446120abf74b1e347c))
+- Fixed regreet issue' ([95619ce](95619cea4d8d05de2be87c5dda67067b1181882b))
+- Fixed dolphin looking like shit(there werent icons) ([3141720](31417200fe2f67cd2cb6dfe6c2cace7628eff34c))
+- Fixed issue with base16.nix by disabling stylix ([468161f](468161f5f5064fd18a9bcbcfe3d4bccbb4774aab))
+- Fixed the issue? ([efbb25e](efbb25e03f5fd659c4f835d752221d0df42a3699))
+- Fixed unable to start hyprland issue ([0411a0a](0411a0a477966c4f84444bb5ebc4897e7c97f850))
+- Fixed hyprpanel issue and added to exec-once ([565cb00](565cb00772ee4650806042f481bc8b2391d7223b))
+- Fixed errors ([02c8cda](02c8cda3f2fb731b6a0bafafa77f75deb294a62e))
+- Remove call to ghostty ([e2c1653](e2c1653a8bf7b0ded91876cd33798925042d5ddb))
+- Topgrade now updates neovim and also updates flakes in parallel ([d43c815](d43c815d616759f997dd6026bc1217840a2f3d65))
+- Actually use the yazi overlay and added n3, though might not use it ([61e2d4f](61e2d4fe1a040a0def626c6c4728a9ee86048ccd))
+- Hyprland now has a reasonable mouse cursor refresh rate ([d31e940](d31e9400d2c2251ccfe508e442cc9b8c6df02111))
+- Typo correction ([7d62ab0](7d62ab0df37b8fca77a931c3a92010b98615208e))
+- Fixed lanzaboote ([7fde853](7fde8536fb4504d1dfb2099d457aedc22c48e1b9))
+- Fix xbox controller issue ([f56c8c9](f56c8c93382521017a6e0c518f539e195bc25e80))
+- Fix(?) ghostty build failure ([841bbcb](841bbcb6885b0cb16c6ba9c97100ef82f017ba47))
+- Make os switch actually build ([9a0472c](9a0472c214205224b7b49015f4c8600538e7ff26))
 - Revert hyprland update ([42c064c](42c064c91a8624177928d9d1d2e4c32e223d5ea9))
 - Fix protonhax ([966748d](966748df09828944f27b36d2d804acf660c33098))
 - Remove truffle hog for now ([82d3689](82d3689bbc89ec469b114222f5d44c6706f82009))
@@ -238,6 +309,38 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- Added tmux-clinet to gitignroe ([aff9958](aff99585be1987d131c07e70595241b48c77a27a))
+- Update zsh and tmux ([fcd8f06](fcd8f069d300bff49ad323601fe92f995d8d8fc0))
+- Added discord execution and added more flakes ([9a23757](9a237572bf3e5c62daa997fcb4202c2174ffd451))
+- Categorized yet to be categorized directory ([57ae6cb](57ae6cb5c7a7a886d3faac61d4ba282e04b4c8d9))
+- Updated hyprland to latest non-breaking commit ([bbb3186](bbb31866f3c960b76d1027fe8c037fc4a7088ff8))
+- Add noto-emoji as the emoji font ([60f2f18](60f2f188b4c2e96b6e8edb14a821a762355242e3))
+- Remove the hardcoded path and instead use the module ([c1d6110](c1d6110df5b123b15ea73d302a59ad2125fb2951))
+- Add ghosty to the default ([3dbb7af](3dbb7af9b4be67265b6b0c91881381bea7401204))
+- Remove unused option ([40e549c](40e549c8d8ab5c750305d563aaeff038d4e2e9e5))
+- Remove unused firmware ([220379e](220379ea77618f01ccf5a18068f15a311d43a53a))
+- Update to ghostty ([65adc7f](65adc7f85d34319b06b8922cc7d212625f877e7f))
+- Hyprland now uses stylix( I think) ([7c2d543](7c2d543ea14e11467d66450cc09c26bc785c8d36))
+- Add nixcord ([62c6089](62c608926acbb5c6734b0e3c30639b60e7a01da6))
+- Add nixcord ([7f52ba2](7f52ba2802301518b1b24071c9fdd0faa277750b))
+- Remove reference to discord in system-config ([8b8acdb](8b8acdb53e413021881e9ab1708a86442abf64bf))
+- Topgrade now updates lazy.nvim as well ([01de964](01de964a59338e8db2ea9d021e17931710a9f53a))
+- Made a default.nix for system ([4191450](41914501574565f6e4173312c63c59c40f39ae5c))
+- Add gitlint ([18e9cbc](18e9cbc406f1a8b3321ed9e08ba3bcfa9a8af943))
+- Prepare for merge with wsl ([c90e182](c90e1822bdb25a42d733f4af370d85a121d0a3a2))
+- Fix issue #3 as lanzaboote newest version builds ([ce41bce](ce41bce5096334a17af7cc0480924626e8f8207c))
+- Remove grub ([4b9f1ac](4b9f1acb7b9d362cca9ad0de913276773a331cfa))
+- Make stylix actually use a package ([ef174b7](ef174b72d87ac2f3459dc715792700e002df8f26))
+- Added more pre-commit-hooks ([1328fb9](1328fb9b5b7976332ed952e74dc8d95a47776c5e))
+- Add codespell ([d70ad7b](d70ad7ba47257f57f467c5cf74d24cbfc069dbb5))
+- Topgrade now updates config ([b0fbab5](b0fbab5909ce638ef73d39404f988a6f3fb444db))
+- Add bash-language-server ([07c27e0](07c27e0d3a742f144cbcb9a7a07915b44ac57cae))
+- Add mango-hud ([0a172fc](0a172fc3fb0f358fd51366776b05e17b7dbe487f))
+- Added commitlint ([74a33b6](74a33b65f777344e39211766cbfb88f2eeb4a7ba))
+- Get libSQLITE to work ([7f237c3](7f237c314e5cb2a07f95384840988c9d50967eee))
+- Remove nur and firefox addons ([eb0a08a](eb0a08a84bc496695a97e36ce6a6caaabfff6136))
+- Added sqlite ([13a3fc5](13a3fc592b4a5851d7b8f3f1544d7d4b7e233000))
+- Removed nur ([121a648](121a6487032fdd3f1a75fe9416b551a651272af3))
 - Remove yq as sops is wacky ([5f2cada](5f2cadac4d7901c06ad327e795c76affb2f45fa0))
 - FUCK YOU MARKDOWNLINT ([3dfd912](3dfd9128eb0a9e8a05d2cf81fcceed99ed988cc4))
 - I am euphoric, had two versions of markdownlint ([d035716](d0357161ac789658b5120c37b4008d14ce65d61b))
@@ -258,19 +361,19 @@ All notable changes to this project will be documented in this file.
 - Remove middle ([3548187](3548187174b7843ba5c87d77589cb5eb2c3cb7a9))
 - Switched to all flake parts for devenv ([5b8e803](5b8e803b02412ff851d6dd1248833c4d80099061))
 - Start breaking up this massive flake ([c26b7c5](c26b7c53b7fcfb3801615535c2019bc41e01d39d))
-- Fixed gpu ([4089920](40899205d6513f4093d092afe615e9976c8b621f))
+- Fixed  gpu ([4089920](40899205d6513f4093d092afe615e9976c8b621f))
 - Fix gpu again and updated all non-broken flakes ([af61d02](af61d023507f93aaac5496e5464902840e21df75))
 - Add powertop ([8fed27b](8fed27bfe7d4ef2a7c0f3c4276725e62deba08b5))
 - Add doas ([e29f741](e29f741b6372e97207e62682017b316e2656b1b3))
 - Add specailworkspace in hyprland ([f5c7f9a](f5c7f9aa1ebdbaff269cbc40755ff78f2616e558))
 - Remove manohud ([535fead](535feadfef0a5f1fa0e55da1cd11db5a9210df8b))
 - Added treefmt to the devenv and pre-commit-hook ([98241a6](98241a638a908bdc8a631aadc866406e37249686))
-- Actually use the nixAccessTokens in the config ([fbe11db](fbe11db248f0a8925efa05a3a413288c9ceb0ea2))
+- Actually use the nixAccesTokens in the config ([fbe11db](fbe11db248f0a8925efa05a3a413288c9ceb0ea2))
 - Ditto ([9b11a5d](9b11a5dd60487efff3bc4e50ec9c8b1fd701da54))
 - Removed hyprcursor as it is provided by flake ([6c173ef](6c173efbdbf2cc764f134dd7cdc3c9bb775016e5))
 - Move nixAccessTOkens to home ([be35ff9](be35ff903458bb8235db9efe1836272db904c523))
 - Add tmuxinator ([2b94348](2b9434839c2062b80dd872046564c83cc2199565))
-- Change hyprlock version ([8and5ea](8abd5ea3e1204ef1e9e5b1156edecd0f4510d2fb))
+- Change hyprlock version ([8abd5ea](8abd5ea3e1204ef1e9e5b1156edecd0f4510d2fb))
 - Added activity watch and refactored out services ([c7b34a0](c7b34a0388687b25ff28e1647784ae3f49127dd8))
 - Refactor to services ([43dd5d4](43dd5d4ecc3bae7bbaaab4f8a77e8d5f1367c6e5))
 - Fixed the high temps I think(?) ([2299126](22991265e77db5e10c8bbe68352b2097dcd7b2f5))
@@ -288,7 +391,7 @@ All notable changes to this project will be documented in this file.
 - Updated animations ([e8adf25](e8adf259140388e3289d49bb47b56da7f4143717))
 - Make btop show gpu ([65f5293](65f5293e6df3c6ee1874fa347c82319201a64d41))
 - Disable confirmation prompt ([997e12c](997e12cdda45ef3621e18bc79de4428ad0caeab5))
-- Update home, remove tmuxinator, and other enchantments ([fda6ce2](fda6ce21e7830b1069c01b51ae1c72f9956c52fb))
+- Update home, remove tmuxinator, and other enchancments ([fda6ce2](fda6ce21e7830b1069c01b51ae1c72f9956c52fb))
 - Added neovim config here, though it isn't working rn ([0b56abb](0b56abb7cfd52287f0aa18e11f663fc3cab27285))
 - Remove nvim for now ([06b4de0](06b4de0348b1da0849008b8502e6d85d813f4276))
 - Add github cli ([e35dc57](e35dc57c00a26504ac3912443cb47680b8cafc52))
@@ -305,7 +408,7 @@ All notable changes to this project will be documented in this file.
 - Add services location ([eb81203](eb812031e4b54a1a3b7f9fc750632e8aba1e4b15))
 - Remove lix module and add nix-topoology ([7a50b14](7a50b14b3c4f213d7499be6edb5acdd3b999bfde))
 - No_hardware_cursors no longer needed ([01b7bb5](01b7bb58ce0d1d9fa8381f50bd0a63835e851290))
-- Make .envrc actually check the correct files ([b3c1563](b3c1563910ec715d09dd3f74ab02de77c3b21a44))
+- Make .envrc  actually check the correct files ([b3c1563](b3c1563910ec715d09dd3f74ab02de77c3b21a44))
 - Add cliphist as a service ([408d46e](408d46eecee02123871e503b2b93435910e0dbc7))
 - Add sesh ([90f4dae](90f4dae8a0d84366e878e3eff073172980114200))
 - Get the correct settings set in vesktop ([54d5a8b](54d5a8b3cba68197106da7982d323be34c9aaecf))
@@ -346,6 +449,44 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous Tasks
 
+- Update flake.lock and also removed useless comments ([4893dd7](4893dd762382a5fec9f11d13290d4e0bdc3fca6f))
+- Removed packages that are now in flakes elsewhere ([60a9c26](60a9c268d1ecea6acff4baf7281b88cd315fbb65))
+- Remove unplanned comments ([726f127](726f12703d559fba5a92e2539a1a57d396673623))
+- Update inputs ([57986ac](57986ac83c665fe8648e56b54c4edfb5054dfbce))
+- Remove unused overlays ([0e6f3e4](0e6f3e44daa36b9b8e3ca1f2d8b9353e6a195634))
+- Remove unused overlays ([00b135b](00b135b8ad3ae56681c8264f98609654b025f126))
+- Remove unused inputs ([5fcd442](5fcd442fe183c01fa12b282a293abb9d9d43801a))
+- Update flake.lock ([ab8e2c4](ab8e2c461d69d050d5ee7b775cd96aa7a44c96c1))
+- Remove unused comment, and also make code hints work better ([3d64d0d](3d64d0d3c6b455acab6a6007d931f0104a216a3b))
+- Update inputs ([5241d0b](5241d0b6fe69c12e4ab11dd8b18be8693b690871))
+- Update flake inputs ([e4ce616](e4ce6169714b5559b67d72813243e55f2bd55eec))
+- Update flake inputs ([f4912c6](f4912c63c961c92f61c92952d4fb0d0f87ca24df))
+- Update flake inputs ([cad74c8](cad74c8d26cf37a61e3f3816967da6d49de97c1b))
+- Update flake.lock ([df7f21c](df7f21c2885ec5b37409a3be5ab0e2b05366d4cb))
+- Update flake.lock ([4bd6cc8](4bd6cc8f698e9fc895fbc2f9d936b511b8bc7679))
+- Update flake inputs ([ed70f3a](ed70f3aeae3ce3db1e4b8b2e03853e4bb44448d0))
+- Update flake inputs ([9298c3f](9298c3ffe5599b9bcd563990441685e4bac145b2))
+- Update flake.lock ([74f0365](74f0365853ca66acc2b0e29694cd4a376ecf3c23))
+- Update flake.lock ([b2982af](b2982af98ccd46beaea493537ed0795efdbe2cd8))
+- Update inputs ([22da9be](22da9be1dc16f3fc9303489e98255f41a00fc77d))
+- Update flake inputs ([58a9c42](58a9c422589142e7a40e50a48b95a6424e453f2f))
+- Chore: update flake.lock, waited a bit as stylix was broken for a ([b4621fd](b4621fd6fa20b8b055670080b9365ec033f91d42))
+- Update flake.lock ([3999219](3999219125b2433b722a1bf23309805f744ad879))
+- Update flake inputs ([022930b](022930b649c38c250987c9faa7d9c888adbe2c7a))
+- Update flake inputs ([ad7a66a](ad7a66a6ddbeeabaa5856e91edf7a102024bba85))
+- Update flake.lock ([8fd6a0c](8fd6a0c867e7e51946754d7b83eb0db0a925f970))
+- Update flake.lock ([200a4e4](200a4e4d7439380837bc7a10c231132f0f819c66))
+- Update flake inputs ([a31b5d6](a31b5d619fd4f31753996cda2f7a16d8c83592a1))
+- Updated inputs ([f81a2bd](f81a2bd482367a25b239ef06a57e8a72fe24165c))
+- Change names ([783ed01](783ed0100a2a687554f5119c924df0bc1242ec0e))
+- Update README ([d93a445](d93a4458bffdb1312c5a59858b8e1c41b9a666ac))
+- Update flake.lock ([51e453b](51e453bb975551f39dfbb349c4cc7121a28b76ce))
+- Update secrets.yaml also removed yaml checkers ([7722e9e](7722e9e9e2c06486f1dd5bd41fd541a1d487f0a4))
+- Removed language tool, was unnecessary ([b0ee808](b0ee808416e3c2b92dc9de06b4d4446fcfc27318))
+- Removed gnumake and java, better suited for flakes ([f740b88](f740b88073296eb4d6120cca1d814999e3c46374))
+- Remove unplanned comments ([b2154d9](b2154d904706475760b4132691ea91c2d9438e2e))
+- Update flake inputs ([6a87698](6a87698fa9d6f2ddd48d55e678ce3b479b13ba5f))
+- Update flake inputs ([123178e](123178e23c782b3e7f14c6c87fa5d098496259a9))
 - Remove unnecessary settings ([9f76d54](9f76d540356b531f9738a0d3f2b0b52c7242a9de))
 - Style ([9ac3263](9ac3263f9c48f70ab81c9539550c413b59bc2a93))
 - Update flake inputs ([4c11965](4c119653d5196bb241b097fb16cda30781a4bd34))
@@ -453,7 +594,7 @@ All notable changes to this project will be documented in this file.
 - Update flake.lock ([4907e01](4907e01e2ec5aabaacde7ed8eebb85af3a656308))
 - Remove unused ([a9a27a4](a9a27a43f1b254e9bec82cce75ecfad0e1c8f087))
 - Make rofi work ([cfa3b96](cfa3b965af6bbca45cf258522e22a88b0fbd54ff))
-- Remove unused arguments and options ([0352a9f](0352a9f8d5016d66197eb4f0d50d4a7c32a73743))
+- Remove unused arguemnts and options ([0352a9f](0352a9f8d5016d66197eb4f0d50d4a7c32a73743))
 - Update home ([afb8a0d](afb8a0d7d6450df3c707e080e4674603b333199d))
 - Forgot to add this to earlier ([eae0189](eae01894691e1547f141c9f22c477de77763c858))
 - Update nixcord ([3ca07db](3ca07db813a727fafd21cb637905d35b66a8d01a))
@@ -462,7 +603,7 @@ All notable changes to this project will be documented in this file.
 - Update flake.lock ([53013af](53013afa7d3b011812412c95025481525f8c6cbe))
 - Update flake.lock ([d3057e0](d3057e069d80f72de4f5e6436c94229972f706d5))
 - Update TODO ([992e52c](992e52c4fc4761aeb38034a0e1d1a0de2f4ab1fd))
-- Update TODO ([fd351c2](fd351c2e5589e610f8c3f9a903b39f1b150b1199)), feat:JJ weird
+- Update TODO ([fd351c2](fd351c2e5589e610f8c3f9a903b39f1b150b1199)), feat:JJ werid
 - Update TODO ([1f0ed6d](1f0ed6d678e5a85e6018d0db43e2bf398816e462))
 - Removed libnotify package ([282dc47](282dc473a51a45cd7868483550001c7cad810ca0))
 - Remove unused packages ([124c512](124c5122974f3e4dacc66107dfcf1bb742ef07c9))
@@ -472,6 +613,13 @@ All notable changes to this project will be documented in this file.
 
 ### Refactor
 
+- Refactor zsh plugins ([6d65415](6d65415b6b516bee3ffc0a26e98f4c1296894e5a))
+- Refactor ([9c6619f](9c6619f039ac25caa33642b25a5f8d54f6eae092))
+- Refactor: move around pipewire config and also(probably) fixed audio ([49aada1](49aada138e321a9e331fc4f4106f4e5149ed8598))
+- Refactor ([2bc946d](2bc946d020ebb0ed0760cffbd459c09bfd88f8eb))
+- Refactor ([a1b238c](a1b238c1348e9b2ebbf2cab33a811874f0c6fd7e))
+- Refactor and remove trufflehog excludes ([38bc310](38bc310ab329342267f8a6af9507e4e82f5323af))
+- Remove python3 ([13ec967](13ec967271ca3b208a612496ca00876d3b6462e7))
 - Remove black-hole as it is not used ([89053cd](89053cd7056ceb9280096927012eaaa5506a9de7))
 - Remove gitlint and add cursorSize variable ([3cf4ba5](3cf4ba57e7b4b2bc2c0f37078b42c17f117526d0))
 - Make it more clear what each section is ([58a1d7a](58a1d7a126ce5ece081690a081bfd5b989175b72))
@@ -500,7 +648,7 @@ All notable changes to this project will be documented in this file.
 - Attempt to reorganize and bring sanity ([9bcd3c6](9bcd3c6f793113b2a2f4320d25c127dd99ae630b))
 - SystemFlake is now in top-level ([9f24a18](9f24a18165ed0a093f66cdb00f9631bf863874a3))
 - Move programs.hyprland to correct location ([d96d98d](d96d98de2afdbaf711b75fe9d808a60491087fc8))
-- Devenv.nix now uses les redundant packages ([8d06d2a](8d06d2aceed965f83d519a32ca51b31dc614e58d))
+- Devenv.nix  now uses les redundant packages ([8d06d2a](8d06d2aceed965f83d519a32ca51b31dc614e58d))
 - Remove unused and unusable options ([5737473](57374734335604db49eb84d48f15c47210edab4f))
 - Move configuration.nix to system/default.nix ([aae9e34](aae9e34ba722f7770c628c8b5ba7a3c47c2dbd54))
 - Move home to have a default.nix, also update flake ([a4d51bf](a4d51bf803d5b9a7b44c6716e915754dae52cf2c))
@@ -520,161 +668,12 @@ All notable changes to this project will be documented in this file.
 - Remove fastfetch ([cf0eebf](cf0eebf7488985f922190f3d768f52deff77170b))
 - Update readme ([045b522](045b5227c3735bb7378a4dd12a30607ac2a4703a))
 - Moved all to systems/config ([c165320](c1653201e1104203fac9b97778e5559717ef96b0))
-- Moving systemsettings to systemSettings in flake ([c9e0222](c9e022272906556ae83088226bfb092eb454067b))
+- Moving systemsettings to systemSetttings in flake ([c9e0222](c9e022272906556ae83088226bfb092eb454067b))
 - Moving service config around ([abb3f78](abb3f7860c6e621648ea582f196e94eae3743148))
 - Move nix.nix into configs ([4caa52e](4caa52ecedef96343b009a28dcf8b764c5f85300))
 - Move xdotool to home, also remove neovim.nix ([de19987](de19987e53cbef27cf03a49fd6c86de261a6b4b9))
-- Move persystem/shared up, also flake.lock ([b074data](b074daa798df52c09b1a4b0ae62fa7c5a29ccf6f))
+- Move persystem/shared up, also flake.lock ([b074daa](b074daa798df52c09b1a4b0ae62fa7c5a29ccf6f))
 - Remove redundant dir ([8afab68](8afab68756b8f4d15bbebf62a11a6a2b7bc7ca8d))
-
-### Testing
-
-- Test2 ([87537ad](87537ad53d0e246c38fd0b27445f7c78df4cff61))
-
-## 2.5 - 2025-02-25
-
-[26bfed5](26bfed5705a519a4e351e8e627e8f87acbd7b76f)...[121a648](121a6487032fdd3f1a75fe9416b551a651272af3)
-
-### Bug Fixes
-
-- Fixed lanzaboote ([7fde853](7fde8536fb4504d1dfb2099d457aedc22c48e1b9))
-- Fix xbox controller issue ([f56c8c9](f56c8c93382521017a6e0c518f539e195bc25e80))
-- Fix(?) ghostty build failure ([841bbcb](841bbcb6885b0cb16c6ba9c97100ef82f017ba47))
-- Make os switch actually build ([9a0472c](9a0472c214205224b7b49015f4c8600538e7ff26))
-
-### Features
-
-- Fix issue #3 as lanzaboote newest version builds ([ce41bce](ce41bce5096334a17af7cc0480924626e8f8207c))
-- Remove grub ([4b9f1ac](4b9f1acb7b9d362cca9ad0de913276773a331cfa))
-- Make stylix actually use a package ([ef174b7](ef174b72d87ac2f3459dc715792700e002df8f26))
-- Added more pre-commit-hooks ([1328fb9](1328fb9b5b7976332ed952e74dc8d95a47776c5e))
-- Add codespell ([d70ad7b](d70ad7ba47257f57f467c5cf74d24cbfc069dbb5))
-- Topgrade now updates config ([b0fbab5](b0fbab5909ce638ef73d39404f988a6f3fb444db))
-- Add bash-language-server ([07c27e0](07c27e0d3a742f144cbcb9a7a07915b44ac57cae))
-- Add mango-hud ([0a172fc](0a172fc3fb0f358fd51366776b05e17b7dbe487f))
-- Added commitlint ([74a33b6](74a33b65f777344e39211766cbfb88f2eeb4a7ba))
-- Get libSQLITE to work ([7f237c3](7f237c314e5cb2a07f95384840988c9d50967eee))
-- Remove nur and firefox addons ([eb0a08a](eb0a08a84bc496695a97e36ce6a6caaabfff6136))
-- Added sqlite ([13a3fc5](13a3fc592b4a5851d7b8f3f1544d7d4b7e233000))
-- Removed nur ([121a648](121a6487032fdd3f1a75fe9416b551a651272af3))
-
-### Miscellaneous Tasks
-
-- Update flake.lock ([ab8e2c4](ab8e2c461d69d050d5ee7b775cd96aa7a44c96c1))
-- Remove unused comment, and also make code hints work better ([3d64d0d](3d64d0d3c6b455acab6a6007d931f0104a216a3b))
-- Update inputs ([5241d0b](5241d0b6fe69c12e4ab11dd8b18be8693b690871))
-- Update flake inputs ([e4ce616](e4ce6169714b5559b67d72813243e55f2bd55eec))
-- Update flake inputs ([f4912c6](f4912c63c961c92f61c92952d4fb0d0f87ca24df))
-- Update flake inputs ([cad74c8](cad74c8d26cf37a61e3f3816967da6d49de97c1b))
-- Update flake.lock ([df7f21c](df7f21c2885ec5b37409a3be5ab0e2b05366d4cb))
-- Update flake.lock ([4bd6cc8](4bd6cc8f698e9fc895fbc2f9d936b511b8bc7679))
-- Update flake inputs ([ed70f3a](ed70f3aeae3ce3db1e4b8b2e03853e4bb44448d0))
-- Update flake inputs ([9298c3f](9298c3ffe5599b9bcd563990441685e4bac145b2))
-- Update flake.lock ([74f0365](74f0365853ca66acc2b0e29694cd4a376ecf3c23))
-- Update flake.lock ([b2982af](b2982af98ccd46beaea493537ed0795efdbe2cd8))
-- Update inputs ([22da9be](22da9be1dc16f3fc9303489e98255f41a00fc77d))
-- Update flake inputs ([58a9c42](58a9c422589142e7a40e50a48b95a6424e453f2f))
-- Chore: update flake.lock, waited a bit as stylix was broken for a ([b4621fd](b4621fd6fa20b8b055670080b9365ec033f91d42))
-- Update flake.lock ([3999219](3999219125b2433b722a1bf23309805f744ad879))
-- Update flake inputs ([022930b](022930b649c38c250987c9faa7d9c888adbe2c7a))
-- Update flake inputs ([ad7a66a](ad7a66a6ddbeeabaa5856e91edf7a102024bba85))
-- Update flake.lock ([8fd6a0c](8fd6a0c867e7e51946754d7b83eb0db0a925f970))
-- Update flake.lock ([200a4e4](200a4e4d7439380837bc7a10c231132f0f819c66))
-- Update flake inputs ([a31b5d6](a31b5d619fd4f31753996cda2f7a16d8c83592a1))
-- Updated inputs ([f81a2bd](f81a2bd482367a25b239ef06a57e8a72fe24165c))
-- Change names ([783ed01](783ed0100a2a687554f5119c924df0bc1242ec0e))
-- Update README ([d93a445](d93a4458bffdb1312c5a59858b8e1c41b9a666ac))
-- Update flake.lock ([51e453b](51e453bb975551f39dfbb349c4cc7121a28b76ce))
-- Update secrets.yaml also removed yaml checkers ([7722e9e](7722e9e9e2c06486f1dd5bd41fd541a1d487f0a4))
-- Removed language tool, was unnecessary ([b0ee808](b0ee808416e3c2b92dc9de06b4d4446fcfc27318))
-- Removed gnumake and java, better suited for flakes ([f740b88](f740b88073296eb4d6120cca1d814999e3c46374))
-- Remove unplanned comments ([b2154d9](b2154d904706475760b4132691ea91c2d9438e2e))
-- Update flake inputs ([6a87698](6a87698fa9d6f2ddd48d55e678ce3b479b13ba5f))
-- Update flake inputs ([123178e](123178e23c782b3e7f14c6c87fa5d098496259a9))
-
-### Refactor
-
-- Refactor: move around pipewire config and also(probably) fixed audio ([49aada1](49aada138e321a9e331fc4f4106f4e5149ed8598))
-- Refactor ([2bc946d](2bc946d020ebb0ed0760cffbd459c09bfd88f8eb))
-- Refactor ([a1b238c](a1b238c1348e9b2ebbf2cab33a811874f0c6fd7e))
-- Refactor and remove trufflehog excludes ([38bc310](38bc310ab329342267f8a6af9507e4e82f5323af))
-- Remove python3 ([13ec967](13ec967271ca3b208a612496ca00876d3b6462e7))
-
-### Update
-
-- Flake.lock ([22b4744](22b4744e1d792bb529a41d4c0481d965b5d20b05))
-
-## 2.0 - 2025-01-14
-
-[24b01de](24b01de4d929d64ddb7c06fc37ea8dfa0ca295da)...[26bfed5](26bfed5705a519a4e351e8e627e8f87acbd7b76f)
-
-### Bug Fixes
-
-- Fixed gnome boot issue ([6cf5117](6cf511765f60a0f55fc2d6abc3190bdb3979b42e))
-- Fixed tmux environment ([b1e3b0b](b1e3b0be4f8d03150f979a9ba0874af3b122fcfa))
-- Fixed issue with packages ([fed72da](fed72da43775ef90cedabf7e5b7fe14d05110854))
-- Fixed indentation with on-the-go config ([f621081](f62108103b3895a8976be9798687f710a8301208))
-- Fixed issue with firefox ([f251594](f251594b620871c56f547cb09b40cefe2fe29020))
-- Fixed error on rebuild of nixos- it was scan ([e1768c5](e1768c562e078d1e89696a459096c22e262bac52))
-- Fixed neovim nightly error with flake.nix ([f874f02](f874f02e206bc5d0bf8efd0fb7871b6c0c48d3c3))
-- Fixed waybar flake also added the entire nixpkgs-wayland flake ([4c9fc21](4c9fc21dcec88714baec5625ae6dda195df536f3))
-- Fixed color problem in tmux ([6cddd73](6cddd73a2fb10648ec029f6eee01637070e70950))
-- Fixed fonts error ([ea68b74](ea68b7491f5f254371b4ef3a000918007e022264))
-- Fixed merge conflicts with git stash ([af4f66d](af4f66dfa0c941ad097b210cce1d9338c4942799))
-- Fixed issue with cursor ([1d80acc](1d80acc47351456f119eda0fb889422060fd78b0))
-- Fixed merge issue ([15b0d44](15b0d449347fbf2ac72c5d2c0159bf307100bf39))
-- Fixed cursor issue and also changing hyprland looks ([d4d4a69](d4d4a6972115a0cfc237e1a7718c87e54a52396f))
-- Fixed booting issues, still have issue with cpu fans, also added more GUI applications ([ec549f5](ec549f5467f929ca6820f8b0a9acb52f6a1b9d6e))
-- Fixed the overheating and added shell init ([03b1323](03b13232cef5fd91a8b93b446120abf74b1e347c))
-- Fixed regreet issue' ([95619ce](95619cea4d8d05de2be87c5dda67067b1181882b))
-- Fixed dolphin looking like shit(there werent icons) ([3141720](31417200fe2f67cd2cb6dfe6c2cace7628eff34c))
-- Fixed issue with base16.nix by disabling stylix ([468161f](468161f5f5064fd18a9bcbcfe3d4bccbb4774aab))
-- Fixed the issue? ([efbb25e](efbb25e03f5fd659c4f835d752221d0df42a3699))
-- Fixed unable to start hyprland issue ([0411a0a](0411a0a477966c4f84444bb5ebc4897e7c97f850))
-- Fixed hyprpanel issue and added to exec-once ([565cb00](565cb00772ee4650806042f481bc8b2391d7223b))
-- Fixed errors ([02c8cda](02c8cda3f2fb731b6a0bafafa77f75deb294a62e))
-- Remove call to ghostty ([e2c1653](e2c1653a8bf7b0ded91876cd33798925042d5ddb))
-- Topgrade now updates neovim and also updates flakes in parallel ([d43c815](d43c815d616759f997dd6026bc1217840a2f3d65))
-- Actually use the yazi overlay and added n3, though might not use it ([61e2d4f](61e2d4fe1a040a0def626c6c4728a9ee86048ccd))
-- Hyprland now has a reasonable mouse cursor refresh rate ([d31e940](d31e9400d2c2251ccfe508e442cc9b8c6df02111))
-- Typo correction ([7d62ab0](7d62ab0df37b8fca77a931c3a92010b98615208e))
-
-### Features
-
-- Added tmux-client to gitignroe ([aff9958](aff99585be1987d131c07e70595241b48c77a27a))
-- Update zsh and tmux ([fcd8f06](fcd8f069d300bff49ad323601fe92f995d8d8fc0))
-- Added discord execution and added more flakes ([9a23757](9a237572bf3e5c62daa997fcb4202c2174ffd451))
-- Categorized yet to be categorized directory ([57ae6cb](57ae6cb5c7a7a886d3faac61d4ba282e04b4c8d9))
-- Updated hyprland to latest non-breaking commit ([bbb3186](bbb31866f3c960b76d1027fe8c037fc4a7088ff8))
-- Add noto-emoji as the emoji font ([60f2f18](60f2f188b4c2e96b6e8edb14a821a762355242e3))
-- Remove the hardcoded path and instead use the module ([c1d6110](c1d6110df5b123b15ea73d302a59ad2125fb2951))
-- Add ghosty to the default ([3dbb7af](3dbb7af9b4be67265b6b0c91881381bea7401204))
-- Remove unused option ([40e549c](40e549c8d8ab5c750305d563aaeff038d4e2e9e5))
-- Remove unused firmware ([220379e](220379ea77618f01ccf5a18068f15a311d43a53a))
-- Update to ghostty ([65adc7f](65adc7f85d34319b06b8922cc7d212625f877e7f))
-- Hyprland now uses stylix( I think) ([7c2d543](7c2d543ea14e11467d66450cc09c26bc785c8d36))
-- Add nixcord ([62c6089](62c608926acbb5c6734b0e3c30639b60e7a01da6))
-- Add nixcord ([7f52ba2](7f52ba2802301518b1b24071c9fdd0faa277750b))
-- Remove reference to discord in system-config ([8b8acdb](8b8acdb53e413021881e9ab1708a86442abf64bf))
-- Topgrade now updates lazy.nvim as well ([01de964](01de964a59338e8db2ea9d021e17931710a9f53a))
-- Made a default.nix for system ([4191450](41914501574565f6e4173312c63c59c40f39ae5c))
-- Add gitlint ([18e9cbc](18e9cbc406f1a8b3321ed9e08ba3bcfa9a8af943))
-- Prepare for merge with wsl ([c90e182](c90e1822bdb25a42d733f4af370d85a121d0a3a2))
-
-### Miscellaneous Tasks
-
-- Update flake.lock and also removed useless comments ([4893dd7](4893dd762382a5fec9f11d13290d4e0bdc3fca6f))
-- Removed packages that are now in flakes elsewhere ([60a9c26](60a9c268d1ecea6acff4baf7281b88cd315fbb65))
-- Remove unplanned comments ([726f127](726f12703d559fba5a92e2539a1a57d396673623))
-- Update inputs ([57986ac](57986ac83c665fe8648e56b54c4edfb5054dfbce))
-- Remove unused overlays ([0e6f3e4](0e6f3e44daa36b9b8e3ca1f2d8b9353e6a195634))
-- Remove unused overlays ([00b135b](00b135b8ad3ae56681c8264f98609654b025f126))
-- Remove unused inputs ([5fcd442](5fcd442fe183c01fa12b282a293abb9d9d43801a))
-
-### Refactor
-
-- Refactor zsh plugins ([6d65415](6d65415b6b516bee3ffc0a26e98f4c1296894e5a))
-- Refactor ([9c6619f](9c6619f039ac25caa33642b25a5f8d54f6eae092))
 
 ### Styling
 
@@ -686,6 +685,7 @@ All notable changes to this project will be documented in this file.
 
 - Testing pre-commit hooks ([62df50d](62df50d6b008c867e02a356d9652bcca7f1d80a7))
 - Testing ([7b6518d](7b6518d0057e72a5d42c347a2ced4ba69726832b))
+- Test2 ([87537ad](87537ad53d0e246c38fd0b27445f7c78df4cff61))
 
 ### Flake.lock
 
@@ -700,6 +700,7 @@ All notable changes to this project will be documented in this file.
 
 - Hyprland ([e64946a](e64946aad7cf52c9bbb08fb82b01a1ae118fd1ef))
 - Hyrpland now uses vesktop ([d9e1f00](d9e1f005711df0bd0eefb4425af4f63cad6bde2a))
+- Flake.lock ([22b4744](22b4744e1d792bb529a41d4c0481d965b5d20b05))
 
 ## 1.0 - 2024-04-23
 

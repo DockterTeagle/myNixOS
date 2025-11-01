@@ -15,6 +15,8 @@
           statix
           emmylua-ls
           harper
+          git-cliff
+          nix-melt
         ];
       };
     };

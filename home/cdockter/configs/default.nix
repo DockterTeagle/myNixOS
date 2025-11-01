@@ -6,11 +6,6 @@
     ./XDG
     ./stylix.nix
     ./vars.nix
+    ./packages.nix
   ];
-  home.pointerCursor = {
-    hyprcursor = {
-      enable = true;
-      size = 24;
-    };
-  };
 }
