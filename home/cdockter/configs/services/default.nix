@@ -1,19 +1,17 @@
 {
   imports = [
-    ./cliphist.nix
+    ./activitywatch.nix
     ./amberol.nix
-    ./recoll.nix
+    ./cliphist.nix
     ./easyeffects.nix
+    ./gnome-keyring.nix
+    ./hyprpolkitagent.nix
+    ./hyprsunset.nix
+    ./playerctld.nix
+    ./recoll.nix
+    ./wl-clip-persist.nix
+    ./yubikey-agent.nix
   ];
-  services = {
-    playerctld.enable = true;
-    hyprpolkitagent.enable = true;
-    hyprsunset.enable = true;
-    yubikey-agent.enable = true;
-    wl-clip-persist = {
-      enable = true;
-    };
-  };
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
