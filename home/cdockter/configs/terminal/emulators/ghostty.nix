@@ -4,8 +4,7 @@
     enable = true;
     package = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
     clearDefaultKeybinds = true;
-    installVimSyntax = true; # needed?
-    installBatSyntax = true; # needed?
+    systemd.enable = true;
     settings = {
       gtk-titlebar = false;
       window-decoration = false;
