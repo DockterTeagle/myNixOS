@@ -3,7 +3,7 @@
   inputs = {
     /*
       CORE
-      Includes nixos-hardware, nixpkgs,home-manager, and flake-parts
+      Includes NixOS-hardware, nixpkgs, home-manager, and flake-parts
       If it is system wide or used everywhere it belongs here
     */
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -18,7 +18,6 @@
         System Wide
         things that help in building the system itself
     */
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     stylix.url = "github:nix-community/stylix"; # I want to replace
     disko = {
       url = "github:nix-community/disko";
@@ -26,16 +25,7 @@
     };
     sops-nix.url = "github:Mic92/sops-nix";
     ## Hyprland
-    hyprland.url = "github:hyprwm/Hyprland"; # uses cachix so won't override
-    hyprshell = {
-      url = "github:H3rmt/hyprshell";
-      inputs = {
-        hyprland.follows = "hyprland";
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -51,6 +41,7 @@
     ghostty.url = "github:ghostty-org/ghostty";
     neorocks.url = "github:nvim-neorocks/neorocks";
     nix-index-database.url = "github:nix-community/nix-index-database";
+    nixd.url = "github:nix-community/nixd";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -93,7 +84,6 @@
               specialArgs = { inherit inputs cdockterSettings; };
               modules = with inputs; [
                 ./system
-                chaotic.nixosModules.default
                 stylix.nixosModules.stylix
                 disko.nixosModules.disko # make me the flake-parts module
               ];
