@@ -1,5 +1,9 @@
 # Task List
 
+## Repo
+
+- Look into jj fix
+
 ## System
 
 - fix regreet(in more ways than one) display is the main one; that is, it tries
@@ -27,6 +31,8 @@
 
 - remove yazi.nvim
 
+- Find a way to get lockfile redirected here?
+
 ### Hyprland
 
 - get a fuzzy finder working for named workspace switching
@@ -41,7 +47,7 @@
 
 - fcitx5??
 
-- for KeyBinds consider \<prefix> \<Num> for either monitor or workspaces?
+- for keybinds consider \<prefix> \<Num> for either monitor or workspaces?
 
 - use (hyprnix)[github.com/hyprland-community/hyprnix/]
 
