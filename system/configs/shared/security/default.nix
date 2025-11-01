@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./antivirus ];
+  # imports = [ ./antivirus ];
   services = {
     printing.enable = false;
   };
