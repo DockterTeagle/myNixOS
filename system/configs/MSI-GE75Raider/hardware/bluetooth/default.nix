@@ -18,9 +18,6 @@
     pulseaudio.enable = false;
     blueman.enable = true;
     pipewire = {
-      lowLatency = {
-        enable = true;
-      };
       # extraConfig.pipewire-pulse =
       # wireplumber.extraConfig.bluetoothEnhancements = {
       #   "monitor.bluez.properties" = {

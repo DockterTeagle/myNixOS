@@ -1,11 +1,16 @@
 { pkgs, ... }:
 {
+  zramSwap = {
+    enable = true;
+    memoryPercent = 75;
+  };
   boot = {
     plymouth = {
       enable = true;
     };
     loader = {
       limine = {
+        maxGenerations = 50;
         enable = true;
         efiSupport = true;
         secureBoot = {
