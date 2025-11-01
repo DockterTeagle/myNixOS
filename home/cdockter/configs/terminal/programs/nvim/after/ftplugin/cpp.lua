@@ -1,4 +1,4 @@
-vim.lsp.enable "clangd"
+vim.lsp.enable { "clangd", "harper_ls" }
 vim.keymap.set(
   "n",
   "<localleader>ch",

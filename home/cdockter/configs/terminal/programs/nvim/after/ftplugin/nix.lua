@@ -1,2 +1,2 @@
-vim.lsp.enable { "nixd" }
+vim.lsp.enable { "nixd", "harper_ls" }
 vim.treesitter.start()
