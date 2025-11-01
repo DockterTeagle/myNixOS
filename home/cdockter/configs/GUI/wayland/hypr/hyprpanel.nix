@@ -17,25 +17,21 @@
           "*" = {
             left = [
               "dashboard"
-              "cputemp"
-              "volume"
               "workspaces"
             ];
             middle = [
               "submap"
-              "network"
+              # "media"
+              # "battery"
             ];
             right = [
-              "bluetooth"
-              "clock"
+              # "bluetooth"
+              "clock" # truncate me somehow?
               "notifications"
             ];
           };
         };
-        windowtitle.label = false;
-        workspaces = {
-          show_icons = true;
-        };
+        windowtitle.label = true;
         media.show_active_only = true;
         launcher = {
           autoDetectIcon = true;
