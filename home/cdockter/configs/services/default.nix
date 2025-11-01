@@ -1,6 +1,5 @@
 {
   imports = [
-    ./activitywatch.nix
     ./amberol.nix
     ./cliphist.nix
     ./easyeffects.nix
