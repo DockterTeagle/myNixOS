@@ -66,4 +66,4 @@ opt.fillchars = {
   eob = " ",
 }
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
