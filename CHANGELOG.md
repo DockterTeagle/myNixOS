@@ -4,11 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[166fc72](166fc72794ba5c1940c635ecabf99c42e78fe824)...[55373e3](55373e3a15f90a54aa72db06ed07b00f3b80bc2b)
+[166fc72](166fc72794ba5c1940c635ecabf99c42e78fe824)...[dfe3d36](dfe3d36eeba77e8b4f861a128f233b54b8999cd5)
 
 ### Bug Fixes
 
-- Try to get sqlite working for snacks.nvim ([0a1a0be](0a1a0bec6bda350ec4634444b61eee7e092e0e71))
+- Try to get sqlite working for snacks.nvim ([2015252](20152526004da49f48b41ff427e6d9dba557d9d5))
 
 ### Features
 
@@ -25,9 +25,9 @@ All notable changes to this project will be documented in this file.
 - Nvim ([348a73e](348a73e859b2e4340412581a721395b37b420006))
 - Topgrade uses nh and updates ([4a1a49a](4a1a49a75fd3dac55f3b99886635cef1f72e9008))
 - More services ([c983a89](c983a891601cf5fe09c6268a6dcd4b95a4e3a507))
-- Add all experimental lix feautres ([1b9f363](1b9f36352e18d79fb2d0d62f2af4cb4825b2cdf9))
-- Use ghostty-git(maybe reconsider) ([da32af5](da32af50d5bad6d983ba250549791a02b57be777))
-- Add harper-ls to more fts ([7102bd0](7102bd05f572ea75405e3be14e0d208e38656c5f))
+- Add all experimental lix feautres ([8c76b37](8c76b375bc426a287bfcebdb80f6d365e1ed3443))
+- Use ghostty-git(maybe reconsider) ([821fa06](821fa0688e71829199dd2b08c6cb6088b015165d))
+- Add harper-ls to more fts ([9ade811](9ade811ec3bbe2428f031ade442f1f3336da878e))
 
 ### Miscellaneous Tasks
 
@@ -49,16 +49,26 @@ All notable changes to this project will be documented in this file.
 - Compress repo ([f50b63a](f50b63af1d9504bdd283d7dc2934c02c9ea52a1a))
 - Update TODO  with completed items ([5aba86c](5aba86ce3016f87f87bd7c1c21fabcff088ffaa4))
 - Finally commit the cahnges to stylix that are needed to build ([d316a4b](d316a4bfde8afea6e100d80c72e323cbe590d209))
-- Update hyprpanel and hyprshell configs ([1e907b9](1e907b9c1616f6b05f1b01f38c23e92da4881e8e))
-- Remove packages that have modules ([830f962](830f9627430d195ce7e733f5064da3bca9925611))
-- Remove duplicates and update options ([55373e3](55373e3a15f90a54aa72db06ed07b00f3b80bc2b))
+- Update hyprpanel and hyprshell configs ([906aa99](906aa99ee52074b0acc53bbfb15f66e3bbe3b98e))
+- Remove packages that have modules ([4f0a90d](4f0a90d0a14dd9e9aa2c6b92e12a14067b7ee82c))
+- Remove duplicates and update options ([5a01b1c](5a01b1c68876b12f7c75d5651bf64b3a0d71eab3))
+- Update secrets ([b1eca5e](b1eca5e1b11ded0457986a7c4c2587f1ac898d86))
+- Drop nix-gaming ([8842bef](8842befdcad5485b66f82e73d6937f41d6803bfd))
+- Chore(dev): update flakes and git shit: ([32a31e3](32a31e3dd5432c47eaaf534c9afbd3f9e4a8de5a))
+- Chore: update hyprland: ([22d0e61](22d0e61de81a578223f899558bc4f68f47da1910))
+- Chore: remove unused: ([dfe3d36](dfe3d36eeba77e8b4f861a128f233b54b8999cd5))
 
 ### Refactor
 
 - Add nix subdir, also add home-manager expire ([80dd38b](80dd38bfb028d7e0c614ad2c1276138df19c95e5))
 - Update paths ([d780f4b](d780f4b757aaef9dd0f8d5982ab2669d54ccc717))
 - Remove unused inputs,comments and paths, add some more modules ([02f3bf0](02f3bf04ae7ba1cd59daf638ae7bb5db128af6b5))
-- Add more services and also declutter default ([189930e](189930e092c42be054c9da3eef52ac02f0eb4d77))
+- Add more services and also declutter default ([8cfd862](8cfd8623a9230cffb45dff9c33db2b6da997a74f))
+- Refactor: moved around paths: ([2bbcb1c](2bbcb1c3a343dd342b52e8c2c3455b8894418713))
+
+### Build
+
+- Remove nh flake ([405fcd6](405fcd6f36890800e5ae62d18f7987123c61bfef))
 
 ### Revert
 
