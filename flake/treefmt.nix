@@ -10,7 +10,10 @@
       deadnix.enable = true;
       mdformat.enable = true;
       nixf-diagnose.enable = true;
-      nixfmt.enable = true;
+      nixfmt = {
+        enable = true;
+        strict = true;
+      };
       statix.enable = true;
       stylua = {
         settings = {
