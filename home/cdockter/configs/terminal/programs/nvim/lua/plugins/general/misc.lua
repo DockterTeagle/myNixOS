@@ -8,8 +8,8 @@ return {
   --
   -- 	-- recommended: disable vim's auto-folding
   -- 	init = function()
-  -- 		vim.opt.foldlevel = 99
-  -- 		vim.opt.foldlevelstart = 99
+  -- 		vim.o.foldlevel = 99
+  -- 		vim.o.foldlevelstart = 99
   -- 	end,
   -- },
   {
@@ -26,8 +26,8 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    cmd = "ConformInfo",
+    -- event = { "BufWritePre" },
+    event = {"VeryLazy"},
     opts = require "configs.conform",
     init = function()
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
@@ -180,7 +180,7 @@ return {
       lint.linters_by_ft = {
         cmake = { "cmakelint" },
         nix = { "statix", "nix" },
-        cpp = { "cppcheck", "cpplint" },
+        cpp = { "cppcheck", "cpplint", "clangtidy" },
         -- lua = { "luacheck" },
         gitcommit = { "commitlint" },
         -- markdown = { "mado" },

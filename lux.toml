@@ -1,0 +1,79 @@
+package = "myNixOS"
+version = "0.1.0"
+lua = "==5.1"
+
+[description]
+summary = "neovim"
+maintainer = "DrTeagle"
+labels = []
+
+
+[dependencies]
+# lazy = "any"
+"lazydev.nvim" = "*"
+"bufferline.nvim" = "*"
+"Comment.nvim" = "*"
+"cord.nvim" = "*"
+# "fff.nvim" = "*"
+"flash.nvim" = "*"
+"hardtime.nvim" = "*"
+"lazy.nvim" = "*"
+# "LspUI.nvim " = "*"
+# "lualine.nvim" = "*"
+# "LuaSnip" = "*"
+"markview.nvim" = "*"
+"mini.ai" = "*"
+"mini.pairs" = "*"
+"noice.nvim" = "*"
+"nui.nvim" = "*"
+# "nvim-lint" = "*"
+"nvim-notify" = "*"
+# "nvim-treesitter" = "*"
+"nvim-web-devicons" = "*"
+"plenary.nvim" = "*"
+"rustaceanvim" = "*"
+"snacks.nvim" = "*"
+"todo-comments.nvim" = "*"
+"toggleterm.nvim" = "*"
+"tokyonight.nvim" = "*"
+# "vim-tmux-navigator" = "*"
+# "vim-wakatime" = "*"
+# "vimtex" = "*"
+"which-key.nvim" = "*"
+"yazi.nvim" = "*"
+# "blink-cmp-conventional-commits" = "*"
+# "blink.cmp" = "*"
+# "clangd_extensions.nvim" = "*"
+# "colorful-menu.nvim" = "*"
+"conform.nvim" = "*"
+# "diffview.nvim" = "*"
+# "FixCursorHold.nvim" = "*"
+"gitsigns.nvim" = "*"
+"grug-far.nvim" = "*"
+# "jujutsu.nvim" = "*"
+# "lspkind.nvim" = "*"
+"mini.surround" = "*"
+"neogit" = "*"
+"neotest" = "*"
+# "neotest-python" = "*"
+# "neotest-zig" = "*"
+"nvim-dap" = "*"
+# "nvim-dap-python " = "*"
+# "nvim-dap-ui" = "*"
+# "nvim-dap-virtual-text" = "*"
+"nvim-nio" = "*"
+"obsidian.nvim" = "*"
+# "outline.nvim" = "*"
+"trouble.nvim" = "*"
+"yanky.nvim" = "*"
+
+# Add your dependencies here
+# `busted = ">=2.0"`
+
+[run]
+args = ["src/main.lua"]
+
+[build]
+type = "builtin"
+[test]
+type = "busted-nlua"

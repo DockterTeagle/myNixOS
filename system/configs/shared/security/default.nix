@@ -16,7 +16,6 @@
     efivar
     cryptsetup
     mkpasswd
-    pv
     openssl
     sbsigntool
     openresolv

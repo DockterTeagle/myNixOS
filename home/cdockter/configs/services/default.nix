@@ -1,13 +1,13 @@
 {
   imports = [
-    ./amberol.nix
+    # ./amberol.nix
     ./cliphist.nix
-    ./easyeffects.nix
+    # ./easyeffects.nix
     ./gnome-keyring.nix
     ./hyprpolkitagent.nix
-    ./hyprsunset.nix
+    # ./hyprsunset.nix
     ./playerctld.nix
-    ./recoll.nix
+    # ./recoll.nix
     ./wl-clip-persist.nix
     ./yubikey-agent.nix
   ];

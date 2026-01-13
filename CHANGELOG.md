@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-[166fc72](166fc72794ba5c1940c635ecabf99c42e78fe824)...[dfe3d36](dfe3d36eeba77e8b4f861a128f233b54b8999cd5)
+[166fc72](166fc72794ba5c1940c635ecabf99c42e78fe824)...[9015e61](9015e61393be111db3fd45b62f8f63f042fe224d)
 
 ### Bug Fixes
 
@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 - Add all experimental lix feautres ([8c76b37](8c76b375bc426a287bfcebdb80f6d365e1ed3443))
 - Use ghostty-git(maybe reconsider) ([821fa06](821fa0688e71829199dd2b08c6cb6088b015165d))
 - Add harper-ls to more fts ([9ade811](9ade811ec3bbe2428f031ade442f1f3336da878e))
+- Add more modules ([3e28baf](3e28baf2e9f9c55e3610984b1650c9d5a567de0f))
 
 ### Miscellaneous Tasks
 
@@ -53,10 +54,18 @@ All notable changes to this project will be documented in this file.
 - Remove packages that have modules ([4f0a90d](4f0a90d0a14dd9e9aa2c6b92e12a14067b7ee82c))
 - Remove duplicates and update options ([5a01b1c](5a01b1c68876b12f7c75d5651bf64b3a0d71eab3))
 - Update secrets ([b1eca5e](b1eca5e1b11ded0457986a7c4c2587f1ac898d86))
-- Drop nix-gaming ([8842bef](8842befdcad5485b66f82e73d6937f41d6803bfd))
-- Chore(dev): update flakes and git shit: ([32a31e3](32a31e3dd5432c47eaaf534c9afbd3f9e4a8de5a))
-- Chore: update hyprland: ([22d0e61](22d0e61de81a578223f899558bc4f68f47da1910))
-- Chore: remove unused: ([dfe3d36](dfe3d36eeba77e8b4f861a128f233b54b8999cd5))
+- Drop nix-gaming ([e8a84c3](e8a84c3e18470f36b0c33069832f80036a5f0c69))
+- Chore(dev): update flakes and git shit: ([a7c7462](a7c74628ff1cfaf2fb12e79313761ca4be839626))
+- Chore: update hyprland: ([a2f954b](a2f954b24c26cfa514bed84d73ba6860272cf328))
+- Chore: remove unused: ([b770883](b770883c87f516bd06c3c986185ed58f771dd3fa))
+- Remove gitattributes, also update changelog ([52f1896](52f189695e0b5fcc3d898a5554899ee9d9ffed55))
+- Flake.lock/formatting ([d01b3f7](d01b3f75a25a037055e9e4b0d4afd7b0e21766a9))
+- Remove redundant directory, now in globals ([943342f](943342f716259bde2d951ca90b4c6536b4d6d0de))
+- Remove unused ([8dc6ea3](8dc6ea34143740e90d822da75310ab2720c3de05))
+- Flake updates ([d2e40f2](d2e40f2522263d337b6411c788e52683ca8f7258))
+- Update modules(hyprland bump and stylix as well) ([281dc30](281dc3045afae83a46acc500c661cd9d5ace5fff))
+- Flake(TESTED) ([985afb9](985afb96f24722ee3759b5431b992c1acdb96ed0))
+- Fix build and update secrets ([9015e61](9015e61393be111db3fd45b62f8f63f042fe224d))
 
 ### Refactor
 
@@ -64,11 +73,11 @@ All notable changes to this project will be documented in this file.
 - Update paths ([d780f4b](d780f4b757aaef9dd0f8d5982ab2669d54ccc717))
 - Remove unused inputs,comments and paths, add some more modules ([02f3bf0](02f3bf04ae7ba1cd59daf638ae7bb5db128af6b5))
 - Add more services and also declutter default ([8cfd862](8cfd8623a9230cffb45dff9c33db2b6da997a74f))
-- Refactor: moved around paths: ([2bbcb1c](2bbcb1c3a343dd342b52e8c2c3455b8894418713))
+- Refactor: moved around paths: ([c16a7be](c16a7be4b61b341801a8cfc84a20d43a009ac984))
 
 ### Build
 
-- Remove nh flake ([405fcd6](405fcd6f36890800e5ae62d18f7987123c61bfef))
+- Remove nh flake ([554c7e7](554c7e7b2055dcc8e23698e6ffc4bad82674dcb1))
 
 ### Revert
 

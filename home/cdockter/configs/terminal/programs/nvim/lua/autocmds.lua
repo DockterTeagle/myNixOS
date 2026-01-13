@@ -49,3 +49,12 @@ vim.api.nvim_create_autocmd("User", {
     vim.cmd [[Trouble qflist open]]
   end,
 })
+vim.api.nvim_create_autocmd("User", {
+  pattern = "ObsidianNoteEnter",
+  callback = function(ev)
+    local note = require("obsidian.note").from_buffer(ev.buf)
+    if note and note.metadata and note.metadata.spell == false then
+      vim.wo.spell = false
+    end
+  end,
+})

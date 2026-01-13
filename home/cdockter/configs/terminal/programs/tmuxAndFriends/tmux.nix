@@ -9,8 +9,6 @@
     shortcut = "space";
     newSession = true;
     terminal = "screen-256color";
-    mouse = true;
-    # tmuxp.enable = true;
     focusEvents = true;
     disableConfirmationPrompt = true;
     plugins = with pkgs.tmuxPlugins; [

@@ -1,7 +1,7 @@
 {
   imports = [
     ./hypr
-    ./hyprshot
+    ./shell
     ./wlogout
   ];
 }

@@ -1,6 +1,16 @@
 ---@module "lazy"
 ---@type LazySpec
 return {
-  "avm99963/vim-jjdescription",
-  ft = { "jj" },
+  {
+    "yannvanhalewyn/jujutsu.nvim",
+    cmd = { "JJ" },
+    dependencies = {
+      "sindrets/diffview.nvim",
+    },
+    config = function()
+      require("jujutsu-nvim").setup {
+        diff_preset = "diffview",
+      }
+    end,
+  },
 }

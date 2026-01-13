@@ -7,11 +7,12 @@
     ./submaps.nix
   ];
   wayland.windowManager.hyprland.settings = {
-    bindr = [ "SUPER_L,SUPER_L,exec,hyprlauncher" ];
+    bindr = [ "SUPER_L,SUPER_L,exec,noctalia-shell ipc call launcher toggle" ];
     bind = [
       #shortcuts
       "$mainMod,c,killactive,"
-      "$mainMod, v, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
+      # "$mainMod,F1,exec,noctalia-shell ipc call 'plugin:keybind-cheatsheet' 'toggle'"
+      "$mainMod, v, exec, noctalia-shell ipc call launcher clipboard"
       "$mainMod,h,movefocus,l"
       "$mainMod,j,movefocus,d"
       "$mainMod,k,movefocus,u"

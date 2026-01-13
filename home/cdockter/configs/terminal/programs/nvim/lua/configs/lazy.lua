@@ -1,14 +1,9 @@
-return
 ---@module "lazy"
 ---@type "LazyConfig"
-{
+return {
   defaults = { lazy = true },
   rocks = {
     enabled = false,
-  },
-  checker = {
-    enabled = true,
-    notify = true,
   },
   performance = {
     rtp = {

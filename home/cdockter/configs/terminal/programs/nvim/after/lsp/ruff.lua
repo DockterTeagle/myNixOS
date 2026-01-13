@@ -15,20 +15,20 @@ return {
   settings = {
     ruff = {
       configurationPreference = "filesystemFirst",
-      codeAction = {
-        fixViolation = {
-          enable = true,
-        },
-      },
-      lint = {
-        preview = true,
-      },
-      format = {
-        preview = true,
-      },
-      disableRuleComment = {
-        enable = false,
-      },
+      -- codeAction = {
+      --   fixViolation = {
+      --     enable = true,
+      --   },
+      -- },
+      -- lint = {
+      --   preview = true,
+      -- },
+      -- format = {
+      --   preview = true,
+      -- },
+      -- disableRuleComment = {
+      --   enable = false,
+      -- },
     },
   },
 }

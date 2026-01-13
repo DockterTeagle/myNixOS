@@ -1,5 +1,6 @@
 { config, ... }:
 {
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     nvidia = {
       modesetting.enable = true;
@@ -7,7 +8,6 @@
       open = true;
       powerManagement = {
         enable = true;
-        # finegrained = true;
       };
       nvidiaSettings = true;
       prime = {

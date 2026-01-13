@@ -10,6 +10,7 @@
         profileNames = [ "default" ];
       };
       firefox.enable = false;
+      noctalia-shell.enable = true;
     };
 
     cursor = {

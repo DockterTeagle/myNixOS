@@ -7,7 +7,6 @@
   ];
   programs = {
     nix-index.enable = true;
-    bluetuith.enable = true;
     pay-respects = {
       enable = true;
     };
@@ -22,6 +21,6 @@
     ./nvim
     ./nix
     ./topgrade.nix
-    ./translate-shell.nix
+    # ./translate-shell.nix
   ];
 }

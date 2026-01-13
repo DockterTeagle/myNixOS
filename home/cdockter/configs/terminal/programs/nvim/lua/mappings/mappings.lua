@@ -1,19 +1,8 @@
-local wk = require "which-key"
 local map = vim.keymap.set
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
-wk.add {
-  { "<leader>f", group = "find" },
-  { "<leader>n", group = "Neo" },
-  -- { "<leader>gh", group = "(g)it (h)unk" },
-  { "<leader>t", group = "trouble" },
-  { "\\", group = "Core" },
-  { "<leader>l", group = "lsp" },
-  { "<leader>ls", group = "signature" },
-  { "<leader>lc", group = "code" },
-}
 -- Basic command macros
 map(
   { "n", "v" },
@@ -37,13 +26,13 @@ end, { desc = "next Todo Comment" })
 map("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous Todo Comment" })
-vim.keymap.set(
+map(
   "n",
   "<leader>tqt",
   "<cmd>Trouble qflist toggle<CR>",
   { desc = "Toggle qflist with trouble" }
 )
-vim.keymap.set(
+map(
   "n",
   "<leader>tdt",
   "<CMD>Trouble diagnostics toggle<CR>",
@@ -76,38 +65,38 @@ map(
   "v:count == 0 ? 'gk' : 'k'",
   { desc = "Up", expr = true, silent = true }
 )
-map("n", "-", "<CMD>Yazi<CR>")
+map("n", "<leader>-", "<CMD>Yazi<CR>")
 map(
   "n",
   "<leader>tt",
   "<CMD>Trouble todo<CR>",
   { desc = "toggle trouble todo" }
 )
-vim.keymap.set("n", '"', function()
+map("n", '"', function()
   Snacks.picker.registers()
 end)
 vim.api.nvim_create_autocmd("User", {
   pattern = "ObsidianNoteEnter",
   callback = function(ev)
-    vim.keymap.set(
+    map(
       "n",
       "<localleader>ch",
       "<CMD>Obsidian toggle_checkbox<CR>",
       { buffer = ev.buf, desc = "Toggle Checkbox" }
     )
-    vim.keymap.set(
+    map(
       "n",
       "<leader>fw",
       "<CMD>Obsidian search<CR>",
       { buffer = ev.buf, desc = "search with obsidian", noremap = true }
     )
-    vim.keymap.set(
+    map(
       "n",
       "<leader>ft",
       "<CMD>Obsidian tags<CR>",
       { buffer = ev.buf, desc = "Find Tags with Obsidian" }
     )
-    vim.keymap.set(
+    map(
       "n",
       "<leader>ff",
       "<CMD>Obsidian quick_switch<CR>",
@@ -116,9 +105,4 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 -- vim.keymap.set("n", "K", "<CMD>LspUI hover<CR>")
-vim.keymap.set(
-  "n",
-  "<leader>ou",
-  "<CMD>Outline<CR>",
-  { desc = "toggle outline" }
-)
+map("n", "<leader>ou", "<CMD>Outline<CR>", { desc = "toggle outline" })

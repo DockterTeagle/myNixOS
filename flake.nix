@@ -6,7 +6,7 @@
       Includes NixOS-hardware, nixpkgs, home-manager, and flake-parts
       If it is system wide or used everywhere it belongs here
     */
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
@@ -26,10 +26,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     ## Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
@@ -39,13 +35,21 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nh = {
-      url = "github:nix-community/nh";
-    };
+    jj.url = "github:jj-vcs/jj";
+    nh.url = "github:nix-community/nh";
     ghostty.url = "github:ghostty-org/ghostty";
     neorocks.url = "github:nvim-neorocks/neorocks";
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nixd.url = "github:nix-community/nixd";
+    nixd = {
+      url = "github:nix-community/nixd";
+      inputs = {
+        treefmt-nix.follows = "treefmt-nix";
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+    tree-sitter.url = "github:tree-sitter/tree-sitter";
+    lux.url = "github:lumen-oss/lux";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,11 +65,7 @@
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       debug = true;
-      imports = with inputs; [
-        ./flake
-        home-manager.flakeModules.default
-        disko.flakeModules.default
-      ];
+      imports = [ ./flake ];
       flake =
         let
           pkgs = import inputs.nixpkgs {

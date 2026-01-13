@@ -6,6 +6,7 @@
     ./XDG
     ./stylix.nix
     ./vars.nix
-    ./packages.nix
+    # ./packages.nix
+    ./zed.nix
   ];
 }

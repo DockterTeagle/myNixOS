@@ -2,7 +2,7 @@
 let
   cdockterSettings = {
     username = "cdockter";
-    email = "65212972+DockterTeagle@users.noreply.github.com";
+    email = "65212972+DrTeagle@users.noreply.github.com";
     term = "ghostty";
     editor = "nvim";
     font = "JetBrainsMono NF";

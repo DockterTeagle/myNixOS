@@ -8,7 +8,8 @@
 
     programs = {
       deadnix.enable = true;
-      mdformat.enable = true;
+      # mdformat.enable = true;
+      taplo.enable = true;
       nixf-diagnose.enable = true;
       nixfmt = {
         enable = true;

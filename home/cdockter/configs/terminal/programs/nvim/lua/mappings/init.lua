@@ -11,3 +11,4 @@ local function load_dir(dir)
 end
 load_dir "mappings"
 load_dir "mappings/plugin"
+load_dir "mappings/core"

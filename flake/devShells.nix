@@ -12,11 +12,11 @@
           # inputs'.flint.packages.default
           config.treefmt.build.wrapper
           inputs'.nixd.packages.default
+          inputs'.lux.packages.default
           statix
           emmylua-ls
           harper
           git-cliff
-          # nix-melt
         ];
       };
     };

@@ -1,5 +1,6 @@
 ---@type vim.lsp.Config
 return {
+  capabilities = { general = { positionEncodings = { "utf-8" } } },
   cmd = { "harper-ls", "--stdio" },
   filetypes = {
     "c",

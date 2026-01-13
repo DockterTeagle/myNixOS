@@ -1,12 +1,11 @@
 {
   imports = [
     ./browsers
-    ./fuzzel
-    ./element.nix
+    ./cava.nix
+    # ./element.nix
     ./mangohud.nix
     ./obsidian.nix
     ./spotify.nix
     ./vesktop.nix
-    ./cava.nix
   ];
 }

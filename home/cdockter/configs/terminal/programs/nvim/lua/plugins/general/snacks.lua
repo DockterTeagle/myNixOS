@@ -61,9 +61,8 @@ return {
       },
       picker = {
         enabled = true,
-        db = {
-          sqlite3_path = vim.g.sqlite_clib_path,
-        },
+        -- db = {
+        -- },
       },
       animate = { enabled = true },
       bigfile = { enabled = true },
@@ -74,23 +73,24 @@ return {
         enabled = true,
       },
       image = {
-        enabled = false,
+        enabled = true,
         resolve = function(path, src)
-          if require("obsidian.api").path_is_note(path) then
-            return require("obsidian.api").resolve_image_path(src)
+          local api = require "obsidian.api"
+          if api.path_is_note(path) then
+            return api.resolve_attachment_path(src)
           end
         end,
       },
       notifier = { enabled = true },
-      profiler = { enabled = true },
-      quickfile = { enabled = true },
+      -- profiler = { enabled = true },
+      -- quickfile = { enabled = true },
       scope = { enabled = true },
-      scratch = { enabled = true },
+      -- scratch = { enabled = true },
       scroll = { enabled = true },
       toggle = { enabled = true },
       terminal = { enabled = true },
       win = { enabled = true },
-      words = { enabled = true },
+      -- words = { enabled = true },
       statuscolumn = {
         enabled = true,
         folds = {

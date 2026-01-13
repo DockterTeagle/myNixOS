@@ -2,7 +2,7 @@
 {
   programs.yazi = {
     enable = true;
-    shellWrapperName = "y";
+    # shellWrapperName = "y";
     initLua = ./yaziInit.lua;
     plugins = {
       inherit (pkgs.yaziPlugins)
@@ -15,22 +15,24 @@
         ;
     };
     keymap = {
-      mgr.prepend_keymap = [
-        {
-          on = "F";
-          run = "plugin smart-filter";
-          desc = "Smart  Filter";
-        }
-        {
-          on = "M";
-          run = "plugin mount";
-        }
-        {
-          on = "p";
-          run = "plugin smart-paste";
-          desc = "Paste into the hovered dir or CWD";
-        }
-      ];
+      /*
+        mgr.prepend_keymap = [
+          {
+            on = "F";
+            run = "plugin smart-filter";
+            desc = "Smart  Filter";
+          }
+          {
+            on = "M";
+            run = "plugin mount";
+          }
+          {
+            on = "p";
+            run = "plugin smart-paste";
+            desc = "Paste into the hovered dir or CWD";
+          }
+        ];
+      */
     };
     settings = {
       plugin.prepend_fetchers = [

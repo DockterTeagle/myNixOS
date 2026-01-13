@@ -41,6 +41,9 @@ return {
       daily_notes = {
         folder = "Notes/DailyTasks",
       },
+      frontmatter = {
+        enabled = true,
+      },
       templates = {
         folder = "Templates",
         -- date_format = "%Y-%m-%dT%H:%M",

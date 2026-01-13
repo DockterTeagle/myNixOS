@@ -1,0 +1,81 @@
+{
+  "$schema": "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
+  "diagnostics": {
+    "enable": true,
+    "disable": [
+      "unnecessary-if",
+      "await-in-sync",
+      "global-in-non-module"
+    ]
+  },
+  "hint": {
+    "enable": true
+  },
+  "runtime": {
+    "version": "LuaJIT",
+    "requirePattern": [
+      "lua/?.lua",
+      "lua/?/init.lua"
+    ]
+  },
+  "workspace": {
+    "preloadFileSize": 1000,
+    "library": [
+      "$VIMRUNTIME",
+      ".lux/jit/0535b457f68c38224b6ed5b1df3e5c9f12ffbb27677e1a7a4418740b87ef962e-nvim-nio@1.10.1-1/src",
+      ".lux/jit/113844b0d0873371401cd9e94ee79ed929fd5462e3e9ea79e5d1e62e2e6ce144-which-key.nvim@3.17.0-1/src",
+      ".lux/jit/11d400f150ebcff4016cd7d2a7518f9b20c3a779e35d10dccc440532c44bb840-toggleterm.nvim@2.13.1-1/src",
+      ".lux/jit/177be8b529af4d33de0e8ccce944d432a95b1d2b38cd7ce21b2dca49c3e2a2e8-noice.nvim@4.10.0-1/src",
+      ".lux/jit/17af3125f7687fc041e92b5f080dd8bb29862a13bda3eb2dcc3dad95a956fe25-tokyonight.nvim@4.14.1-1/src",
+      ".lux/jit/1ae01a337eda552874f6de2c1ba6a8c7c6c6d66975e263858bd82dd235c21e7d-markview.nvim@28.0.0-1/src",
+      ".lux/jit/1b206c9e7d4653eeb387284955aa88e60c745213162846addaa865ed0adab315-nvim-web-devicons@0.100-1/src",
+      ".lux/jit/1f818ae391e44f01eb98fe12176ca4d8bea2e5914d04699d8cfa2fb9cc717fe3-yanky.nvim@2.0.0-1/src",
+      ".lux/jit/2f9ee78da2a3de09551538790ae5c4b877d98f60ec9dac6e24878660fb58fabf-mini.surround@0.17.0-1/src",
+      ".lux/jit/3a8aea8ae16427fdcbf637ca2c7e0645d83519f0fdb7f0cb62869b8404310600-grug-far.nvim@1.6.59-1/src",
+      ".lux/jit/417ba876f9280d2d301fd9e75a7d978485f1b59698a50b8985daac7ca7dd89e7-mini.pairs@0.17.0-1/src",
+      ".lux/jit/437fa410ac1e8436b4550ff84900d9a69028a743de80e16e52cd961c2e45c22e-comment.nvim@0.8.0-1/src",
+      ".lux/jit/4b6c6d4d15c4827625cd6eb510b916bf28e8e08a0d654008c1a4a9fc676e3b27-obsidian.nvim@3.15.4-1/src",
+      ".lux/jit/4e9592a499c9ced4f8ce366db9db7d9c0dd1424ea8d4c8c16c1550ea3a61a696-say@1.4.1-3/src",
+      ".lux/jit/6088231d57fb5ddf1835ce5d406f883e2f8a6326723b8d685c5ac927781582e0-trouble.nvim@3.7.1-1/src",
+      ".lux/jit/6870007a60e293e599eac411a8c3f3d381140e6fcb20ac03b5e290a93d57c51a-nui.nvim@0.4.0-1/src",
+      ".lux/jit/6e8bada1a916d6dd1bfa46745723a3becae67cac6bb84412b02d4224fa12c6d0-snacks.nvim@2.30.0-1/src",
+      ".lux/jit/6f302b96b5756c645c727b155a2e2ea22799f462ac00bf3a7b4e5c1e6bd71ea3-tree-sitter-markdown_inline@0.0.44-1/src",
+      ".lux/jit/80e74ea74c46128fd85f87af14a41a908e25444cbf4bdc6e83c88b0ccef189d3-nvim-dap@0.10.0-1/src",
+      ".lux/jit/815f0a0d014e1b31ff049456dcbc20afb5d8af87e38cbfbac56929638c8fef3b-gitsigns.nvim@2.0.0-1/src",
+      ".lux/jit/8636dae68d7cdb61139194ec95b7718f22a76cd85761194ccbb0e4f72a2f6ff6-mini.ai@0.17.0-1/src",
+      ".lux/jit/8edc0b135c45fecae393beded5409b45aa18c3c4e280e71519d66c08c9c3e056-lazy.nvim@11.17.5-1/src",
+      ".lux/jit/8fb02fc1e59ed9496808598b001604d99916eab2389a295eb2fce1dfc908ded5-plenary.nvim@0.1.4-1/src",
+      ".lux/jit/94218e6f576d634b76a54189a9e7c46d0f5b454fdeedc0aea788e5bf88be38dc-flash.nvim@2.1.0-1/src",
+      ".lux/jit/99af4a65fad09e754219714ecf2e66130a2e62eaafd32c6d2ba0072449677850-nvim-web-devicons@0.100-1/src",
+      ".lux/jit/9ba6c65dda80a0c282e1a39c1bdf906329d36933dd9a8a04c19acec278714939-cord.nvim@2.3.13-1/src",
+      ".lux/jit/a16940adc38a9e2d7a4716be43d26bffb5a52ed72762b75063bd481de76fee49-nvim-notify@3.15.0-1/src",
+      ".lux/jit/a18bf84873d56127c4a89a2e94c1ca23c53eccdcc82368e8c3f22042826cfc96-bufferline.nvim@4.9.1-1/src",
+      ".lux/jit/a5844f9371a2c0c07661af24be60e54741f41d82bf5e9f91239d93bb09069562-tree-sitter-markdown@0.0.46-1/src",
+      ".lux/jit/acdfde00d122aac481c18c906d483478bb536741beb025becc11782a075d125b-luassert@1.9.0-1/src",
+      ".lux/jit/afe44cbe0feeb569b3cc000b7a3a86abeafed7919cb100dce21ebe46cd0a4bc5-hardtime.nvim@1.2.0-1/src",
+      ".lux/jit/b8a7cd5d95a98cc9b0b34784cf56ad2ee30cc625e361d7d7cf8f98111f953403-conform.nvim@9.1.0-1/src",
+      ".lux/jit/be8f6b93c26abdbe553fbd84f19ec58b8bc570afab9d02e27ac038567825fe41-lazydev.nvim@1.10.0-1/src",
+      ".lux/jit/c3d396d177a4f51ddba1d9461d3378cf2df32d74d52b98b1843556d1a48d81be-nui.nvim@0.4.0-1/src",
+      ".lux/jit/c9f85f54cd6d749ca119191feff114424d01bba4ba78523b0e2e94c216570d2a-todo-comments.nvim@1.5.0-1/src",
+      ".lux/jit/d2e394669cc65ecc7734fff499ccabe5ac03a0a5f0b682d8f065f8946a21e78f-nvim-notify@3.15.0-1/src",
+      ".lux/jit/de206edd51dbfc1bbe56869d6729cf4a6e6e70e7b2e107093c0f6520c142d79b-nvim-nio@1.10.1-1/src",
+      ".lux/jit/e6419c49ea30f1be0576a4def3982181470d4f3961a28360a17aa9396db68ff2-plenary.nvim@scm-1/src",
+      ".lux/jit/ec30f2eb9068f4da8f9efec4193f8e789ea2cd230b4a4c4901d7d56996de6c6d-yazi.nvim@13.1.3-1/src",
+      ".lux/jit/f0092216bcadb4bc42bbf435fa06728395528b993ae0dc3d380016e0c3046ff5-neogit@3.0.0-1/src",
+      ".lux/jit/fb8a40d739c5f6ebcd3a25198414af1c0b01a96bcba98594ee70c5d0f2654cf8-neotest@5.13.4-1/src",
+      ".lux/jit/fc6db0da003657f35031e48b914ff7c02ef02a4b21da284e995b774652ec9bb5-rustaceanvim@7.1.1-2/src",
+      ".lux/jit/test_dependencies/jit/01a3c364614bddff7370223a5a9c4580f8e62d144384148444c518ec5367a59b-mediator_lua@1.1.2-0/src",
+      ".lux/jit/test_dependencies/jit/14a12ec6080e7e9ec24d84932227f38833732b5d73a32673f63d448c204dc550-dkjson@2.8-2/src",
+      ".lux/jit/test_dependencies/jit/287e827f4a088d41bba04af5f61a13614346c16fe8150eb7c4246e67d6fd163e-lua-term@0.8-1/src",
+      ".lux/jit/test_dependencies/jit/2bd1c8e4fea66a88aeb65c1c8a3d0efdf188d681d2d47f163b976a771545aac9-penlight@1.15.0-1/src",
+      ".lux/jit/test_dependencies/jit/455cd98d50c6191a9685cffcda4ce783efbb957934625e134c39f43bd5df6818-luassert@1.9.0-1/src",
+      ".lux/jit/test_dependencies/jit/47b12edcdc032232157ace97bddf34bddd17f6f458095885e62bbd602ad9e9ec-luasystem@0.6.3-1/src",
+      ".lux/jit/test_dependencies/jit/4e9592a499c9ced4f8ce366db9db7d9c0dd1424ea8d4c8c16c1550ea3a61a696-say@1.4.1-3/src",
+      ".lux/jit/test_dependencies/jit/5abed54457baf9037ff989a1ec78172ee7483d87e794bc9175dbed61f08be72c-lua_cliargs@3.0.2-1/src",
+      ".lux/jit/test_dependencies/jit/611b19eca413e8557258c177563402d31094cde79f82d340f5648d2ac8f3b8a1-luafilesystem@1.9.0-1/src",
+      ".lux/jit/test_dependencies/jit/6ce29c2c535c40246c386c056f24689344cddb56ec397473931431e6b67694d2-say@1.4.1-3/src",
+      ".lux/jit/test_dependencies/jit/aa700d6a934caa749d578927c97e22211ffabf97234705d63e95dc6403f6aafe-busted@2.3.0-1/src",
+      ".lux/jit/test_dependencies/jit/d85464dc58c62460a1ecb14e6ac773ae615a66a8224b26ceb25d954c6b05ca74-nlua@0.3.2-1/src"
+    ]
+  }
+}

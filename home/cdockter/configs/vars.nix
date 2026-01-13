@@ -10,7 +10,7 @@
     sessionVariables = {
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
-      __GL_GSYNC_ALLOWED = "1";
+      # __GL_GSYNC_ALLOWED = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       # CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";

@@ -1,0 +1,87 @@
+{
+  "version": "1.0.0",
+  "dependencies": {
+    "rocks": {
+      "09729caea67742537c9fe0a2e978e10a0e26aa6438c3648555ce364ca871ceb1": {
+        "name": "noice.nvim",
+        "version": "4.10.0-1",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [
+          "6870007a60e293e599eac411a8c3f3d381140e6fcb20ac03b5e290a93d57c51a",
+          "d2e394669cc65ecc7734fff499ccabe5ac03a0a5f0b682d8f065f8946a21e78f"
+        ],
+        "constraint": "==4.10.0",
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "url",
+          "url": "https://github.com/folke/noice.nvim/archive/v4.10.0.zip"
+        },
+        "hashes": {
+          "rockspec": "sha256-NMXRu73sxsM9vErDUehR292fGi6Dp244XO8SzclhilM=",
+          "source": "sha256-IoKf1u1T1T47uX5pnFPzhhJSPCMoIWDnpeq/yKG5t7U="
+        }
+      },
+      "6870007a60e293e599eac411a8c3f3d381140e6fcb20ac03b5e290a93d57c51a": {
+        "name": "nui.nvim",
+        "version": "0.4.0-1",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": null,
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "git",
+          "url": "https://github.com/MunifTanjim/nui.nvim.git",
+          "ref": "0.4.0"
+        },
+        "hashes": {
+          "rockspec": "sha256-Ll8j93K9whJlooWPl7hTYryqHUlDFZYsLTCevJg6SC8=",
+          "source": "sha256-SJc9nfV6cnBKYwRWsv0iHy+RbET8frNV85reICf+pt8="
+        }
+      },
+      "9df6be9cbb1c709bc49a600386b9a1123251266b2e2c458aa516990926b9b9ab": {
+        "name": "lazy.nvim",
+        "version": "11.17.5-1",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": "==11.17.5",
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "url",
+          "url": "https://github.com/folke/lazy.nvim/archive/v11.17.5.zip"
+        },
+        "hashes": {
+          "rockspec": "sha256-2zecwcRwH4X0loqWWn6gOz3DTYb4i6H2LgNu1GCIe7w=",
+          "source": "sha256-q5JJQPhLD007GfowViC2PTdrvb+GZhdFwjz/XU22kmE="
+        }
+      },
+      "d2e394669cc65ecc7734fff499ccabe5ac03a0a5f0b682d8f065f8946a21e78f": {
+        "name": "nvim-notify",
+        "version": "3.15.0-1",
+        "pinned": false,
+        "opt": false,
+        "dependencies": [],
+        "constraint": null,
+        "binaries": [],
+        "source": "luarocks_rockspec+https://luarocks.org/",
+        "source_url": {
+          "type": "url",
+          "url": "https://github.com/rcarriga/nvim-notify/archive/v3.15.0.zip"
+        },
+        "hashes": {
+          "rockspec": "sha256-CLIoR+O0OxuektsjchhYDHbmkwXaoKxrmdVD5dR5g+8=",
+          "source": "sha256-axXWj/lKTHp7WjqiW0+Yjsrxhp8lRcFSJdrXDSV1n3s="
+        }
+      }
+    },
+    "entrypoints": [
+      "09729caea67742537c9fe0a2e978e10a0e26aa6438c3648555ce364ca871ceb1",
+      "9df6be9cbb1c709bc49a600386b9a1123251266b2e2c458aa516990926b9b9ab"
+    ]
+  }
+}

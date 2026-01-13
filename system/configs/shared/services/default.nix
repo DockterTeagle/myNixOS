@@ -3,7 +3,6 @@
 {
   imports = [ ./solaar.nix ];
   services = {
-    gnome.gnome-keyring.enable = true;
     hardware = {
       openrgb.enable = true;
       bolt.enable = true;
@@ -12,7 +11,6 @@
     fwupd.enable = true;
     libinput.enable = true;
     tumbler.enable = true;
-    pcscd.enable = true;
     kanata = {
       enable = true;
       keyboards.default = {

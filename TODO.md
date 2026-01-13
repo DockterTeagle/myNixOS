@@ -2,7 +2,8 @@
 
 ## Repo
 
-- Look into jj fix
+- Look into `jj fix` command
+- Consider dropping nh,ghostty flakes(and removing fractal)
 
 ## System
 
@@ -12,6 +13,14 @@
 - fix git crashing when on HTTPS
 
 - get a YubiKey
+
+### Hardware
+
+#### GPU
+
+- [ ] fix gpu being wacky, that is, monitors are wrongly ordered, and it seems cpu-gpu is low power?
+
+
 
 ## Home-manager
 
@@ -57,4 +66,6 @@
 
   1. steam window rules for inactivity
 
-- Make hyprpanel somehow toggleable(?) that is, only shows up when I press buttons?
+- Make hyprpanel somehow togglable(?) that is, only shows up when I press buttons?
+
+- Consider vicinae vs hyprlauncher
