@@ -35,6 +35,10 @@
       inputs.hyprland.follows = "hyprland";
     };
     ## Applications
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nh = {
       url = "github:nix-community/nh";
     };
