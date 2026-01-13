@@ -44,9 +44,9 @@
         }
         {
           output = "HDMI-A-1";
-          mode = "2560x1440@60";
+          mode = "3840x2160@60";
           position = "1920x0";
-          scale = 1.25;
+          scale = 1.50;
         }
       ];
       env = [ "AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1" ];

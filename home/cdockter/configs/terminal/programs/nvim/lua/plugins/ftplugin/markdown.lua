@@ -9,7 +9,7 @@ return {
       experimental = {
         -- check_rtp_message = false,
       },
-      icon_provider = "mini",
+      icon_provider = "devicons",
       preview = {
         filetypes = {
           "markdown",

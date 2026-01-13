@@ -1,7 +1,8 @@
 { lib, ... }:
 {
+  programs.nm-applet.enable = true;
   networking = {
-    wireless.enable = lib.mkForce false;
+    # wireless.enable = lib.mkForce false;
     networkmanager.enable = true;
     hostName = "nixos";
     # Open ports in the firewall
